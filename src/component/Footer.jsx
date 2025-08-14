@@ -1,14 +1,11 @@
 import { Link } from 'react-router-dom';
 import '../scss/_reset.scss'
-import '../scss/Navbar.scss'
+import '../scss/Footer.scss'
 
-const Navbar = () => {
+const Footer = () => {
     return (
-        <div id='topbar'>
-            <div className="logo">
-            </div>
-            <nav className="navigation">
-            <ul className='manu'>
+        <div className='Footer'>
+            <ul className='sitemap'>
                 <li><Link to='/'>首頁</Link></li>
                 <li><Link to='/News'>News</Link></li>
                 <li>
@@ -24,9 +21,9 @@ const Navbar = () => {
                 <li><Link to='/BarRoute'>路跑路線</Link></li>
                 <li><Link to='/About'>關於我們</Link></li>
             </ul>
-            </nav>
+            <small>Copyright &copy; 酒桶理論Cask Theory</small>
         </div>
     )
 }
 
-export default Navbar
+export default Footer

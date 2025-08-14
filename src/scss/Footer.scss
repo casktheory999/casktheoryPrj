@@ -1,0 +1,31 @@
+.Footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    background-color: black;
+    color: white;
+
+    a {
+        color: white;
+    }
+
+    .sitemap {
+        display: flex;
+        list-style: none;
+
+    }
+
+    li {
+        margin: 0 10px;
+    }
+
+    small {
+        align-self: flex-end;
+        font-size: 0.5rem;
+    }
+
+    .WineType {
+        font-size: 0.8rem;
+        list-style: none;
+    }
+}
