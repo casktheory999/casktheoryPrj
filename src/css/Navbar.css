@@ -1,0 +1,26 @@
+@charset "UTF-8";
+#topbar {
+  position: sticky;
+  /*position權重較重*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  /*position預設寬高為hug，所以要手動寫w*/
+  z-index: 99999;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: black;
+  color: white;
+}
+#topbar ul {
+  display: flex;
+  justify-content: flex-end;
+}
+#topbar ul li {
+  margin-left: 10px;
+}
+
+div.logo {
+  width: 55px;
+}
