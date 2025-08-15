@@ -1,12 +1,21 @@
 .Footer {
     display: flex;
     justify-content: space-between;
-    padding: 20px 30px;
+    padding: 20px 40px;
+    width: 100%;
     background-color: black;
     color: white;
+    flex-direction: column;
+    /* 垂直排列 sitemap 和 small */
 
     a {
+        font-weight: 500;
+        text-decoration: inherit;
         color: white;
+    }
+
+    a:hover {
+        color: #535bf2;
     }
 
     .sitemap {
@@ -22,6 +31,7 @@
     small {
         align-self: flex-end;
         font-size: 0.5rem;
+
     }
 
     .WineType {

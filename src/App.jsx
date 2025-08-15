@@ -11,11 +11,13 @@ import Illustrations from './pages/Illustrations'
 import Bar from './pages/Bar'
 import BarRoute from './pages/BarRoute'
 import About from './pages/About'
+import Member from './pages/member'
 
 export default function App(){
   return(
     <div className='wrap'>
       <Navbar/>
+      <div className='frist'>
       <hr/>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
@@ -23,9 +25,11 @@ export default function App(){
         <Route path='/Illustrations' element={<Illustrations/>}></Route>
         <Route path='/Bar' element={<Bar/>}></Route>
         <Route path='/BarRoute' element={<BarRoute/>}></Route>
+        <Route path='/Member' element={<Member/>}></Route>
         <Route path='/About' element={<About/>}></Route>
       </Routes>
       <hr />
+      </div>
       <Footer/>
     </div>
   )

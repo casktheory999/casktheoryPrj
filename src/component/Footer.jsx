@@ -7,7 +7,7 @@ const Footer = () => {
         <div className='Footer'>
             <ul className='sitemap'>
                 <li><Link to='/'>首頁</Link></li>
-                <li><Link to='/News'>News</Link></li>
+                <li><Link to='/News'>最新消息</Link></li>
                 <li>
                     <Link to='/Illustrations'>酒精圖鑑</Link>
                     <ul>
@@ -19,6 +19,7 @@ const Footer = () => {
                 </li>
                 <li><Link to='/Bar'>酒吧地圖</Link></li>
                 <li><Link to='/BarRoute'>路跑路線</Link></li>
+                <li><Link to='/Member'>會員專區</Link></li>
                 <li><Link to='/About'>關於我們</Link></li>
             </ul>
             <small>Copyright &copy; 酒桶理論Cask Theory</small>
