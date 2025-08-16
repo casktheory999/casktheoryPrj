@@ -8,7 +8,7 @@ import BarInnerPage from './pages/BarInnerPage.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HashRouter>
-      <BarInnerPage/>
+      <App/>
     </HashRouter>
   </StrictMode>,
 )

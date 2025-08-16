@@ -1,30 +1,43 @@
 import { Link } from 'react-router-dom';
 import '../scss/_reset.scss'
 import '../scss/Footer.scss'
+import fbIcon from '../assets/icon-fb.svg';
+import igIcon from '../assets/icon-ig.svg';
+import lineIcon from '../assets/icon-line.svg';
+import fbIconHover from '../assets/icon-fb-hover.svg';
+import igIconHover from '../assets/icon-ig-hover.svg';
+import lineIconHover from '../assets/icon-line-hover.svg';
 
 const Footer = () => {
     return (
-        <div className='Footer'>
-            <ul className='sitemap'>
-                <li><Link to='/'>首頁</Link></li>
-                <li><Link to='/News'>最新消息</Link></li>
-                <li>
-                    <Link to='/Illustrations'>酒精圖鑑</Link>
-                    <ul>
-                        <li className='WineType'><Link to='/#'>六大基酒</Link></li>
-                        <li className='WineType'><Link to='/#'>經典調酒</Link></li>
-                        <li className='WineType'><Link to='/#'>大眾調酒</Link></li>
-                        <li className='WineType'><Link to='/#'>家庭調酒</Link></li>
-                    </ul>
-                </li>
-                <li><Link to='/Bar'>酒吧地圖</Link></li>
-                <li><Link to='/BarRoute'>路跑路線</Link></li>
-                <li><Link to='/Member'>會員專區</Link></li>
-                <li><Link to='/About'>關於我們</Link></li>
-            </ul>
+        <footer>
+            <div className="footer-spacer" />
+
             <small>Copyright &copy; 酒桶理論Cask Theory</small>
-        </div>
-    )
+
+            <div className="footer-right">
+                <ul className="social">
+                    <li><a href="#" aria-label="Instagram">
+                        <img className='icon normal' src={igIcon} alt="Instagram" />
+                        <img className='icon hover' src={igIconHover} alt="Instagram hover" />
+                        </a></li>
+                    <li><a href="#" aria-label="Facebook">
+                        <img className='icon normal' src={fbIcon} alt="Facebook" />
+                        <img className='icon hover' src={fbIconHover} alt="Facebook hover" />
+                        </a></li>
+                    <li><a href="#" aria-label="LINE">
+                        <img className='icon normal' src={lineIcon} alt="Line" />
+                        <img className='icon hover' src={lineIconHover} alt="Line hover" />
+                        </a></li>
+                </ul>
+                <button className="to-top-btn"
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                    aria-label="回到最上面">
+                    ↑
+                </button>
+            </div>
+        </footer>
+    );
 }
 
 export default Footer

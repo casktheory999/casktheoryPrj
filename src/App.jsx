@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import News from './pages/News'
 import Illustrations from './pages/Illustrations'
 import Bar from './pages/Bar'
+import BarInnerPage from './pages/BarInnerPage.jsx'
 import BarRoute from './pages/BarRoute'
 import About from './pages/About'
 import Member from './pages/member'
@@ -24,6 +25,7 @@ export default function App(){
         <Route path='/News' element={<News/>}></Route>
         <Route path='/Illustrations' element={<Illustrations/>}></Route>
         <Route path='/Bar' element={<Bar/>}></Route>
+        <Route path='/BarInnerPage' element={<BarInnerPage/>}></Route>
         <Route path='/BarRoute' element={<BarRoute/>}></Route>
         <Route path='/Member' element={<Member/>}></Route>
         <Route path='/About' element={<About/>}></Route>
