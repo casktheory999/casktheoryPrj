@@ -1,0 +1,79 @@
+.barInnerPage {
+  display: column;
+}
+.barInnerPage .heroContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #171616;
+  padding: 185px;
+}
+.barInnerPage .heroContainer .cardLeft {
+  flex: content;
+  color: #FAFAFA;
+}
+.barInnerPage .heroContainer .cardLeft h2 {
+  font-size: 60px;
+  margin-bottom: 82px;
+  color: #FAFAFA;
+}
+.barInnerPage .heroContainer .cardLeft .contact {
+  font-size: 16px;
+  font-style: normal;
+  margin-bottom: 82px;
+}
+.barInnerPage .heroContainer .cardLeft p {
+  font-size: 16px;
+  margin: 0.25rem 0;
+}
+.barInnerPage .heroContainer .cardLeft a {
+  color: inherit;
+  text-decoration: none;
+}
+.barInnerPage .heroContainer .cardLeft a:hover {
+  text-decoration: underline;
+}
+.barInnerPage .heroContainer .cardLeft .description {
+  line-height: 1.8;
+}
+.barInnerPage .heroContainer .cardLeft .description p {
+  margin: 4px 0;
+}
+.barInnerPage .heroContainer .cardRight .heroPhoto {
+  margin: 0;
+}
+.barInnerPage .heroContainer .blackBlock {
+  display: block;
+}
+.barInnerPage .heroContainer .cardRight img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.barInnerPage .recommendationsContainer {
+  display: flex;
+  padding-left: 266px;
+}
+.barInnerPage .recommendationsContainer .recPhotos {
+  display: flex;
+}
+.barInnerPage .recommendationsContainer .recPhoto1 {
+  padding-right: 88px;
+}
+.barInnerPage .btnContainer {
+  text-align: center;
+  margin: 32px 0;
+}
+.barInnerPage .btnToListPage {
+  display: inline-block;
+  padding-top: 10.5px;
+  padding-bottom: 10.5px;
+  padding-left: 44px;
+  padding-right: 44px;
+  border: 1px solid #FAFAFA;
+  background-color: #171616;
+}
