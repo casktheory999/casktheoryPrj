@@ -1,23 +1,40 @@
 @use "./variables" as *;
 
 .barInnerPage {
-    display: column;
-    // justify-content: space-between;
-    // align-items: flex-start;
-    // background-color: $pri-dark; //晚點記得改背景變白色！
-    // padding: 185px;
+    display: flex;
+    flex-direction: column;
+    /* 記得最後改成白底！！ */
+    background-color: $pri-white;
+    position: relative;
+    padding: 0 40px;
 
+    // hero區塊
     .heroContainer {
+        margin-top: 133px;
+        // border: solid red 3px;
         position: relative;
         display: flex;
+        // display: grid;
         justify-content: space-between;
         align-items: flex-start;
-        background-color: $pri-dark; //晚點記得改背景變白色！
-        padding: 185px;
+        padding-top: 70px;
+        padding-left: 70px;
+        padding-bottom: 100px;
+        z-index: 2;
 
+        /* 手機：一欄；平板以上：兩欄 */
+        // grid-template-columns: 1fr;
+
+        // @media (min-width: 768px) {
+        //     grid-template-columns: 1fr 1.1fr;
+        //     align-items: start;
+        // }
+
+        /* 左側：hero酒吧文案 */
         .cardLeft {
-            flex: content;
+            margin-left: 72px;
             color: $pri-white;
+            // border: 3px solid $pri-white;
 
             h2 {
                 font-size: 60px;
@@ -31,76 +48,184 @@
                 margin-bottom: 82px;
             }
 
-            p {
-                font-size: 16px;
-                margin: 0.25rem 0;
-            }
-
-            a {
-                color: inherit;
-                text-decoration: none;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-
+            // 左側hero酒吧文案
             .description {
                 line-height: 1.8;
 
                 p {
+                    font-size: 16px;
                     margin: 4px 0;
                 }
             }
         }
 
         // 右側：hero酒吧圖片
-        .cardRight .heroPhoto {
-            margin: 0;
+        .cardRight {
+            .heroPhoto {
+                // display: flex;
+                // align-items: flex-end;
+                position: relative;
+                margin: 0;
+
+                .heroImg {
+                    display: block;
+                    margin-right: 16px;
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+
+                //左下白色箭頭
+                .arrowImg1 {
+                    position: absolute;
+                    // bottom: -5%; // 縮放時會相對於 heroImg 改變，但我不會，先放著
+                    // right: 100%;
+                    // width: 10%; // 跟著 heroImg 的寬度比例縮放
+                    bottom: -20px;
+                    left: -30px;
+                    width: 100px;
+                    height: 100px;
+                    margin-left: 10px;
+                }
+            }
         }
-
-        .blackBlock {
-            display: block;
-        }
-
-        .cardRight img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 12px;
-            object-fit: cover;
-        }
-
-
     }
 
+    // 推薦酒吧區
     .recommendationsContainer {
-        display: flex;
-        padding-left: 266px;
+        // border: solid red 3px;
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px;
+        // position: relative;
+        // display: flex;
+        // justify-content: space-between;
+        z-index: 2;
+
+        .leftArrow {
+            position: absolute;
+            top: 20px;
+            left: 160px;
+        }
 
         .recPhotos {
             display: flex;
+            // flex-wrap: wrap;
+            gap: 88px;
+            justify-content: center;
+            //padding-left: 266px;
+            // grid-template-columns: 1fr;
+
+            .recPhoto1,
+            .recPhoto2 {
+                flex: 1 1 45%;
+                min-width: 300px;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, .28);
+                //陰影不要的話我再拉掉
+
+                img {
+                    width: 100%;
+                    display: block;
+                    object-fit: cover;
+                    aspect-ratio: 16/9;
+                    /* 讓兩張高度一致 */
+                    transform: scale(1);
+                    transition: transform .35s ease;
+                }
+
+                &:hover img {
+                    transform: scale(1.03);
+                }
+
+                figcaption {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    padding: 14px 18px;
+                    color: $pri-white;
+                    background: linear-gradient(to top, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0));
+                    /* 兩行截斷 */
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+            }
         }
 
-        .recPhoto1 {
-            padding-right: 88px;
+        // @media(min-width: 768px) {
+        //     grid-template-columns: 1fr 1fr;
+        // }
+
+        .btnLeft {
+            /* 先讓它固定在左側中間，之後改滑動功能再調 */
+            background-image: url(../images/barInnerPage-left-arrow.png);
+            width: 48px;
+            height: 48px;
+            position: relative;
+            left: 0;
+            top: 0;
+            // transform: translateY(-50%);
+            background-color: orange;
+            // border: 0;
+            // padding: 8px 10px;
+
+            // &:hover{
+            //     background-color: rgb(200, 130, 0);
+            // }
         }
     }
 
+
+
+    // 按鈕容器 
     .btnContainer {
-        text-align: center;
+        position: relative;
+        display: flex;
+        justify-content: center;
         margin: 32px 0;
+        z-index: 2;
+
+
+        // 回酒吧列表按鈕
+        .btnToListPage {
+            display: inline-block;
+            padding-top: 10.5px;
+            padding-bottom: 10.5px;
+            padding-left: 44px;
+            padding-right: 44px;
+            border: 1px solid $pri-white; //如果全黑超級融入背景的，小小變化不喜歡可以再改
+            background-color: $pri-dark;
+            color: $sec-peggy;
+            cursor: pointer;
+            transition: background .15s ease, color .15s ease, transform .05s ease;
+
+            &:hover {
+                background: $pri-white;
+                color: $pri-dark;
+            }
+
+            &:active {
+                transform: translateY(1px);
+            }
+        }
     }
 
-    .btnToListPage {
-        display: inline-block;
-        padding-top: 10.5px;
-        padding-bottom: 10.5px;
-        padding-left: 44px;
-        padding-right: 44px;
-        border: 1px solid $pri-white; //如果全黑超級融入背景的，小小變化不喜歡可以再改
-        background-color: $pri-dark;
-
+    //純黑背景板（獨立區塊）
+    .blackBlock {
+        margin: 0 24px 48px;
+        background: $pri-dark;
+        margin-top: 133px;
+        margin-left: 72px;
+        height: 1000px;
+        width: 700px;
+        color: $pri-white;
+        position: absolute;
+        z-index: 1;
     }
 
     // 這是barInnerPage的大括號！小心不要超出去！

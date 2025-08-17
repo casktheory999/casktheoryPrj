@@ -6,7 +6,9 @@ import Footer from '../component/Footer';
 import heroImg from '../images/barInnerPage-1.png';
 import rec1Img from '../images/barInnerPage-2.png';
 import rec2Img from '../images/barInnerPage-3.png';
-
+import arrowImg1 from '../images/barInnerPage-top-arrow.png';
+import arrowImg2 from '../images/barInnerPage-bottom-arrow.png';
+import arrowImg3 from '../images/barInnerPage-left-arrow.png';
 
 const BarInnerPage = () => {
     return (
@@ -24,8 +26,8 @@ const BarInnerPage = () => {
                         {/* 連絡資訊：語意化 */}
                         <address className="contact" /* SCSS 再把預設斜體改回正常 */>
                             <p>地址：新北市新北一路二段15樓</p>
-                            <p>
-                                電話：<a href="tel:0949494949">0949-494-949</a>
+                            <p>電話：0949-494-949
+                                {/* <a href="tel:0949494949"></a> 這是電擊電話號碼會自動跳轉播號的超連結功能 */}
                             </p>
                             <p>營業時間：20:00–02:00</p>
                         </address>
@@ -42,7 +44,8 @@ const BarInnerPage = () => {
                     {/* 右側：hero酒吧圖片 */}
                     <div className="cardRight">
                         <figure className="heroPhoto">
-                            <img src={heroImg} alt="潮飲空間圖片" />
+                            <img className="heroImg" src={heroImg} alt="潮飲空間圖片" style={{width:'850px'}}/>
+                            <img className="arrowImg1" src={arrowImg1} alt="裝飾箭頭1" />
                         </figure>
                     </div>
 
@@ -50,8 +53,15 @@ const BarInnerPage = () => {
 
                 {/* 推薦酒吧區 */}
                 <section id="recommendations" className="recommendationsContainer">
+                        <figure className='leftArrow'>
+                            <img src={arrowImg2} alt="裝飾箭頭2" style={{width:'100px'}}/>
+                        </figure>
                     <div className='recPhotos'>
-                        <button className="btnLeft">向左滑動</button>
+                        <button className="btnLeft">
+                            {/* <img src={arrowImg3} alt="向左滑動" style={{width:'48px'}}/> */}
+                        </button>
+                        
+
                         {/* 左側：推薦酒吧1+文案 */}
                         <figure className="recPhoto1">
                             <img src={rec1Img} alt="The Gilded Drop圖片" />
@@ -78,7 +88,6 @@ const BarInnerPage = () => {
 
                 {/* 純粹只是背景板的一個黑色區塊 */}
                 <div className="blackBlock">
-                    純粹只是背景板的一個黑色區塊
                 </div>
 
 
