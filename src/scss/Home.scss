@@ -1,0 +1,432 @@
+@use "./variables" as *;
+
+/*----Hero區----*/
+.hero {
+    background-color: $pri-dark;
+    color: $pri-white;
+    position: relative;
+    width: 100%;
+    height: 800px;
+    margin: 0 auto;
+    padding-top: 76px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    column-gap: 32px;
+    overflow: hidden;
+}
+
+
+
+/*----最新消息----*/
+.news {
+    height: 800px;
+    min-height: 800px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 160px 420px 1fr;
+    gap: 32px 36px;
+    padding: 90px 60px 60px;
+    background: $pri-white;
+    color: $pri-dark;
+
+    /* ===== 左：直排標題 ===== */
+    .newsTitle {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        font-size: 40px;
+        letter-spacing: .18em;
+        align-self: start;
+        margin-top: 350px;
+        margin-left: 240px;
+    }
+
+    /* ===== 中：宣傳海報 ===== */
+    .newsPoster {
+        margin: 0;
+        align-self: start;
+
+        img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 4 / 5;
+        }
+    }
+
+    /* ===== 右：列表 ===== */
+    .newsList {
+        align-self: start;
+        position: relative;
+        display: grid;
+        gap: 14px;
+        max-height: calc(800px - 90px - 60px);
+        overflow: auto;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 0 0 28px;
+            display: grid;
+            gap: 12px;
+            color: inherit;
+
+            li {
+                position: relative;
+                padding: 10px 0 12px 0;
+            }
+
+            .newsList li::before {
+                content: "";
+                position: absolute;
+                left: -24px;
+                top: 16px;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #111;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .goNewsBtn {
+        justify-self: end;
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: $pri-dark;
+        color: $pri-white;
+        border: 1px solid $pri-dark;
+        text-decoration: none;
+        transition: transform .15s ease;
+        margin-top: 6px;
+    }
+
+    .goNewsBtn:hover {
+        transform: translateY(-2px);
+    }
+
+    .newsList::before {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 0;
+        bottom: 56px;
+        width: 2px;
+        background: repeating-linear-gradient(to bottom,
+                #111, #111 4px,
+                transparent 4px, transparent 10px);
+        opacity: .6;
+    }
+
+    /*---RWD---*/
+
+}
+
+/*--N--*/
+.news::before {
+    content: "N";
+    position: absolute;
+    left: 75px;
+    top: 90px;
+    font-weight: 700;
+    font-size: 300px;
+    line-height: 1;
+    letter-spacing: .06em;
+    color: rgb(0 0 0 / 4%);
+    pointer-events: none;
+    user-select: none;
+    z-index: -1;
+}
+
+/*--Ws--*/
+.news::after {
+    content: "Ws";
+    position: absolute;
+    right: 50px;
+    bottom: 40px;
+    font-weight: 700;
+    font-size: 300px;
+    line-height: 1;
+    letter-spacing: .06em;
+    color: rgb(0 0 0 / 4%);
+    pointer-events: none;
+    user-select: none;
+    z-index: -1;
+}
+
+
+
+/*----酒吧地圖----*/
+.mapRoute {
+    width: 100%;
+    height: 1200px;
+}
+
+
+/*----酒精圖鑑----*/
+
+.Illustrations {
+    width: 100%;
+    height: 800px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 180px 220px 1fr;
+    gap: 24px;
+    color: $pri-dark;
+    background-color: $pri-white;
+    border-radius: 16px;
+    padding: 90px 60px 60px 0;
+    overflow: hidden;
+    isolation: isolate;
+
+    // 左欄:酒杯裝飾
+    .leftImg {
+        position: relative;
+        z-index: 1;
+
+        img {
+            position: absolute;
+            left: -110px;
+            height: min(76vh, 640px);
+            width: auto;
+            opacity: .8;
+            pointer-events: none;
+        }
+    }
+
+    // 中欄:類別切換
+    .Illustrations-nav {
+        align-self: start;
+        background: none;
+        padding-top: 50px;
+        display: flex;
+        gap: 30px;
+        z-index: 1;
+
+        h2 {
+            margin-top: 10px;
+            padding-bottom: 10px;
+            writing-mode: vertical-lr;
+            text-orientation: upright;
+            letter-spacing: .9em;
+            font-size: 40px;
+        }
+
+        .navBtn {
+            display: grid;
+            gap: 30px;
+            border-left: 1px solid $pri-dark;
+            padding-left: 16px;
+        }
+
+        // 類別按鈕
+        button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 6px 0 6px 10px;
+            background: transparent;
+            border: 0;
+            color: $pri-dark;
+            cursor: pointer;
+            position: relative;
+            transition: color .15s ease;
+            font-size: 24px;
+        }
+
+        button:hover {
+            color: rgba(0, 0, 0, .8);
+        }
+
+        button.active {
+            font-weight: 700;
+            padding-left: 28px;
+
+            &::before {
+                content: "▶";
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 14px;
+                color: $pri-dark;
+            }
+        }
+
+    }
+
+
+    // 右欄:主內容
+    .Illustrations-body {
+        padding: 0x;
+        z-index: 1;
+
+        .Illustrations-introduce {
+            margin: 50px 90px 0 90px;
+            display: grid;
+            gap: 14px;
+
+            .introduce-title {
+                display: flex;
+                align-items: baseline;
+                margin-bottom: 16px;
+                gap: 12px;
+
+                .titleZh {
+                    margin: 0;
+                    font-size: 64px;
+                    line-height: 1;
+                }
+
+                .titleEn {
+                    font-size: 36px;
+                    letter-spacing: .16px;
+                }
+            }
+
+            p {
+                margin: 0 0 24px;
+                line-height: 2;
+                font-size: 14px;
+            }
+
+            .cardRow {
+                margin-top: 40px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 14px;
+
+                .card {
+                    border: 1px solid $pri-dark;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    text-align: center;
+
+                    img {
+                        width: 100%;
+                        display: block;
+                    }
+
+                    figcaption {
+                        padding: 8px 0;
+                    }
+                }
+            }
+
+            .goIllBtn {
+                display: inline-block;
+                width: auto;
+                margin-top: 24px;
+                padding: 10px 14px;
+                border-radius: 999px;
+                background: $pri-dark;
+                color: $pri-white;
+                border: 1px solid $pri-dark;
+                text-decoration: none;
+                transition: transform .15s ease;
+                justify-self: end;
+
+
+            }
+
+            .goIllBtn:hover {
+                transform: translateY(-2px);
+            }
+
+        }
+    }
+
+    @media(max-width:1200px) {
+        .Illustrations {
+            gap: 20px;
+        }
+
+        .leftImg {
+            left: -90px;
+            height: min(70vh, 580px);
+        }
+    }
+
+    @media(max-width:992px) {
+        .Illustrations {
+            grid-template-columns: 160px 1fr;
+        }
+
+        .Illustrations-nav {
+            order: 2;
+        }
+
+        .Illustrations-body {
+            order: 3;
+        }
+
+        .cardRow {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media(max-width:768px) {
+        .Illustrations {
+            grid-template-columns: 1fr;
+            padding: 14px;
+        }
+
+        .leftImg img {
+            display: none;
+        }
+
+        .Illustrations-nav h2 {
+            writing-mode: horizontal-tb;
+            text-orientation: mixed;
+            letter-spacing: .08em;
+        }
+
+        .cardRow {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media(max-width:480px) {
+        .cardRow {
+            grid-template-columns: 1fr;
+        }
+
+        .goIllBtn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+// 背景浮水印
+.Illustrations::before {
+    content: "Illustr\A ations";
+    white-space: pre-line;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    font-weight: 700;
+    font-size: 380px;
+    line-height: 1;
+    letter-spacing: .15em;
+    color: rgb(0 0 0 / 3%);
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+    z-index: -1;
+}

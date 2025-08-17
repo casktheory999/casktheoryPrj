@@ -24,20 +24,22 @@ const Home = () => {
             {/*最新消息*/}
 
             <section className='news'>
-                <div className='newsContent'>
-                    <article className='newsCard'>
-                        <img src="/images/news-jazz.jpg" alt="宣傳圖" /> {/* 宣傳圖 */}
-                        <div className='newsCard-body'>
-                            <h3>JAZZ NIGHT</h3>
-                            <p>每週五晚間 8:00～11:00 ；現場樂手即興演出與特調搭配。</p>
-                        </div>
-                    </article>
-                    <ul className='newsList'>
-                        <li><Link to="/News">【徵文活動】最愛的 Old Fashioned 故事（至 9/30）</Link></li>
-                        <li><Link to="/News">【新品】高地單一麥芽限定入庫通知</Link></li>
-                        <li><Link to="/News">【課程】調酒入門班：酸甜平衡與烈酒基礎</Link></li>
-                        <li><Link to="/News">【優惠】本月會員日第二杯半價</Link></li>
+                {/* 左：直排標題 */}
+                <div className='newsTitle'>酒吧活動消息</div>
+                {/* 中：宣傳海報 */}
+                <figure className='newsPoster'>
+                    <img src="" alt="宣傳海報" />
+                </figure>
+                {/* 右：新聞列表 */}
+                <div className='newsList'>
+                    <ul>
+                        <li><Link to="/News">【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY</Link></li>
+                        <li><Link to="/News">【金曲佳釀】｜爵士及品酒之夜｜經典調酒配上爵士金曲</Link></li>
+                        <li><Link to="/News">【茶酒特調】｜自己泡茶酒｜莓果白蘭地專題</Link></li>
+                        <li><Link to="/News">【節慶專屬】｜中秋微醺提案－文旦柚子｜雙人體驗方案</Link></li>
+                        <li><Link to="/News">【動手體驗】｜Mojito專題｜沁涼一夏｜雙人體驗方案</Link></li>
                     </ul>
+                    <Link className='goNewsBtn' to="/News">前往最新消息</Link>
                 </div>
             </section>
 
@@ -59,28 +61,43 @@ const Home = () => {
 
             <section className='Illustrations'>
                 <div className='leftImg'>
-                    <img src="" alt="" />
+                    <img src="" alt="酒杯裝飾" />
                 </div>
                 <div className='Illustrations-nav'>
                     <h2>酒精圖鑑</h2>
-                    <button>基酒</button>
-                    <button>經典調酒</button>
-                    <button>大眾調酒</button>
-                    <button>家庭調酒</button>
+                    <div className='navBtn'>
+                        <button className='active'>基酒</button>
+                        <button>經典調酒</button>
+                        <button>大眾調酒</button>
+                        <button>家庭調酒</button>
+                    </div>
                 </div>
                 <div className='Illustrations-body'>
                     <div className='Illustrations-introduce'>
                         <div className='introduce-title'>
-                            <h2>基酒</h2>
-                            <h3>Base Spirit</h3>
+                            <h2 className='titleZh'>基酒</h2>
+                            <span className='titleEn'>Base Spirit</span>
                         </div>
                         <p>「基酒是文化的基礎，麥芽與橡木、杜松與草本、甘蔗與果香...，從原料到工藝，乘載著各式風味的可能性，體驗飲酒文化就從基酒開始。」</p>
-                        <img src="" alt="" />
-                        <Link className='goIllBtn' to="./Illustrations">前往圖鑑</Link>
+                        <div className='cardRow'>
+                            <figure className='card'>
+                                <img src="" alt="伏特加" />
+                                <figcaption>伏特加</figcaption>
+                            </figure>
+                            <figure className='card'>
+                                <img src="" alt="威士忌" />
+                                <figcaption>威士忌</figcaption>
+                            </figure>
+                            <figure className='card'>
+                                <img src="" alt="琴酒" />
+                                <figcaption>琴酒</figcaption>
+                            </figure>
+                        </div>
+                        <Link className='goIllBtn' to="/Illustrations">前往圖鑑目錄</Link>
                     </div>
                 </div>
             </section>
-        </main>
+        </main >
     )
 }
 
