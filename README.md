@@ -28,7 +28,7 @@
 -
 - 
 ## Amy
--
+-0817: 更新barInnerPage初次切版+變數的scss
 -
 -
 -
