@@ -7,12 +7,147 @@
     position: relative;
     width: 100%;
     height: 800px;
+    min-height: 800px;
     margin: 0 auto;
-    padding-top: 76px;
+    padding: 76px 0 68px 0;
     display: grid;
     grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "left rightTop"
+        "left slogan";
     column-gap: 32px;
     overflow: hidden;
+    box-sizing: border-box;
+    z-index: 1;
+
+    >* {
+        position: relative;
+        z-index: 1;
+    }
+
+    .heroLeft {
+        position: relative;
+        grid-area: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-self: center;
+        transform: translate(280px, -100px);
+        gap: 16px;
+        z-index: 2;
+    }
+
+    .brand {
+        margin: 0;
+        font-weight: 800;
+        line-height: 1.05;
+        font-size: 180px;
+        letter-spacing: 0.1em;
+        display: grid;
+        row-gap: 8px;
+
+        .brandLine {
+            display: block;
+            line-height: 1.05;
+        }
+
+        .brandLine--top {
+            justify-self: start;
+            transform: translateX(-150px);
+        }
+
+        .brandLine--bottom {
+            justify-self: end;
+            transform: translateX(100px);
+        }
+    }
+
+    .brandZh {
+        position: absolute;
+        left: 88%;
+        top: 55%;
+        transform: translate(-10px, -8px);
+        white-space: nowrap;
+        font-size: 32px;
+        letter-spacing: .5em;
+        font-weight: 600;
+        margin: 0;
+        opacity: .95;
+    }
+
+    .heroRightBottom {
+        grid-area: slogan;
+        align-self: center;
+        justify-self: start;
+        transform: translate(-160px, 50px);
+        max-width: 46vw;
+
+        .slogan {
+            margin: 0;
+            font-size: 32px;
+            line-height: 1.6;
+            letter-spacing: .02em;
+            opacity: .95;
+        }
+    }
+
+    .heroRightTop {
+        grid-area: rightTop;
+        align-self: start;
+        justify-self: end;
+        width: 600px;
+        height: 200px;
+        border-radius: 999px 0 0 999px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    .heroLeftBottom {
+        grid-area: left;
+        align-self: end;
+        justify-self: start;
+        width: 600px;
+        height: 200px;
+        border-radius: 0 999px 999px 0;
+        overflow: hidden;
+        z-index: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    .heroRightBottom {
+
+        p {
+            font-size: 32px;
+        }
+    }
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 50%;
+    background: url(/images/gptindexbg2_op1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 0;
 }
 
 
@@ -31,32 +166,38 @@
     background: $pri-white;
     color: $pri-dark;
 
+
     /* ===== 左：直排標題 ===== */
     .newsTitle {
         writing-mode: vertical-rl;
         text-orientation: upright;
         font-size: 40px;
         letter-spacing: .18em;
-        align-self: start;
-        margin-top: 350px;
-        margin-left: 240px;
+        align-self: end;
+        margin: 0;
+        justify-self: end;
     }
 
     /* ===== 中：宣傳海報 ===== */
     .newsPoster {
         margin: 0;
-        align-self: start;
+        align-self: end;
+        height: 650px;
+        transform: translateX(100px);
+
 
         img {
-            width: 100%;
+            height: 100%;
+            width: auto;
+            max-width: 100%;
             display: block;
-            object-fit: cover;
-            aspect-ratio: 4 / 5;
+            object-fit: contain;
         }
     }
 
     /* ===== 右：列表 ===== */
     .newsList {
+        justify-content: end;
         align-self: start;
         position: relative;
         display: grid;
@@ -67,6 +208,7 @@
         scrollbar-gutter: stable;
 
         ul {
+            position: relative;
             list-style: none;
             margin: 0;
             padding: 0 0 0 28px;
@@ -77,17 +219,6 @@
             li {
                 position: relative;
                 padding: 10px 0 12px 0;
-            }
-
-            .newsList li::before {
-                content: "";
-                position: absolute;
-                left: -24px;
-                top: 16px;
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background: #111;
             }
         }
 
@@ -118,12 +249,12 @@
         transform: translateY(-2px);
     }
 
-    .newsList::before {
+    .newsList ul::before {
         content: "";
         position: absolute;
-        left: 6px;
+        right: calc(100% + 10px);
         top: 0;
-        bottom: 56px;
+        bottom: 0;
         width: 2px;
         background: repeating-linear-gradient(to bottom,
                 #111, #111 4px,
@@ -131,40 +262,74 @@
         opacity: .6;
     }
 
-    /*---RWD---*/
+    .newsList ul li::before {
+        content: "";
+        position: absolute;
+        left: -43px;
+        top: 16px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #000;
+    }
 
+
+}
+
+.news::before,
+.news::after {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .06em;
+    color: rgba(0, 0, 0, .04);
+    pointer-events: none;
+    user-select: none;
+    z-index: -1;
 }
 
 /*--N--*/
 .news::before {
     content: "N";
-    position: absolute;
-    left: 75px;
-    top: 90px;
-    font-weight: 700;
-    font-size: 300px;
-    line-height: 1;
-    letter-spacing: .06em;
-    color: rgb(0 0 0 / 4%);
-    pointer-events: none;
-    user-select: none;
-    z-index: -1;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 90px;
+    font-size: 400px;
 }
 
 /*--Ws--*/
 .news::after {
     content: "Ws";
-    position: absolute;
-    right: 50px;
-    bottom: 40px;
-    font-weight: 700;
-    font-size: 300px;
-    line-height: 1;
-    letter-spacing: .06em;
-    color: rgb(0 0 0 / 4%);
-    pointer-events: none;
-    user-select: none;
-    z-index: -1;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: 30px;
+    font-size: 400px;
+}
+
+/*---RWD---*/
+@media (min-width: 1440px) {
+    .news {
+        justify-content: center;
+        grid-template-columns: 160px 500px 600px;
+        column-gap: 56px;
+    }
+
+    .news::after {
+        padding-right: 140px;
+    }
+}
+
+@media (min-width: 1680px) {
+    .news {
+        grid-template-columns: 160px 520px 640px;
+        column-gap: 64px;
+    }
+
+    .news::after {
+        padding-right: 180px;
+    }
 }
 
 
@@ -176,6 +341,7 @@
 }
 
 
+
 /*----酒精圖鑑----*/
 
 .Illustrations {
@@ -183,7 +349,7 @@
     height: 800px;
     position: relative;
     display: grid;
-    grid-template-columns: 180px 220px 1fr;
+    grid-template-columns: 180px 300px 1fr;
     gap: 24px;
     color: $pri-dark;
     background-color: $pri-white;
@@ -199,7 +365,7 @@
 
         img {
             position: absolute;
-            left: -110px;
+            left: -200px;
             height: min(76vh, 640px);
             width: auto;
             opacity: .8;
@@ -212,8 +378,9 @@
         align-self: start;
         background: none;
         padding-top: 50px;
+        padding-left: 50px;
         display: flex;
-        gap: 30px;
+        gap: 40px;
         z-index: 1;
 
         h2 {
@@ -227,9 +394,9 @@
 
         .navBtn {
             display: grid;
-            gap: 30px;
+            gap: 20px;
             border-left: 1px solid $pri-dark;
-            padding-left: 16px;
+            padding-left: 40px;
         }
 
         // 類別按鈕
@@ -277,7 +444,7 @@
         .Illustrations-introduce {
             margin: 50px 90px 0 90px;
             display: grid;
-            gap: 14px;
+            gap: 40px;
 
             .introduce-title {
                 display: flex;
@@ -300,11 +467,11 @@
             p {
                 margin: 0 0 24px;
                 line-height: 2;
-                font-size: 14px;
+                font-size: 18px;
             }
 
             .cardRow {
-                margin-top: 40px;
+                margin-top: 20px;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 14px;
@@ -413,20 +580,35 @@
 
 // 背景浮水印
 .Illustrations::before {
-    content: "Illustr\A ations";
-    white-space: pre-line;
+    content: "Illustr";
     position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 96px;
     font-weight: 700;
-    font-size: 380px;
-    line-height: 1;
-    letter-spacing: .15em;
+    font-size: 350px;
+    line-height: .7;
+    letter-spacing: .3em;
     color: rgb(0 0 0 / 3%);
-    text-align: center;
+    white-space: nowrap;
     pointer-events: none;
     user-select: none;
-    z-index: -1;
+    z-index: 0;
+}
+
+.Illustrations::after {
+    content: "ations";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 96px;
+    font-weight: 700;
+    font-size: 350px;
+    line-height: .7;
+    letter-spacing: .3em;
+    color: rgb(0 0 0 / 3%);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
 }

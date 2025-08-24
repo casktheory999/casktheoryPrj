@@ -10,15 +10,21 @@ const Home = () => {
 
             <section className='hero'>
                 <div className='heroLeft'>
-                    <h1 className='brand'>Cask<br />Theory<br /></h1>
-                    <p className='slogan'>從經典到創新，打開調酒的全景視野。</p>
+                    <h1 className='brand'>
+                        <span className="brandLine brandLine--top">Cask</span>
+                        <span className="brandLine brandLine--bottom">Theory</span>
+                    </h1>
+                    <h2 className='brandZh'>酒桶理論</h2>
                 </div>
                 <figure className='heroRightTop'>
-                    <img src="/images/hero-main.jpg" alt="酒吧吧台與酒杯" />{/*等圖片*/}
+                    <img src="/images/man-is-pouring-strong-alcohol-drink-into-glass.jpg" alt="酒吧吧台與酒杯" />{/*等圖片*/}
                 </figure>
                 <figure className='heroLeftBottom'>
-                    <img src="/images/hero-main.jpg" alt="酒吧吧台與酒杯" />{/*等圖片*/}
+                    <img src="/images/half-lime-with-cocktail-drink-garnish-with-cocktail-white-desk.jpg" alt="酒吧吧台與酒杯" />{/*等圖片*/}
                 </figure>
+                <div className='heroRightBottom'>
+                    <p className='slogan'>「從經典到創新，打開調酒的全景視野」</p>
+                </div>
             </section>
 
             {/*最新消息*/}
@@ -28,7 +34,7 @@ const Home = () => {
                 <div className='newsTitle'>酒吧活動消息</div>
                 {/* 中：宣傳海報 */}
                 <figure className='newsPoster'>
-                    <img src="" alt="宣傳海報" />
+                    <img src='/images/news.webp' alt="宣傳海報" />
                 </figure>
                 {/* 右：新聞列表 */}
                 <div className='newsList'>
@@ -61,7 +67,7 @@ const Home = () => {
 
             <section className='Illustrations'>
                 <div className='leftImg'>
-                    <img src="" alt="酒杯裝飾" />
+                    <img src="/images/glass.png" alt="酒杯裝飾" />
                 </div>
                 <div className='Illustrations-nav'>
                     <h2>酒精圖鑑</h2>
