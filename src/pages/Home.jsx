@@ -23,7 +23,7 @@ const Home = () => {
                     <img src="/images/half-lime-with-cocktail-drink-garnish-with-cocktail-white-desk.jpg" alt="酒吧吧台與酒杯" />{/*等圖片*/}
                 </figure>
                 <div className='heroRightBottom'>
-                    <p className='slogan'>「從經典到創新，打開調酒的全景視野」</p>
+                    <p className='slogan'>「從經典到創新，打開<span className='Bartending'>調酒</span>的全景視野」</p>
                 </div>
             </section>
 
@@ -53,7 +53,7 @@ const Home = () => {
 
             <section className='mapRoute'>
                 <div className='map-head'>
-                    <h2>酒吧地圖</h2>
+                    <h2>0</h2>
                 </div>
                 <div className='card-row'>
 
@@ -87,15 +87,15 @@ const Home = () => {
                         <p>「基酒是文化的基礎，麥芽與橡木、杜松與草本、甘蔗與果香...，從原料到工藝，乘載著各式風味的可能性，體驗飲酒文化就從基酒開始。」</p>
                         <div className='cardRow'>
                             <figure className='card'>
-                                <img src="" alt="伏特加" />
+                                <img src="/images/newvodka.png" alt="伏特加" />
                                 <figcaption>伏特加</figcaption>
                             </figure>
                             <figure className='card'>
-                                <img src="" alt="威士忌" />
+                                <img src="/images/image17.png" alt="威士忌" />
                                 <figcaption>威士忌</figcaption>
                             </figure>
                             <figure className='card'>
-                                <img src="" alt="琴酒" />
+                                <img src="/images/Subtract.png" alt="琴酒" />
                                 <figcaption>琴酒</figcaption>
                             </figure>
                         </div>

@@ -19,7 +19,6 @@ export default function App(){
     <div className='wrap'>
       <Navbar/>
       <div className='frist'>
-      <hr/>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/News' element={<News/>}></Route>
@@ -30,7 +29,6 @@ export default function App(){
         <Route path='/Member' element={<Member/>}></Route>
         <Route path='/About' element={<About/>}></Route>
       </Routes>
-      <hr />
       </div>
       <Footer/>
     </div>

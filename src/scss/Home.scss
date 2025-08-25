@@ -89,6 +89,9 @@
             line-height: 1.6;
             letter-spacing: .02em;
             opacity: .95;
+            .Bartending{
+                color: #FEB836;
+            }
         }
     }
 
@@ -338,6 +341,7 @@
 .mapRoute {
     width: 100%;
     height: 1200px;
+    background-color: $pri-dark;
 }
 
 
@@ -477,14 +481,16 @@
                 gap: 14px;
 
                 .card {
-                    border: 1px solid $pri-dark;
                     border-radius: 12px;
                     overflow: hidden;
                     text-align: center;
+                    aspect-ratio: 3 / 2;
 
                     img {
-                        width: 100%;
+                        height: 100%;
+                        width: auto;
                         display: block;
+                        object-fit: cover;
                     }
 
                     figcaption {
