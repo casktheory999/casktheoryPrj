@@ -1,0 +1,100 @@
+@use './reset' as *;
+@use './variables' as *;
+
+.bar {
+    color: $pri-white;
+
+    /* --Hero區-- */
+    .barHero {
+        height: 353px;;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 60px;
+        background-color: $pri-dark;
+    }
+
+
+
+    /* --標題-- */
+    .barHeroTitle {
+        font-size: 40px;
+        letter-spacing: .08em;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .barHeroFilter {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        align-items: end;
+        column-gap: 32px;
+        padding: 0 100px;
+
+        /* --路線清單-- */
+        .mrtList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            grid-column: 1 / span 6;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 32px;
+            align-items: end;
+
+            .mrtItem {
+                --line-color: #999;
+                text-align: center;
+
+                .mrtBtn {
+                    background: transparent;
+                    border: 0;
+                    color: $pri-white;
+                    font-size: 20px;
+                    padding: 4px 0;
+                    cursor: pointer;
+                }
+
+                .mrtLine {
+                    display: block;
+                    width: 64px;
+                    height: 3px;
+                    margin: 8px auto 0;
+                    opacity: .9;
+                    transform-origin: center;
+                    transition: transform .25s ease;
+                }
+            }
+        }
+
+        .barSearch {
+            grid-column: 7;
+            display: grid;
+            grid-template-columns: 20px 1fr;
+            align-items: end;
+            gap: 8px;
+            border-bottom: 2px solid #AFAFAF;
+            padding-bottom: 6px;
+
+            .icon {
+                width: 20px;
+                height: 20px;
+                opacity: .9;
+            }
+
+            input {
+                background: transparent;
+                border: 0;
+                color: $pri-white;
+                outline: none;
+                font-size: 16px;
+            }
+
+            input::placeholder {
+                color: #D0D0D0;
+                letter-spacing: .02em;
+            }
+        }
+    }
+}
