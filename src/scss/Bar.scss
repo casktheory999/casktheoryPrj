@@ -1,18 +1,25 @@
 @use './reset' as *;
 @use './variables' as *;
 
+
+:root {
+    --nav-h: 56px;
+}
+
 .bar {
     color: $pri-white;
 
     /* --Hero區-- */
     .barHero {
-        height: 353px;;
+        min-height: calc(353px - var(--nav-h));
+        height: 353px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: end;
         align-items: center;
-        row-gap: 60px;
+        row-gap: 77px;
         background-color: $pri-dark;
+        padding-block: 40px;
     }
 
 
@@ -30,7 +37,7 @@
         grid-template-columns: repeat(7, 1fr);
         align-items: end;
         column-gap: 32px;
-        padding: 0 100px;
+        padding: 0 105px;
 
         /* --路線清單-- */
         .mrtList {
@@ -44,8 +51,10 @@
             align-items: end;
 
             .mrtItem {
-                --line-color: #999;
-                text-align: center;
+                --line-color: #FAFAFA;
+                flex-direction: column;
+                align-items: center;
+                width: max-content;
 
                 .mrtBtn {
                     background: transparent;
@@ -57,8 +66,9 @@
                 }
 
                 .mrtLine {
+                    background: var(--line-color);
                     display: block;
-                    width: 64px;
+                    width: 100%;
                     height: 3px;
                     margin: 8px auto 0;
                     opacity: .9;
@@ -72,10 +82,10 @@
             grid-column: 7;
             display: grid;
             grid-template-columns: 20px 1fr;
-            align-items: end;
-            gap: 8px;
+            align-items: center;
+            padding-top: 4px;
+            padding-bottom: 12px;
             border-bottom: 2px solid #AFAFAF;
-            padding-bottom: 6px;
 
             .icon {
                 width: 20px;
@@ -89,6 +99,8 @@
                 color: $pri-white;
                 outline: none;
                 font-size: 16px;
+                line-height: 1.2;
+                margin-left: 10px;
             }
 
             input::placeholder {
