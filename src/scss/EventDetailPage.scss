@@ -1,0 +1,254 @@
+@use './variables/' as *;
+
+/* 版心 */
+.eventDetailPage {
+    --maxw: 1200px;
+    --gap: 24px;
+    color: $dark;
+
+    /* 每個大區塊做統一版心 */
+    .heroSection,
+    .infoSection,
+    .mapSection,
+    .recommendSection {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+}
+
+/* ========== Hero ========== */
+.heroSection {
+    padding: 24px 0 16px;
+
+    .heroBanner {
+        position: relative;
+
+        .heroImg {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/5;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .heroRibbon {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 8px;
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.55);
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+    }
+
+    .heroMeta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 12px 0 8px;
+
+        .heroChips {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+            padding: 0;
+            margin: 0;
+
+            .chip {
+                display: inline-block;
+                padding: 6px 12px;
+                background: $accent;
+                color: #fff;
+                border-radius: 999px;
+                font-size: 14px;
+            }
+        }
+
+        .heroStats {
+            list-style: none;
+            display: flex;
+            gap: 16px;
+            padding: 0;
+            margin: 0 0 0 auto;
+            color: $gray;
+            font-size: 14px;
+        }
+    }
+
+    .heroTitle {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 6px 0 0;
+    }
+}
+
+/* ========== 活動資訊 + 簡介（兩欄） ========== */
+.infoSection {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: 1fr;
+    /* mobile */
+    padding: 24px 0;
+
+    @media (min-width: 900px) {
+        grid-template-columns: 1fr 1fr;
+        /* desktop 兩欄 */
+    }
+
+    .blockTitle {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .infoCard {
+        border: 2px solid $dark;
+        border-radius: 8px;
+        background: #fff;
+        padding: 16px;
+
+        p {
+            line-height: 1.8;
+            margin: 6px 0;
+        }
+
+        address {
+            font-style: normal;
+        }
+    }
+
+    .photoBlock {
+        margin: 0;
+
+        .photo {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+            object-fit: cover;
+            aspect-ratio: 16/9;
+        }
+    }
+}
+
+/* ========== 地圖 + 交通（兩欄） ========== */
+.mapSection {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: 1fr;
+    /* mobile */
+    padding: 8px 0 32px;
+
+    @media (min-width: 900px) {
+        grid-template-columns: 1.4fr 1fr;
+        /* 左大右小 */
+    }
+
+    .blockTitle {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .mapCard,
+    .infoCard {
+        border: 2px solid $dark;
+        border-radius: 8px;
+        background: #fff;
+        padding: 16px;
+    }
+
+    .mapImg {
+        width: 100%;
+        display: block;
+        border-radius: 8px;
+        object-fit: cover;
+        aspect-ratio: 16/10;
+    }
+
+    .trafficBlock .infoCard p,
+    .trafficBlock .infoCard address {
+        line-height: 1.8;
+        margin: 6px 0;
+    }
+}
+
+/* ========== 推薦區（卡片列表） ========== */
+.recommendSection {
+    padding: 8px 0 48px;
+
+    .cardList {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        /* 用 grid 控欄數：手機1、平板2、桌機4 */
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr;
+
+        @media (min-width: 700px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .eventCard {
+        border: 1px solid #e6e6e6;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+
+        .cardCover img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+
+        .cardBody {
+            padding: 12px 14px;
+
+            .cardMeta {
+                font-size: 12px;
+                color: $gray;
+                margin-bottom: 6px;
+            }
+
+            .cardTitle {
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 1.4;
+                margin-bottom: 8px;
+            }
+
+            .cardFooter {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: $gray;
+
+                .chip {
+                    background: $accent;
+                    color: #fff;
+                    padding: 2px 8px;
+                    border-radius: 999px;
+                    font-size: 12px;
+                    margin-right: auto;
+                    /* 將統計推到右側 */
+                }
+            }
+        }
+    }
+}
