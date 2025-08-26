@@ -41,6 +41,7 @@
 
         /* --路線清單-- */
         .mrtList {
+            justify-items: center;
             list-style: none;
             padding: 0;
             margin: 0;
@@ -51,12 +52,15 @@
             align-items: end;
 
             .mrtItem {
+                display: flex;
                 --line-color: #FAFAFA;
                 flex-direction: column;
                 align-items: center;
                 width: max-content;
 
                 .mrtBtn {
+                    display: inline-block;
+                    text-align: center;
                     background: transparent;
                     border: 0;
                     color: $pri-white;
@@ -66,19 +70,28 @@
                 }
 
                 .mrtLine {
-                    background: var(--line-color);
+                    background: $pri-white;
                     display: block;
-                    width: 100%;
+                    width: 110px;
                     height: 3px;
                     margin: 8px auto 0;
                     opacity: .9;
                     transform-origin: center;
-                    transition: transform .25s ease;
+                    transition: background-color .25s ease,
+                        transform .25s ease;
+                }
+
+                &:hover .mrtLine,
+                &:focus-within .mrtLine {
+                    background: var(--line-color, #FAFAFA);
+                    transform: scaleX(1.1);
                 }
             }
         }
 
         .barSearch {
+            justify-self: end;
+            width: 150px;
             grid-column: 7;
             display: grid;
             grid-template-columns: 20px 1fr;
@@ -88,8 +101,8 @@
             border-bottom: 2px solid #AFAFAF;
 
             .icon {
-                width: 20px;
-                height: 20px;
+                width: 24px;
+                height: 24px;
                 opacity: .9;
             }
 

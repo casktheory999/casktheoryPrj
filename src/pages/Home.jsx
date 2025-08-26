@@ -51,17 +51,43 @@ const Home = () => {
 
             {/* 酒吧地圖 */}
 
-            <section className='mapRoute'>
+            <section className='map'>
                 <div className='map-head'>
                     <h2>0</h2>
                 </div>
                 <div className='card-row'>
 
                 </div>
-                <div className='route-head'>
-                    <h2>路跑路線</h2>
+            </section>
+
+            {/* 路跑路線 */}
+            <section className='route'>
+                <h2 className='routeTitle'>酒精路跑路線</h2>
+                <div className='routeCards'>
+                    <a className='routeCard1' href="#">
+                        <img src="" alt="" />
+                        <div className='info'>
+                            <span className='num'>推薦路線 1</span>
+                            <h3 className='title'>善導寺微醺漫步</h3>
+                        </div>
+                    </a>
+                    <a className='routeCard2' href="#">
+                        <img src="" alt="" />
+                        <div className='info'>
+                            <span className='num'>推薦路線 2</span>
+                            <h3 className='title'>中山站醉意市集</h3>
+                        </div>
+                    </a>
+                    <a className='routeCard3' href="#">
+                        <img src="" alt="" />
+                        <div className='info'>
+                            <span className='num'>推薦路線 3</span>
+                            <h3 className='title'>信義奢華浪漫之旅</h3>
+                        </div>
+                    </a>
                 </div>
             </section>
+
 
             {/* 酒精圖鑑 */}
 
