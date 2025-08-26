@@ -1,6 +1,4 @@
-import React from 'react'
-import Navbar from '../component/Navbar';
-import Footer from '../component/Footer';
+import '../css/EventDetailPage.css'
 import heroImg from '../images/eventDetailPage_heroBannerImg.png';
 import infoImg1 from '../images/eventDetailPage_infoImg1.png';
 import infoImg2 from '../images/eventDetailPage_infoImg2.png';
@@ -41,6 +39,7 @@ const EventDetailPage = () => {
                 <section className="infoSection">
                     {/* 活動資訊區 */}
                     <div className="infoBlock">
+                        {/* 活動資訊左側文案區 */}
                         <h2 className="blockTitle">活動資訊</h2>
                         <div className="infoCard">
                             <p>時間：每週四 20:00–23:30</p>
@@ -49,20 +48,20 @@ const EventDetailPage = () => {
                             <p>主題調酒限量供應 — 向爵士年代致敬的復古酒款</p>
                             <p>紳士與淑女之夜 — 穿上復古時尚，享受爵士的浪漫與自由</p>
                         </div>
+                        {/* 活動資訊右圖區 */}
+                        <figure className="photoBlock">
+                            <img className="photo" src={infoImg1} alt="活動現場照片 1" />
+                        </figure>
                     </div>
-
-                    {/* 活動資訊右圖區 */}
-                    <figure className="photoBlock">
-                        <img className="photo" src={infoImg1} alt="活動現場照片 1" />
-                    </figure>
-
-                    {/* 活動簡介左圖區 */}
-                    <figure className="photoBlock">
-                        <img className="photo" src={infoImg2} alt="活動現場照片 2" />
-                    </figure>
 
                     {/* 活動簡介區 */}
                     <div className="introBlock">
+                        {/* 活動簡介左圖區 */}
+                        <figure className="photoBlock">
+                            <img className="photo" src={infoImg2} alt="活動現場照片 2" />
+                        </figure>
+
+                        {/* 活動簡介右側文案區 */}
                         <h2 className="blockTitle">活動簡介</h2>
                         <div className="infoCard">
                             <p>紳士品酒之夜《JAZZ NIGHT》</p>
