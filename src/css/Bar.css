@@ -165,6 +165,7 @@ a {
   /* --路線清單-- */
 }
 .bar .barHeroFilter .mrtList {
+  justify-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -175,6 +176,7 @@ a {
   align-items: end;
 }
 .bar .barHeroFilter .mrtList .mrtItem {
+  display: flex;
   --line-color: #FAFAFA;
   flex-direction: column;
   align-items: center;
@@ -182,6 +184,8 @@ a {
   width: max-content;
 }
 .bar .barHeroFilter .mrtList .mrtItem .mrtBtn {
+  display: inline-block;
+  text-align: center;
   background: transparent;
   border: 0;
   color: #FAFAFA;
@@ -190,16 +194,22 @@ a {
   cursor: pointer;
 }
 .bar .barHeroFilter .mrtList .mrtItem .mrtLine {
-  background: var(--line-color);
+  background: #FAFAFA;
   display: block;
-  width: 100%;
+  width: 110px;
   height: 3px;
   margin: 8px auto 0;
   opacity: 0.9;
   transform-origin: center;
-  transition: transform 0.25s ease;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+.bar .barHeroFilter .mrtList .mrtItem:hover .mrtLine, .bar .barHeroFilter .mrtList .mrtItem:focus-within .mrtLine {
+  background: var(--line-color, #FAFAFA);
+  transform: scaleX(1.1);
 }
 .bar .barHeroFilter .barSearch {
+  justify-self: end;
+  width: 150px;
   grid-column: 7;
   display: grid;
   grid-template-columns: 20px 1fr;
@@ -209,8 +219,8 @@ a {
   border-bottom: 2px solid #AFAFAF;
 }
 .bar .barHeroFilter .barSearch .icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   opacity: 0.9;
 }
 .bar .barHeroFilter .barSearch input {

@@ -1,11 +1,12 @@
 @charset "UTF-8";
 .eventDetailPage {
-  padding: 0 80px;
+  padding: 100px 80px;
   position: relative;
   background-color: #FAFAFA;
   color: #171616;
   /* ========== Hero ========== */
-  /* ========== 活動資訊 + 簡介（兩欄） ========== */
+  /* ========== 活動資訊區 ========== */
+  /* ========== 活動簡介區 ========== */
   /* ========== 地圖 + 交通（兩欄） ========== */
   /* ========== 推薦區（卡片列表） ========== */
 }
@@ -65,37 +66,70 @@
   font-weight: 700;
   margin: 6px 0 0;
 }
-.eventDetailPage .infoSection {
+.eventDetailPage .infoSection .infoBlock {
+  position: relative;
+  align-items: flex-start;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  /* 左右等高關鍵 */
-  /* 左右間距 */
+  gap: 70px;
 }
-.eventDetailPage .infoSection .blockTitle {
+.eventDetailPage .infoSection .infoBlock .infoCard {
+  height: 290px;
+  border: 2px solid #171616;
+  padding: 10px 65px;
+}
+.eventDetailPage .infoSection .infoBlock .infoCard .blockTitle {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
 }
-.eventDetailPage .infoSection .infoCard {
-  border: 2px solid #171616;
-  padding: 35px 65px;
-}
-.eventDetailPage .infoSection .infoCard p {
+.eventDetailPage .infoSection .infoBlock .infoCard p {
   line-height: 1.8;
   margin: 6px 0;
 }
-.eventDetailPage .infoSection .infoCard address {
+.eventDetailPage .infoSection .infoBlock .infoCard address {
   font-style: normal;
 }
-.eventDetailPage .infoSection .photoBlock {
+.eventDetailPage .infoSection .infoBlock .photoBlock1 {
   margin: 0;
+  height: 290px;
 }
-.eventDetailPage .infoSection .photoBlock .photo {
+.eventDetailPage .infoSection .infoBlock .photoBlock1 .photo {
   width: 100%;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
+  aspect-ratio: 16/9;
+}
+.eventDetailPage .introBlock {
+  position: relative;
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 70px;
+}
+.eventDetailPage .introBlock .photoBlock2 {
+  margin: 0;
+  height: 290px;
+}
+.eventDetailPage .introBlock .photoBlock2 .photo {
+  width: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 16/9;
+}
+.eventDetailPage .introBlock .blockTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.eventDetailPage .introBlock .infoCard {
+  height: 290px;
+  border: 2px solid #171616;
+  padding: 10px 65px;
 }
 .eventDetailPage .mapSection {
   display: flex;

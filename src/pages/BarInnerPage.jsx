@@ -13,7 +13,6 @@ import arrowImg3 from '../images/barInnerPage-left-arrow.png';
 const BarInnerPage = () => {
     return (
         <>
-            <Navbar />
 
             <main className="barInnerPage">
                 {/* Hero 區 */}
@@ -93,7 +92,6 @@ const BarInnerPage = () => {
 
             </main>
 
-            <Footer />
         </>
     )
 }
