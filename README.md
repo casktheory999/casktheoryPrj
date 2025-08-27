@@ -1,4 +1,4 @@
-# 專題網頁（gh-pages）：
+# 專題網頁（gh-pages）：https://casktheory999.github.io/casktheoryPrj/
 ## 俞老師
 - 0814：選單ok
 - 0827：請放上專題網址
