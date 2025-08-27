@@ -1,10 +1,9 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+import { useState } from 'react'
 import { Route, Routes} from 'react-router-dom'
 import './App.css'
 import Navbar from './component/Navbar'
 import Footer from './component/Footer'
+import ScrollToTop from './component/ScrollToTop.jsx'
 import Home from './pages/Home'
 import News from './pages/News'
 import Illustrations from './pages/Illustrations'
@@ -18,6 +17,7 @@ import EventDetailPage from './pages/EventDetailPage'
 export default function App(){
   return(
     <div className='wrap'>
+      <ScrollToTop/>
       <Navbar/>
       <div className='frist'>
       <Routes>

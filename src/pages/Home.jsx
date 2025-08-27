@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../scss/Home.scss'
+import MapCarousel from '../component/MapCarousel'
 
 const Home = () => {
     return (
@@ -51,35 +52,28 @@ const Home = () => {
 
             {/* 酒吧地圖 */}
 
-            <section className='map'>
-                <div className='map-head'>
-                    <h2>0</h2>
-                </div>
-                <div className='card-row'>
-
-                </div>
-            </section>
-
+            <MapCarousel/>
+            
             {/* 路跑路線 */}
             <section className='route'>
                 <h2 className='routeTitle'>酒精路跑路線</h2>
                 <div className='routeCards'>
                     <a className='routeCard1' href="#">
-                        <img src="" alt="" />
+                        <img src="/images/善導寺微醺漫步.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 1</span>
                             <h3 className='title'>善導寺微醺漫步</h3>
                         </div>
                     </a>
                     <a className='routeCard2' href="#">
-                        <img src="" alt="" />
+                        <img src="/images/中山站醉意市集.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 2</span>
                             <h3 className='title'>中山站醉意市集</h3>
                         </div>
                     </a>
                     <a className='routeCard3' href="#">
-                        <img src="" alt="" />
+                        <img src="/images/信義奢華浪漫之旅.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 3</span>
                             <h3 className='title'>信義奢華浪漫之旅</h3>
@@ -101,7 +95,6 @@ const Home = () => {
                         <button className='active'>基酒</button>
                         <button>經典調酒</button>
                         <button>大眾調酒</button>
-                        <button>家庭調酒</button>
                     </div>
                 </div>
                 <div className='Illustrations-body'>
@@ -112,18 +105,9 @@ const Home = () => {
                         </div>
                         <p>「基酒是文化的基礎，麥芽與橡木、杜松與草本、甘蔗與果香...，從原料到工藝，乘載著各式風味的可能性，體驗飲酒文化就從基酒開始。」</p>
                         <div className='cardRow'>
-                            <figure className='card'>
-                                <img src="/images/newvodka.png" alt="伏特加" />
-                                <figcaption>伏特加</figcaption>
-                            </figure>
-                            <figure className='card'>
-                                <img src="/images/image17.png" alt="威士忌" />
-                                <figcaption>威士忌</figcaption>
-                            </figure>
-                            <figure className='card'>
-                                <img src="/images/Subtract.png" alt="琴酒" />
-                                <figcaption>琴酒</figcaption>
-                            </figure>
+                            <img src="/images/newvodka.png" alt="伏特加" />
+                            <img src="/images/image17.png" alt="威士忌" />
+                            <img src="/images/Subtract.png" alt="琴酒" />
                         </div>
                         <Link className='goIllBtn' to="/Illustrations">前往圖鑑目錄</Link>
                     </div>
