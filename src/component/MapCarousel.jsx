@@ -1,8 +1,8 @@
 import { useMemo, useState, useRef, useEffect } from "react";
 
 
-const speedWheel = 0.1;
-const EPS = 0.1;
+const speedWheel = 0.08;
+const EPS = 1;
 
 const clamp = (n, min, max) => Math.max(min, Math.min(n, max));
 
@@ -73,6 +73,7 @@ export default function MapCarousel() {
 
     const sectionRef = useRef(null);
     const progressRef = useRef(progress);
+    const isScrollingRef = useRef(false);
     useEffect(() => { progressRef.current = progress; }, [progress]);
 
     useEffect(() => {
@@ -85,19 +86,47 @@ export default function MapCarousel() {
             const atStart = p <= 0 + EPS && goingUp;
             const atEnd = p >= 100 - EPS && goingDown;
             if (atStart || atEnd) {
+                isScrollingRef.current = false;
                 return;
             }
             e.preventDefault();
             e.stopPropagation();
-            setProgress((prev) => clamp(prev + e.deltaY * speedWheel, 0, 100));
+            isScrollingRef.current = true;
+
+            setProgress((prev) => {
+                const newProgress = clamp(prev + e.deltaY * speedWheel, 0, 100);
+                return newProgress;
+            });
         };
-        el.addEventListener("wheel", onWheel, { passive: false });
-        return () => el.removeEventListener("wheel", onWheel);
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        el.addEventListener("wheel", onWheel, { passive: false });
+                    } else {
+                        el.removeEventListener("wheel", onWheel);
+                        isScrollingRef.current = false;
+                    }
+                });
+            },
+            {
+                threshold: 0.5,
+                rootMargin: '-10% 0px'
+            }
+        );
+
+        observer.observe(el);
+
+        return () => {
+            observer.disconnect();
+            el.removeEventListener("wheel", onWheel);
+        };
     }, []);
 
 
     const onItemClick = (i) => {
-        const next = (i / count) * 100 + 10;
+        const next = (i / (count - 1)) * 100;
         setProgress(clamp(next, 0, 100));
     };
 

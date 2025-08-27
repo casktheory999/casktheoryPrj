@@ -18,10 +18,10 @@ const Home = () => {
                     <h2 className='brandZh'>酒桶理論</h2>
                 </div>
                 <figure className='heroRightTop'>
-                    <img src="/images/man-is-pouring-strong-alcohol-drink-into-glass.jpg" alt="酒吧吧台與酒杯" />{/*等圖片*/}
+                    <img src="images/man-is-pouring-strong-alcohol-drink-into-glass.jpg" alt="酒吧吧台與酒杯" />{/*等圖片*/}
                 </figure>
                 <figure className='heroLeftBottom'>
-                    <img src="/images/half-lime-with-cocktail-drink-garnish-with-cocktail-white-desk.jpg" alt="酒吧吧台與酒杯" />{/*等圖片*/}
+                    <img src="images/half-lime-with-cocktail-drink-garnish-with-cocktail-white-desk.jpg" alt="酒吧吧台與酒杯" />{/*等圖片*/}
                 </figure>
                 <div className='heroRightBottom'>
                     <p className='slogan'>「從經典到創新，打開<span className='Bartending'>調酒</span>的全景視野」</p>
@@ -35,7 +35,7 @@ const Home = () => {
                 <div className='newsTitle'>酒吧活動消息</div>
                 {/* 中：宣傳海報 */}
                 <figure className='newsPoster'>
-                    <img src='/images/news.webp' alt="宣傳海報" />
+                    <img src='images/news.webp' alt="宣傳海報" />
                 </figure>
                 {/* 右：新聞列表 */}
                 <div className='newsList'>
@@ -59,21 +59,21 @@ const Home = () => {
                 <h2 className='routeTitle'>酒精路跑路線</h2>
                 <div className='routeCards'>
                     <a className='routeCard1' href="#">
-                        <img src="/images/善導寺微醺漫步.jpg" alt="" />
+                        <img src="images/善導寺微醺漫步.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 1</span>
                             <h3 className='title'>善導寺微醺漫步</h3>
                         </div>
                     </a>
                     <a className='routeCard2' href="#">
-                        <img src="/images/中山站醉意市集.jpg" alt="" />
+                        <img src="images/中山站醉意市集.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 2</span>
                             <h3 className='title'>中山站醉意市集</h3>
                         </div>
                     </a>
                     <a className='routeCard3' href="#">
-                        <img src="/images/信義奢華浪漫之旅.jpg" alt="" />
+                        <img src="images/信義奢華浪漫之旅.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 3</span>
                             <h3 className='title'>信義奢華浪漫之旅</h3>
@@ -87,7 +87,7 @@ const Home = () => {
 
             <section className='Illustrations'>
                 <div className='leftImg'>
-                    <img src="/images/glass.png" alt="酒杯裝飾" />
+                    <img src="images/glass.png" alt="酒杯裝飾" />
                 </div>
                 <div className='Illustrations-nav'>
                     <h2>酒精圖鑑</h2>
@@ -105,9 +105,9 @@ const Home = () => {
                         </div>
                         <p>「基酒是文化的基礎，麥芽與橡木、杜松與草本、甘蔗與果香...，從原料到工藝，乘載著各式風味的可能性，體驗飲酒文化就從基酒開始。」</p>
                         <div className='cardRow'>
-                            <img src="/images/newvodka.png" alt="伏特加" />
-                            <img src="/images/image17.png" alt="威士忌" />
-                            <img src="/images/Subtract.png" alt="琴酒" />
+                            <img src="images/newvodka.png" alt="伏特加" />
+                            <img src="images/image17.png" alt="威士忌" />
+                            <img src="images/Subtract.png" alt="琴酒" />
                         </div>
                         <Link className='goIllBtn' to="/Illustrations">前往圖鑑目錄</Link>
                     </div>
