@@ -1,4 +1,5 @@
 import { useMemo, useState, useRef, useEffect } from "react";
+import { Link } from 'react-router-dom'
 
 
 const speedWheel = 0.08;
@@ -131,26 +132,34 @@ export default function MapCarousel() {
     };
 
     return (
-        <section className="map" ref={sectionRef}>
-            <div className="carousel">
-                {bars.map((bar, i) => (
-                    <div
-                        key={i}
-                        className="carousel-item"
-                        onClick={() => onItemClick(i)}
-                        style={{
-                            "--zIndex": zIndexes[i],
-                            "--active": (i - active) / count,
-                        }}
-                    >
-                        <div className="carousel-box">
-                            {bar.mrt && <div className="mrt">{bar.mrt}</div>}
-                            <div className="title">{bar.title}</div>
-                            <div className="num">{String(i + 1).padStart(2, "0")}</div>
-                            <img src={bar.img} alt={bar.title} />
+        <section className="mapSection">
+            <div className="mapTitleBox">
+                <h2 className="mapTitle">酒吧地圖</h2>
+            </div>
+            <div className="map" ref={sectionRef}>
+                <div className="carousel">
+                    {bars.map((bar, i) => (
+                        <div
+                            key={i}
+                            className="carousel-item"
+                            onClick={() => onItemClick(i)}
+                            style={{
+                                "--zIndex": zIndexes[i],
+                                "--active": (i - active) / count,
+                            }}
+                        >
+                            <div className="carousel-box">
+                                {bar.mrt && <div className="mrt">{bar.mrt}</div>}
+                                <div className="title">{bar.title}</div>
+                                <div className="num">{String(i + 1).padStart(2, "0")}</div>
+                                <img src={bar.img} alt={bar.title} />
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+            </div>
+            <div className="goToBar">
+                <Link className='goBarBtn' to="/Bar">前往酒吧列表</Link>
             </div>
         </section>
     );

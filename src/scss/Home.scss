@@ -37,28 +37,20 @@ $mediaXl: "min-width:971px";
     color: $pri-white;
     position: relative;
     width: 100%;
-    height: 900px; // 基礎以 1920px 設計，高度增加
-    min-height: 900px;
+    height: 800px;
+    min-height: 800px;
     margin: 0 auto;
-    padding: 80px 0 70px 0; // 增加 padding
+    padding: 76px 0 68px 0;
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
         "left rightTop"
         "left slogan";
-    column-gap: 40px; // 增加間距
+    column-gap: 32px;
     overflow: hidden;
     box-sizing: border-box;
     z-index: 1;
-
-    // 桌面版 (970px 以下)
-    @include desktop {
-        height: 800px;
-        min-height: 800px;
-        padding: 76px 0 68px 0;
-        column-gap: 32px;
-    }
 
     // 平板版
     @include tablet {
@@ -95,15 +87,9 @@ $mediaXl: "min-width:971px";
         flex-direction: column;
         justify-content: center;
         justify-self: center;
-        transform: translate(350px, -120px); // 1920px 基礎位置
-        gap: 20px;
+        transform: translate(280px, -100px);
+        gap: 16px;
         z-index: 2;
-
-        // 桌面版調整
-        @include desktop {
-            transform: translate(280px, -100px);
-            gap: 16px;
-        }
 
         // 平板版
         @include tablet {
@@ -121,21 +107,15 @@ $mediaXl: "min-width:971px";
         }
     }
 
+
     .brand {
         margin: 0;
         font-weight: 800;
         line-height: 1.05;
-        font-size: 220px; // 1920px 基礎字體
-        letter-spacing: 0.12em;
+        font-size: 180px;
+        letter-spacing: 0.1em;
         display: grid;
-        row-gap: 10px;
-
-        // 桌面版
-        @include desktop {
-            font-size: 180px;
-            letter-spacing: 0.1em;
-            row-gap: 8px;
-        }
+        row-gap: 8px;
 
         // 平板版
         @include tablet {
@@ -158,12 +138,7 @@ $mediaXl: "min-width:971px";
 
         .brandLine--top {
             justify-self: start;
-            transform: translateX(-180px); // 1920px 基礎位移
-
-            // 桌面版
-            @include desktop {
-                transform: translateX(-150px);
-            }
+            transform: translateX(-150px);
 
             // 平板版
             @include tablet {
@@ -179,12 +154,7 @@ $mediaXl: "min-width:971px";
 
         .brandLine--bottom {
             justify-self: end;
-            transform: translateX(120px); // 1920px 基礎位移
-
-            // 桌面版
-            @include desktop {
-                transform: translateX(100px);
-            }
+            transform: translateX(100px);
 
             // 平板版
             @include tablet {
@@ -199,25 +169,18 @@ $mediaXl: "min-width:971px";
         }
     }
 
+
     .brandZh {
         position: absolute;
-        left: 90%;
-        top: 58%;
+        left: 88%;
+        top: 55%;
         transform: translate(-10px, -8px);
         white-space: nowrap;
-        font-size: 38px; // 1920px 基礎字體
-        letter-spacing: 0.6em;
+        font-size: 32px;
+        letter-spacing: .5em;
         font-weight: 600;
         margin: 0;
         opacity: .95;
-
-        // 桌面版
-        @include desktop {
-            font-size: 32px;
-            letter-spacing: .5em;
-            left: 88%;
-            top: 55%;
-        }
 
         // 平板版
         @include tablet {
@@ -241,14 +204,8 @@ $mediaXl: "min-width:971px";
         grid-area: slogan;
         align-self: center;
         justify-self: start;
-        transform: translate(-200px, 60px); // 1920px 基礎位移
-        max-width: 44vw;
-
-        // 桌面版
-        @include desktop {
-            transform: translate(-160px, 50px);
-            max-width: 46vw;
-        }
+        transform: translate(-160px, 50px);
+        max-width: 46vw;
 
         // 平板版
         @include tablet {
@@ -267,16 +224,10 @@ $mediaXl: "min-width:971px";
 
         .slogan {
             margin: 0;
-            font-size: 38px; // 1920px 基礎字體
-            line-height: 1.65;
+            font-size: 32px;
+            line-height: 1.6;
             letter-spacing: .02em;
             opacity: .95;
-
-            // 桌面版
-            @include desktop {
-                font-size: 32px;
-                line-height: 1.6;
-            }
 
             // 平板版
             @include tablet {
@@ -300,16 +251,10 @@ $mediaXl: "min-width:971px";
         grid-area: rightTop;
         align-self: start;
         justify-self: end;
-        width: 700px; // 1920px 基礎尺寸
-        height: 240px;
+        width: 600px;
+        height: 200px;
         border-radius: 999px 0 0 999px;
         overflow: hidden;
-
-        // 桌面版
-        @include desktop {
-            width: 600px;
-            height: 200px;
-        }
 
         // 平板版
         @include tablet {
@@ -338,17 +283,11 @@ $mediaXl: "min-width:971px";
         grid-area: left;
         align-self: end;
         justify-self: start;
-        width: 700px; // 1920px 基礎尺寸
-        height: 240px;
+        width: 600px;
+        height: 200px;
         border-radius: 0 999px 999px 0;
         overflow: hidden;
         z-index: 1;
-
-        // 桌面版
-        @include desktop {
-            width: 600px;
-            height: 200px;
-        }
 
         // 平板版
         @include tablet {
@@ -373,6 +312,13 @@ $mediaXl: "min-width:971px";
             display: block;
         }
     }
+
+    .heroRightBottom {
+
+        p {
+            font-size: 32px;
+        }
+    }
 }
 
 .hero::before {
@@ -380,20 +326,14 @@ $mediaXl: "min-width:971px";
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 55%; // 1920px 基礎尺寸
-    height: 55%;
-    background: url(/images/gptindexbg2_op1.png);
+    width: 50%;
+    height: 50%;
+    background: url(images/gptindexbg2_op1.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     pointer-events: none;
     z-index: 0;
-
-    // 桌面版
-    @include desktop {
-        width: 50%;
-        height: 50%;
-    }
 
     // 平板版
     @include tablet {
@@ -407,28 +347,21 @@ $mediaXl: "min-width:971px";
     }
 }
 
+
+
 /*----最新消息----*/
 .news {
-    height: 900px; // 1920px 基礎高度
-    min-height: 900px;
+    height: 100vh;
     position: relative;
     isolation: isolate;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 320px 500px 1fr; // 1920px 基礎尺寸
-    gap: 40px 44px;
-    padding: 100px 80px 80px;
+    grid-template-columns: clamp(72px, 15vw, 400px) clamp(320px, 36vw, 650px) 1fr;
+    align-items: start;
+    gap: clamp(16px, 3vw, 32px);
+    padding: 90px 60px 60px;
     background: $pri-white;
     color: $pri-dark;
-
-    // 桌面版
-    @include desktop {
-        height: 800px;
-        min-height: 800px;
-        grid-template-columns: 270px 420px 1fr;
-        gap: 32px 36px;
-        padding: 90px 60px 60px;
-    }
 
     // 平板版
     @include tablet {
@@ -447,21 +380,16 @@ $mediaXl: "min-width:971px";
         padding: 40px 20px;
     }
 
+
     /* ===== 左：直排標題 ===== */
     .newsTitle {
         writing-mode: vertical-rl;
         text-orientation: upright;
-        font-size: 48px; // 1920px 基礎字體
-        letter-spacing: .2em;
+        font-size: 40px;
+        letter-spacing: .18em;
         align-self: end;
         margin: 0;
         justify-self: end;
-
-        // 桌面版
-        @include desktop {
-            font-size: 40px;
-            letter-spacing: .18em;
-        }
 
         // 平板版
         @include tablet {
@@ -483,13 +411,8 @@ $mediaXl: "min-width:971px";
     /* ===== 中：宣傳海報 ===== */
     .newsPoster {
         margin: 0;
-        align-self: end;
-        height: 750px; // 1920px 基礎高度
-
-        // 桌面版
-        @include desktop {
-            height: 650px;
-        }
+        height: auto;
+        max-height: 650px;
 
         // 平板版
         @include tablet {
@@ -505,8 +428,7 @@ $mediaXl: "min-width:971px";
 
         img {
             height: 100%;
-            width: auto;
-            max-width: 100%;
+            max-height: 650px;
             display: block;
             object-fit: contain;
         }
@@ -518,17 +440,11 @@ $mediaXl: "min-width:971px";
         align-self: start;
         position: relative;
         display: grid;
-        gap: 18px; // 1920px 基礎間距
-        max-height: calc(900px - 100px - 80px);
+        gap: 14px;
+        max-height: calc(800px - 90px - 60px);
         overflow: auto;
         overscroll-behavior: contain;
         scrollbar-gutter: stable;
-
-        // 桌面版
-        @include desktop {
-            gap: 14px;
-            max-height: calc(800px - 90px - 60px);
-        }
 
         // 平板版
         @include tablet {
@@ -537,6 +453,8 @@ $mediaXl: "min-width:971px";
 
         // 手機版
         @include mobile {
+            justify-content: normal;
+            justify-items: center; 
             max-height: none;
             overflow: visible;
             gap: 16px;
@@ -546,16 +464,10 @@ $mediaXl: "min-width:971px";
             position: relative;
             list-style: none;
             margin: 0;
-            padding: 0 0 0 32px; // 1920px 基礎 padding
+            padding: 0 0 0 28px;
             display: grid;
-            gap: 16px;
+            gap: 12px;
             color: inherit;
-
-            // 桌面版
-            @include desktop {
-                padding: 0 0 0 28px;
-                gap: 12px;
-            }
 
             // 平板版
             @include tablet {
@@ -571,12 +483,7 @@ $mediaXl: "min-width:971px";
 
             li {
                 position: relative;
-                padding: 12px 0 14px 0; // 1920px 基礎 padding
-
-                // 桌面版
-                @include desktop {
-                    padding: 10px 0 12px 0;
-                }
+                padding: 10px 0 12px 0;
 
                 // 平板版
                 @include tablet {
@@ -593,12 +500,6 @@ $mediaXl: "min-width:971px";
         a {
             text-decoration: none;
             display: inline-block;
-            font-size: 18px; // 1920px 基礎字體
-
-            // 桌面版
-            @include desktop {
-                font-size: 16px;
-            }
 
             // 手機版
             @include mobile {
@@ -615,7 +516,7 @@ $mediaXl: "min-width:971px";
     .goNewsBtn {
         justify-self: end;
         display: inline-block;
-        padding: 12px 18px; // 1920px 基礎 padding
+        padding: 10px 14px;
         border-radius: 999px;
         background: $pri-dark;
         color: $pri-white;
@@ -623,13 +524,6 @@ $mediaXl: "min-width:971px";
         text-decoration: none;
         transition: transform .15s ease;
         margin-top: 6px;
-        font-size: 18px;
-
-        // 桌面版
-        @include desktop {
-            padding: 10px 14px;
-            font-size: 16px;
-        }
 
         // 手機版
         @include mobile {
@@ -664,19 +558,12 @@ $mediaXl: "min-width:971px";
     .newsList ul li::before {
         content: "";
         position: absolute;
-        left: -47px; // 1920px 基礎位置
+        left: -43px;
         top: 16px;
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         background: #000;
-
-        // 桌面版
-        @include desktop {
-            left: -43px;
-            width: 8px;
-            height: 8px;
-        }
 
         // 平板版
         @include tablet {
@@ -690,9 +577,10 @@ $mediaXl: "min-width:971px";
             display: none;
         }
     }
+
+
 }
 
-// 背景浮水印
 .news::before,
 .news::after {
     position: absolute;
@@ -717,22 +605,9 @@ $mediaXl: "min-width:971px";
     content: "N";
     justify-content: flex-start;
     align-items: flex-start;
-    padding-left: 50px; // 1920px 基礎
-    padding-top: 15px;
-    font-size: 500px;
-
-    // 桌面版
-    @include desktop {
-        font-size: 400px;
-        padding-left: 40px;
-        padding-top: 10px;
-    }
-
-    // 平板版
-    @include tablet {
-        font-size: 300px;
-        padding-left: 30px;
-    }
+    left: clamp(12px, 9vw, 50px);
+    top: clamp(12px, 9vw, 10px);
+    font-size: clamp(120px, 28vw, 400px);
 }
 
 /*--Ws--*/
@@ -740,35 +615,23 @@ $mediaXl: "min-width:971px";
     content: "Ws";
     justify-content: flex-end;
     align-items: flex-end;
-    padding-bottom: 40px; // 1920px 基礎
-    font-size: 500px;
-
-    // 桌面版
-    @include desktop {
-        font-size: 400px;
-        padding-bottom: 30px;
-    }
-
-    // 平板版
-    @include tablet {
-        font-size: 300px;
-        padding-bottom: 20px;
-    }
+    right: -30px;
+    bottom: clamp(12px, 9vw, 25px);
+    font-size: clamp(120px, 28vw, 400px);
 }
 
-/*----酒吧地圖----*/
-.map {
-    width: 100%;
-    height: 900px; // 1920px 基礎高度
-    background-color: $pri-dark;
-    overflow: hidden;
-    font-family: 'Roboto', serif;
-    background: linear-gradient(135deg, black, #220033);
 
-    // 桌面版
-    @include desktop {
-        height: 800px;
-    }
+
+
+
+/*----酒吧地圖----*/
+.mapSection {
+    height: 100vh;
+    position: relative;
+    background: $pri-dark;
+    color: $pri-white;
+    overflow: hidden;
+    isolation: isolate;
 
     // 手機版
     @include mobile {
@@ -776,157 +639,213 @@ $mediaXl: "min-width:971px";
         min-height: 600px;
     }
 
-    .carousel {
-        position: relative;
-        z-index: 1;
-        height: 100vh;
-        overflow: hidden;
-        pointer-events: none;
+    .mapTitleBox {
+        position: absolute;
+        top: clamp(18px, 9vw, 200px);
+        right: clamp(18px, 10vw, 200px);
+        z-index: 2;
+
+        .mapTitle {
+            margin: 0;
+            font-size: 64px;
+            font-weight: 700;
+            color: $pri-white;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+
+            @include tablet {
+                font-size: 48px;
+            }
+
+            @include mobile {
+                position: relative;
+                justify-content: center;
+                top: auto;
+                left: auto;
+                transform: none;
+                font-size: clamp(32px, 8vw, 40px);
+                text-align: center;
+                margin-bottom: 40px;
+                gap: 12px;
+            }
+        }
     }
 
-    .carousel-item {
-        --items: 10;
-        --width: clamp(200px, 25vw, 400px); // 1920px 基礎
-        --height: clamp(280px, 35vw, 520px);
-        --x: calc(var(--active) * 900%);
-        --y: calc(var(--active) * 250%);
-        --rot: calc(var(--active) * 140deg);
-        --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
-        
-        overflow: hidden;
-        position: absolute;
-        z-index: var(--zIndex);
-        width: var(--width);
-        height: var(--height);
-        margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
-        border-radius: 10px;
-        top: 50%;
-        left: 50%;
-        user-select: none;
-        transform-origin: 0% 100%;
-        box-shadow: 0 10px 50px 10px rgba(0, 0, 0, .5);
-        background: black;
-        pointer-events: all;
-        transform: translate(var(--x), var(--y)) rotate(var(--rot));
-        transition: transform .8s cubic-bezier(0, 0.02, 0, 1);
 
-        // 桌面版
-        @include desktop {
+    .map {
+        width: 100%;
+        height: 100vh;
+        min-height: 800px;
+        position: relative;
+        background-color: transparent;
+        overflow: hidden;
+        font-family: 'Roboto', serif;
+        z-index: 1;
+
+        @include mobile {
+            height: 100vh;
+            min-height: 600px;
+        }
+
+
+        .carousel {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .carousel-item {
+            --items: 10;
             --width: clamp(150px, 30vw, 300px);
             --height: clamp(200px, 40vw, 400px);
             --x: calc(var(--active) * 800%);
             --y: calc(var(--active) * 200%);
             --rot: calc(var(--active) * 120deg);
-        }
-
-        // 手機版調整
-        @include mobile {
-            --width: clamp(120px, 35vw, 200px);
-            --height: clamp(160px, 45vw, 260px);
-            --x: calc(var(--active) * 600%);
-            --y: calc(var(--active) * 150%);
-            --rot: calc(var(--active) * 80deg);
-        }
-
-        .carousel-box {
+            --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+            overflow: hidden;
             position: absolute;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
-            opacity: var(--opacity);
-            font-family: 'Orelo-sw-db', serif;
+            z-index: var(--zIndex);
+            width: var(--width);
+            height: var(--height);
+            margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+            border-radius: 10px;
+            top: 50%;
+            left: 50%;
+            user-select: none;
+            transform-origin: 0% 100%;
+            box-shadow: 0 10px 50px 10px rgba(0, 0, 0, .5);
+            background: black;
+            pointer-events: all;
+            transform: translate(var(--x), var(--y)) rotate(var(--rot));
+            transition: transform .8s cubic-bezier(0, 0.02, 0, 1);
 
-            &:before {
-                content: '';
+            // 手機版調整
+            @include mobile {
+                --width: clamp(120px, 35vw, 200px);
+                --height: clamp(160px, 45vw, 260px);
+                --x: calc(var(--active) * 600%);
+                --y: calc(var(--active) * 150%);
+                --rot: calc(var(--active) * 80deg);
+            }
+
+            .carousel-box {
                 position: absolute;
                 z-index: 1;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: linear-gradient(to bottom, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5));
+                transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+                opacity: var(--opacity);
+                font-family: 'Orelo-sw-db', serif;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(to bottom, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5));
+                }
             }
-        }
 
-        .mrt {
-            position: absolute;
-            z-index: 1;
-            color: $pri-white;
-            top: 10px;
-            left: 10px;
-            font-size: clamp(14px, 2vw, 18px); // 1920px 基礎
-        }
+            .mrt {
+                position: absolute;
+                z-index: 1;
+                color: $pri-white;
+            }
 
-        .title {
-            position: absolute;
-            z-index: 1;
-            color: $pri-white;
-            bottom: 20px;
-            left: 20px;
-            transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
-            font-size: clamp(24px, 2.5vw, 36px); // 1920px 基礎
-            text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
-
-            // 桌面版
-            @include desktop {
+            .title {
+                position: absolute;
+                z-index: 1;
+                color: $pri-white;
+                bottom: 20px;
+                left: 20px;
+                transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
                 font-size: clamp(20px, 3vw, 30px);
+                text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+
+                // 手機版
+                @include mobile {
+                    font-size: clamp(16px, 4vw, 20px);
+                    bottom: 15px;
+                    left: 15px;
+                }
             }
 
-            // 手機版
-            @include mobile {
-                font-size: clamp(16px, 4vw, 20px);
-                bottom: 15px;
-                left: 15px;
-            }
-        }
-
-        .num {
-            position: absolute;
-            z-index: 1;
-            color: $pri-white;
-            top: 10px;
-            right: 20px;
-            transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
-            font-size: clamp(24px, 8vw, 100px); // 1920px 基礎
-
-            // 桌面版
-            @include desktop {
+            .num {
+                position: absolute;
+                z-index: 1;
+                color: $pri-white;
+                top: 10px;
+                left: 20px;
+                transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
                 font-size: clamp(20px, 10vw, 80px);
             }
 
-            // 手機版
-            @include mobile {
-                font-size: clamp(16px, 8vw, 40px);
-                right: 15px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                pointer-events: none;
             }
         }
+    }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none;
-        }
+    .goToBar {
+        position: absolute;
+        display: inline-block;
+        width: auto;
+        font-weight: 800;
+        padding: 10px 14px;
+        left: 150px;
+        bottom: 100px;
+        border-radius: 5px;
+        background: $pri-dark;
+        color: $pri-white;
+        border: 1px solid $pri-white;
+        text-decoration: none;
+        transition: transform .15s ease;
+        justify-self: end;
+        z-index: 99;
+    }
+
+    .goToBar:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.mapSection::before {
+    content: "Map";
+    position: absolute;
+    top: clamp(18px, 10vw, 30px);
+    right: clamp(12px, 9vw, 50px);
+    font-weight: 800;
+    font-size: clamp(120px, 28vw, 300px);
+    line-height: 1;
+    letter-spacing: .03em;
+    color: rgba(255, 255, 255, .06);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+
+    // 手機版
+    @include mobile {
+        display: none;
     }
 }
 
 /*---路跑路線---*/
 .route {
     width: 100%;
-    height: 800px;
+    height: 100vh;
     background-color: $pri-dark;
     color: $pri-white;
     position: relative;
-    overflow: hidden;
-    padding: 80px 40px;
-
-    @include desktop {
-        height: 800px;
-        padding: 70px 30px;
-    }
+    overflow-x: hidden;
 
     @include tablet {
         height: 700px;
@@ -942,9 +861,8 @@ $mediaXl: "min-width:971px";
     &::before {
         content: "Route";
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-75%, -140%); // 完美居中
+        inset: 0 auto 0 0;
+        transform: translate(6%, -6%);
         font-weight: 800;
         font-size: 300px;
         line-height: 1;
@@ -954,11 +872,6 @@ $mediaXl: "min-width:971px";
         pointer-events: none;
         user-select: none;
         z-index: 0;
-        white-space: nowrap;
-
-        @include desktop {
-            font-size: 300px;
-        }
 
         @include tablet {
             font-size: 200px;
@@ -970,20 +883,11 @@ $mediaXl: "min-width:971px";
     }
 
     .routeTitle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-110%, -235%); // 與 Route 英文完美重疊
-        margin: 0;
-        font-size: 76px;
+        margin: 0 0 24px;
+        font-size: 64px;
         font-weight: 700;
         letter-spacing: .04em;
-        z-index: 1;
-        white-space: nowrap;
-
-        @include desktop {
-            font-size: 64px;
-        }
+        transform: translate(230px, 100px);
 
         @include tablet {
             font-size: 48px;
@@ -997,39 +901,85 @@ $mediaXl: "min-width:971px";
             font-size: clamp(32px, 8vw, 40px);
             text-align: center;
             margin-bottom: 40px;
+            gap: 12px;
         }
     }
 
     .routeCards {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        gap: 20px;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        gap: 0;
+        padding: 0;
         position: relative;
-        z-index: 2;
+        overflow: visible;
+        z-index: 1;
 
         @include mobile {
             flex-direction: column;
-            gap: 20px;
             height: auto;
-            padding-top: 60px;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .routeCard1 {
+            --dx: -90px;
+            --dy: 0px;
+            --z: 1;
+
+            @include mobile {
+                --dx: 0;
+                --dy: 0;
+                --z: 1;
+            }
+        }
+
+        .routeCard2 {
+            --dx: -40px;
+            --dy: 180px;
+            --z: 2;
+            margin-right: -160px;
+
+            @include mobile {
+                --dx: 0;
+                --dy: 0;
+                --z: 1;
+                margin-right: 0;
+            }
+        }
+
+        .routeCard3 {
+            --dx: 50px;
+            --dy: 360px;
+            --z: 3;
+            margin-right: -160px;
+
+            @include mobile {
+                --dx: 0;
+                --dy: 0;
+                --z: 1;
+                margin-right: 0;
+            }
         }
 
         .routeCard1,
         .routeCard2,
         .routeCard3 {
-            width: 600px;
-            height: 200px;
+            width: 720px;
+            height: 225px;
             position: relative;
             display: block;
+            grid-column: 1 / -1;
             border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
+            isolation: isolate;
             text-decoration: none;
             color: inherit;
             transition: transform .25s ease;
-            flex-shrink: 0;
+            aspect-ratio: 16 / 6;
+            transform: translate(var(--dx, 0), var(--dy, 0));
+            z-index: var(--z, 1);
 
             @include desktop {
                 width: 480px;
@@ -1067,10 +1017,9 @@ $mediaXl: "min-width:971px";
             .info {
                 position: absolute;
                 inset: 0;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                padding: 24px;
+                display: grid;
+                align-content: start;
+                padding: 18px;
                 background: linear-gradient(to bottom,
                         rgba(0, 0, 0, .0) 0%,
                         rgba(0, 0, 0, .25) 35%,
@@ -1086,11 +1035,11 @@ $mediaXl: "min-width:971px";
                 }
 
                 .num {
+                    align-self: start;
                     display: inline-block;
-                    padding: 0 12px;
-                    font-size: 18px;
+                    padding: 0 10px;
+                    font-size: 16px;
                     letter-spacing: .06em;
-                    margin-bottom: 8px;
 
                     @include desktop {
                         font-size: 16px;
@@ -1105,8 +1054,8 @@ $mediaXl: "min-width:971px";
 
                 .title {
                     margin: 0;
-                    padding: 0 12px;
-                    font-size: 28px;
+                    padding: 0 10px;
+                    font-size: 24px;
                     font-weight: 700;
                     text-shadow: 0 2px 8px rgba(0, 0, 0, .5);
 
@@ -1123,29 +1072,24 @@ $mediaXl: "min-width:971px";
             }
         }
     }
+
 }
 
 /*----酒精圖鑑----*/
+
 .Illustrations {
     width: 100%;
-    height: 1000px; // 增加高度給按鈕預留空間
+    height: 800px;
     position: relative;
     display: grid;
-    grid-template-columns: 220px 350px 1fr;
-    gap: 30px;
+    grid-template-columns: 180px 300px 1fr;
+    gap: 24px;
     color: $pri-dark;
     background-color: $pri-white;
     border-radius: 16px;
-    padding: 100px 80px 120px 0; // 增加底部 padding
+    padding: 90px 60px 60px 0;
     overflow: hidden;
     isolation: isolate;
-
-    @include desktop {
-        height: 900px;
-        grid-template-columns: 180px 300px 1fr;
-        gap: 24px;
-        padding: 90px 60px 100px 0;
-    }
 
     @include tablet {
         grid-template-columns: 150px 250px 1fr;
@@ -1155,11 +1099,11 @@ $mediaXl: "min-width:971px";
 
     @include mobile {
         height: auto;
-        min-height: 700px; // 增加最小高度
+        min-height: 700px;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
         gap: 30px;
-        padding: 40px 20px 60px; // 增加底部 padding
+        padding: 40px 20px 60px;
         border-radius: 0;
     }
 
@@ -1174,16 +1118,11 @@ $mediaXl: "min-width:971px";
 
         img {
             position: absolute;
-            left: -200px;
-            height: min(80vh, 750px);
+            left: -160px;
+            height: min(76vh, 640px);
             width: auto;
             opacity: .8;
             pointer-events: none;
-
-            @include desktop {
-                left: -160px;
-                height: min(76vh, 640px);
-            }
 
             @include tablet {
                 left: -120px;
@@ -1196,17 +1135,11 @@ $mediaXl: "min-width:971px";
     .Illustrations-nav {
         align-self: start;
         background: none;
-        padding-top: 60px;
-        padding-left: 60px;
+        padding-top: 50px;
+        padding-left: 50px;
         display: flex;
-        gap: 50px;
+        gap: 40px;
         z-index: 1;
-
-        @include desktop {
-            padding-top: 50px;
-            padding-left: 50px;
-            gap: 40px;
-        }
 
         @include tablet {
             padding-top: 40px;
@@ -1216,7 +1149,7 @@ $mediaXl: "min-width:971px";
 
         @include mobile {
             padding: 0;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 20px;
@@ -1224,21 +1157,14 @@ $mediaXl: "min-width:971px";
         }
 
         h2 {
-            margin-top: 10px;
-            padding-bottom: 10px;
+            margin-top: 30px;
             writing-mode: vertical-lr;
             text-orientation: upright;
-            letter-spacing: 1em;
-            font-size: 48px;
-
-            @include desktop {
-                font-size: 40px;
-                letter-spacing: .9em;
-            }
+            letter-spacing: .5em;
+            font-size: 40px;
 
             @include tablet {
                 font-size: 32px;
-                letter-spacing: .7em;
             }
 
             @include mobile {
@@ -1252,52 +1178,36 @@ $mediaXl: "min-width:971px";
         }
 
         .navBtn {
-            display: flex; // 改為 flex 水平排列
-            flex-wrap: nowrap; // 禁止換行
-            gap: 25px;
-            border-left: 1px solid $pri-dark;
-            padding-left: 50px;
-            white-space: nowrap; // 防止文字換行
-
-            @include desktop {
-                gap: 20px;
-                padding-left: 40px;
-            }
-
-            @include tablet {
-                gap: 15px;
-                padding-left: 30px;
-            }
+            display: grid;
+            gap: 10px;
+            border-left: 2px solid $pri-dark;
+            padding-left: 40px;
 
             @include mobile {
+                display: flex;
                 justify-content: center;
-                gap: 10px; // 縮小間距
+                gap: 10px;
                 border-left: none;
                 border-top: 1px solid $pri-dark;
                 padding-left: 0;
                 padding-top: 15px;
+                flex-direction: row;
             }
         }
 
         // 類別按鈕
         button {
             display: block;
-            text-align: center; // 居中對齊
-            padding: 8px 16px; // 調整 padding
+            width: 100%;
+            text-align: left;
+            padding: 6px 0 6px 10px;
             background: transparent;
             border: 0;
             color: $pri-dark;
             cursor: pointer;
             position: relative;
             transition: color .15s ease;
-            font-size: 28px;
-            white-space: nowrap; // 防止換行
-            flex-shrink: 0; // 防止縮小
-
-            @include desktop {
-                font-size: 24px;
-                padding: 6px 14px;
-            }
+            font-size: 24px;
 
             @include tablet {
                 font-size: 20px;
@@ -1305,7 +1215,8 @@ $mediaXl: "min-width:971px";
             }
 
             @include mobile {
-                font-size: 14px; // 縮小字體
+                width: auto;
+                font-size: 14px;
                 padding: 6px 10px;
                 border-radius: 20px;
                 border: 1px solid $pri-dark;
@@ -1314,19 +1225,11 @@ $mediaXl: "min-width:971px";
 
         button:hover {
             color: rgba(0, 0, 0, .8);
-
-            @include mobile {
-                background: rgba(0, 0, 0, .05);
-            }
         }
 
         button.active {
             font-weight: 700;
-            padding-left: 32px;
-
-            @include desktop {
-                padding-left: 28px;
-            }
+            padding-left: 28px;
 
             @include tablet {
                 padding-left: 23px;
@@ -1335,23 +1238,18 @@ $mediaXl: "min-width:971px";
             @include mobile {
                 background: $pri-dark;
                 color: $pri-white;
-                padding-left: 10px; // 統一 padding
+                padding-left: 10px;
                 padding-right: 10px;
             }
 
             &::before {
                 content: "▶";
                 position: absolute;
-                left: 12px;
+                left: 10px;
                 top: 50%;
                 transform: translateY(-50%);
-                font-size: 16px;
+                font-size: 14px;
                 color: $pri-dark;
-
-                @include desktop {
-                    left: 10px;
-                    font-size: 14px;
-                }
 
                 @include tablet {
                     left: 8px;
@@ -1363,22 +1261,19 @@ $mediaXl: "min-width:971px";
                 }
             }
         }
+
     }
+
 
     // 右欄:主內容
     .Illustrations-body {
-        padding: 0px;
+        padding: 0x;
         z-index: 1;
 
         .Illustrations-introduce {
-            margin: 60px 120px 0 120px;
+            margin: 50px 90px 0 90px;
             display: grid;
-            gap: 40px; // 縮小間距
-
-            @include desktop {
-                margin: 50px 90px 0 90px;
-                gap: 32px;
-            }
+            gap: 40px;
 
             @include tablet {
                 margin: 40px 60px 0 60px;
@@ -1393,13 +1288,8 @@ $mediaXl: "min-width:971px";
             .introduce-title {
                 display: flex;
                 align-items: baseline;
-                margin-bottom: 16px; // 縮小 margin
-                gap: 16px;
-
-                @include desktop {
-                    gap: 12px;
-                    margin-bottom: 12px;
-                }
+                margin-bottom: 16px;
+                gap: 12px;
 
                 @include mobile {
                     flex-direction: column;
@@ -1411,12 +1301,8 @@ $mediaXl: "min-width:971px";
 
                 .titleZh {
                     margin: 0;
-                    font-size: 76px;
+                    font-size: 64px;
                     line-height: 1;
-
-                    @include desktop {
-                        font-size: 64px;
-                    }
 
                     @include tablet {
                         font-size: 48px;
@@ -1428,13 +1314,8 @@ $mediaXl: "min-width:971px";
                 }
 
                 .titleEn {
-                    font-size: 42px;
-                    letter-spacing: .2em;
-
-                    @include desktop {
-                        font-size: 36px;
-                        letter-spacing: .16px;
-                    }
+                    font-size: 36px;
+                    letter-spacing: .16px;
 
                     @include tablet {
                         font-size: 28px;
@@ -1448,14 +1329,9 @@ $mediaXl: "min-width:971px";
             }
 
             p {
-                margin: 0 0 20px; // 縮小 margin
-                line-height: 2.2;
-                font-size: 20px;
-
-                @include desktop {
-                    font-size: 18px;
-                    line-height: 2;
-                }
+                margin: 0 0 24px;
+                line-height: 2;
+                font-size: 18px;
 
                 @include mobile {
                     font-size: 16px;
@@ -1466,66 +1342,37 @@ $mediaXl: "min-width:971px";
             }
 
             .cardRow {
-                margin-top: 20px; // 縮小 margin
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-
-                @include desktop {
-                    margin-top: 16px;
-                    gap: 14px;
-                }
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-evenly;
 
                 @include mobile {
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 10px;
-                    margin-top: 12px;
+                    :last-child {
+                        display: none;
+                    }
                 }
 
                 img {
                     height: auto;
-                    width: 70%; // 縮小圖片尺寸
-                    max-height: 120px; // 限制最大高度
+                    width: auto;
                     display: block;
-                    object-fit: contain; // 改為 contain 保持比例
-                    justify-self: center;
-
-                    @include desktop {
-                        width: 65%;
-                        max-height: 100px;
-                    }
-
-                    @include tablet {
-                        width: 70%;
-                        max-height: 80px;
-                    }
-
-                    @include mobile {
-                        width: 80%;
-                        max-height: 60px;
-                    }
+                    object-fit: cover;
                 }
+
             }
 
             .goIllBtn {
                 display: inline-block;
                 width: auto;
-                margin-top: 30px;
-                padding: 12px 18px;
-                border-radius: 999px;
+                margin-top: 24px;
+                padding: 10px 14px;
+                border-radius: 5px;
                 background: $pri-dark;
                 color: $pri-white;
                 border: 1px solid $pri-dark;
                 text-decoration: none;
                 transition: transform .15s ease;
                 justify-self: end;
-                font-size: 18px;
-
-                @include desktop {
-                    margin-top: 24px;
-                    padding: 10px 14px;
-                    font-size: 16px;
-                }
 
                 @include mobile {
                     justify-self: center;
@@ -1533,6 +1380,7 @@ $mediaXl: "min-width:971px";
                     font-size: 16px;
                     margin-top: 24px;
                 }
+
             }
 
             .goIllBtn:hover {
@@ -1548,9 +1396,9 @@ $mediaXl: "min-width:971px";
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 120px;
+    top: 96px;
     font-weight: 700;
-    font-size: 450px;
+    font-size: 350px;
     line-height: .7;
     letter-spacing: .2em;
     color: rgb(0 0 0 / 3%);
@@ -1558,11 +1406,6 @@ $mediaXl: "min-width:971px";
     pointer-events: none;
     user-select: none;
     z-index: 0;
-
-    @include desktop {
-        font-size: 350px;
-        top: 96px;
-    }
 
     @include tablet {
         font-size: 250px;
@@ -1579,9 +1422,9 @@ $mediaXl: "min-width:971px";
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 140px; // 調整位置避免遮蔽按鈕
+    bottom: 96px;
     font-weight: 700;
-    font-size: 450px;
+    font-size: 350px;
     line-height: .7;
     letter-spacing: .2em;
     color: rgb(0 0 0 / 3%);
@@ -1589,11 +1432,6 @@ $mediaXl: "min-width:971px";
     pointer-events: none;
     user-select: none;
     z-index: 0;
-
-    @include desktop {
-        font-size: 350px;
-        bottom: 116px;
-    }
 
     @include tablet {
         font-size: 250px;
