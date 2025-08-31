@@ -40,7 +40,7 @@ const EventDetailPage = () => {
                     {/* 活動資訊區 */}
                     <div className="infoBlock">
                         {/* 活動資訊左側文案區 */}
-                        <div class="infoCard">
+                        <div className="infoCard">
                             <h2 className="blockTitle">活動資訊</h2>
                             <p className="textBox">
                                 時間：每週四 20:00–23:30
@@ -64,7 +64,7 @@ const EventDetailPage = () => {
                         </figure>
 
                         {/* 活動簡介右側文案區 */}
-                        <div class="introCard">
+                        <div className="introCard">
                             <h2 className="blockTitle">活動簡介</h2>
                             <p className="textBox">
                                 紳士品酒之夜《JAZZ NIGHT》

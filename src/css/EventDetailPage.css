@@ -66,8 +66,10 @@
   font-weight: 700;
   margin: 6px 0 0;
 }
+.eventDetailPage .infoSection {
+  align-items: flex-start;
+}
 .eventDetailPage .infoSection .infoBlock {
-  position: relative;
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
@@ -103,6 +105,8 @@
   aspect-ratio: 16/9;
 }
 .eventDetailPage .introBlock {
+  margin-top: 50px;
+  margin-bottom: 50px;
   position: relative;
   align-items: flex-start;
   display: flex;
@@ -133,6 +137,7 @@
 }
 .eventDetailPage .mapSection {
   display: flex;
+  margin-bottom: 50px;
   /* mobile */
   padding: 8px 0 32px;
 }

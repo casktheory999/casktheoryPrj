@@ -43,7 +43,7 @@ const BarInnerPage = () => {
                     {/* 右側：hero酒吧圖片 */}
                     <div className="cardRight">
                         <figure className="heroPhoto">
-                            <img className="heroImg" src={heroImg} alt="潮飲空間圖片" style={{width:'850px'}}/>
+                            <img className="heroImg" src={heroImg} alt="潮飲空間圖片" style={{ width: '850px' }} />
                             <img className="arrowImg1" src={arrowImg1} alt="裝飾箭頭1" />
                         </figure>
                     </div>
@@ -52,20 +52,22 @@ const BarInnerPage = () => {
 
                 {/* 推薦酒吧區 */}
                 <section id="recommendations" className="recommendationsContainer">
-                        <figure className='leftArrow'>
-                            <img src={arrowImg2} alt="裝飾箭頭2" style={{width:'100px'}}/>
-                        </figure>
+                    <figure className='leftArrow'>
+                        <img src={arrowImg2} alt="裝飾箭頭2" style={{ width: '100px' }} />
+                    </figure>
                     <div className='recPhotos'>
                         <button className="btnLeft">
-                            {/* <img src={arrowImg3} alt="向左滑動" style={{width:'48px'}}/> */}
+                            <img src={arrowImg3} alt="向左滑動" />
                         </button>
-                        
+
 
                         {/* 左側：推薦酒吧1+文案 */}
                         <figure className="recPhoto1">
                             <img src={rec1Img} alt="The Gilded Drop圖片" />
                             <figcaption>
-                                The Gilded Drop — 在暖黃燈下，甬管柔唱輕撫心弦，貝斯在暖黃燈下，甬管弦，貝斯在暖在暖黃燈下低...
+                                <p className="captionText">
+                                    The Gilded Drop — 在暖黃燈下，甬管柔唱輕撫心弦，貝斯在暖黃燈下，甬管弦，貝斯在暖在暖黃燈下低...
+                                </p>
                             </figcaption>
                         </figure>
 
@@ -73,11 +75,12 @@ const BarInnerPage = () => {
                         <figure className="recPhoto2">
                             <img src={rec2Img} alt="時光行者圖片" />
                             <figcaption>
-                                時光行者 — 在暖黃燈下，甬管柔唱輕撫心弦，貝斯在暖黃燈下，甬管弦，貝斯在暖在暖黃燈下低...
+                                <p className="captionText">
+                                    時光行者 — 在暖黃燈下，甬管柔唱輕撫心弦，貝斯在暖黃燈下，甬管弦，貝斯在暖在暖黃燈下低...
+                                </p>
                             </figcaption>
                         </figure>
                     </div>
-
                 </section>
 
                 {/* 按鈕容器 */}

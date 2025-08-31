@@ -1,23 +1,19 @@
-@charset "UTF-8";
 #topbar {
   position: fixed;
-  /*position權重較重*/
   top: 0;
   left: 0;
   width: 100%;
-  /*position預設寬高為hug，所以要手動寫w*/
   z-index: 99999;
   display: flex;
   justify-content: space-between;
   padding: 10px 30px;
   background-color: #171616;
   color: #FAFAFA;
-  align-items: center;
 }
 #topbar .logo {
   font-size: 24px;
 }
-#topbar a {
+#topbar .logo a {
   font-weight: 500;
   text-decoration: inherit;
   color: white;
@@ -25,11 +21,96 @@
 #topbar a:hover {
   color: #535bf2;
 }
-#topbar ul {
+#topbar .navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+#topbar .navbar .hamburger {
+  background-color: transparent;
+  border: none;
+  margin-bottom: 10px;
+}
+@media (min-width: 971px) {
+  #topbar .navbar .hamburger {
+    display: none;
+  }
+}
+#topbar .navbar .hamburger .bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #FAFAFA;
+  margin: 5px auto;
+}
+#topbar .navbar .hamburger.is-active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+#topbar .navbar .hamburger.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+#topbar .navbar .hamburger.is-active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+@media (max-width: 970px) {
+  #topbar .navbar .navigation {
+    position: absolute;
+    top: 100%;
+    right: 30px;
+    background-color: #171616;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    animation: hide 1.2s both;
+    min-width: 140px;
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7));
+    border: solid 2px rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2), inset -1px -1px 1px rgba(255, 255, 255, 0.2);
+  }
+  #topbar .navbar .navigation.show {
+    display: flex;
+    animation: show 1.2s both;
+  }
+}
+#topbar .navbar .navigation .menu {
+  margin: 0;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 99px;
+  height: 100%;
 }
-#topbar ul li {
+@media (max-width: 970px) {
+  #topbar .navbar .navigation .menu {
+    flex-direction: column;
+    order: -1;
+    padding: 15px 0;
+    width: 100%;
+  }
+}
+#topbar .navbar .navigation .menu a {
+  display: flex;
+  align-items: center;
   margin-left: 45px;
   font-size: 16px;
+  height: 100%;
+  font-weight: 700;
+  border-bottom: solid 2px transparent;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 970px) {
+  #topbar .navbar .navigation .menu a {
+    margin: 5px 0;
+  }
+}
+#topbar .navbar .navigation .menu a:hover {
+  color: #FAFAFA;
+  border-bottom: solid 2px #FAFAFA;
 }

@@ -110,21 +110,32 @@
   padding: 14px 18px;
   color: #FAFAFA;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
-  /* 兩行截斷 */
+}
+.barInnerPage .recommendationsContainer .recPhotos .recPhoto1 .captionText,
+.barInnerPage .recommendationsContainer .recPhotos .recPhoto2 .captionText {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
+  /* 常見坑位的保險設定 */
+  white-space: normal;
+  /* 防止外層有 pre/nowrap 影響 */
+  word-break: break-word;
+  /* 長字/英文不換行時強制斷字 */
+  line-height: 1.4;
+  max-height: 2.8em;
+  /* 有些瀏覽器需要高度輔助 */
 }
 .barInnerPage .recommendationsContainer .btnLeft {
-  /* 先讓它固定在左側中間，之後改滑動功能再調 */
-  background-image: url(../images/barInnerPage-left-arrow.png);
   width: 48px;
   height: 48px;
   position: relative;
   left: 0;
-  top: 0;
-  background-color: orange;
+  top: 80px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
 }
 .barInnerPage .btnContainer {
   position: relative;
