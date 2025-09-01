@@ -1,5 +1,5 @@
-@use './reset' as *;
-@use "./variables" as *;
+@use 'reset' as *;
+@use "variables" as *;
 
 // RWD 中斷點
 $mediaSm: "max-width:640px";
@@ -25,11 +25,6 @@ $mediaXl: "min-width:971px";
     }
 }
 
-@mixin large {
-    @media (#{$mediaXl}) {
-        @content;
-    }
-}
 
 /*----Hero區----*/
 .hero {
