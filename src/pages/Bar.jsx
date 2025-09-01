@@ -14,23 +14,23 @@ export default function Bar() {
                         </li>
                         <li className="mrtItem">
                             <button className="mrtBtn">淡水信義線</button>
-                            <span className="mrtLine" style={{'--line-color':'#E3002C'}} />
+                            <span className="mrtLine" style={{ '--line-color': '#E3002C' }} />
                         </li>
                         <li className="mrtItem">
                             <button className="mrtBtn">板南線</button>
-                            <span className="mrtLine" style={{'--line-color':'#0070BD'}} />
+                            <span className="mrtLine" style={{ '--line-color': '#0070BD' }} />
                         </li>
                         <li className="mrtItem">
                             <button className="mrtBtn">松山新店線</button>
-                            <span className="mrtLine" style={{'--line-color':'#008659'}} />
+                            <span className="mrtLine" style={{ '--line-color': '#008659' }} />
                         </li>
                         <li className="mrtItem">
                             <button className="mrtBtn">文湖線</button>
-                            <span className="mrtLine" style={{'--line-color':'#865A13'}} />
+                            <span className="mrtLine" style={{ '--line-color': '#865A13' }} />
                         </li>
                         <li className="mrtItem">
                             <button className="mrtBtn">中和新蘆線</button>
-                            <span className="mrtLine" style={{'--line-color':'#F8B61C'}} />
+                            <span className="mrtLine" style={{ '--line-color': '#F8B61C' }} />
                         </li>
                     </ul>
 
@@ -42,8 +42,21 @@ export default function Bar() {
                         <input type="search" placeholder="搜尋酒吧" aria-label="搜尋酒吧" />
                     </label>
                 </div>
+
             </section>
-            <Link to='/BarInnerPage'>酒吧內頁</Link>
+            <div>
+                <div>hahaha</div>
+                <div>hahaha</div>
+                <div>hahaha</div>
+                <div>hahaha</div>
+                <div>hahaha</div>
+                <div>hahaha</div>
+                <Link to='/BarInnerPage'>酒吧內頁</Link>
+                <Link>8888</Link>
+                <Link>8888</Link>
+                <Link>8888</Link>
+                <Link>8888</Link>
+            </div>
         </main>
     )
 }

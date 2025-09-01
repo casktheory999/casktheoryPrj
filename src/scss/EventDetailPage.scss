@@ -9,6 +9,7 @@
 
     /* ========== Hero ========== */
     .heroSection {
+        margin-bottom: 20px;
 
         .heroBanner {
             position: relative;
@@ -84,27 +85,39 @@
         // }
 
         .infoBlock {
-            // position: relative;
+            position: relative;
             align-items: flex-start;
             display: flex;
             justify-content: space-between;
-            align-items: stretch;
             gap: 70px;
 
             .infoCard {
+                position: relative;
                 height: 290px;
                 border: 2px solid $pri-dark;
-                padding: 10px 65px;
+                padding: 20px 65px 10px 65px; //上右下左
+                
 
                 .blockTitle {
+                    //活動資訊標題
+                    position: absolute;
                     font-size: 24px;
                     font-weight: 700;
                     margin-bottom: 10px;
+                    top: -16px; // 壓在外框上方
+                    left: 70px; // 與內文對齊
+                    background: $pri-white; // 遮掉外框線
                 }
 
                 p {
                     line-height: 1.8;
-                    margin: 6px 0;
+                    //margin: 6px 0;
+                    margin: 0 0 0.75em;
+                }
+
+                p:last-child {
+                    margin-bottom: 0;
+                    /* 最後一段不留空 */
                 }
 
                 address {
@@ -114,13 +127,14 @@
 
             .photoBlock1 {
                 margin: 0;
-                height: 290px;
+
 
                 .photo {
                     width: 100%;
+                    height: 50%;
                     display: block;
                     object-fit: cover;
-                    aspect-ratio: 16/9;
+                    // aspect-ratio: 16/9;
                 }
             }
         }
@@ -129,13 +143,12 @@
 
     /* ========== 活動簡介區 ========== */
     .introBlock {
-        margin-top: 50px ;
+        margin-top: 50px;
         margin-bottom: 50px;
         position: relative;
         align-items: flex-start;
         display: flex;
         justify-content: space-between;
-        align-items: stretch;
         gap: 70px;
 
         .photoBlock2 {
@@ -151,21 +164,32 @@
         }
 
         .blockTitle {
+            //活動簡介標題
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 10px;
+            position: absolute;
+            top: -16px; // 壓在外框上方
+            background: $pri-white; // 遮掉外框線
+            padding: 0 8px;
         }
 
-        .infoCard {
+        .introCard {
+            position: relative;
             height: 290px;
             border: 2px solid $pri-dark;
-            padding: 10px 65px;
+            padding: 20px 65px;
+
+            p {
+                line-height: 1.8;
+                margin: 6px 0;
+            }
         }
     }
 
 
     /* ========== 地圖 + 交通（兩欄） ========== */
-    .mapSection {
+    .a_mapSection {
         display: flex;
         margin-bottom: 50px;
         // gap: var(--gap);

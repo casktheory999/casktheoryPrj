@@ -10,6 +10,9 @@
   /* ========== 地圖 + 交通（兩欄） ========== */
   /* ========== 推薦區（卡片列表） ========== */
 }
+.eventDetailPage .heroSection {
+  margin-bottom: 20px;
+}
 .eventDetailPage .heroSection .heroBanner {
   position: relative;
 }
@@ -70,39 +73,47 @@
   align-items: flex-start;
 }
 .eventDetailPage .infoSection .infoBlock {
+  position: relative;
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
   gap: 70px;
 }
 .eventDetailPage .infoSection .infoBlock .infoCard {
+  position: relative;
   height: 290px;
   border: 2px solid #171616;
-  padding: 10px 65px;
+  padding: 20px 65px 10px 65px;
 }
 .eventDetailPage .infoSection .infoBlock .infoCard .blockTitle {
+  position: absolute;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
+  top: -16px;
+  left: 70px;
+  background: #FAFAFA;
 }
 .eventDetailPage .infoSection .infoBlock .infoCard p {
   line-height: 1.8;
-  margin: 6px 0;
+  margin: 0 0 0.75em;
+}
+.eventDetailPage .infoSection .infoBlock .infoCard p:last-child {
+  margin-bottom: 0;
+  /* 最後一段不留空 */
 }
 .eventDetailPage .infoSection .infoBlock .infoCard address {
   font-style: normal;
 }
 .eventDetailPage .infoSection .infoBlock .photoBlock1 {
   margin: 0;
-  height: 290px;
 }
 .eventDetailPage .infoSection .infoBlock .photoBlock1 .photo {
   width: 100%;
+  height: 50%;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
-  aspect-ratio: 16/9;
 }
 .eventDetailPage .introBlock {
   margin-top: 50px;
@@ -111,7 +122,6 @@
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
   gap: 70px;
 }
 .eventDetailPage .introBlock .photoBlock2 {
@@ -129,37 +139,46 @@
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
+  position: absolute;
+  top: -16px;
+  background: #FAFAFA;
+  padding: 0 8px;
 }
-.eventDetailPage .introBlock .infoCard {
+.eventDetailPage .introBlock .introCard {
+  position: relative;
   height: 290px;
   border: 2px solid #171616;
-  padding: 10px 65px;
+  padding: 20px 65px;
 }
-.eventDetailPage .mapSection {
+.eventDetailPage .introBlock .introCard p {
+  line-height: 1.8;
+  margin: 6px 0;
+}
+.eventDetailPage .a_mapSection {
   display: flex;
   margin-bottom: 50px;
   /* mobile */
   padding: 8px 0 32px;
 }
-.eventDetailPage .mapSection .blockTitle {
+.eventDetailPage .a_mapSection .blockTitle {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
 }
-.eventDetailPage .mapSection .mapCard,
-.eventDetailPage .mapSection .infoCard {
+.eventDetailPage .a_mapSection .mapCard,
+.eventDetailPage .a_mapSection .infoCard {
   border: 2px solid #171616;
   background: #fff;
   padding: 16px;
 }
-.eventDetailPage .mapSection .mapImg {
+.eventDetailPage .a_mapSection .mapImg {
   width: 100%;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.eventDetailPage .mapSection .trafficBlock .infoCard p,
-.eventDetailPage .mapSection .trafficBlock .infoCard address {
+.eventDetailPage .a_mapSection .trafficBlock .infoCard p,
+.eventDetailPage .a_mapSection .trafficBlock .infoCard address {
   line-height: 1.8;
   margin: 6px 0;
 }

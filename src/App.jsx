@@ -12,7 +12,7 @@ import BarInnerPage from './pages/BarInnerPage.jsx'
 import BarRoute from './pages/BarRoute'
 import About from './pages/About'
 import Member from './pages/member'
-import EventDetailPage from './pages/EventDetailPage'
+import EventDetailPage from './pages/EventDetailPage.jsx'
 
 export default function App(){
   return(
