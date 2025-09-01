@@ -1,0 +1,14 @@
+.illustrations {
+  padding: 40px 24px;
+  .hero {
+    background: #f4f4f4;
+    padding: 32px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+  }
+  .spirits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+  }
+}

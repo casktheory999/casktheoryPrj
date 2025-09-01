@@ -7,6 +7,8 @@ import ScrollToTop from './component/ScrollToTop.jsx'
 import Home from './pages/Home'
 import News from './pages/News'
 import Illustrations from './pages/Illustrations'
+import SideTOC from './component/SideTOC.jsx';
+import "./scss/_side-toc.scss";
 import Bar from './pages/Bar'
 import BarInnerPage from './pages/BarInnerPage.jsx'
 import BarRoute from './pages/BarRoute'
