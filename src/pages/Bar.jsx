@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import '../scss/Bar.scss'
 
+
 export default function Bar() {
     return (
         <main className="bar">
@@ -45,17 +46,7 @@ export default function Bar() {
 
             </section>
             <div>
-                <div>hahaha</div>
-                <div>hahaha</div>
-                <div>hahaha</div>
-                <div>hahaha</div>
-                <div>hahaha</div>
-                <div>hahaha</div>
                 <Link to='/BarInnerPage'>酒吧內頁</Link>
-                <Link>8888</Link>
-                <Link>8888</Link>
-                <Link>8888</Link>
-                <Link>8888</Link>
             </div>
         </main>
     )
