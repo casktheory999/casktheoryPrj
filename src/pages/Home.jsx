@@ -44,7 +44,7 @@ const Home = () => {
                         <li><Link to="/News">【金曲佳釀】｜爵士及品酒之夜｜經典調酒配上爵士金曲</Link></li>
                         <li><Link to="/News">【茶酒特調】｜自己泡茶酒｜莓果白蘭地專題</Link></li>
                         <li><Link to="/News">【節慶專屬】｜中秋微醺提案－文旦柚子｜雙人體驗方案</Link></li>
-                        <li><Link to="/News">【動手體驗】｜Mojito專題｜沁涼一夏｜雙人體驗方案</Link></li>
+                        <li><Link to="/News">【動手體驗】｜Mojito專題-沁涼一夏｜雙人體驗方案</Link></li>
                     </ul>
                     <Link className='goNewsBtn' to="/News">前往最新消息</Link>
                 </div>
