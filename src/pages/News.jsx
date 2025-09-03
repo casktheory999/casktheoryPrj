@@ -102,12 +102,15 @@ const News = () => {
                                     detailPage={articles.detailPage}
                                 ></ArticleBody>
                             )
-
                         })}
                     </div>
                 </div>
-                <div className="pageBox">
-                    <p>12345</p>{/* 待改 */}
+                <div className="Ian_pageBox">
+                    <div className="pages">1</div>
+                    <div className="pages">2</div>
+                    <div className="pages">3</div>
+                    <div className="pages">4</div>
+                    <div className="pages">5</div>
                 </div>
             </section>
         </>
