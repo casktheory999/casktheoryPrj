@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom"
 import '../scss/Bar.scss'
+import BarListCard from '../data/BarListCard.json'
+import ABarListCard from'../component/ABarListCard.jsx'
+import { useState } from "react"
 
 
 export default function Bar() {
+
+    const [arrBarList] = useState(BarListCard)
+
     return (
         <main className="bar">
             <section className="barHero">
@@ -44,6 +50,13 @@ export default function Bar() {
                     </label>
                 </div>
 
+                <div>
+                    {/* <ABarListCard/> */}
+                    {
+                        arrBarList.map((BarListCard) => {
+                            <ABarListCard {...BarListCard} key={BarListCard.id} />
+                        })}
+                </div>
             </section>
             <div>
                 <Link to='/BarInnerPage'>酒吧內頁</Link>

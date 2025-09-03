@@ -1,0 +1,128 @@
+[
+  {
+    "id": "001",
+    "name": "第一酒吧 The First Bar",
+    "image": "https://example.com/bar1.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "板南線",
+    "lineColor": "#0070bd",
+    "liked": false
+  },
+  {
+    "id": "002",
+    "name": "第一酒吧 Cocktail Lounge",
+    "image": "https://example.com/bar2.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "淡水信義線",
+    "lineColor": "#d2691e",
+    "liked": false
+  },
+  {
+    "id": "003",
+    "name": "第一酒吧 Garden Terrace",
+    "image": "https://example.com/bar3.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "松山新店線",
+    "lineColor": "#008659",
+    "liked": false
+  },
+  {
+    "id": "004",
+    "name": "第一酒吧 Whisky Room",
+    "image": "https://example.com/bar4.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "中和新蘆線",
+    "lineColor": "#faa61a",
+    "liked": false
+  },
+  {
+    "id": "005",
+    "name": "第一酒吧 Modern Cafe",
+    "image": "https://example.com/bar5.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "文湖線",
+    "lineColor": "#996633",
+    "liked": false
+  },
+  {
+    "id": "006",
+    "name": "第一酒吧 Neon Club",
+    "image": "https://example.com/bar6.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "板南線",
+    "lineColor": "#0070bd",
+    "liked": true
+  },
+  {
+    "id": "007",
+    "name": "第一酒吧 Sky Lounge",
+    "image": "https://example.com/bar7.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "淡水信義線",
+    "lineColor": "#d2691e",
+    "liked": false
+  },
+  {
+    "id": "008",
+    "name": "第一酒吧 Underground",
+    "image": "https://example.com/bar8.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "松山新店線",
+    "lineColor": "#008659",
+    "liked": false
+  },
+  {
+    "id": "009",
+    "name": "第一酒吧 Coffee Bar",
+    "image": "https://example.com/bar9.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "中和新蘆線",
+    "lineColor": "#faa61a",
+    "liked": false
+  },
+  {
+    "id": "010",
+    "name": "第一酒吧 Wine Cellar",
+    "image": "https://example.com/bar10.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "文湖線",
+    "lineColor": "#996633",
+    "liked": false
+  },
+  {
+    "id": "011",
+    "name": "第一酒吧 Tropical Bar",
+    "image": "https://example.com/bar11.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "板南線",
+    "lineColor": "#0070bd",
+    "liked": false
+  },
+  {
+    "id": "012",
+    "name": "第一酒吧 Night Club",
+    "image": "https://example.com/bar12.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "淡水信義線",
+    "lineColor": "#d2691e",
+    "liked": true
+  },
+  {
+    "id": "013",
+    "name": "第一酒吧 Jazz Lounge",
+    "image": "https://example.com/bar13.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "松山新店線",
+    "lineColor": "#008659",
+    "liked": false
+  },
+  {
+    "id": "014",
+    "name": "第一酒吧 Vintage Bar",
+    "image": "https://example.com/bar14.jpg",
+    "description": "在東區地下，青春美酒醞釀的心靈，實際存在...",
+    "mrtLine": "中和新蘆線",
+    "lineColor": "#faa61a",
+    "liked": false
+  }
+]
