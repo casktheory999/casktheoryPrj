@@ -6,6 +6,8 @@ import App from './App.jsx';
 // import BarInnerPage from './pages/BarInnerPage.jsx';
 
 
+
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HashRouter>
