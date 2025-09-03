@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import '../scss/Bar.scss'
-import BarListCard from '../data/BarListCard.json'
+import BarListCard from '/data/BarListCard.json'
 import ABarListCard from'../component/ABarListCard.jsx'
 import { useState } from "react"
 
