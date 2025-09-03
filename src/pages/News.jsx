@@ -101,6 +101,9 @@ const News = () => {
                     </div>
                     <div className="pageBox">
                         <p>12345</p>{/* 待改 */}
+                        <div>
+                            <Link to='/EventDetailPage'>活動內頁</Link>
+                        </div>
                     </div>
                 </div>
             </section>

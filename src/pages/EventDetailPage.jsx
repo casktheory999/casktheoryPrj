@@ -102,29 +102,40 @@ const EventDetailPage = () => {
                 </section>
 
                 {/* 推薦區 */}
-                <section className="recommendSection">
-                    <h2 id="recommendTitle" className="blockTitle">猜你喜歡...</h2>
-                    {/* 這邊是GPT產出給我的，我看不太懂Q */}
-                    {/* <ul className="cardList">
-                        {cards.map(c => (
-                            <li key={c.id} className="cardItem">
-                                <article className="eventCard">
-                                    <figure className="cardCover">
-                                        <img src={c.img} alt={c.title} />
-                                    </figure>
-                                    <div className="cardBody">
-                                        <p className="cardMeta">{c.date}</p>
-                                        <h3 className="cardTitle">{c.title}</h3>
-                                        <div className="cardFooter">
-                                            <span className="chip small">{c.tag}</span>
-                                            <div className="stats"><span>👁 {c.views}</span><span>♡ {c.likes}</span></div>
-                                        </div>
+                <section className="a_recommendSection">
+                    <h2 className="recommendTitle">猜你喜歡...</h2>
+
+                    {/* <div className="recList">
+                        {recItems.map(item => (
+                            <a key={item.id} href={item.href} className="recCard">
+                                <img
+                                    className="recCard_image"
+                                    src={item.img}
+                                    alt={item.title}
+                                    loading="lazy"
+                                />
+
+                                <div className="recCard_body">
+                                    <p className="recCard_meta">{item.date}</p>
+                                    <h3 className="recCard_title">{item.title}</h3>
+                                </div>
+
+                                <div className="recCard_footer">
+                                    <span className="recCard_tag">#{item.tag}</span>
+                                    <div className="recCard_stats">
+                                        <span className="recCard_stat">
+                                            <span aria-hidden>👁</span> {item.views}
+                                        </span>
+                                        <span className="recCard_stat">
+                                            <span aria-hidden>♡</span> {item.likes}
+                                        </span>
                                     </div>
-                                </article>
-                            </li>
+                                </div>
+                            </a>
                         ))}
-                    </ul> */}
+                    </div> */}
                 </section>
+
             </main>
         </>
     )
