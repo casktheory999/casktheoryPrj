@@ -2,7 +2,7 @@ import '../css/runstyle2.css';
 export default function BarRoute() {
     return (
         <>
-            <div>
+            <div className='cBarRoute'>
                 <section className="cpage-title">
                     <h2>路跑路線</h2>
                 </section>

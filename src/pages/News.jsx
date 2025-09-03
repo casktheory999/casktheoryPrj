@@ -57,17 +57,23 @@ const News = () => {
             <Link className="Ian_goDetailPage" to={detailPage}>
                 <div className="Ian_articleBody" >
                     <div className="Ian_dateBox">
-                        <div className="Ian_decorateUpBox"></div>
-                        <div className="Ian_decorateDownBox"></div>
-                        <div className="Ian_month">{month}</div>
-                        <div className="Ian_date">{date}</div>
+                        <div className="Ian_decorateBox">
+                            <div className="Ian_decorateUpBox"></div>
+                            <div className="Ian_decorateDownBox"></div>
+                        </div>
+                        <div className="Ian_articleDate">
+                            <div className="Ian_month">{month}</div>
+                            <div className="Ian_date">{date}</div>
+                        </div>
                     </div>
-                    <div className="Ian_textBox">
-                        <h2 className="Ian_articleTitle">{articleTitle}</h2>
-                        <h3 className="Ian_articleSub">{articleSub}</h3>
-                    </div>
-                    <div className="Ian_imgBox">
-                        <img src={articleImg} className="Ian_articleImg" alt="" />
+                    <div className="Ian_articleMain">
+                        <div className="Ian_textBox">
+                            <h2 className="Ian_articleTitle">{articleTitle}</h2>
+                            <h3 className="Ian_articleSub">{articleSub}</h3>
+                        </div>
+                        <div className="Ian_imgBox">
+                            <img src={articleImg} className="Ian_articleImg" alt="" />
+                        </div>
                     </div>
                 </div>
             </Link>
@@ -77,7 +83,7 @@ const News = () => {
     return (
         <>
             <section className="Ian_news">
-                <div className="mainArea">
+                <div className="Ian_mainArea">
                     <div className="Ian_title">
                         <h1>酒吧活動消息</h1>
                     </div>
@@ -99,12 +105,9 @@ const News = () => {
 
                         })}
                     </div>
-                    <div className="pageBox">
-                        <p>12345</p>{/* 待改 */}
-                        <div>
-                            <Link to='/EventDetailPage'>活動內頁</Link>
-                        </div>
-                    </div>
+                </div>
+                <div className="pageBox">
+                    <p>12345</p>{/* 待改 */}
                 </div>
             </section>
         </>

@@ -1,7 +1,147 @@
 @use 'reset' as *;
 @use "variables" as *;
 
-.Ian_news {
+body {
     background-color: $pri-white;
     color: $pri-dark;
+    width: 100%;
+    height: 100vh;
+    min-height: 800px;
+
+    .Ian_news {
+
+        position: relative;
+        height: 100vh;
+        background-color: white;
+        color: #000;
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: url('/images/newsBefore.png');
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: auto 100%;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+
+
+        .Ian_mainArea {
+
+            box-sizing: border-box;
+            /* << 讓 height 包含 padding，不會因為改 padding 影響外觀總高 */
+            height: 95%;
+            padding: 12% 8% 5% 8%;
+            display: flex;
+            flex-direction: row;
+            align-self: stretch;
+
+            .Ian_title {
+                width: 15%;
+                font-size: 40px;
+                display: flex;
+                flex-direction: row;
+                border-right: 3px solid $pri-dark;
+
+
+                h1 {
+                    writing-mode: vertical-rl;
+                    align-self: center;
+                }
+            }
+        }
+    }
+
+    .Ian_articleArea {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        // gap: 20px;
+        width: 70%;
+
+        .Ian_articleBody {
+            display: flex;
+            flex-direction: row;
+            // justify-content: space-between;
+
+
+            .Ian_dateBox {
+                width: 15%;
+                display: flex;
+                flex-direction: row;
+
+                .Ian_decorateBox {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: start;
+                    margin-right: 10px;
+                    height: 100%;
+
+                    .Ian_decorateUpBox {
+                        width: 30px;
+                        height: 50%;
+                        border-bottom: solid 2px $pri-dark;
+                    }
+
+                    .Ian_decorateDownBox {
+                        width: 30px;
+                        height: 50%;
+                        border-top: solid 2px $pri-dark;
+                    }
+                }
+
+                .Ian_articleDate {
+                    display: flex;
+                    flex-direction: column;
+
+
+                    .Ian_month {
+                        font-size: 24px;
+                    }
+
+                    .Ian_date {
+                        font-size: 16px;
+                        line-height: 1.5;
+                        align-self: flex-end;
+                    }
+                }
+            }
+
+            .Ian_articleMain {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-self: stretch;
+                margin-left: 70px;
+                width: 100%;
+                height: 10%;
+                background-color: $pri-white;
+                box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+
+                .Ian_textBox {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 50%;
+                    min-width: 50%;
+                    padding-left: 10px;
+
+                    h2 {
+                        font-size: 24px;
+                    }
+
+                    h3 {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+
 }

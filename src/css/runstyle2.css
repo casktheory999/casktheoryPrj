@@ -56,7 +56,7 @@ $z-ex: 99999; */
 } */
 
 /* 固定導覽列時，錨點不被遮 */
-section {
+.cBarRoute {
     scroll-margin-top: 96px;
     background-color: #111;
     color: white;
