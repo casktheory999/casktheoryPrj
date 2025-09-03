@@ -49,15 +49,17 @@ $media971:"min-width:971px";
 //z-index
 $z-ex: 99999; */
 
-.container {
+/* .container {
     max-width: var(--container);
     margin: 0 auto;
     padding: 0 var(--gutter);
-}
+} */
 
 /* 固定導覽列時，錨點不被遮 */
 section {
     scroll-margin-top: 96px;
+    background-color: #111;
+    color: white;
 }
 
 html {
@@ -67,8 +69,6 @@ html {
 body {
     margin: 0;
     font-family: 'Microsoft JhengHei', sans-serif;
-    background-color: #111;
-    color: white;
 }
 
 
@@ -154,9 +154,8 @@ a:hover {
     justify-content: center;
     align-items: center;
     background: #000;
-    margin-top: 70px;
+    margin-top: 56px;
     position: relative;
-    margin-top: 70px;
 
 }
 
