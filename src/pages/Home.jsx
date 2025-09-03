@@ -1,14 +1,55 @@
 import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../scss/Home.scss'
 import MapCarousel from '../component/MapCarousel'
 
+// 圖鑑區資料
+const IlluData = {
+    base: {
+        zh: '基酒',
+        en: 'Base Spirit',
+        desc: '「基酒是文化的基礎，麥芽與橡木、杜松與草本、甘蔗與果香...，從原料到工藝，乘載著各式風味的可能性，體驗飲酒文化就從基酒開始。」',
+        imgs: [
+            { src: "images/newvodka.png", alt: "伏特加" },
+            { src: "images/image17.png", alt: "威士忌" },
+            { src: "images/Subtract.png", alt: "琴酒" },
+        ],
+    },
+    classic: {
+        zh: '經典調酒',
+        en: 'Classic Cocktail',
+        desc: '「經典雞尾酒是調酒文化的瑰寶，從馬提尼到曼哈頓，每一杯都承載著歷史與故事，品味經典，感受時代的變遷。」',
+        imgs: [
+            { src: "images/newvodka.png", alt: "伏特加" },
+            { src: "images/image17.png", alt: "威士忌" },
+            { src: "images/Subtract.png", alt: "琴酒" },
+        ],
+    },
+    popular: {
+        zh: '大眾調酒',
+        en: 'Popular Cocktail',
+        desc: '「大眾調酒是酒吧文化的代表，從經典到創新，每一杯都能引領潮流，品味大眾，感受時代的脈動。」',
+        imgs: [
+            { src: "images/newvodka.png", alt: "伏特加" },
+            { src: "images/image17.png", alt: "威士忌" },
+            { src: "images/Subtract.png", alt: "琴酒" },
+        ],
+    },
+}
+
+
+
 const Home = () => {
+    const [tab, setTab] = useState ('base')
+
+    const data = IlluData[tab]
+
+    const onPick = (key) => setTab(key)
     return (
         <main className='home'>
 
             {/*Hero區*/}
-
             <section className='hero'>
                 <div className='heroLeft'>
                     <h1 className='brand'>
@@ -29,7 +70,6 @@ const Home = () => {
             </section>
 
             {/*最新消息*/}
-
             <section className='news'>
                 {/* 左：直排標題 */}
                 <div className='newsTitle'>酒吧活動消息</div>
@@ -51,9 +91,8 @@ const Home = () => {
             </section>
 
             {/* 酒吧地圖 */}
+            <MapCarousel />
 
-            <MapCarousel/>
-            
             {/* 路跑路線 */}
             <section className='route'>
                 <h2 className='routeTitle'>酒精路跑路線</h2>
@@ -84,34 +123,50 @@ const Home = () => {
 
 
             {/* 酒精圖鑑 */}
-
             <section className='Illustrations'>
-                <div className='leftImg'>
-                    <img src="images/glass.png" alt="酒杯裝飾" />
-                </div>
-                <div className='Illustrations-nav'>
-                    <h2>酒精圖鑑</h2>
-                    <div className='navBtn'>
-                        <button className='active'>基酒</button>
-                        <button>經典調酒</button>
-                        <button>大眾調酒</button>
-                    </div>
-                </div>
-                <div className='Illustrations-body'>
-                    <div className='Illustrations-introduce'>
-                        <div className='introduce-title'>
-                            <h2 className='titleZh'>基酒</h2>
-                            <span className='titleEn'>Base Spirit</span>
-                        </div>
-                        <p>「基酒是文化的基礎，麥芽與橡木、杜松與草本、甘蔗與果香...，從原料到工藝，乘載著各式風味的可能性，體驗飲酒文化就從基酒開始。」</p>
-                        <div className='cardRow'>
-                            <img src="images/newvodka.png" alt="伏特加" />
-                            <img src="images/image17.png" alt="威士忌" />
-                            <img src="images/Subtract.png" alt="琴酒" />
-                        </div>
-                        <Link className='goIllBtn' to="/Illustrations">前往圖鑑目錄</Link>
-                    </div>
-                </div>
+                            <div className='leftImg'>
+                                <img src='images/glass.png' alt='酒杯裝飾' />
+                            </div>
+
+                            <div className='Illustrations-nav'>
+                                <h2>酒精圖鑑</h2>
+                                <div className='navBtn'>
+                                    <button
+                                        className={tab === 'base' ? 'active' : ''}
+                                        onClick={() => onPick('base')}
+                                    >
+                                        基酒
+                                    </button>
+                                    <button
+                                        className={tab === 'classic' ? 'active' : ''}
+                                        onClick={() => onPick('classic')}
+                                    >
+                                        經典調酒
+                                    </button>
+                                    <button
+                                        className={tab === 'popular' ? 'active' : ''}
+                                        onClick={() => onPick('popular')}
+                                    >
+                                        大眾調酒
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className='Illustrations-body'>
+                                <div className='Illustrations-introduce'>
+                                    <div className='introduce-title'>
+                                        <h2 className='titleZh'>{data.zh}</h2>
+                                        <span className='titleEn'>{data.en}</span>
+                                    </div>
+                                    <p>{data.desc}</p>
+                                    <div className='cardRow'>
+                                        {data.imgs.map((it, i) => (
+                                            <img key={i} src={it.src} alt={it.alt} />
+                                        ))}
+                                    </div>
+                                    <Link className='goIllBtn' to='/Illustrations'>前往圖鑑目錄</Link>
+                                </div>
+                            </div>
             </section>
         </main >
     )
