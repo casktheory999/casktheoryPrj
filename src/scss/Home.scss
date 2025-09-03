@@ -1,7 +1,10 @@
 @use 'reset' as *;
 @use "variables" as *;
 
-
+html,
+body {
+    overflow-x: clip;
+}
 
 /*----Hero區----*/
 .hero {
@@ -9,26 +12,23 @@
     color: $pri-white;
     position: relative;
     width: 100%;
-    height: 800px;
+    height: 100vh;
     min-height: 800px;
     margin: 0 auto;
-    padding: 76px 0 68px 0;
+    padding: 60px 0;
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
         "left rightTop"
         "left slogan";
-    column-gap: 32px;
+
     overflow: hidden;
     box-sizing: border-box;
     z-index: 1;
 
     // 平板版
     @media ($mediaMd) {
-        height: 100vh;
-        min-height: 700px;
-        padding: 70px 40px 50px;
         column-gap: 24px;
     }
 
@@ -50,6 +50,32 @@
     >* {
         position: relative;
         z-index: 1;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 50%;
+        height: 50%;
+        background: url(images/gptindexbg2_op1.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        z-index: 0;
+
+        // 平板版
+        @media ($mediaMd) {
+            width: 40%;
+            height: 40%;
+        }
+
+        // 手機版隱藏背景裝飾
+        @media ($mediaSm) {
+            display: none;
+        }
     }
 
     .heroLeft {
@@ -293,34 +319,6 @@
     }
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 50%;
-    height: 50%;
-    background: url(images/gptindexbg2_op1.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 0;
-
-    // 平板版
-    @media ($mediaMd) {
-        width: 40%;
-        height: 40%;
-    }
-
-    // 手機版隱藏背景裝飾
-    @media ($mediaSm) {
-        display: none;
-    }
-}
-
-
-
 /*----最新消息----*/
 .news {
     height: 100vh;
@@ -356,6 +354,45 @@
         gap: 20px;
         padding: 40px 20px;
         background-image: none;
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: .06em;
+        color: rgba(0, 0, 0, .04);
+        pointer-events: none;
+        user-select: none;
+        z-index: -1;
+
+        // 手機版隱藏
+        @media ($mediaSm) {
+            display: none;
+        }
+    }
+
+    /*--N--*/
+    &::before {
+        content: "N";
+        justify-content: flex-start;
+        align-items: flex-start;
+        left: clamp(12px, 9vw, 50px);
+        top: clamp(12px, 9vw, 10px);
+        font-size: clamp(120px, 28vw, 400px);
+    }
+
+    /*--Ws--*/
+    &::after {
+        content: "Ws";
+        justify-content: flex-end;
+        align-items: flex-end;
+        right: -30px;
+        bottom: clamp(12px, 9vw, 25px);
+        font-size: clamp(120px, 28vw, 400px);
     }
 
 
@@ -559,49 +596,6 @@
 
 }
 
-.news::before,
-.news::after {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: .06em;
-    color: rgba(0, 0, 0, .04);
-    pointer-events: none;
-    user-select: none;
-    z-index: -1;
-
-    // 手機版隱藏
-    @media ($mediaSm) {
-        display: none;
-    }
-}
-
-/*--N--*/
-.news::before {
-    content: "N";
-    justify-content: flex-start;
-    align-items: flex-start;
-    left: clamp(12px, 9vw, 50px);
-    top: clamp(12px, 9vw, 10px);
-    font-size: clamp(120px, 28vw, 400px);
-}
-
-/*--Ws--*/
-.news::after {
-    content: "Ws";
-    justify-content: flex-end;
-    align-items: flex-end;
-    right: -30px;
-    bottom: clamp(12px, 9vw, 25px);
-    font-size: clamp(120px, 28vw, 400px);
-}
-
-
-
-
-
 /*----酒吧地圖----*/
 .mapSection {
     height: 100vh;
@@ -611,11 +605,29 @@
     overflow: hidden;
     isolation: isolate;
 
-
     // 手機版
     @media ($mediaSm) {
-        height: 100vh;
         min-height: 600px;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 191px;
+        height: 116px;
+        background: url(/images/drop_light.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        z-index: 2;
+
+        // 手機版隱藏背景裝飾
+        @media ($mediaSm) {
+            display: none;
+        }
     }
 
     .mapTitleBox {
@@ -625,11 +637,10 @@
         z-index: -1;
 
         @media ($mediaSm) {
-            display: flex;
-            justify-content: center;
+            top: 16%;
+            right: 50%;
             transform: none;
             font-size: clamp(32px, 8vw, 40px);
-            align-items: center;
             margin-bottom: 40px;
         }
 
@@ -652,7 +663,7 @@
                 top: auto;
                 left: auto;
                 transform: none;
-                font-size: clamp(32px, 8vw, 40px);
+                font-size: 40px;
                 text-align: center;
                 margin-bottom: 40px;
                 gap: 12px;
@@ -690,6 +701,7 @@
         overflow: hidden;
         font-family: 'Roboto', serif;
         z-index: 1;
+        overflow-x: clip;
 
         @media ($mediaSm) {
             height: 100vh;
@@ -703,6 +715,7 @@
             height: 100%;
             overflow: hidden;
             pointer-events: none;
+            overflow: clip;
         }
 
         .carousel-item {
@@ -729,12 +742,14 @@
             pointer-events: all;
             transform: translate(var(--x), var(--y)) rotate(var(--rot));
             transition: transform .8s cubic-bezier(0, 0.02, 0, 1);
+            max-width: 100%;
+            overflow: hidden;
 
             // 手機版調整
             @media ($mediaSm) {
                 --width: clamp(120px, 35vw, 200px);
                 --height: clamp(160px, 45vw, 260px);
-                --x: calc(var(--active) * 600%);
+                --x: calc(var(--active) * 350%);
                 --y: calc(var(--active) * 150%);
                 --rot: calc(var(--active) * 80deg);
             }
@@ -749,6 +764,8 @@
                 transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
                 opacity: var(--opacity);
                 font-family: 'Orelo-sw-db', serif;
+                max-width: 100%;
+                overflow: hidden;
 
                 &:before {
                     content: '';
@@ -801,6 +818,7 @@
                 height: 100%;
                 object-fit: cover;
                 pointer-events: none;
+                display: block;
             }
         }
     }
@@ -828,25 +846,6 @@
     }
 }
 
-.mapSection::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 191px;
-    height: 116px;
-    background: url(/images/drop_light.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 2;
-
-    // 手機版隱藏背景裝飾
-    @media ($mediaSm) {
-        display: none;
-    }
-}
 
 /*---路跑路線---*/
 .route {
@@ -855,7 +854,7 @@
     background-color: $pri-dark;
     color: $pri-white;
     position: relative;
-    overflow-x: hidden;
+    overflow-x: clip;
 
     @media ($mediaMd) {
         height: 700px;
@@ -876,6 +875,7 @@
         font-weight: 700;
         letter-spacing: .04em;
         transform: translate(230px, 100px);
+        max-width: 100%;
 
         @media ($mediaMd) {
             font-size: 48px;
@@ -926,6 +926,7 @@
         position: relative;
         overflow: visible;
         z-index: 1;
+        padding-inline: 24px;
 
         @media ($mediaSm) {
             flex-direction: column;
@@ -950,7 +951,7 @@
             --dx: -40px;
             --dy: 180px;
             --z: 2;
-            margin-right: -160px;
+
 
             @media ($mediaSm) {
                 --dx: 0;
@@ -964,7 +965,7 @@
             --dx: 50px;
             --dy: 360px;
             --z: 3;
-            margin-right: -160px;
+
 
             @media ($mediaSm) {
                 --dx: 0;
@@ -993,7 +994,7 @@
             transform: translate(var(--dx, 0), var(--dy, 0));
             z-index: var(--z, 1);
 
-            
+
 
             @media ($mediaMd) {
                 width: 400px;
@@ -1122,6 +1123,60 @@
         border-radius: 0;
         background-image: none;
     }
+
+    // 背景浮水印
+    &::before {
+        content: "Illustr";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 96px;
+        font-weight: 700;
+        font-size: 350px;
+        line-height: .7;
+        letter-spacing: .2em;
+        color: rgb(0 0 0 / 3%);
+        white-space: nowrap;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+
+        @media ($mediaMd) {
+            font-size: 250px;
+            top: 70px;
+        }
+
+        @media ($mediaSm) {
+            display: none;
+        }
+    }
+
+    &::after {
+        content: "ations";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 96px;
+        font-weight: 700;
+        font-size: 350px;
+        line-height: .7;
+        letter-spacing: .2em;
+        color: rgb(0 0 0 / 3%);
+        white-space: nowrap;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+
+        @media ($mediaMd) {
+            font-size: 250px;
+            bottom: 90px;
+        }
+
+        @media ($mediaSm) {
+            display: none;
+        }
+    }
+
 
     // 左欄:酒杯裝飾
     .leftImg {
@@ -1403,58 +1458,5 @@
                 transform: translateY(-2px);
             }
         }
-    }
-}
-
-// 背景浮水印
-.Illustrations::before {
-    content: "Illustr";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 96px;
-    font-weight: 700;
-    font-size: 350px;
-    line-height: .7;
-    letter-spacing: .2em;
-    color: rgb(0 0 0 / 3%);
-    white-space: nowrap;
-    pointer-events: none;
-    user-select: none;
-    z-index: 0;
-
-    @media ($mediaMd) {
-        font-size: 250px;
-        top: 70px;
-    }
-
-    @media ($mediaSm) {
-        display: none;
-    }
-}
-
-.Illustrations::after {
-    content: "ations";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 96px;
-    font-weight: 700;
-    font-size: 350px;
-    line-height: .7;
-    letter-spacing: .2em;
-    color: rgb(0 0 0 / 3%);
-    white-space: nowrap;
-    pointer-events: none;
-    user-select: none;
-    z-index: 0;
-
-    @media ($mediaMd) {
-        font-size: 250px;
-        bottom: 90px;
-    }
-
-    @media ($mediaSm) {
-        display: none;
     }
 }

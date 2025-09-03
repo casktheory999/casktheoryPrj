@@ -1,8 +1,11 @@
 footer {
+    bottom:  0;
+    left: 0;
+    z-index: 99999;
+    width: 100vw;
     padding: 20px 40px;
     color: #fff;
     background: #222;
-
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
