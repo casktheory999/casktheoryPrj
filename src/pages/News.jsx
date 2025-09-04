@@ -43,7 +43,7 @@ const News = () => {
         }, {
             id: 5,
             month: 'Sept.',
-            date: 0o5,
+            date: '05',
             articleTitle: '【動手體驗】',
             articleSub: 'Mojito專題｜沁涼一夏－雙人體驗方案',
             articleImg: './images/activity5.png',

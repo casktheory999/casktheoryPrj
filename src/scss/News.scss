@@ -1,6 +1,8 @@
 @use 'reset' as *;
 @use "variables" as *;
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&family=Yeseva+One&display=swap');
+
 body {
     background-color: $pri-white;
     color: $pri-dark;
@@ -14,19 +16,20 @@ body {
     height: 100vh;
     background-color: white;
     color: #000;
+    z-index: 0;
 
     &::after {
         content: "";
         position: absolute;
         right: 0;
         top: 0;
-        background: url('/images/newsBefore.png');
+        background: url(/images/newsBefore.png);
         background-repeat: no-repeat;
         background-position: right;
         background-size: auto 100%;
         width: 100%;
         height: 100%;
-        z-index: -1;
+        z-index:-1;
     }
 
 
@@ -42,7 +45,6 @@ body {
         align-self: stretch;
 
         .Ian_title {
-            font-family: 'noto-serif TC', serif;
             width: 15%;
             font-size: 40px;
             display: flex;
@@ -53,7 +55,7 @@ body {
             h1 {
                 writing-mode: vertical-rl;
                 align-self: center;
-                font-family: 'noto-serif TC', serif;
+                font-family: $family-tc;
                 font-weight: bold;
             }
         }
@@ -88,7 +90,7 @@ body {
 
 
         .Ian_dateBox {
-            font-family: 'yeseva one', serif;
+            font-family: $family-en;
             width: 15%;
             display: flex;
             flex-direction: row;
