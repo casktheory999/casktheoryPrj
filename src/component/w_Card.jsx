@@ -38,6 +38,10 @@ export default function W_Card({ zh, en, img, highlight }) {
   return (
     <div className={`w_card${saved ? " is-saved" : ""}`}>
       <div className="w_card_visual">
+        <div className="w_card_meta">
+          <div className="w_card_name">{zhNode}</div>
+          <div className="w_card_en">{enNode}</div>
+        </div>
         <div className="w_card_bg" />
         {img ? (
           <img className="w_card_img" src={img} alt={`${zh} ${en}`} />
@@ -61,10 +65,7 @@ export default function W_Card({ zh, en, img, highlight }) {
         </button>
       </div>
 
-      <div className="w_card_meta">
-        <div className="w_card_name">{zhNode}</div>
-        <div className="w_card_en">{enNode}</div>
-      </div>
+
     </div>
   );
 }

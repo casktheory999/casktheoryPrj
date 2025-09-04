@@ -95,8 +95,8 @@
 .w_hero_panel p {
   margin: 0;
   color: #f1f1f1;
-  line-height: 1.7;
-  font-size: 14px;
+  line-height: 1.5;
+  font-size: 16px;
 }
 
 /* 手機：縮小卡片避免擋畫面 */
@@ -315,13 +315,17 @@ section + section .w_section_title {
 
 /* 卡片樣式 */
 .w_card {
-  background: #fff;
+  // background: #fff;
   border-radius: 0;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  // box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
   position: relative;
   padding-bottom: 90px; /* 為絕對定位的白框預留空間 */
-  transition: transform .18s ease, box-shadow .18s ease;
+  // transition: transform .18s ease, box-shadow .18s ease;
 }
+
+// w_card_visual{
+//   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+// }
 
 .w_card_visual { position: relative; min-height: 205px; }
 /* 粉框（設計尺寸） */
@@ -394,7 +398,7 @@ section + section .w_section_title {
 /* highlight style */
 .w_card mark{ background: #60574f; color:#b44a00; padding: 0 2px; border-radius: 3px; }
 
-.w_card:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.10); }
+// .w_card:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.10); }
 .w_card:hover .w_card_img{ transform: scale(1.02); }
 
 /* Bookmark button */
