@@ -7,7 +7,7 @@ import MapCarousel from '../component/MapCarousel'
 // 圖鑑區資料
 const IlluData = {
     base: {
-        zh: '基酒',
+        zh: '六大基酒',
         en: 'Base Spirit',
         desc: '「基酒是文化的基礎，麥芽與橡木、杜松與草本、甘蔗與果香...，從原料到工藝，乘載著各式風味的可能性，體驗飲酒文化就從基酒開始。」',
         imgs: [
@@ -135,7 +135,7 @@ const Home = () => {
                                         className={tab === 'base' ? 'active' : ''}
                                         onClick={() => onPick('base')}
                                     >
-                                        基酒
+                                        六大基酒
                                     </button>
                                     <button
                                         className={tab === 'classic' ? 'active' : ''}
