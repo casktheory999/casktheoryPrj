@@ -106,11 +106,13 @@ const News = () => {
                     </div>
                 </div>
                 <div className="Ian_pageBox">
-                    <div className="pages">1</div>
-                    <div className="pages">2</div>
-                    <div className="pages">3</div>
-                    <div className="pages">4</div>
-                    <div className="pages">5</div>
+                    <div className="Ian_newsPages">＜</div>
+                    <div className="Ian_newsPages">1</div>
+                    <div className="Ian_newsPages">2</div>
+                    <div className="Ian_newsPages">3</div>
+                    <div className="Ian_newsPages">4</div>
+                    <div className="Ian_newsPages">...</div>
+                    <div className="Ian_newsPages">＞</div>
                 </div>
             </section>
         </>

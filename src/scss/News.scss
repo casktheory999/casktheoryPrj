@@ -39,7 +39,7 @@ body {
         box-sizing: border-box;
         /* << 讓 height 包含 padding，不會因為改 padding 影響外觀總高 */
         height: 95%;
-        padding: 10% 8% 3% 8%;
+        padding: 8% 8% 3% 8%;
         display: flex;
         flex-direction: row;
         align-self: stretch;
@@ -66,9 +66,11 @@ body {
         flex-direction: row;
         justify-content: center;
 
-        .pages {
+        .Ian_newsPages {
+            font-family: $family-en;
             flex: 0 0 auto;
-            width: fit-content;
+            width: fit-content; 
+            min-width: 5%;
         }
     }
 }
@@ -77,7 +79,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // gap: 20px;
+    gap: 20px;
     width: 70%;
     // gap: 40px;
 
