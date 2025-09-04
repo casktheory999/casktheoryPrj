@@ -1,14 +1,451 @@
-.illustrations {
-  padding: 40px 24px;
-  .hero {
-    background: #f4f4f4;
-    padding: 32px;
-    border-radius: 12px;
-    margin-bottom: 40px;
+@use './reset' as *;
+@use './variables' as *;
+
+
+:root {
+  --hero-h: 420px;
+  /* 你的 Hero 高度；和 .w_hero_full 的 min-height 對齊 */
+  --toc-panel: 250px;
+  --toc-r: 150px;
+}
+
+/* ========= Full-bleed HERO ========= */
+.w_hero_full {
+  position: relative;
+  width: 100%;
+  min-height: var(--hero-h);
+  background-image: var(--w-hero-img);
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+
+/* 暗色遮罩（讓文字可讀） */
+.w_hero_mask {
+  position: absolute;
+  inset: 0;
+  /* 超輕的遮罩：左邊一點點，右側不蓋 */
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, .18) 0%,
+      rgba(0, 0, 0, .12) 40%,
+      rgba(0, 0, 0, .06) 65%,
+      rgba(0, 0, 0, 0) 100%);
+  z-index: 0;
+}
+
+/* 內容容器：左右兩塊 + 中線 + 直式標題 */
+.w_hero_inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 36px 24px;
+  display: grid;
+  grid-template-columns: 1fr 12px 1fr;
+  /* 左內容 / 分隔線 / 右區（直式字） */
+  align-items: center;
+  gap: 24px;
+}
+
+/* 左側推薦卡 */
+/* 毛玻璃推薦卡（360×400，左右邊距 40） */
+.w_hero_panel {
+  width: 360px;
+  height: 400px;
+  padding: 24px 40px;
+  color: #fff;
+
+  background: rgba(115, 115, 115, .3);
+  /* #737373, 透明度 50% */
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+
+  border-radius: 12px;
+  /* border: 1px solid rgba(255,255,255,.25);  <-- 拿掉這個 */
+
+  /* 陰影會在下面加 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 3.5px 3.5px rgba(0, 0, 0, 0.25);
+}
+
+/* 字級可維持你現在設定；這裡給稍微輕一點的對比 */
+.w_hero_panel h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.w_hero_panel h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.w_hero_panel h2 span {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 8px;
+  color: #f3f3f3;
+}
+
+.w_hero_panel p {
+  margin: 0;
+  color: #f1f1f1;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* 手機：縮小卡片避免擋畫面 */
+@media (max-width: 900px) {
+  .w_hero_panel {
+    width: 92%;
+    height: auto;
+    padding: 16px 20px;
+    border-radius: 10px;
+    background: rgba(20, 20, 20, .50);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
-  .spirits {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 20px;
+
+  .w_hero_panel h2 {
+    font-size: 26px;
   }
+
+  .w_hero_panel h3 {
+    font-size: 18px;
+  }
+}
+
+/* Hero 中央直線 */
+.w_hero_divider {
+  --gap: 240px;
+  /* ← 中間空白的高度：大概等於「酒精圖鑑」的整體高度，自己微調就好 */
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  /* 線在底下 */
+}
+
+/* 上段（從頂到 gap/2 上緣，往中間漸淡） */
+.w_hero_divider::before,
+.w_hero_divider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, .6), transparent);
+}
+
+.w_hero_divider::before {
+  top: 0;
+  height: calc(50% - var(--gap) / 2);
+}
+
+.w_hero_divider::after {
+  bottom: 0;
+  height: calc(50% - var(--gap) / 2);
+  transform: scaleY(-1);
+  /* 讓下段的漸層方向跟上段對稱 */
+}
+
+
+
+/* Hero 直式大字 */
+.w_hero_vtitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-weight: 800;
+  font-size: 36px;
+  /* 依設計調整 */
+  letter-spacing: 4px;
+  color: #fff;
+  z-index: 2;
+  /* 確保在分隔線上方 */
+}
+
+/* RWD：堆疊顯示 */
+@media (max-width: 900px) {
+  .w_hero_inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .w_hero_divider {
+    display: none;
+  }
+
+  .w_hero_vtitle {
+    justify-self: start;
+    writing-mode: horizontal-tb;
+    letter-spacing: 2px;
+    font-size: 22px;
+  }
+
+  .w_hero_panel {
+    max-width: 100%;
+  }
+}
+
+.w_illustrations {
+  padding-left: calc(var(--toc-panel, 250px) + 20px);
+  padding-block: 24px;
+}
+
+.w_illustrations.is-searching { padding-left: 20px; }
+
+.w_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0px;
+}
+
+section + section .w_section_title {
+  margin-top: 80px;   /* 你可以改成 60px / 100px，依照視覺調整 */
+}
+
+/* 整組靠右，並預留左側 TOC 空間 */
+.w_section_title{
+  display:flex;
+  justify-content:flex-end; /* 整體靠右 */
+  margin-left:240px;
+  margin-bottom:22px;
+}
+@media (max-width:1300px){
+  .w_section_title{ margin-left:0; justify-content:center; }
+}
+
+/* 包裹層固定大小＝黑色長方形尺寸 */
+.w_section_wrap{
+  position:relative;
+  width:1195px;
+  height:106px;
+}
+
+/* 黑色長方形本體 */
+.w_section_bar{
+  position:absolute; inset:0;           /* 填滿包裹層 */
+  background:#111; color:#fff;
+  // border-radius:4px;
+  display:flex; align-items:center;
+  gap:12px;
+  padding-left:120px;                   /* 給數字預留空間 */
+  box-sizing:border-box;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+
+/* 橘色數字：以黑條的 top 為基準，往下壓 50% => 垂直吃一半 */
+.w_section_idx{
+  position:absolute;
+  left:24px;       /* 調整你要的水平位置 */
+  top:0;           /* 對齊黑條上邊 */
+  transform:translateY(-50%);
+  font-size:72px;
+  font-weight:900;
+  line-height:1;
+  color:var(--brand, #ff6a00);
+  z-index:2;       /* 蓋在黑條上 */
+  text-shadow: 0 4px 14px rgba(255,106,0,.25);
+}
+
+/* 內文樣式 */
+.w_section_zh{
+  font-weight:800;
+  font-size:28px;
+  letter-spacing:.3px;
+  color:#fff;
+}
+.w_section_en{
+  color:rgba(255,255,255,.72);
+  font-weight:600;
+  font-size:16px;
+  letter-spacing:.6px;
+}
+
+.w_search_wrap{ display:flex; justify-content:flex-end; padding: 12px 20px 0; }
+.barSearch {
+  width: 240px;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  align-items: center;
+  padding-top: 4px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #AFAFAF;
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    opacity: .9;
+  }
+
+  input {
+    background: transparent;
+    border: 0;
+    color: #AFAFAF;
+    outline: none;
+    font-size: 16px;
+    line-height: 1.2;
+    margin-left: 10px;
+  }
+
+  input::placeholder {
+    color: #D0D0D0;
+    letter-spacing: .02em;
+  }
+}
+
+/* 卡片 Grid */
+.w_cards {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* 卡片樣式 */
+.w_card {
+  background: #fff;
+  border-radius: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  padding-bottom: 90px; /* 為絕對定位的白框預留空間 */
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.w_card_visual { position: relative; min-height: 205px; }
+/* 粉框（設計尺寸） */
+.w_card_bg { position:absolute; top:0; width:236px; height:205px; background:#f3eee9; }
+/* 圖片（設計尺寸），上移一半高度以「伸出」卡片 */
+.w_card_img { position: absolute; width:342px; height:228px; top:-114px; object-fit: contain; }
+
+/* 第二排（卡片 4~6）讓圖片靠右，其餘靠左 */
+.w_cards > .w_card:nth-child(6n+1) .w_card_bg,
+.w_cards > .w_card:nth-child(6n+2) .w_card_bg,
+.w_cards > .w_card:nth-child(6n+3) .w_card_bg { left:118px; right:auto; }
+.w_cards > .w_card:nth-child(6n+4) .w_card_bg,
+.w_cards > .w_card:nth-child(6n+5) .w_card_bg,
+.w_cards > .w_card:nth-child(6n+6) .w_card_bg { right:55px; left:auto; }
+
+/* 讓圖片大部分覆蓋在粉框上：依粉框中心做 53px（(342-236)/2）修正 */
+.w_cards > .w_card:nth-child(6n+1) .w_card_img,
+.w_cards > .w_card:nth-child(6n+2) .w_card_img,
+.w_cards > .w_card:nth-child(6n+3) .w_card_img { left: 65px; right:auto; }
+.w_cards > .w_card:nth-child(6n+4) .w_card_img,
+.w_cards > .w_card:nth-child(6n+5) .w_card_img,
+.w_cards > .w_card:nth-child(6n+6) .w_card_img { right: 2px; left:auto; }
+
+.w_img_placeholder {
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background: #e8e8e8;
+}
+
+.w_card_meta {
+  position: absolute;
+  top: 205px;            /* 黏在粉框底端 */
+  width:236px;
+  height:63px;              /* 白框尺寸 */
+  background:#fff;          /* 白框底色 */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;   /* 文字置中對齊白框高度 */
+  gap:2px;
+}
+
+/* 對齊白框與粉框位置 */
+.w_cards > .w_card:nth-child(6n+1) .w_card_meta,
+.w_cards > .w_card:nth-child(6n+2) .w_card_meta,
+.w_cards > .w_card:nth-child(6n+3) .w_card_meta { left:118px; right:auto; }
+.w_cards > .w_card:nth-child(6n+4) .w_card_meta,
+.w_cards > .w_card:nth-child(6n+5) .w_card_meta,
+.w_cards > .w_card:nth-child(6n+6) .w_card_meta { right:55px; left:auto; }
+
+.w_card_name {
+  font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 2.4px;
+}
+
+.w_card_en {
+  color: #666;
+  font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: .8px;
+}
+
+/* highlight style */
+.w_card mark{ background: #60574f; color:#b44a00; padding: 0 2px; border-radius: 3px; }
+
+.w_card:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.10); }
+.w_card:hover .w_card_img{ transform: scale(1.02); }
+
+/* Bookmark button */
+.w_bookmark {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .92);
+  color: #ff6a2b;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.w_bookmark:hover { background: #fff; }
+.w_bookmark svg { width: 18px; height: 25px; }
+.w_bookmark_path { fill: none; stroke: currentColor; stroke-width: 2; }
+.w_bookmark.is-active .w_bookmark_path { fill: currentColor; stroke: none; }
+
+/* RWD：畫面變小改為兩欄、一欄，並維持左右交錯規則 */
+@media (max-width: 1200px) {
+  .w_cards { grid-template-columns: repeat(2, 1fr); }
+  /* 每 4 張為一循環，前兩張靠左、後兩張靠右 */
+  .w_cards > .w_card:nth-child(4n+1) .w_card_img,
+  .w_cards > .w_card:nth-child(4n+2) .w_card_img { left: 118px; right: auto; }
+  .w_cards > .w_card:nth-child(4n+3) .w_card_img,
+  .w_cards > .w_card:nth-child(4n+4) .w_card_img { right: 55px; left: auto; }
+  .w_card_bg { height: 300px; }
+  .w_card_img { width: 360px; height: 360px; top: -180px; }
+}
+
+@media (max-width: 700px) {
+  .w_cards { grid-template-columns: 1fr; }
+  /* 一欄時，奇數靠左、偶數靠右 */
+  .w_cards > .w_card:nth-child(2n+1) .w_card_img { left: 118px; right: auto; }
+  .w_cards > .w_card:nth-child(2n) .w_card_img { right: 55px; left: auto; }
+  .w_card_bg { height: 260px; }
+  .w_card_img { width: 320px; height: 320px; top: -160px; }
+}
+
+@media (max-width: 900px) {
+  .w_illustrations {
+    padding-left: 0;
+  }
+}
+
+/* 當左側導覽在 1024px 關閉時，同步移除內容區讓位 */
+@media (max-width: 1024px) {
+  .w_illustrations { padding-left: 0; }
 }

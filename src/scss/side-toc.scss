@@ -1,0 +1,82 @@
+@use './reset' as *;
+@use './variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC&family=Noto+Sans+TC:wght@200..900&family=Yeseva+One&display=swap');
+:root{
+  --hero-h: 420px;     /* 沒設定時就用 420 */
+  --toc-top: 120px;    /* 由 JS 動態寫 */
+  --ring-size: 260px;  /* 加大半徑對應 */
+}
+
+.w_toc_right {
+  position: fixed;     /* 右半圓貼左側、跟著滾動邏輯調整 top */
+  left: 0;
+  top: var(--toc-top);
+  width: 240px;
+  min-height: var(--ring-size);
+  z-index: 30;
+  pointer-events: auto;
+}
+
+/* SVG 放最左；我們畫的是「右半圓」，所以視覺上就出現在左邊框的右側 */
+.w_toc_right__svg {
+  position: absolute;
+  left: calc(-1 * var(--ring-size) / 2); /* 將圓心推到容器最左，使弧線貼齊邊緣 */
+  top: 0;
+  width: var(--ring-size);
+  height: var(--ring-size);
+}
+
+/* 文字靠圓心右側擺放 */
+.w_toc_right__list{
+  position: absolute;
+  left: 16px; /* 放回圓內側，靠左定位 */
+  top: 88px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;           /* 導覽字級 */
+  font-family: NOTO sans TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif; /* 導覽中文字型 */
+  line-height: 1.9;
+  color: #9aa0a6;
+}
+
+.w_toc_right__list li{
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  transition: color .15s ease;
+}
+.w_toc_right__list li:hover{ color: #111; }
+.w_toc_right__list li.is-active{ color: #111; }
+.w_toc_right__list li.is-active .title{ font-weight: 700; }
+
+.w_toc_right__list .no{
+  display: inline-block;
+  width: 2.2ch;         /* 固定數字欄位寬，避免 0/1 寬度不同 */
+  text-align: right;    /* 讓位數靠右對齊 */
+  font-family: NOTO sans TC, serif;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+/* 標題維持自然對齊，不強制齊右 */
+
+.w_toc_right__svg {
+  overflow: visible; /* 保證 stroke 不會被裁切 */
+}
+
+/* 內容區讓位（加在每個 section 上） */
+.w_withSideToc{ margin-left: 240px; }
+
+/* RWD */
+@media (max-width: 1024px){
+  .w_toc_right{ display:none; }
+  .w_withSideToc{ margin-left:0; }
+}
+@media (max-width: 700px){
+  .w_toc_right{ display:none; }
+  .w_withSideToc{ margin-left:0; }
+}
