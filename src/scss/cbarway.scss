@@ -1,24 +1,347 @@
-// @use 'reset' as *;
-// @use "variables" as *;
+@use 'reset' as *;
+@use "variables" as *;
 
-// .cpage-title {
-//     width: 100%;
-//     height: 160px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     background: #000;
-//     margin-top: 70px;
-//     position: relative;
-//     margin-top: 70px;
+// SCSS Variables
+$section-bg: #111;
+$section-text: white;
+$page-title-bg: #000;
+$page-title-text: #fff;
+$white-bg: #fff;
+$text-dark: #000;
+$text-gray: #444;
+$text-light-gray: #9ca3af;
+$text-medium-gray: #6b7280;
+$text-lighter-gray: #e5e7eb;
+$accent-color: #ff6600;
+$timeline-line: #cfcfcf;
 
-// }
+.section {
+    scroll-margin-top: 96px;
+    background-color: $section-bg;
+    color: $section-text;
+}
 
-// .cpage-title h2 {
-//     color: #fff;
-//     font-size: 4rem;
-//     /* 48px clamp(20px, 2.2vw, 28px) */
-//     font-weight: 700;
-//     letter-spacing: .1em;
-//     margin: 0;
-// }
+.cpage-title {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $page-title-bg;
+    margin-top: 56px;
+    position: relative;
+
+    h2 {
+        color: $page-title-text;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: .1em;
+        margin: 0;
+    }
+}
+
+/* 區塊本體：白色背景 */
+.csection-white {
+    background: $white-bg;
+    padding: 60px 0;
+    position: relative;
+    overflow: visible;
+}
+
+/* 兩欄：左圖右文 */
+.chero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+    position: relative;
+}
+
+/* 左：圖片 */
+.chero-photo {
+    img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+/* 右：文字卡內文 */
+.chero-text {
+    position: relative;
+    background: $white-bg;
+    bottom: 0px;
+    margin-left: 0px;
+    padding: 200px 50px;
+    font-weight: 900;
+    font-size: 20px;
+
+    h3 {
+        margin: 0 10px 30px;
+        font-size: 36px;
+        font-weight: 700;
+        color: $text-dark;
+    }
+}
+
+/* 右側直排「推薦路線 1」*/
+.cvlabel {
+    position: absolute;
+    right: 200px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: $text-light-gray;
+    font-size: 48px;
+    letter-spacing: .12em;
+
+    p {
+        writing-mode: horizontal-tb;
+        color: $text-medium-gray;
+        font-weight: 600;
+        letter-spacing: 0;
+        margin-top: 0px;
+    }
+}
+
+.cmeta {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 28px;
+    color: $text-gray;
+    line-height: 2;
+}
+
+/* 右上角黑色水滴 */
+.cdrop_dark {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    display: block;
+    z-index: 20;
+    pointer-events: none;
+    background-image: url(../images/drop_dark.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 191px 116px;
+}
+
+/* 地圖區塊背景 */
+.csection-mapArea {
+    background: $white-bg;
+    color: $text-dark;
+    padding: 56px 0 96px;
+    position: relative;
+    align-items: flex-start;
+}
+
+/* 疊放容器：同一格疊兩層（黑帶 + 地圖卡） */
+.cro-stack {
+    display: grid;
+    grid-template-rows: var(--band-h);
+    place-items: center;
+    position: relative;
+}
+
+/* 黑色資訊帶（跨全寬） */
+.cro-band {
+    grid-area: 1/1;
+    width: 100%;
+    height: var(--band-h);
+    background: $text-dark;
+}
+
+.cro-band-inner {
+    height: 100%;
+    color: $white-bg;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 28px;
+    margin: 0 150px;
+    padding-right: calc(720px + 40px);
+
+    h3 {
+        margin: 60px 20px 0px;
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: .01em;
+    }
+}
+
+.cro-meta {
+    list-style: none;
+    margin: 0;
+    padding: 30px 30px 50px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px 0;
+    color: $text-lighter-gray;
+    line-height: 2;
+}
+
+.cmap-card {
+    grid-area: 1/1;
+    justify-self: end;
+    align-self: center;
+    z-index: 2;
+    width: 720px;
+    height: 360px;
+    overflow: hidden;
+    margin: 100px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+/* === Timeline === */
+#timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 84px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        background: repeating-linear-gradient($timeline-line 0 8px, transparent 8px 16px);
+        opacity: .7;
+    }
+}
+
+/* 3 欄：左文 / 中軸 / 右卡（第二段反轉） */
+.cintro,
+.cintro-alt {
+    display: grid;
+    align-items: center;
+    width: min(90vw, 960px);
+    margin: 100px auto;
+    gap: 20px;
+}
+
+.cintro {
+    grid-template-columns: 1fr var(--axisW) var(--cardW);
+}
+
+.cintro-alt {
+    grid-template-columns: var(--cardW) var(--axisW) 1fr;
+}
+
+/* 中欄 km */
+.ckm {
+    grid-column: 2;
+    justify-self: center;
+    align-self: center;
+    writing-mode: horizontal-tb;
+    color: $accent-color;
+    font-weight: 800;
+}
+
+/* 文字段落（左右僅留一處差異） */
+.cphtxt,
+.cphtxt-alt {
+    margin: 0;
+    line-height: 2;
+    max-width: 42ch;
+    color: $text-dark;
+    align-self: start;
+}
+
+/* 卡片與疊圖（共用） */
+.cmedia {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 220px;
+    width: 100%;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .12));
+    margin: 50px 0;
+
+    img {
+        position: absolute;
+        top: -80px;
+        width: 360px;
+        height: 240px;
+        object-fit: cover;
+        z-index: 3;
+        left: 250px;
+    }
+}
+
+.ctxtArea {
+    grid-row: 1;
+    position: relative;
+    width: 500px;
+    height: 220px;
+    margin: 0 0 8px;
+    background: $section-bg;
+    color: $white-bg;
+    padding: 16px 18px 18px;
+    z-index: 2;
+    box-shadow: none;
+
+    h5 {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 100px 0 0;
+    }
+}
+
+/* 大號碼 */
+.cnum {
+    position: absolute;
+    top: -32px;
+    font-size: 68px;
+    font-weight: 900;
+    line-height: 1;
+    color: $accent-color;
+    z-index: 3;
+}
+
+.cintro-alt .num {
+    left: calc(100% - 80px);
+}
+
+/* 盒子貼中線的位移量：中線一半 + column-gap - 想留的縫隙 */
+.cintro,
+.cintro-alt {
+    .media {
+        --snap: calc(0.5 * var(--axisW) + var(--col-gap) - var(--stick-gap));
+    }
+}
+
+/* 右側卡往左、左側卡往右 */
+.cintro .media {
+    transform: translateX(calc(-1 * var(--snap)));
+}
+
+.cintro-alt {
+    .media {
+        transform: translateX(var(--snap));
+
+        img {
+            left: -20px;
+        }
+    }
+
+    .txtArea {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        text-align: right;
+        padding: 16px 18px;
+    }
+}

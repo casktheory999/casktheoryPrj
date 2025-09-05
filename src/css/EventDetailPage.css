@@ -10,19 +10,18 @@
   /* ========== 地圖 + 交通（兩欄） ========== */
   /* ========== 推薦區（卡片列表） ========== */
 }
-.eventDetailPage .heroSection {
+.eventDetailPage .a_heroSection {
   margin-bottom: 20px;
 }
-.eventDetailPage .heroSection .heroBanner {
+.eventDetailPage .a_heroSection .a_heroBanner {
   position: relative;
 }
-.eventDetailPage .heroSection .heroBanner .heroImg {
+.eventDetailPage .a_heroSection .a_heroBanner .a_heroImg {
   width: 100%;
   display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
-.eventDetailPage .heroSection .heroBanner .heroRibbon {
+.eventDetailPage .a_heroSection .a_heroBanner .a_heroRibbon {
   position: relative;
   left: 0;
   right: 0;
@@ -30,24 +29,25 @@
   width: 100%;
   text-align: center;
   font-size: 20px;
+  letter-spacing: 2rem;
   color: #FAFAFA;
   background: #807C7C;
   padding: 6px;
 }
-.eventDetailPage .heroSection .heroMeta {
+.eventDetailPage .a_heroSection .heroMeta {
   display: flex;
   align-items: center;
   gap: 12px;
   margin: 12px 0 8px;
 }
-.eventDetailPage .heroSection .heroMeta .heroChips {
+.eventDetailPage .a_heroSection .heroMeta .heroChips {
   list-style: none;
   display: flex;
   gap: 8px;
   padding-left: 70px;
   margin: 0;
 }
-.eventDetailPage .heroSection .heroMeta .heroChips .chip {
+.eventDetailPage .a_heroSection .heroMeta .heroChips .chip {
   display: inline-block;
   padding: 6px 12px;
   background: #FF6D25;
@@ -55,109 +55,118 @@
   border-radius: 999px;
   font-size: 14px;
 }
-.eventDetailPage .heroSection .heroMeta .heroStats {
+.eventDetailPage .a_heroSection .heroMeta .heroStats {
   list-style: none;
   display: flex;
   gap: 16px;
   padding-right: 84px;
   margin: 0 0 0 auto;
-  color: #c8cacc;
+  color: #807C7C;
   font-size: 14px;
 }
-.eventDetailPage .heroSection .heroTitle {
+.eventDetailPage .a_heroSection .heroTitle {
   font-size: 2rem;
   font-weight: 700;
   margin: 6px 0 0;
 }
-.eventDetailPage .infoSection {
+.eventDetailPage .a_infoSection {
   align-items: flex-start;
 }
-.eventDetailPage .infoSection .infoBlock {
+.eventDetailPage .a_infoSection .infoBlock {
   position: relative;
-  align-items: flex-start;
+  align-items: stretch;
+  /* 關鍵：讓左右兩側等高 */
   display: flex;
   justify-content: space-between;
   gap: 70px;
 }
-.eventDetailPage .infoSection .infoBlock .infoCard {
+.eventDetailPage .a_infoSection .infoBlock .infoCard {
   position: relative;
+  flex: 1 1 0;
   height: 290px;
   border: 2px solid #171616;
   padding: 20px 65px 10px 65px;
 }
-.eventDetailPage .infoSection .infoBlock .infoCard .blockTitle {
+.eventDetailPage .a_infoSection .infoBlock .infoCard .blockTitle {
   position: absolute;
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin: 0;
   top: -16px;
   left: 70px;
   background: #FAFAFA;
+  padding: 0 6px;
+  /* 讓白底更完整（可調） */
+  line-height: 1;
+  /* 避免多餘高 */
 }
-.eventDetailPage .infoSection .infoBlock .infoCard p {
+.eventDetailPage .a_infoSection .infoBlock .infoCard p {
   line-height: 1.8;
   margin: 0 0 0.75em;
 }
-.eventDetailPage .infoSection .infoBlock .infoCard p:last-child {
+.eventDetailPage .a_infoSection .infoBlock .infoCard p:last-child {
   margin-bottom: 0;
-  /* 最後一段不留空 */
 }
-.eventDetailPage .infoSection .infoBlock .infoCard address {
-  font-style: normal;
-}
-.eventDetailPage .infoSection .infoBlock .photoBlock1 {
-  margin: 0;
-}
-.eventDetailPage .infoSection .infoBlock .photoBlock1 .photo {
-  width: 100%;
-  height: 50%;
-  display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.eventDetailPage .introBlock {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  position: relative;
-  align-items: flex-start;
-  display: flex;
-  justify-content: space-between;
-  gap: 70px;
-}
-.eventDetailPage .introBlock .photoBlock2 {
+.eventDetailPage .a_infoSection .infoBlock .photoBlock1 {
+  flex: 1 1 0;
   margin: 0;
   height: 290px;
+  /* 關鍵：容器跟左側等高 */
+  display: flex;
+  /* 讓裡面的 img 能撐滿 */
+  align-items: stretch;
+  /* 保險，確保 img 能吃到高度 */
 }
-.eventDetailPage .introBlock .photoBlock2 .photo {
+.eventDetailPage .a_infoSection .infoBlock .photoBlock1 .photo {
   width: 100%;
+  height: 100%;
   display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
-  aspect-ratio: 16/9;
+  object-fit: cover;
 }
-.eventDetailPage .introBlock .blockTitle {
+.eventDetailPage .a_introBlock {
+  margin: 50px 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 70px;
+}
+.eventDetailPage .a_introBlock .photoBlock2 {
+  display: flex;
+  flex: 1 1 0;
+  margin: 0;
+}
+.eventDetailPage .a_introBlock .photoBlock2 .photo {
+  width: 100%;
+  height: 100%;
+  /* 與容器等高 */
+  display: block;
+  object-fit: cover;
+}
+.eventDetailPage .a_introBlock .introCard {
+  position: relative;
+  flex: 1 1 0;
+  border: 2px solid #171616;
+  padding: 20px 65px;
+}
+.eventDetailPage .a_introBlock .introCard .blockTitle {
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin: 0;
   position: absolute;
   top: -16px;
   background: #FAFAFA;
   padding: 0 8px;
+  line-height: 1;
 }
-.eventDetailPage .introBlock .introCard {
-  position: relative;
-  height: 290px;
-  border: 2px solid #171616;
-  padding: 20px 65px;
-}
-.eventDetailPage .introBlock .introCard p {
+.eventDetailPage .a_introBlock .introCard p {
   line-height: 1.8;
   margin: 6px 0;
+  overflow: visible;
 }
 .eventDetailPage .a_mapSection {
   display: flex;
   margin-bottom: 50px;
-  /* mobile */
   padding: 8px 0 32px;
 }
 .eventDetailPage .a_mapSection .blockTitle {
@@ -174,11 +183,10 @@
 .eventDetailPage .a_mapSection .mapImg {
   width: 100%;
   display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
-.eventDetailPage .a_mapSection .trafficBlock .infoCard p,
-.eventDetailPage .a_mapSection .trafficBlock .infoCard address {
+.eventDetailPage .a_mapSection .a_trafficBlock .infoCard p,
+.eventDetailPage .a_mapSection .a_trafficBlock {
   line-height: 1.8;
   margin: 6px 0;
 }
@@ -204,8 +212,7 @@
 .eventDetailPage .recommendSection .eventCard .cardCover img {
   width: 100%;
   display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   aspect-ratio: 4/3;
 }
 .eventDetailPage .recommendSection .eventCard .cardBody {
@@ -213,7 +220,7 @@
 }
 .eventDetailPage .recommendSection .eventCard .cardBody .cardMeta {
   font-size: 12px;
-  color: #c8cacc;
+  color: #807C7C;
   margin-bottom: 6px;
 }
 .eventDetailPage .recommendSection .eventCard .cardBody .cardTitle {
@@ -226,7 +233,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #c8cacc;
+  color: #807C7C;
 }
 .eventDetailPage .recommendSection .eventCard .cardBody .cardFooter .chip {
   background: #FAFAFA;

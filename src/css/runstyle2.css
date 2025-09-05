@@ -1,53 +1,45 @@
-:root {
+ :root {
+
+    --axisW: 36px;
+    --stick-gap: 6px;
+
+    --cardW: 520px;
+    /*
     --container: 1440px;
     --gutter: 24px;
     --orange: #ff6600;
 
 
-    /* 黑色資訊帶高度 */
+    黑色資訊帶高度
     --band-h: 300px;
 
-    /* 地圖卡片最大寬度 */
+    /* 地圖卡片最大寬度 
     --map-w: 720px;
 
-    /* 通用圓角 */
+    /* 通用圓角 
     --radius: 14px;
     --r: 16px;
-    /* 通用圓角 */
+    /* 通用圓角 
     --space-2: 16px;
     --space-3: 24px;
     --space-4: 32px;
     --space-6: 48px;
 
 
-    --axisW: 36px;
-    --stick-gap: 6px;
-
-    --cardW: 520px;
-    /* 黑色資訊卡寬 */
+    /* 黑色資訊卡寬 
     --cardH: 220px;
-    /* 黑色資訊卡高 */
+    /* 黑色資訊卡高 
     --photoW: 360px;
-    /* 照片寬 */
+    /* 照片寬 
     --photoH: 240px;
-    /* 照片高 */
+   
     --photoTop: -80px;
     /* 照片向上覆蓋量(負數=往上) */
-    --photoRight: -20px;
+    /* --photoRight: -20px; */
     /* 照片向右外推(負數=超出右邊一點) */
-}
-
-/* //RWD
---mediaSm: max-width:640px
-$mediaMd: "max-width:820px";
-$media970: "max-width:970px";
-
-// 這個尺寸以上的就使用這個!
-$media971:"min-width:971px";
+} 
 
 
-//z-index
-$z-ex: 99999; */
 
 /* .container {
     max-width: var(--container);

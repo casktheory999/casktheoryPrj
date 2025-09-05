@@ -1,4 +1,6 @@
-import '../css/runstyle2.css';
+// import '../css/runstyle2.css';
+import '../css/cbarway.css'
+
 export default function BarRoute() {
     return (
         <>

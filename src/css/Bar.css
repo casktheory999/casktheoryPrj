@@ -159,8 +159,7 @@ a {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   align-items: end;
-  -moz-column-gap: 32px;
-       column-gap: 32px;
+  column-gap: 32px;
   padding: 0 105px;
   /* --路線清單-- */
 }
@@ -180,7 +179,6 @@ a {
   --line-color: #FAFAFA;
   flex-direction: column;
   align-items: center;
-  width: -moz-max-content;
   width: max-content;
 }
 .bar .barHeroFilter .mrtList .mrtItem .mrtBtn {
@@ -231,10 +229,6 @@ a {
   font-size: 16px;
   line-height: 1.2;
   margin-left: 10px;
-}
-.bar .barHeroFilter .barSearch input::-moz-placeholder {
-  color: #D0D0D0;
-  letter-spacing: 0.02em;
 }
 .bar .barHeroFilter .barSearch input::placeholder {
   color: #D0D0D0;
