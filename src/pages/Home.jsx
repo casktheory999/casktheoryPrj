@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../scss/Home.scss'
 import MapCarousel from '../component/MapCarousel'
@@ -40,12 +40,66 @@ const IlluData = {
 
 
 
+
 const Home = () => {
-    const [tab, setTab] = useState ('base')
+    const [tab, setTab] = useState('base')
+    // 新聞數據
+    const newsData = [
+        {
+            id: 1,
+            title: "【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY",
+            image: "images/newsPoster1.jpg"
+        },
+        {
+            id: 2,
+            title: "【金曲佳釀】｜爵士及品酒之夜｜經典調酒配上爵士金曲",
+            image: "images/newsPoster2.jpg"
+        },
+        {
+            id: 3,
+            title: "【茶酒特調】｜自己泡茶酒｜莓果白蘭地專題",
+            image: "images/newsPoster3.jpg"
+        },
+        {
+            id: 4,
+            title: "【節慶專屬】｜中秋微醺提案－文旦柚子｜雙人體驗方案",
+            image: "images/newsPoster4.jpg"
+        },
+        {
+            id: 5,
+            title: "【動手體驗】｜Mojito專題-沁涼一夏｜雙人體驗方案",
+            image: "images/newsPoster5.jpg"
+        }
+    ];
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+    // 自動輪播
+    useEffect(() => {
+        if (!isAutoPlaying) return;
+
+        const timer = setInterval(() => {
+            setCurrentIndex(prev => (prev + 1) % newsData.length);
+        }, 4000);// 每4秒切換一次
+
+        return () => clearInterval(timer);
+    }, [isAutoPlaying, newsData.length]);
+
+    // 處理hover事件
+    const handleMouseEnter = (index) => {
+        setIsAutoPlaying(false);
+        setCurrentIndex(index);
+    };
+
+    const handleMouseLeave = () => {
+        setIsAutoPlaying(true);
+    };
 
     const data = IlluData[tab]
 
     const onPick = (key) => setTab(key)
+
     return (
         <main className='home'>
 
@@ -54,16 +108,18 @@ const Home = () => {
                 <div className='heroLeft'>
                     <h1 className='brand'>
                         <span className="brandLine brandLine--top">Cask</span>
-                        <span className="brandLine brandLine--bottom">Theory</span>
+                        <span className="brandLine brandLine--bottom">
+                            Theory
+                            <span className='brandZh'>酒桶理論</span>
+                        </span>
                     </h1>
-                    <h2 className='brandZh'>酒桶理論</h2>
                 </div>
-                <figure className='heroRightTop'>
-                    <img src="images/man-is-pouring-strong-alcohol-drink-into-glass.jpg" alt="酒吧吧台與酒杯" />{/*等圖片*/}
-                </figure>
-                <figure className='heroLeftBottom'>
-                    <img src="images/half-lime-with-cocktail-drink-garnish-with-cocktail-white-desk.jpg" alt="酒吧吧台與酒杯" />{/*等圖片*/}
-                </figure>
+                <div className='heroRightTop'>
+                    <img src="images/man-is-pouring-strong-alcohol-drink-into-glass.jpg" alt="酒吧吧台與酒杯" />
+                </div>
+                <div className='heroLeftBottom'>
+                    <img src="images/half-lime-with-cocktail-drink-garnish-with-cocktail-white-desk.jpg" alt="酒吧吧台與酒杯" />
+                </div>
                 <div className='heroRightBottom'>
                     <p className='slogan'>「從經典到創新，打開<span className='Bartending'>調酒</span>的全景視野」</p>
                 </div>
@@ -74,17 +130,40 @@ const Home = () => {
                 {/* 左：直排標題 */}
                 <div className='newsTitle'>酒吧活動消息</div>
                 {/* 中：宣傳海報 */}
-                <figure className='newsPoster'>
-                    <img src='images/news.webp' alt="宣傳海報" />
-                </figure>
+                <div className='newsPoster'>
+                    <div className='posterContainer'>
+                        {newsData.map((item, index) => (
+                            <img
+                                key={item.id}
+                                src={item.image}
+                                alt={item.title}
+                                className={`posterImage ${index === currentIndex ? 'active' : ''}`}
+                            />
+                        ))}
+                    </div>
+                    <div className='carouselDots'>
+                        {newsData.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`dot ${index === currentIndex ? 'active' : ''}`}
+                                onClick={() => {
+                                    setCurrentIndex(index);
+                                    setIsAutoPlaying(false);
+                                    setTimeout(() => setIsAutoPlaying(true), 5000);
+                                }} />
+                        ))}
+                    </div>
+                </div>
                 {/* 右：新聞列表 */}
                 <div className='newsList'>
-                    <ul>
-                        <li><Link to="/News">【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY</Link></li>
-                        <li><Link to="/News">【金曲佳釀】｜爵士及品酒之夜｜經典調酒配上爵士金曲</Link></li>
-                        <li><Link to="/News">【茶酒特調】｜自己泡茶酒｜莓果白蘭地專題</Link></li>
-                        <li><Link to="/News">【節慶專屬】｜中秋微醺提案－文旦柚子｜雙人體驗方案</Link></li>
-                        <li><Link to="/News">【動手體驗】｜Mojito專題-沁涼一夏｜雙人體驗方案</Link></li>
+                    <ul onMouseLeave={handleMouseLeave}>
+                        {newsData.map((item, index) => (
+                            <li
+                                key={item.id}
+                                className={index === currentIndex ? 'active' : ''}
+                                onMouseEnter={() => handleMouseEnter(index)}
+                            ><Link to="/EventDetailPage">{item.title}</Link></li>
+                        ))}
                     </ul>
                     <Link className='goNewsBtn' to="/News">前往最新消息</Link>
                 </div>
@@ -124,49 +203,49 @@ const Home = () => {
 
             {/* 酒精圖鑑 */}
             <section className='Illustrations'>
-                            <div className='leftImg'>
-                                <img src='images/glass.png' alt='酒杯裝飾' />
-                            </div>
+                <div className='leftImg'>
+                    <img src='images/glass.png' alt='酒杯裝飾' />
+                </div>
 
-                            <div className='Illustrations-nav'>
-                                <h2>酒精圖鑑</h2>
-                                <div className='navBtn'>
-                                    <button
-                                        className={tab === 'base' ? 'active' : ''}
-                                        onClick={() => onPick('base')}
-                                    >
-                                        六大基酒
-                                    </button>
-                                    <button
-                                        className={tab === 'classic' ? 'active' : ''}
-                                        onClick={() => onPick('classic')}
-                                    >
-                                        經典調酒
-                                    </button>
-                                    <button
-                                        className={tab === 'popular' ? 'active' : ''}
-                                        onClick={() => onPick('popular')}
-                                    >
-                                        大眾調酒
-                                    </button>
-                                </div>
-                            </div>
+                <div className='Illustrations-nav'>
+                    <h2>酒精圖鑑</h2>
+                    <div className='navBtn'>
+                        <button
+                            className={tab === 'base' ? 'active' : ''}
+                            onClick={() => onPick('base')}
+                        >
+                            六大基酒
+                        </button>
+                        <button
+                            className={tab === 'classic' ? 'active' : ''}
+                            onClick={() => onPick('classic')}
+                        >
+                            經典調酒
+                        </button>
+                        <button
+                            className={tab === 'popular' ? 'active' : ''}
+                            onClick={() => onPick('popular')}
+                        >
+                            大眾調酒
+                        </button>
+                    </div>
+                </div>
 
-                            <div className='Illustrations-body'>
-                                <div className='Illustrations-introduce'>
-                                    <div className='introduce-title'>
-                                        <h2 className='titleZh'>{data.zh}</h2>
-                                        <span className='titleEn'>{data.en}</span>
-                                    </div>
-                                    <p>{data.desc}</p>
-                                    <div className='cardRow'>
-                                        {data.imgs.map((it, i) => (
-                                            <img key={i} src={it.src} alt={it.alt} />
-                                        ))}
-                                    </div>
-                                    <Link className='goIllBtn' to='/Illustrations'>前往圖鑑目錄</Link>
-                                </div>
-                            </div>
+                <div className='Illustrations-body'>
+                    <div className='Illustrations-introduce'>
+                        <div className='introduce-title'>
+                            <h2 className='titleZh'>{data.zh}</h2>
+                            <span className='titleEn'>{data.en}</span>
+                        </div>
+                        <p>{data.desc}</p>
+                        <div className='cardRow'>
+                            {data.imgs.map((it, i) => (
+                                <img key={i} src={it.src} alt={it.alt} />
+                            ))}
+                        </div>
+                        <Link className='goIllBtn' to='/Illustrations'>前往圖鑑目錄</Link>
+                    </div>
+                </div>
             </section>
         </main >
     )

@@ -41,7 +41,7 @@
             border: none;
             margin-bottom: 10px;
 
-            @media ($mediaXl) {
+            @media (min-width:971px) {
                 display: none;
             }
 
