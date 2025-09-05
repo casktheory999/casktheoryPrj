@@ -48,6 +48,38 @@ const News = () => {
             articleSub: 'Mojito專題｜沁涼一夏－雙人體驗方案',
             articleImg: './images/activity5.png',
             detailPage: '/EventDetailPage',
+        }, {
+            id: 6,
+            month: 'Sept.',
+            date: '05',
+            articleTitle: '【嚴選活動】',
+            articleSub: '環遊世界品調酒｜30 杯全球精選雞尾酒',
+            articleImg: './images/activity1.png',
+            detailPage: '/EventDetailPage',
+        }, {
+            id: 7,
+            month: 'Aug.',
+            date: '30',
+            articleTitle: '【金曲佳釀】',
+            articleSub: '爵士及品酒之夜｜經典調酒配上爵士金曲',
+            articleImg: './images/activity2.png',
+            detailPage: '/EventDetailPage',
+        }, {
+            id: 8,
+            month: 'Aug.',
+            date: '29',
+            articleTitle: '【茶酒特調】',
+            articleSub: '自己泡茶酒｜莓果白蘭地專題',
+            articleImg: './images/activity3.png',
+            detailPage: '/EventDetailPage',
+        }, {
+            id: 9,
+            month: 'Aug.',
+            date: '22',
+            articleTitle: '【節慶專屬】',
+            articleSub: '中秋微醺提案－文旦柚子｜雙人體驗方案',
+            articleImg: './images/activity4.png',
+            detailPage: '/EventDetailPage',
         }
     ]
 
@@ -105,7 +137,7 @@ const News = () => {
                         })}
                     </div>
                 </div>
-                <div className="Ian_pageBox">
+                {/* <div className="Ian_pageBox">
                     <div className="Ian_newsPages">＜</div>
                     <div className="Ian_newsPages">1</div>
                     <div className="Ian_newsPages">2</div>
@@ -113,7 +145,7 @@ const News = () => {
                     <div className="Ian_newsPages">4</div>
                     <div className="Ian_newsPages">...</div>
                     <div className="Ian_newsPages">＞</div>
-                </div>
+                </div> */}
             </section>
         </>
     )
