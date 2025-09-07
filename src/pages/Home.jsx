@@ -9,7 +9,7 @@ const IlluData = {
     base: {
         zh: '六大基酒',
         en: 'Base Spirit',
-        desc: '「基酒是文化的基礎，麥芽與橡木、杜松與草本、甘蔗與果香...，從原料到工藝，乘載著各式風味的可能性，體驗飲酒文化就從基酒開始。」',
+        desc: '「六大基酒是文化的基礎，麥芽與橡木、杜松與草本、甘蔗與果香...，從原料到工藝，乘載著各式風味的可能性，體驗飲酒文化就從基酒開始。」',
         imgs: [
             { src: "images/newvodka.png", alt: "伏特加" },
             { src: "images/image17.png", alt: "威士忌" },
@@ -19,7 +19,7 @@ const IlluData = {
     classic: {
         zh: '經典調酒',
         en: 'Classic Cocktail',
-        desc: '「經典雞尾酒是調酒文化的瑰寶，從馬提尼到曼哈頓，每一杯都承載著歷史與故事，品味經典，感受時代的變遷。」',
+        desc: '「經典雞尾酒是時代的縮影，苦艾與琴酒、蘭姆與果汁、威士忌與苦精...，從比例到平衡，凝聚著歷史的記憶與美感，探索調酒文化就從經典開始。」',
         imgs: [
             { src: "images/newvodka.png", alt: "伏特加" },
             { src: "images/image17.png", alt: "威士忌" },
@@ -29,7 +29,7 @@ const IlluData = {
     popular: {
         zh: '大眾調酒',
         en: 'Popular Cocktail',
-        desc: '「大眾調酒是酒吧文化的代表，從經典到創新，每一杯都能引領潮流，品味大眾，感受時代的脈動。」',
+        desc: '「大眾調酒是日常的陪伴，啤酒與汽水、伏特加與果茶、清酒與果汁...，從輕鬆到歡聚，蘊藏著親切熟悉的味道與氛圍，享受飲酒文化就從大眾開始。」',
         imgs: [
             { src: "images/newvodka.png", alt: "伏特加" },
             { src: "images/image17.png", alt: "威士忌" },

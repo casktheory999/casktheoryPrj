@@ -1,8 +1,10 @@
+@use 'reset' as *;
+@use "variables" as *;
+
 footer {
-    bottom:  0;
-    left: 0;
-    z-index: 99999;
-    width: 100vw;
+    position: static;
+    z-index: 10;
+    width: 100%;
     padding: 20px 40px;
     color: #fff;
     background: #222;
@@ -12,12 +14,39 @@ footer {
     gap: 16px;
     border-top: 1px solid rgba(255, 255, 255, .2);
 
+    @media ($mediaMd) {
+        padding: 24px 20px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 16px;
+        text-align: center;
+        
+        .footer-right {
+            justify-self: center;
+            order: 1;
+            margin: 0;
+            gap: 32px;
+            flex-direction: row;
+        }
+    }
+
     small {
         justify-self: center;
         display: inline-flex;
         align-items: center;
         opacity: .85;
         white-space: nowrap;
+        font-size: 14px;
+        @media ($mediaSm) {
+            order: 2;
+            margin-top: 8px;
+        }
+    }
+
+    .footer-spacer {
+        @media ($mediaSm) {
+            display: none;
+        }
     }
 
     .footer-right {
@@ -26,6 +55,14 @@ footer {
         justify-self: end;
         align-items: center;
         gap: 48px;
+
+        @media ($mediaSm) {
+            justify-self: center;
+            margin: 0;
+            gap: 32px;
+            order: 1;
+            flex-direction: row;
+        }
     }
 
     ul {
@@ -34,12 +71,15 @@ footer {
         list-style: none;
     }
 
-
-
     .social {
         display: inline-flex;
         align-items: center;
         gap: 12px;
+
+        @media ($mediaSm) {
+            gap: 20px;
+            margin-bottom: 0;
+        }
 
         a {
             position: relative;
@@ -48,6 +88,19 @@ footer {
             justify-content: center;
             width: 28px;
             height: 28px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+
+            @media ($mediaSm) {
+                width: 36px;
+                height: 36px;
+                background: rgba(255, 255, 255, 0.1);
+                
+                &:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: translateY(-2px);
+                }
+            }
 
             .icon {
                 position: absolute;
@@ -56,8 +109,10 @@ footer {
                 object-fit: contain;
                 transition: opacity .2s ease;
 
-
-
+                @media ($mediaSm) {
+                    width: 22px;
+                    height: 22px;
+                }
             }
 
             .hover{
@@ -72,19 +127,12 @@ footer {
                     opacity: 1;
                 }
             }
-
-
         }
-
-
     }
-
 
     .to-top-btn {
         justify-self: end;
-        /* 靠最右 */
         display: inline-flex;
-        /* 只包內容，不會拉滿 */
         align-items: center;
         justify-content: center;
 
@@ -100,9 +148,25 @@ footer {
         cursor: pointer;
         transition: transform .15s ease, border-color .15s ease, opacity .15s ease;
 
+        @media ($mediaSm) {
+            justify-self: auto;
+            order: auto;
+            width: 44px;
+            height: 44px;
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, .3);
+            margin: 0;
+        }
+
         &:hover {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
             border-color: rgba(255, 255, 255, .6);
+
+            @media ($mediaSm) {
+                background: rgba(255, 255, 255, 0.2);
+                border-color: rgba(255, 255, 255, .8);
+            }
         }
     }
 }
