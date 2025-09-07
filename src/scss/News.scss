@@ -17,13 +17,10 @@ body {
     background-color: white;
     color: #000;
     z-index: 0;
-    // background-image: url(../images/drop_dark.png);
-    // background-repeat: no-repeat;
-    // background-position: top right;
-    // background-size: 191px 116px;
 
 
-    &::after {
+
+    &::before {
         content: "";
         position: absolute;
         right: 0;
@@ -35,6 +32,10 @@ body {
         width: 100%;
         height: 100%;
         z-index: -1;
+
+        @media ($mediaMd){
+            display: none;
+        }
     }
 
 
@@ -53,6 +54,25 @@ body {
         overflow-x: clip;
         /* 直接裁切掉X軸以免觸發水平卷軸 */
 
+        &::before{
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 56px;
+        background: url(/images/drop_dark.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: auto 100%;
+        width: 191px;
+        height: 116px;
+        z-index: 0;
+
+        @media ($mediaMd) {
+            display: none;
+            
+        }
+        }
+
         .Ian_title {
             flex: 0 0 15%;
             height: 100%;
@@ -61,6 +81,10 @@ body {
             flex-direction: row;
             align-items: center;
             border-right: 3px solid $pri-dark;
+
+            @media ($mediaMd) {
+                display: none;
+            }
 
 
             h1 {
@@ -135,6 +159,10 @@ body {
                 align-items: start;
                 margin-right: 10px;
                 height: 100%;
+                
+                @media ($mediaMd) {
+                    display: none;
+                }
 
                 .Ian_decorateUpBox {
                     width: 30px;
@@ -186,7 +214,7 @@ body {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                width: 50%;
+                // width: 50%;
                 min-width: 50%;
                 padding-left: 10px;
 
@@ -216,6 +244,9 @@ body {
             }
 
             .Ian_imgBox {
+                @media ($mediaSm) {
+                    display: none;
+                }
 
                 img {
                     flex: auto;
