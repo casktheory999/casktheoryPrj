@@ -11,33 +11,31 @@ import lineIconHover from '../assets/icon-line-hover.svg';
 const Footer = () => {
     return (
         <footer>
-            <div className='footerImg'/>
+            <div className='footerImg' />
             <div className='footerMain'>
-            <div className="footer-spacer" />
-
-            <small>Copyright &copy; 酒桶理論Cask Theory</small>
-
-            <div className="footer-right">
-                <ul className="social">
-                    <li><a href="#" aria-label="Instagram">
-                        <img className='icon normal' src={igIcon} alt="Instagram" />
-                        <img className='icon hover' src={igIconHover} alt="Instagram hover" />
+                <div className="footer-spacer" />
+                <small>Copyright &copy; 酒桶理論Cask Theory</small>
+                <div className="footer-right">
+                    <ul className="social">
+                        <li><a href="#" aria-label="Instagram">
+                            <img className='icon normal' src={igIcon} alt="Instagram" />
+                            <img className='icon hover' src={igIconHover} alt="Instagram hover" />
                         </a></li>
-                    <li><a href="#" aria-label="Facebook">
-                        <img className='icon normal' src={fbIcon} alt="Facebook" />
-                        <img className='icon hover' src={fbIconHover} alt="Facebook hover" />
+                        <li><a href="#" aria-label="Facebook">
+                            <img className='icon normal' src={fbIcon} alt="Facebook" />
+                            <img className='icon hover' src={fbIconHover} alt="Facebook hover" />
                         </a></li>
-                    <li><a href="#" aria-label="LINE">
-                        <img className='icon normal' src={lineIcon} alt="Line" />
-                        <img className='icon hover' src={lineIconHover} alt="Line hover" />
+                        <li><a href="#" aria-label="LINE">
+                            <img className='icon normal' src={lineIcon} alt="Line" />
+                            <img className='icon hover' src={lineIconHover} alt="Line hover" />
                         </a></li>
-                </ul>
-                <button className="to-top-btn"
-                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                    aria-label="回到最上面">
-                    ↑
-                </button>
-            </div>
+                    </ul>
+                    <button className="to-top-btn"
+                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                        aria-label="回到最上面">
+                        ↑
+                    </button>
+                </div>
             </div>
         </footer>
     );
