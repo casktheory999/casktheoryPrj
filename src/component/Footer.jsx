@@ -11,6 +11,8 @@ import lineIconHover from '../assets/icon-line-hover.svg';
 const Footer = () => {
     return (
         <footer>
+            <div className='footerImg'/>
+            <div className='footerMain'>
             <div className="footer-spacer" />
 
             <small>Copyright &copy; 酒桶理論Cask Theory</small>
@@ -35,6 +37,7 @@ const Footer = () => {
                     aria-label="回到最上面">
                     ↑
                 </button>
+            </div>
             </div>
         </footer>
     );
