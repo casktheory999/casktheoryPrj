@@ -50,7 +50,8 @@
   margin-right: 16px;
   width: 100%;
   height: auto;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .barInnerPage .heroContainer .cardRight .heroPhoto .arrowImg1 {
   position: absolute;
@@ -89,7 +90,8 @@
 .barInnerPage .recommendationsContainer .recPhotos .recPhoto2 img {
   width: 100%;
   display: block;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   aspect-ratio: 16/9;
   transform: scale(1);
   transition: transform 0.35s ease;

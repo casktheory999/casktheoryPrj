@@ -175,7 +175,7 @@
             .blockTitle {
                 font-size: 24px;
                 font-weight: 700;
-                margin:0;
+                margin: 0;
                 position: absolute;
                 top: -16px; // 壓在外框上方
                 background: $pri-white; // 遮掉外框線
@@ -198,25 +198,53 @@
         margin-bottom: 50px;
         padding: 8px 0 32px;
 
-        .blockTitle {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .a_mapBlock {
+            position: relative;
+
+            .blockTitle {
+                position: absolute;
+                top: -16px; // 壓在外框上方
+                background: $pri-white; // 遮掉外框線
+                margin-left: 20px;
+                padding: 0 8px;
+                line-height: 1;
+                font-size: 24px;
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+
+            .mapCard {
+                border: 2px solid $pri-dark;
+                background: $pri-white;
+                padding: 16px;
+            }
         }
 
-        .mapCard,
-        .infoCard {
+        .a_trafficCard {
+            position: relative;
             border: 2px solid $pri-dark;
-            background: #fff;
-            padding: 16px;
+            margin-left: 70px;
+            padding: 20px 65px;
+
+            .blockTitle {
+                position: absolute;
+                font-size: 24px;
+                font-weight: 700;
+                margin: 0;
+                top: -16px; // 壓在外框上方
+                left: 70px; // 與內文對齊
+                background: $pri-white; // 遮掉外框線
+                padding: 0 6px;
+                /* 讓白底更完整（可調） */
+                line-height: 1;
+            }
+
+            p {
+                line-height: 1.8;
+                margin: 6px 0;
+            }
         }
 
-        .mapImg {
-            width: 100%;
-            display: block;
-            object-fit: cover;
-            // aspect-ratio: 16/10;
-        }
 
         .a_trafficBlock .infoCard p,
         .a_trafficBlock {
@@ -226,10 +254,10 @@
     }
 
     /* ========== 推薦區（卡片列表） ========== */
-    .recommendSection {
+    .a_recommendSection {
         padding: 8px 0 48px;
 
-        .cardList {
+        .a_recList {
             list-style: none;
             padding: 0;
             margin: 0;

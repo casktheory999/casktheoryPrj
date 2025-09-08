@@ -140,12 +140,12 @@ body {
 
 .Ian_news {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 57px);
   background-color: white;
   color: #000;
   z-index: 0;
 }
-.Ian_news::after {
+.Ian_news::before {
   content: "";
   position: absolute;
   right: 0;
@@ -158,48 +158,86 @@ body {
   height: 100%;
   z-index: -1;
 }
+@media (max-width:970px) {
+  .Ian_news::before {
+    display: none;
+  }
+}
 .Ian_news .Ian_mainArea {
   box-sizing: border-box;
   /* << 讓 height 包含 padding，不會因為改 padding 影響外觀總高 */
-  height: 95%;
-  padding: 8% 8% 3% 8%;
+  height: 100%;
+  padding-block: 15vh 10vh;
+  padding-inline: 8%;
   display: flex;
   flex-direction: row;
-  align-self: stretch;
+  align-items: stretch;
+  /* 確保子元素被拉滿可用高度（預設就是 stretch，加這行更明確） */
+  overflow-x: clip;
+  /* 直接裁切掉X軸以免觸發水平卷軸 */
+}
+.Ian_news .Ian_mainArea::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 56px;
+  background: url(/images/drop_dark.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: auto 100%;
+  width: 191px;
+  height: 116px;
+  z-index: 0;
+}
+@media (max-width:970px) {
+  .Ian_news .Ian_mainArea::before {
+    display: none;
+  }
 }
 .Ian_news .Ian_mainArea .Ian_title {
-  width: 15%;
+  flex: 0 0 15%;
+  height: 100%;
   font-size: 40px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   border-right: 3px solid #171616;
+}
+@media (max-width:970px) {
+  .Ian_news .Ian_mainArea .Ian_title {
+    display: none;
+  }
 }
 .Ian_news .Ian_mainArea .Ian_title h1 {
   writing-mode: vertical-rl;
-  align-self: center;
   font-family: "Noto Serif TC", serif;
   font-weight: bold;
-}
-.Ian_news .Ian_pageBox {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.Ian_news .Ian_pageBox .Ian_newsPages {
-  font-family: "yeseva one", serif;
-  flex: 0 0 auto;
-  width: fit-content;
-  min-width: 5%;
 }
 
 .Ian_articleArea {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* 讓它成為“內部捲動容器” */
+  flex: 1 1 auto;
+  /* 吃滿剩餘寬度 / 高度 */
+  min-height: 0;
+  /* 重要：允許在 flex 容器裡縮到可捲動 */
+  max-height: 100%;
+  /* 在 .Ian_mainArea 的高度內捲動 */
+  overflow-y: auto;
+  /* 垂直 snap（可選，讓每張卡片貼齊） */
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
   gap: 20px;
   width: 70%;
+  padding-right: 5%;
+}
+.Ian_articleArea::-webkit-scrollbar {
+  display: none;
 }
 .Ian_articleArea .Ian_articleBody {
+  /* 每張卡片進場貼齊容器頂端 */
+  scroll-snap-align: start;
   display: flex;
   flex-direction: row;
   text-decoration: none;
@@ -218,6 +256,11 @@ body {
   align-items: start;
   margin-right: 10px;
   height: 100%;
+}
+@media (max-width:970px) {
+  .Ian_articleArea .Ian_articleBody .Ian_dateBox .Ian_decorateBox {
+    display: none;
+  }
 }
 .Ian_articleArea .Ian_articleBody .Ian_dateBox .Ian_decorateBox .Ian_decorateUpBox {
   width: 30px;
@@ -248,7 +291,6 @@ body {
   align-self: stretch;
   margin-left: 70px;
   width: 100%;
-  height: 10%;
   background-color: #FAFAFA;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
@@ -260,13 +302,37 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 50%;
   min-width: 50%;
   padding-left: 10px;
 }
 .Ian_articleArea .Ian_articleBody .Ian_articleMain .Ian_textBox h2 {
   font-size: 24px;
+  white-space: nowrap;
+  /* 不換行 */
+  overflow: hidden;
+  /* 超出隱藏 */
+  text-overflow: ellipsis;
+  /* 超出以 … 省略顯示 */
+  max-width: 100%;
+  /* 記得給寬度，才能判斷超出 */
 }
 .Ian_articleArea .Ian_articleBody .Ian_articleMain .Ian_textBox h3 {
   font-size: 16px;
+  white-space: nowrap;
+  /* 不換行 */
+  overflow: hidden;
+  /* 超出隱藏 */
+  text-overflow: ellipsis;
+  /* 超出以 … 省略顯示 */
+  max-width: 100%;
+  /* 記得給寬度，才能判斷超出 */
+}
+@media (max-width:640px) {
+  .Ian_articleArea .Ian_articleBody .Ian_articleMain .Ian_imgBox {
+    display: none;
+  }
+}
+.Ian_articleArea .Ian_articleBody .Ian_articleMain .Ian_imgBox img {
+  flex: auto;
+  height: 100%;
 }

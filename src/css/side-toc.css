@@ -171,7 +171,9 @@ a {
 
 .w_toc_right__list li {
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   display: flex;
   gap: 8px;
   align-items: baseline;
