@@ -174,7 +174,8 @@ a {
 .chero-photo img {
   width: 100%;
   aspect-ratio: 16/9;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 
@@ -307,7 +308,8 @@ a {
 .cmap-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 
@@ -380,7 +382,8 @@ a {
   top: -80px;
   width: 360px;
   height: 240px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   z-index: 3;
   left: 250px;
 }

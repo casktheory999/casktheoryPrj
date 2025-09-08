@@ -19,7 +19,8 @@
 .eventDetailPage .a_heroSection .a_heroBanner .a_heroImg {
   width: 100%;
   display: block;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .eventDetailPage .a_heroSection .a_heroBanner .a_heroRibbon {
   position: relative;
@@ -121,7 +122,8 @@
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .eventDetailPage .a_introBlock {
   margin: 50px 0;
@@ -141,7 +143,8 @@
   height: 100%;
   /* 與容器等高 */
   display: block;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .eventDetailPage .a_introBlock .introCard {
   position: relative;
@@ -169,31 +172,56 @@
   margin-bottom: 50px;
   padding: 8px 0 32px;
 }
-.eventDetailPage .a_mapSection .blockTitle {
+.eventDetailPage .a_mapSection .a_mapBlock {
+  position: relative;
+}
+.eventDetailPage .a_mapSection .a_mapBlock .blockTitle {
+  position: absolute;
+  top: -16px;
+  background: #FAFAFA;
+  margin-left: 20px;
+  padding: 0 8px;
+  line-height: 1;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
 }
-.eventDetailPage .a_mapSection .mapCard,
-.eventDetailPage .a_mapSection .infoCard {
+.eventDetailPage .a_mapSection .a_mapBlock .mapCard {
   border: 2px solid #171616;
-  background: #fff;
+  background: #FAFAFA;
   padding: 16px;
 }
-.eventDetailPage .a_mapSection .mapImg {
-  width: 100%;
-  display: block;
-  object-fit: cover;
+.eventDetailPage .a_mapSection .a_trafficCard {
+  position: relative;
+  border: 2px solid #171616;
+  margin-left: 70px;
+  padding: 20px 65px;
+}
+.eventDetailPage .a_mapSection .a_trafficCard .blockTitle {
+  position: absolute;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  top: -16px;
+  left: 70px;
+  background: #FAFAFA;
+  padding: 0 6px;
+  /* 讓白底更完整（可調） */
+  line-height: 1;
+}
+.eventDetailPage .a_mapSection .a_trafficCard p {
+  line-height: 1.8;
+  margin: 6px 0;
 }
 .eventDetailPage .a_mapSection .a_trafficBlock .infoCard p,
 .eventDetailPage .a_mapSection .a_trafficBlock {
   line-height: 1.8;
   margin: 6px 0;
 }
-.eventDetailPage .recommendSection {
+.eventDetailPage .a_recommendSection {
   padding: 8px 0 48px;
 }
-.eventDetailPage .recommendSection .cardList {
+.eventDetailPage .a_recommendSection .a_recList {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -202,40 +230,41 @@
   gap: 16px;
   grid-template-columns: 1fr;
 }
-.eventDetailPage .recommendSection .eventCard {
+.eventDetailPage .a_recommendSection .eventCard {
   border: 1px solid #e6e6e6;
   overflow: hidden;
   background: #fff;
   display: flex;
   flex-direction: column;
 }
-.eventDetailPage .recommendSection .eventCard .cardCover img {
+.eventDetailPage .a_recommendSection .eventCard .cardCover img {
   width: 100%;
   display: block;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   aspect-ratio: 4/3;
 }
-.eventDetailPage .recommendSection .eventCard .cardBody {
+.eventDetailPage .a_recommendSection .eventCard .cardBody {
   padding: 12px 14px;
 }
-.eventDetailPage .recommendSection .eventCard .cardBody .cardMeta {
+.eventDetailPage .a_recommendSection .eventCard .cardBody .cardMeta {
   font-size: 12px;
   color: #807C7C;
   margin-bottom: 6px;
 }
-.eventDetailPage .recommendSection .eventCard .cardBody .cardTitle {
+.eventDetailPage .a_recommendSection .eventCard .cardBody .cardTitle {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 8px;
 }
-.eventDetailPage .recommendSection .eventCard .cardBody .cardFooter {
+.eventDetailPage .a_recommendSection .eventCard .cardBody .cardFooter {
   display: flex;
   align-items: center;
   gap: 10px;
   color: #807C7C;
 }
-.eventDetailPage .recommendSection .eventCard .cardBody .cardFooter .chip {
+.eventDetailPage .a_recommendSection .eventCard .cardBody .cardFooter .chip {
   background: #FAFAFA;
   color: #fff;
   padding: 2px 8px;

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import heroImg from '../images/eventDetailPage_heroBannerImg.png';
 import infoImg1 from '../images/eventDetailPage_infoImg1.png';
 import infoImg2 from '../images/eventDetailPage_infoImg2.png';
-import mapImg from '../images/eventDetailPage_mapImg.png';
 
 const EventDetailPage = () => {
     const recItems = [
@@ -126,15 +125,14 @@ const EventDetailPage = () => {
                     </div>
 
                     {/* 右側：交通方式區 */}
-                    <div className="trafficCard">
+                    <div className="a_trafficCard">
                         <h2 className="blockTitle">交通資訊</h2>
-                        <p className="textBox">
-                            台北市中山區忠孝西路 238 號
-                            大眾運輸：
-                            捷運東門站 2 號出口步行 5 分鐘，或可搭
-                            212、262 公車至忠孝東路站。
-                            代客叫車：櫃台可協助
-                        </p>
+                        <div className="textBox">
+                            <p>台北市中山區忠孝西路 238 號</p>
+                            <p>大眾運輸：</p>
+                            <p>捷運東門站 2 號出口步行 5 分鐘，或可搭212、262 公車至忠孝東路站。</p>
+                            <p>代客叫車：櫃台可協助</p>
+                        </div>
                     </div>
                 </section>
 
@@ -144,35 +142,89 @@ const EventDetailPage = () => {
                     <h2 className="a_recommendTitle">猜你喜歡...</h2>
 
                     <div className="a_recList">
-                        {recItems.map((item) => (
-                            <Link key={item.id} to={item.to} className="a_recCard">
-                                <img
-                                    className="a_ recCard_image"
-                                    src={item.img}
-                                    alt={item.title}
-                                    loading="lazy"
-                                />
+                        {/* 卡片 1 */}
+                        <Link to="/EventDetailPage" className="a_recCard">
+                            <img
+                                className="a_recCard_image"
+                                src={infoImg1}
+                                alt="【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY"
+                                loading="lazy"
+                            />
 
-                                <div className="a_recCard_body">
-                                    <p className="a_recCard_meta">{item.date}</p>
-                                    <h3 className="a_recCard_title">{item.title}</h3>
-                                </div>
+                            <div className="a_recCard_body">
+                                <p className="a_recCard_meta">2025.09.20(六)17:00-20:00</p>
+                                <h3 className="a_recCard_title">【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY</h3>
+                            </div>
 
-                                <div className="a_recCard_footer">
-                                    <span className="a_recCard_tag">#{item.tag}</span>
-                                    <div className="a_recCard_stats">
-                                        <span className="a_recCard_stat">
-                                            <span aria-hidden="true">👁</span> {item.views}
-                                        </span>
-                                        <span className="a_recCard_stat">
-                                            <span aria-hidden="true">♡</span> {item.likes}
-                                        </span>
-                                    </div>
+                            <div className="a_recCard_footer">
+                                <span className="a_recCard_tag">#圓山</span>
+                                <div className="a_recCard_stats">
+                                    <span className="a_recCard_stat">
+                                        <span aria-hidden="true">👁</span> 785
+                                    </span>
+                                    <span className="a_recCard_stat">
+                                        <span aria-hidden="true">♡</span> 85
+                                    </span>
                                 </div>
-                            </Link>
-                        ))}
+                            </div>
+                        </Link>
+
+                        {/* 卡片 2 */}
+                        <Link to="/EventDetailPage" className="a_recCard">
+                            <img
+                                className="a_recCard_image"
+                                src={infoImg2}
+                                alt="【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY"
+                                loading="lazy"
+                            />
+
+                            <div className="a_recCard_body">
+                                <p className="a_recCard_meta">2025.09.20(六)17:00-20:00</p>
+                                <h3 className="a_recCard_title">【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY</h3>
+                            </div>
+
+                            <div className="a_recCard_footer">
+                                <span className="a_recCard_tag">#圓山</span>
+                                <div className="a_recCard_stats">
+                                    <span className="a_recCard_stat">
+                                        <span aria-hidden="true">👁</span> 785
+                                    </span>
+                                    <span className="a_recCard_stat">
+                                        <span aria-hidden="true">♡</span> 85
+                                    </span>
+                                </div>
+                            </div>
+                        </Link>
+
+                        {/* 卡片 3 */}
+                        <Link to="/EventDetailPage" className="a_recCard">
+                            <img
+                                className="a_recCard_image"
+                                src={infoImg2}
+                                alt="【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY"
+                                loading="lazy"
+                            />
+
+                            <div className="a_recCard_body">
+                                <p className="a_recCard_meta">2025.09.20(六)17:00-20:00</p>
+                                <h3 className="a_recCard_title">【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY</h3>
+                            </div>
+
+                            <div className="a_recCard_footer">
+                                <span className="a_recCard_tag">#圓山</span>
+                                <div className="a_recCard_stats">
+                                    <span className="a_recCard_stat">
+                                        <span aria-hidden="true">👁</span> 785
+                                    </span>
+                                    <span className="a_recCard_stat">
+                                        <span aria-hidden="true">♡</span> 85
+                                    </span>
+                                </div>
+                            </div>
+                        </Link>
                     </div>
                 </section>
+
             </main>
         </>
     )

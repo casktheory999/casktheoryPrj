@@ -422,6 +422,10 @@ section + section .w_section_title {
   line-height: 1.2;
   margin-left: 10px;
 }
+.barSearch input::-moz-placeholder {
+  color: #D0D0D0;
+  letter-spacing: 0.02em;
+}
 .barSearch input::placeholder {
   color: #D0D0D0;
   letter-spacing: 0.02em;
@@ -461,7 +465,8 @@ section + section .w_section_title {
   width: 342px;
   height: 228px;
   top: -114px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 /* 第二排（卡片 4~6）讓圖片靠右，其餘靠左 */
