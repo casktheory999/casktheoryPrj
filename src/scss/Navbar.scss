@@ -1,5 +1,5 @@
 @use 'reset' as *;
-@use "variables"as *;
+@use "variables" as *;
 
 #topbar {
 
@@ -50,6 +50,7 @@
                 width: 24px;
                 height: 3px;
                 background-color: $pri-white;
+                margin: 5px auto;
             }
 
             &.is-active {
