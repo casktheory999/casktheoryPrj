@@ -8,15 +8,20 @@ body {
     color: $pri-dark;
     width: 100%;
     height: 100vh;
-    min-height: 800px;
+
 }
 
 .Ian_news {
     position: relative;
-    height: calc(100vh - 57px); //主內容扣除footer高度57px
+    height: calc(100vh - 56px); //主內容扣除footer高度57px
     // background-color: $pri-white;
     // color: $pri-dark;
     z-index: 0;
+    min-height: 800px;
+
+    @media ($mediaSm) {
+        height: calc(100vh - 40px);
+    }
 
 
 
@@ -25,6 +30,7 @@ body {
         position: absolute;
         right: 0;
         top: 0;
+        bottom: -70px;
         background: url(/images/newsBefore.png);
         background-repeat: no-repeat;
         background-position: right;
@@ -33,7 +39,7 @@ body {
         height: 100%;
         z-index: -1;
 
-        @media ($mediaMd){
+        @media ($mediaMd) {
             display: none;
         }
     }
@@ -54,23 +60,23 @@ body {
         overflow-x: clip;
         /* 直接裁切掉X軸以免觸發水平卷軸 */
 
-        &::before{
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 56px;
-        background: url(/images/drop_dark.png);
-        background-repeat: no-repeat;
-        background-position: right;
-        background-size: auto 100%;
-        width: 191px;
-        height: 116px;
-        z-index: 0;
+        &::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 56px;
+            background: url(/images/drop_dark.png);
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: auto 100%;
+            width: 191px;
+            height: 116px;
+            z-index: 0;
 
-        @media ($mediaMd) {
-            display: none;
-            
-        }
+            @media ($mediaMd) {
+                display: none;
+
+            }
         }
 
         .Ian_title {
@@ -159,7 +165,7 @@ body {
                 align-items: start;
                 margin-right: 10px;
                 height: 100%;
-                
+
                 @media ($mediaMd) {
                     display: none;
                 }
@@ -210,6 +216,17 @@ body {
                 transform: scale(1.05) translateY(-5px);
             }
 
+            @media ($mediaSm) {
+                white-space: nowrap;
+                /* 不換行 */
+                overflow: hidden;
+                /* 超出隱藏 */
+                text-overflow: ellipsis;
+                /* 超出以 … 省略顯示 */
+                max-width: 100%;
+                /* 記得給寬度，才能判斷超出 */
+            }
+
             .Ian_textBox {
                 display: flex;
                 flex-direction: column;
@@ -228,6 +245,11 @@ body {
                     /* 超出以 … 省略顯示 */
                     max-width: 100%;
                     /* 記得給寬度，才能判斷超出 */
+
+                    @media ($mediaSm) {
+                        font-size: 16px;
+                    }
+
                 }
 
                 h3 {
@@ -240,6 +262,11 @@ body {
                     /* 超出以 … 省略顯示 */
                     max-width: 100%;
                     /* 記得給寬度，才能判斷超出 */
+
+                    @media ($mediaSm) {
+                        font-size: 12px;
+                    }
+
                 }
             }
 

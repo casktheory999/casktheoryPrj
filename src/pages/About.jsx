@@ -1,3 +1,13 @@
-export default function About(){
-    return <div>關於我們</div>
+import React from 'react'
+
+const About = () => {
+    return (
+        <div>
+            <section className='Ian_about'>
+                
+            </section>
+        </div>
+    )
 }
+
+export default About
