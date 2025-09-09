@@ -1,59 +1,150 @@
 @charset "UTF-8";
+.barInnerPageContainer {
+  width: 100%;
+  background-color: #FAFAFA;
+}
+@media (max-width:640px) {
+  .barInnerPageContainer {
+    background-color: #171616;
+  }
+}
+@media (max-width:970px) {
+  .barInnerPageContainer {
+    background-color: #171616;
+  }
+}
+
 .barInnerPage {
   display: flex;
   flex-direction: column;
-  /* 記得最後改成白底！！ */
   background-color: #FAFAFA;
   position: relative;
   padding: 0 40px;
+  min-height: 100vh;
 }
-.barInnerPage .heroContainer {
+.barInnerPage .barInnerHeroContainer {
   margin-top: 133px;
+  border: solid red 3px;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-top: 70px;
-  padding-left: 70px;
-  padding-bottom: 100px;
+  padding: 70px 40px 100px;
   z-index: 2;
-  /* 手機：一欄；平板以上：兩欄 */
   /* 左側：hero酒吧文案 */
 }
-.barInnerPage .heroContainer .cardLeft {
+@media (max-width:970px) {
+  .barInnerPage .barInnerHeroContainer {
+    flex-direction: column;
+    padding: 40px 20px 60px;
+    gap: 40px;
+    background-color: #171616;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerHeroContainer {
+    flex-direction: column;
+    padding: 20px 15px 40px;
+    gap: 30px;
+    background-color: #171616;
+  }
+}
+.barInnerPage .barInnerHeroContainer .barInnerCardLeft {
   margin-left: 72px;
   color: #FAFAFA;
 }
-.barInnerPage .heroContainer .cardLeft h2 {
+@media (max-width:970px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardLeft {
+    max-width: 100%;
+    order: 2;
+    margin: 0 auto;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardLeft {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+.barInnerPage .barInnerHeroContainer .barInnerCardLeft h2 {
   font-size: 60px;
   margin-bottom: 82px;
   color: #FAFAFA;
 }
-.barInnerPage .heroContainer .cardLeft .contact {
+@media (max-width:970px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardLeft h2 {
+    font-size: 48px;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardLeft h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+  }
+}
+.barInnerPage .barInnerHeroContainer .barInnerCardLeft .barInnerContact {
   font-size: 16px;
   font-style: normal;
   margin-bottom: 82px;
 }
-.barInnerPage .heroContainer .cardLeft .description {
+@media (max-width:970px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardLeft .barInnerContact {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardLeft .barInnerContact {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+}
+.barInnerPage .barInnerHeroContainer .barInnerCardLeft .barInnerDescription {
   line-height: 1.8;
 }
-.barInnerPage .heroContainer .cardLeft .description p {
+@media (max-width:640px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardLeft .barInnerDescription {
+    line-height: 1.6;
+  }
+}
+.barInnerPage .barInnerHeroContainer .barInnerCardLeft .barInnerDescription p {
   font-size: 16px;
   margin: 4px 0;
 }
-.barInnerPage .heroContainer .cardRight .heroPhoto {
+@media (max-width:970px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardLeft .barInnerDescription p {
+    font-size: 15px;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardLeft .barInnerDescription p {
+    font-size: 14px;
+  }
+}
+.barInnerPage .barInnerHeroContainer .barInnerCardRight {
+  flex: 1;
+  max-width: 850px;
+}
+@media (max-width:970px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardRight {
+    max-width: 100%;
+    order: 1;
+  }
+}
+.barInnerPage .barInnerHeroContainer .barInnerCardRight .barInnerHeroPhoto {
   position: relative;
   margin: 0;
 }
-.barInnerPage .heroContainer .cardRight .heroPhoto .heroImg {
+.barInnerPage .barInnerHeroContainer .barInnerCardRight .barInnerHeroPhoto .barInnerHeroImg {
   display: block;
-  margin-right: 16px;
   width: 100%;
   height: auto;
+  margin-right: 16px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.barInnerPage .heroContainer .cardRight .heroPhoto .arrowImg1 {
+.barInnerPage .barInnerHeroContainer .barInnerCardRight .barInnerHeroPhoto .barInnerArrowImg1 {
   position: absolute;
   bottom: -20px;
   left: -30px;
@@ -61,33 +152,94 @@
   height: 100px;
   margin-left: 10px;
 }
-.barInnerPage .recommendationsContainer {
+@media (max-width:970px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardRight .barInnerHeroPhoto .barInnerArrowImg1 {
+    display: none;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerHeroContainer .barInnerCardRight .barInnerHeroPhoto .barInnerArrowImg1 {
+    display: none;
+  }
+}
+.barInnerPage .barInnerRecommendationsContainer {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
   padding: 50px;
   z-index: 2;
 }
-.barInnerPage .recommendationsContainer .leftArrow {
+@media (max-width:970px) {
+  .barInnerPage .barInnerRecommendationsContainer {
+    padding: 40px 20px;
+    background-color: #171616;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerRecommendationsContainer {
+    padding: 30px 15px;
+    background-color: #171616;
+  }
+}
+.barInnerPage .barInnerRecommendationsContainer .barInnerLeftArrow {
   position: absolute;
   top: 20px;
   left: 160px;
 }
-.barInnerPage .recommendationsContainer .recPhotos {
+@media (max-width:970px) {
+  .barInnerPage .barInnerRecommendationsContainer .barInnerLeftArrow {
+    left: 80px;
+    top: 15px;
+    display: none;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerRecommendationsContainer .barInnerLeftArrow {
+    display: none;
+  }
+}
+.barInnerPage .barInnerRecommendationsContainer .barInnerLeftArrow img {
+  width: 100px;
+}
+@media (max-width:970px) {
+  .barInnerPage .barInnerRecommendationsContainer .barInnerLeftArrow img {
+    width: 80px;
+  }
+}
+.barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos {
   display: flex;
   gap: 88px;
   justify-content: center;
+  align-items: flex-start;
 }
-.barInnerPage .recommendationsContainer .recPhotos .recPhoto1,
-.barInnerPage .recommendationsContainer .recPhotos .recPhoto2 {
-  flex: 1 1 45%;
+@media (max-width:970px) {
+  .barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos {
+    gap: 30px;
+    align-items: center;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos {
+    gap: 25px;
+  }
+}
+.barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto1,
+.barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto2 {
+  flex: 1;
   min-width: 300px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
 }
-.barInnerPage .recommendationsContainer .recPhotos .recPhoto1 img,
-.barInnerPage .recommendationsContainer .recPhotos .recPhoto2 img {
+@media (max-width:970px) {
+  .barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto1,
+  .barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto2 {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+.barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto1 img,
+.barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto2 img {
   width: 100%;
   display: block;
   -o-object-fit: cover;
@@ -96,12 +248,12 @@
   transform: scale(1);
   transition: transform 0.35s ease;
 }
-.barInnerPage .recommendationsContainer .recPhotos .recPhoto1:hover img,
-.barInnerPage .recommendationsContainer .recPhotos .recPhoto2:hover img {
+.barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto1:hover img,
+.barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto2:hover img {
   transform: scale(1.3);
 }
-.barInnerPage .recommendationsContainer .recPhotos .recPhoto1 figcaption,
-.barInnerPage .recommendationsContainer .recPhotos .recPhoto2 figcaption {
+.barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto1 figcaption,
+.barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto2 figcaption {
   position: absolute;
   left: 0;
   right: 0;
@@ -110,67 +262,126 @@
   color: #FAFAFA;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
 }
-.barInnerPage .recommendationsContainer .recPhotos .recPhoto1 .captionText,
-.barInnerPage .recommendationsContainer .recPhotos .recPhoto2 .captionText {
+@media (max-width:640px) {
+  .barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto1 figcaption,
+  .barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto2 figcaption {
+    padding: 12px 15px;
+  }
+}
+.barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto1 .barInnerCaptionText,
+.barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto2 .barInnerCaptionText {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  /* 常見坑位的保險設定 */
   white-space: normal;
-  /* 防止外層有 pre/nowrap 影響 */
   word-break: break-word;
-  /* 長字/英文不換行時強制斷字 */
   line-height: 1.4;
   max-height: 2.8em;
-  /* 有些瀏覽器需要高度輔助 */
+  margin: 0;
 }
-.barInnerPage .recommendationsContainer .btnLeft {
+@media (max-width:640px) {
+  .barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto1 .barInnerCaptionText,
+  .barInnerPage .barInnerRecommendationsContainer .barInnerRecPhotos .barInnerRecPhoto2 .barInnerCaptionText {
+    font-size: 14px;
+    -webkit-line-clamp: 3;
+    max-height: 4.2em;
+  }
+}
+.barInnerPage .barInnerRecommendationsContainer .barInnerBtnLeft {
   width: 48px;
   height: 48px;
   position: relative;
-  left: 0;
-  top: 80px;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
+  align-self: center;
 }
-.barInnerPage .btnContainer {
+@media (max-width:970px) {
+  .barInnerPage .barInnerRecommendationsContainer .barInnerBtnLeft {
+    order: -1;
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerRecommendationsContainer .barInnerBtnLeft {
+    width: 36px;
+    height: 36px;
+  }
+}
+.barInnerPage .barInnerRecommendationsContainer .barInnerBtnLeft img {
+  width: 100%;
+  height: 100%;
+}
+.barInnerPage .barInnerBtnContainer {
   position: relative;
   display: flex;
   justify-content: center;
   margin: 32px 0;
   z-index: 2;
 }
-.barInnerPage .btnContainer .btnToListPage {
+@media (max-width:970px) {
+  .barInnerPage .barInnerBtnContainer {
+    margin: 30px 0 50px;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerBtnContainer {
+    margin: 25px 0 40px;
+  }
+}
+.barInnerPage .barInnerBtnContainer .barInnerBtnToListPage {
   display: inline-block;
   padding-top: 10.5px;
   padding-bottom: 10.5px;
   padding-left: 44px;
   padding-right: 44px;
   font-size: 16px;
-  border: 1px solid #FAFAFA;
+  border: 2px solid #FAFAFA;
   background-color: #171616;
   color: #FAFAFA;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, transform 0.05s ease;
+  transition: all 0.4s ease;
 }
-.barInnerPage .btnContainer .btnToListPage:hover {
+@media (max-width:640px) {
+  .barInnerPage .barInnerBtnContainer .barInnerBtnToListPage {
+    padding: 10px 24px;
+    font-size: 15px;
+  }
+}
+.barInnerPage .barInnerBtnContainer .barInnerBtnToListPage:hover {
   background: #FAFAFA;
   color: #171616;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-.barInnerPage .btnContainer .btnToListPage:active {
-  transform: translateY(1px);
+.barInnerPage .barInnerBtnContainer .barInnerBtnToListPage:active {
+  transform: translateY(0);
 }
-.barInnerPage .blackBlock {
-  margin: 0 24px 48px;
-  background: #171616;
+.barInnerPage .barInnerBlackBlock {
+  position: absolute;
   margin-top: 133px;
   margin-left: 72px;
   height: 1000px;
   width: 700px;
+  background: #171616;
   color: #FAFAFA;
-  position: absolute;
   z-index: 1;
+}
+@media (max-width:970px) {
+  .barInnerPage .barInnerBlackBlock {
+    display: none;
+    height: 100%;
+    margin: 40px;
+  }
+}
+@media (max-width:640px) {
+  .barInnerPage .barInnerBlackBlock {
+    display: none;
+    height: 100%;
+  }
 }

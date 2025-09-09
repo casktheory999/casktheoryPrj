@@ -113,10 +113,8 @@ const EventDetailPage = () => {
                         <h2 className="blockTitle">活動地圖</h2>
                         <div className="mapCard">
                             <iframe
+                                className="a_mapIframe"
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7546295681077!2d121.5254698!3d25.0423998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a970a11a84ad%3A0x58e05f2528812097!2z5ZyL56uL6Ie65YyX5ZWG5qWt5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1753778275399!5m2!1szh-TW!2stw"
-                                width="400"
-                                height="300"
-                                style={{ border: 0 }}
                                 allowFullScreen
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade">
