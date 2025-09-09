@@ -207,6 +207,8 @@ $timeline-line: #cfcfcf;
 }
 
 /* === Timeline === */
+
+
 #timeline {
     position: relative;
     display: flex;
@@ -227,7 +229,7 @@ $timeline-line: #cfcfcf;
 /* 3 欄：左文 / 中軸 / 右卡（第二段反轉） */
 .cintro,
 .cintro-alt {
-    display: grid;
+    display: flex;
     align-items: center;
     width: min(90vw, 960px);
     margin: 100px auto;
