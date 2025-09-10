@@ -750,7 +750,7 @@
         color: $pri-white;
         overflow: hidden;
         isolation: isolate;
-        border-bottom: 1px solid rgba(255, 255, 255, .08);
+
 
         // 手機版
         @media ($mediaSm) {
@@ -1103,7 +1103,7 @@
 
             .routeCard1 {
                 --dx: -100px;
-                --dy: 70px;
+                --dy: 110px;
                 --z: 1;
 
                 @media ($mediaSm) {
@@ -1128,8 +1128,8 @@
             }
 
             .routeCard3 {
-                --dx: 60px;
-                --dy: 400px;
+                --dx: 100px;
+                --dy: 350px;
                 --z: 3;
 
 
@@ -1145,7 +1145,6 @@
             .routeCard2,
             .routeCard3 {
                 width: 720px;
-
                 position: relative;
                 display: block;
                 grid-column: 1 / -1;
@@ -1156,7 +1155,7 @@
                 text-decoration: none;
                 color: inherit;
                 transition: transform .25s ease;
-                aspect-ratio: 16 / 6;
+                aspect-ratio: 16 / 7;
                 transform: translate(var(--dx, 0), var(--dy, 0));
                 z-index: var(--z, 1);
 
@@ -1171,7 +1170,7 @@
                     width: 100%;
                     max-width: 350px;
                     height: auto;
-                    aspect-ratio: 16 / 9;
+                    aspect-ratio: 16 / 7;
                 }
 
                 img {
@@ -1270,17 +1269,12 @@
         background-position: top right;
         background-size: 191px 116px;
 
+
+
         @media (max-width:1320px) {
             display: flex;
-
-            gap: 20px;
-        }
-
-
-        @media ($mediaMd) {
-            display: flex;
             justify-content: space-between;
-            gap: 40px;
+            gap: 25px;
             padding: 60px 30px;
         }
 
@@ -1313,6 +1307,11 @@
             user-select: none;
             z-index: 0;
 
+            @media (max-width:1320px) {
+                font-size: 250px;
+                letter-spacing: .2em;
+            }
+
             @media ($mediaSm) {
                 display: none;
             }
@@ -1334,6 +1333,12 @@
             user-select: none;
             z-index: 0;
 
+            @media (max-width:1320px) {
+                font-size: 250px;
+                letter-spacing: .25em;
+                transform: translate(-50%, -40%);
+            }
+
             @media ($mediaSm) {
                 display: none;
             }
@@ -1345,11 +1350,8 @@
             position: relative;
             z-index: 1;
 
-            @media (max-width:1320px) {
-                display: none;
-            }
 
-            @media ($mediaMd) {
+            @media (max-width:1320px) {
                 display: none;
                 width: 0;
                 overflow: hidden;
@@ -1375,11 +1377,11 @@
             gap: 40px;
             z-index: 1;
 
-            @media ($mediaMd) {
+            @media (max-width:1320px) {
                 align-self: center;
                 align-items: center;
-                padding-left: 10px;
                 padding-top: 0;
+                padding-left: clamp(10px,calc(28.125vw - 170px),100px);
                 gap: 24px;
             }
 
@@ -1400,7 +1402,7 @@
                 font-size: 40px;
                 font-family: $family-tc;
 
-                @media ($mediaMd) {
+                @media (max-width:1320px) {
                     font-size: 32px;
                 }
 
@@ -1419,11 +1421,14 @@
                 border-left: 2px solid $pri-dark;
                 padding-left: 40px;
 
-                @media ($mediaMd) {
-                    padding-left: 30px;
+                @media (max-width:1320px) {
+                    gap: 50px;
+                    padding-left: 25px;
+                    width: 150px;
                 }
 
                 @media ($mediaSm) {
+                    width: 100%;
                     display: flex;
                     justify-content: center;
                     gap: 10px;
@@ -1448,7 +1453,7 @@
                 transition: color .15s ease;
                 font-size: 24px;
 
-                @media ($mediaMd) {
+                @media (max-width:1320px) {
                     font-size: 20px;
                     padding: 5px 12px;
                 }
@@ -1470,7 +1475,7 @@
                 font-weight: 700;
                 padding-left: 28px;
 
-                @media ($mediaMd) {
+                @media (max-width:1320px) {
                     padding-left: 23px;
                 }
 
@@ -1490,7 +1495,7 @@
                     font-size: 14px;
                     color: $pri-dark;
 
-                    @media ($mediaMd) {
+                    @media (max-width:1320px) {
                         left: 8px;
                         font-size: 12px;
                     }
@@ -1515,10 +1520,6 @@
                 gap: 40px;
 
                 @media (max-width:1320px) {
-                    margin: 50px 0 0 0;
-                }
-
-                @media ($mediaMd) {
                     padding-top: 90px;
                     margin: 0;
                     gap: 40px;
@@ -1551,7 +1552,7 @@
                         line-height: 1;
                         font-family: $family-tc;
 
-                        @media ($mediaMd) {
+                        @media (max-width:1320px) {
                             font-size: 40px;
                         }
 
@@ -1565,7 +1566,7 @@
                         letter-spacing: .16px;
                         font-family: $family-en;
 
-                        @media ($mediaMd) {
+                        @media (max-width:1320px) {
                             font-size: 24px;
                         }
 
@@ -1609,7 +1610,7 @@
                         display: block;
                         object-fit: cover;
 
-                        @media ($mediaMd) {
+                        @media (max-width:1320px) {
                             width: 120px;
                             height: 120px;
                         }
@@ -1625,7 +1626,6 @@
                 .goIllBtn {
                     display: inline-block;
                     width: auto;
-                    margin-top: 24px;
                     padding: 10px 14px;
                     border-radius: 5px;
                     background: $pri-dark;
