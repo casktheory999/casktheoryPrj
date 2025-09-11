@@ -12,13 +12,21 @@ $text-gray: #444;
 $text-light-gray: #9ca3af;
 $text-medium-gray: #6b7280;
 $text-lighter-gray: #e5e7eb;
-$accent-color: #ff6600;
+$accent-color: #FF6D25;
 $timeline-line: #cfcfcf;
 
 .section {
     scroll-margin-top: 96px;
     background-color: $section-bg;
     color: $section-text;
+
+    @media ($mediaMd) {
+        scroll-margin-top: 80px;
+    }
+
+    @media ($mediaSm) {
+        scroll-margin-top: 60px;
+    }
 }
 
 .cpage-title {
@@ -37,6 +45,25 @@ $timeline-line: #cfcfcf;
         font-weight: 700;
         letter-spacing: .1em;
         margin: 0;
+
+        @media ($mediaMd) {
+            font-size: 3rem;
+        }
+
+        @media ($mediaSm) {
+            font-size: 2.5rem;
+            letter-spacing: .05em;
+        }
+    }
+
+    @media ($mediaMd) {
+        height: 120px;
+        margin-top: 40px;
+    }
+
+    @media ($mediaSm) {
+        height: 100px;
+        margin-top: 30px;
     }
 }
 
@@ -46,17 +73,38 @@ $timeline-line: #cfcfcf;
     padding: 60px 0;
     position: relative;
     overflow: visible;
+
+    @media ($mediaMd) {
+        padding: 40px 0;
+    }
+
+    @media ($mediaSm) {
+        padding: 30px 0;
+    }
+
 }
 
 /* 兩欄：左圖右文 */
 .chero-grid {
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 28px;
     align-items: start;
     position: relative;
     background: white;
-    
+
+    @media ($mediaMd) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    @media ($mediaSm) {
+        gap: 15px;
+        padding: 0 15px;
+    }
+
 }
 
 /* 左：圖片 */
@@ -67,11 +115,17 @@ $timeline-line: #cfcfcf;
         object-fit: cover;
         display: block;
     }
+
+    @media ($mediaMd) {
+        order: 2;
+    }
 }
 
 /* 右：文字卡內文 */
 .chero-text {
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
     background: $white-bg;
     bottom: 0px;
     margin-left: 0px;
@@ -80,10 +134,32 @@ $timeline-line: #cfcfcf;
     font-size: 20px;
 
     h3 {
+        display: flex-start;
         margin: 0 10px 30px;
         font-size: 36px;
         font-weight: 700;
         color: $text-dark;
+
+        @media ($mediaMd) {
+            font-size: 28px;
+            margin: 0 5px 20px;
+        }
+
+        @media ($mediaSm) {
+            font-size: 24px;
+            margin: 0px 0px 15px;
+        }
+    }
+
+    @media ($mediaMd) {
+        order: 1;
+        padding: 40px 30px;
+        font-size: 18px;
+    }
+
+    @media ($mediaSm) {
+        padding: 30px 20px;
+        font-size: 16px;
     }
 }
 
@@ -107,6 +183,26 @@ $timeline-line: #cfcfcf;
         letter-spacing: 0;
         margin-top: 0px;
     }
+
+    @media ($mediaMd) {
+        right: 50px;
+        top: 30px;
+        font-size: 32px;
+        // writing-mode: horizontal-tb;
+        // text-orientation: initial;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+    }
+
+    @media ($mediaSm) {
+        position: relative;
+        right: auto;
+        top: auto;
+        font-size: 24px;
+        margin-bottom: 20px;
+        writing-mode: horizontal-tb;
+        text-orientation: initial;
+    }
 }
 
 .cmeta {
@@ -118,6 +214,18 @@ $timeline-line: #cfcfcf;
     gap: 8px 28px;
     color: $text-gray;
     line-height: 2;
+
+    @media ($mediaMd) {
+        gap: 8px 20px;
+    }
+
+    @media ($mediaSm) {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        // text-align: right;
+        
+    }
+
 }
 
 /* 右上角黑色水滴 */
@@ -132,6 +240,14 @@ $timeline-line: #cfcfcf;
     background-repeat: no-repeat;
     background-position: top right;
     background-size: 191px 116px;
+
+    @media ($mediaMd) {
+        background-size: 120px 73px;
+    }
+
+    @media ($mediaSm) {
+        display: none;
+    }
 }
 
 /* 地圖區塊背景 */
@@ -141,6 +257,14 @@ $timeline-line: #cfcfcf;
     padding: 56px 0 96px;
     position: relative;
     align-items: flex-start;
+
+    @media ($mediaMd) {
+        padding: 40px 0 60px;
+    }
+
+    @media ($mediaSm) {
+        padding: 30px 0 40px;
+    }
 }
 
 /* 疊放容器：同一格疊兩層（黑帶 + 地圖卡） */
@@ -149,6 +273,10 @@ $timeline-line: #cfcfcf;
     grid-template-rows: var(--band-h);
     place-items: center;
     position: relative;
+
+    @media ($mediaMd) {
+        display: block;
+    }
 }
 
 /* 黑色資訊帶（跨全寬） */
@@ -157,6 +285,12 @@ $timeline-line: #cfcfcf;
     width: 100%;
     height: var(--band-h);
     background: $text-dark;
+
+    @media ($mediaMd) {
+        position: relative;
+        height: auto;
+        min-height: 200px;
+    }
 }
 
 .cro-band-inner {
@@ -174,6 +308,29 @@ $timeline-line: #cfcfcf;
         font-size: 36px;
         font-weight: 800;
         letter-spacing: .01em;
+
+        @media ($mediaMd) {
+            font-size: 28px;
+            margin: 30px 10px 0px;
+        }
+
+        @media ($mediaSm) {
+            font-size: 24px;
+            margin: 20px 0 0px;
+        }
+    }
+
+    @media ($mediaMd) {
+        margin: 0 30px;
+        padding-right: 0;
+        gap: 20px;
+        padding: 30px 0;
+    }
+
+    @media ($mediaSm) {
+        margin: 0 20px;
+        gap: 15px;
+        padding: 20px 0;
     }
 }
 
@@ -186,6 +343,17 @@ $timeline-line: #cfcfcf;
     gap: 10px 0;
     color: $text-lighter-gray;
     line-height: 2;
+
+    @media ($mediaMd) {
+        grid-template-columns: 1fr;
+        padding: 20px 10px 30px;
+        gap: 8px 0;
+    }
+
+    @media ($mediaSm) {
+        padding: 15px 0 20px;
+        gap: 5px 0;
+    }
 }
 
 .cmap-card {
@@ -204,6 +372,22 @@ $timeline-line: #cfcfcf;
         object-fit: cover;
         display: block;
     }
+
+    @media ($mediaMd) {
+        position: relative;
+        justify-self: center;
+        width: 100%;
+        max-width: 600px;
+        height: 300px;
+        margin: 30px 0 0;
+    }
+
+    @media ($mediaSm) {
+        height: 200px;
+        margin: 20px 5px 5px;
+        align-items: center;
+    }
+
 }
 
 /* === Timeline === */
@@ -223,7 +407,20 @@ $timeline-line: #cfcfcf;
         width: 2px;
         background: repeating-linear-gradient($timeline-line 0 8px, transparent 8px 16px);
         opacity: .7;
+
+        @media ($mediaSm) {
+            display: none;
+        }
     }
+
+    @media ($mediaMd) {
+        row-gap: 60px;
+    }
+
+    @media ($mediaSm) {
+        row-gap: 40px;
+    }
+
 }
 
 /* 3 欄：左文 / 中軸 / 右卡（第二段反轉） */
@@ -234,6 +431,19 @@ $timeline-line: #cfcfcf;
     width: min(90vw, 960px);
     margin: 100px auto;
     gap: 20px;
+
+    @media ($mediaMd) {
+        width: 95vw;
+        margin: 60px auto;
+        gap: 15px;
+    }
+
+    @media ($mediaSm) {
+        flex-direction: column;
+        align-items: stretch;
+        margin: 40px auto;
+        gap: 20px;
+    }
 }
 
 .cintro {
@@ -242,6 +452,22 @@ $timeline-line: #cfcfcf;
 
 .cintro-alt {
     grid-template-columns: var(--cardW) var(--axisW) 1fr;
+
+    @media ($mediaSm) {
+        flex-direction: column;
+
+        .cmedia {
+            order: 1;
+        }
+
+        .ckm {
+            order: 2;
+        }
+
+        .cphtxt-alt {
+            order: 3;
+        }
+    }
 }
 
 /* 中欄 km */
@@ -252,6 +478,11 @@ $timeline-line: #cfcfcf;
     writing-mode: horizontal-tb;
     color: $accent-color;
     font-weight: 800;
+
+    @media ($mediaSm) {
+        text-align: center;
+        margin: 10px 0;
+    }
 }
 
 /* 文字段落（左右僅留一處差異） */
@@ -262,6 +493,17 @@ $timeline-line: #cfcfcf;
     max-width: 42ch;
     color: $text-dark;
     align-self: start;
+
+    @media ($mediaMd) {
+        max-width: none;
+        line-height: 1.8;
+    }
+
+    @media ($mediaSm) {
+        max-width: none;
+        text-align: center;
+        line-height: 1.6;
+    }
 }
 
 /* 卡片與疊圖（共用） */
@@ -281,7 +523,38 @@ $timeline-line: #cfcfcf;
         object-fit: cover;
         z-index: 3;
         left: 250px;
+
+        @media ($mediaMd) {
+            width: 280px;
+            height: 180px;
+            top: -60px;
+            left: 180px;
+        }
+
+        @media ($mediaSm) {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            top: 0;
+            left: 0;
+            margin-bottom: -100px;
+        }
     }
+
+    @media ($mediaMd) {
+        grid-template-rows: auto 180px;
+        margin: 30px 0;
+    }
+
+    @media ($mediaSm) {
+        grid-template-rows: auto auto;
+        margin: 20px 0;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
 
 .ctxtArea {
@@ -300,6 +573,30 @@ $timeline-line: #cfcfcf;
         font-size: 20px;
         font-weight: 700;
         margin: 100px 0 0;
+
+        @media ($mediaMd) {
+            font-size: 18px;
+            margin: 80px 0 0;
+        }
+
+        @media ($mediaSm) {
+            font-size: 16px;
+            margin: 120px 0 0;
+        }
+    }
+
+    @media ($mediaMd) {
+        width: 400px;
+        height: 180px;
+        padding: 14px 16px 16px;
+    }
+
+    @media ($mediaSm) {
+        width: 100%;
+        height: auto;
+        min-height: 160px;
+        padding: 120px 20px 20px;
+        margin: 0;
     }
 }
 
@@ -312,10 +609,24 @@ $timeline-line: #cfcfcf;
     line-height: 1;
     color: $accent-color;
     z-index: 3;
+
+    @media ($mediaMd) {
+        font-size: 54px;
+        top: -24px;
+    }
+
+    @media ($mediaSm) {
+        font-size: 48px;
+        top: -20px;
+    }
 }
 
 .cintro-alt .num {
     left: calc(100% - 80px);
+
+    @media ($mediaSm) {
+        left: 20px;
+    }
 }
 
 /* 盒子貼中線的位移量：中線一半 + column-gap - 想留的縫隙 */
@@ -323,12 +634,20 @@ $timeline-line: #cfcfcf;
 .cintro-alt {
     .media {
         --snap: calc(0.5 * var(--axisW) + var(--col-gap) - var(--stick-gap));
+
+        @media ($mediaSm) {
+            --snap: 0px;
+        }
     }
 }
 
 /* 右側卡往左、左側卡往右 */
 .cintro .media {
     transform: translateX(calc(-1 * var(--snap)));
+
+    @media ($mediaSm) {
+        transform: none;
+    }
 }
 
 .cintro-alt {
@@ -337,6 +656,18 @@ $timeline-line: #cfcfcf;
 
         img {
             left: -20px;
+
+            @media ($mediaMd) {
+                left: -10px;
+            }
+
+            @media ($mediaSm) {
+                left: 0;
+            }
+        }
+
+        @media ($mediaSm) {
+            transform: none;
         }
     }
 
@@ -347,5 +678,11 @@ $timeline-line: #cfcfcf;
         align-items: flex-end;
         text-align: right;
         padding: 16px 18px;
+
+        @media ($mediaSm) {
+            align-items: flex-start;
+            text-align: left;
+            padding: 0;
+        }
     }
 }
