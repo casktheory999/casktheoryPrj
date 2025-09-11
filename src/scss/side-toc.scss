@@ -11,7 +11,7 @@
 .w_toc_right {
   position: fixed;     /* 右半圓貼左側、跟著滾動邏輯調整 top */
   left: 0;
-  top: var(--toc-top);
+  top: calc(var(--toc-top) + 70px); /* 額外下移，避免覆蓋 hero 圖 */
   width: 240px;
   min-height: var(--ring-size);
   z-index: 30;

@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
-export default function W_Card({ zh, en, img, highlight }) {
-  const [saved, setSaved] = useState(false);
+export default function W_Card({ zh, en, img, highlight, align = "left" }) {
 
   const zhNode = useMemo(() => {
     if (!highlight) return zh;
@@ -35,37 +34,23 @@ export default function W_Card({ zh, en, img, highlight }) {
     );
   }, [en, highlight]);
 
+  const alignClass = align === "right" ? " is-right" : " is-left";
   return (
-    <div className={`w_card${saved ? " is-saved" : ""}`}>
+    <div className={`w_card${alignClass}`}>
       <div className="w_card_visual">
-        <div className="w_card_meta">
-          <div className="w_card_name">{zhNode}</div>
-          <div className="w_card_en">{enNode}</div>
+        <div className="w_card_frame">
+          <div className="w_card_bg" />
+          {img ? (
+            <img className="w_card_img" src={img} alt={`${zh} ${en}`} />
+          ) : (
+            <div className="w_img_placeholder" />
+          )}
+          <div className="w_card_meta">
+            <div className="w_card_name">{zhNode}</div>
+            <div className="w_card_en">{enNode}</div>
+          </div>
         </div>
-        <div className="w_card_bg" />
-        {img ? (
-          <img className="w_card_img" src={img} alt={`${zh} ${en}`} />
-        ) : (
-          <div className="w_img_placeholder" />
-        )}
-
-        <button
-          type="button"
-          className={`w_bookmark${saved ? " is-active" : ""}`}
-          aria-pressed={saved}
-          aria-label={saved ? "取消收藏" : "加入收藏"}
-          onClick={() => setSaved((v) => !v)}
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              className="w_bookmark_path"
-              d="M6 3h12a1 1 0 0 1 1 1v16.382a.5.5 0 0 1-.79.407L12 17.5l-6.21 3.289A.5.5 0 0 1 5 20.382V4a1 1 0 0 1 1-1z"
-            />
-          </svg>
-        </button>
       </div>
-
-
     </div>
   );
 }

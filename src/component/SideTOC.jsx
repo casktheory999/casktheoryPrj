@@ -16,7 +16,7 @@ function arcPath(cx, cy, r, startDeg, endDeg) {
   return `M ${s.x} ${s.y} A ${r} ${r} 0 ${large} ${sweep} ${e.x} ${e.y}`;
 }
 
-const NAV_OFFSET = 60; // 若有固定導覽列，改成你的高度
+const NAV_OFFSET = 60; // 導覽列高度 + 視覺間距，讓 TOC 更靠下
 const ORANGE = "#ff6a2b";
 const DARK   = "#1f1f1f";
 const GREY   = "#d9d9d9";

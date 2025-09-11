@@ -6,6 +6,27 @@ import W_Card from "../component/w_Card.jsx";
 
 export default function Illustrations() {
     const [keyword, setKeyword] = useState("");
+    const NAV_OFFSET = 60;
+    const EXTRA = 8; // 與 SideTOC 相同的額外上方留白
+
+    const scrollTo = (id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const idx = el.querySelector('.w_section_idx');
+        const target = idx ?? el;
+        // 折衷：以 SideTOC 基準，再加上 sticky 搜尋列 一半高度 + top
+        let offset = NAV_OFFSET + EXTRA;
+        const sticky = document.querySelector('.w_search_wrap');
+        if (sticky) {
+            const cs = getComputedStyle(sticky);
+            if (cs.position === 'sticky') {
+                const topPx = parseFloat(cs.top || '0') || 0;
+                offset += topPx + (sticky.offsetHeight / 2);
+            }
+        }
+        const y = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+    };
 
     const base = useMemo(() => ([
         { zh: "伏特加", en: "Vodka", img: "./images/Vodka.png" },
@@ -58,6 +79,12 @@ export default function Illustrations() {
                 </div>
             </section>
             <div className="w_search_wrap">
+                {/* 小螢幕：縮起 SideTOC 時，顯示文字切換 */}
+                <div className="w_search_tabs" role="tablist" aria-label="章節切換">
+                    <button type="button" onClick={()=>scrollTo("w_base")} className="w_tab">六大基酒</button>
+                    <button type="button" onClick={()=>scrollTo("w_classics")} className="w_tab">經典調酒</button>
+                    <button type="button" onClick={()=>scrollTo("w_standard")} className="w_tab">大眾調酒</button>
+                </div>
                 <label className="barSearch">
                     <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
                         <circle cx="11" cy="11" r="7" stroke="currentColor" fill="none" strokeWidth="2" />
@@ -73,22 +100,22 @@ export default function Illustrations() {
                 </label>
             </div>
             {/* 主內容 */}
-            <main className={`w_illustrations${isSearching ? " is-searching" : ""}`}>
+            <main className={`w_illustrations${isSearching ? " is-searching" : ""}`} style={{minHeight: 'calc(100vh - 320px)'}}>
                 {!isSearching && <SideTOC />}
 
                 {/* 空狀態（搜尋時） */}
                 {isSearching && empty && (
-                    <section aria-live="polite" className="w_container">
+                    <section aria-live="polite" className="w_container w_search_empty">
                         <p style={{ color: "#777", padding: "16px 6px" }}>找不到符合「{keyword}」的結果，請試試其他關鍵字。</p>
                     </section>
                 )}
 
                 {/* 合併的搜尋結果列表 */}
                 {isSearching && !empty && (
-                    <section aria-live="polite" className="w_container">
+                    <section aria-live="polite" className="w_container w_search_results">
                         <div className="w_cards">
-                            {combinedF.map((c) => (
-                                <W_Card key={`${c.en}-${c.zh}`} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} />
+                            {combinedF.map((c, i) => (
+                                <W_Card key={`${c.en}-${c.zh}`} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i/3)%2===0?"left":"right"} />
                             ))}
                         </div>
                     </section>
@@ -110,8 +137,8 @@ export default function Illustrations() {
                             </header>
                         )}
                         <div className="w_cards">
-                            {baseF.map((c) => (
-                                <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} />
+                            {baseF.map((c, i) => (
+                                <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i/3)%2===0?"left":"right"} />
                             ))}
                         </div>
                     </div>
@@ -132,8 +159,8 @@ export default function Illustrations() {
                             </header>
                         )}
                         <div className="w_cards">
-                            {classicsF.map((c) => (
-                                <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} />
+                            {classicsF.map((c, i) => (
+                                <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i/3)%2===0?"left":"right"} />
                             ))}
                         </div>
                     </div>
@@ -154,8 +181,8 @@ export default function Illustrations() {
                             </header>
                         )}
                         <div className="w_cards">
-                            {standardF.map((c) => (
-                                <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} />
+                            {standardF.map((c, i) => (
+                                <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i/3)%2===0?"left":"right"} />
                             ))}
                         </div>
                     </div>
