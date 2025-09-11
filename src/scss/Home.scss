@@ -13,8 +13,7 @@
         color: $pri-white;
         position: relative;
         width: 100%;
-        height: 100vh;
-        min-height: 800px;
+        height: clamp(600px,calc(55.56vw + 61.11px),800px);
         margin: 0 auto;
         padding: 60px 0;
         display: grid;
@@ -99,6 +98,7 @@
 
             // 手機版
             @media ($mediaSm) {
+                margin-top: 20px;
                 transform: none;
                 text-align: center;
                 justify-self: stretch;
@@ -351,10 +351,7 @@
             margin: 0;
         }
 
-
-
-        // 手機版
-        @media ($mediaSm) {
+        @media ($mediaMd) {
             height: auto;
             min-height: 600px;
             flex-direction: column;
@@ -365,12 +362,11 @@
 
 
 
-
         /* ===== 左：直排標題 ===== */
         .newsTitle {
             writing-mode: vertical-rl;
             text-orientation: upright;
-            font-size: clamp(32px, calc(2.8vw - 7.3px), 40px);
+            font-size: 40px;
             letter-spacing: .18em;
             font-family: $family-tc;
             flex-shrink: 0;
@@ -378,8 +374,8 @@
             display: flex;
             align-self: flex-end;
             justify-content: flex-end;
-            margin-left: clamp(20px, 4vw, 150px);
-            margin-bottom: clamp(0px, calc(355px - 21vw), 65px);
+            margin-left: clamp(20px, calc(31.03vw - 395.86px), 200px);
+            margin-bottom: clamp(-20px,-11.21vw + 195.17px,45px);
 
             @media (max-width:1340px) {
                 margin: 0;
@@ -389,8 +385,7 @@
                 align-self: center;
             }
 
-            // 手機版
-            @media ($mediaSm) {
+            @media ($mediaMd) {
                 margin: 0;
                 writing-mode: horizontal-tb;
                 text-orientation: mixed;
@@ -398,7 +393,14 @@
                 width: 100%;
                 justify-content: center;
                 align-self: center;
+                font-size: 48px;
+                margin-bottom: 28px;
+            }
+
+            // 手機版
+            @media ($mediaSm) {
                 font-size: 32px;
+                margin-bottom: 0;
             }
         }
 
@@ -406,7 +408,7 @@
         .newsPoster {
             flex-shrink: 0;
             aspect-ratio: 7 / 10;
-            height: clamp(650px, 45vw, 786px);
+            height: clamp(650px,calc(23.45vw + 335.79px), 786px);
             position: relative;
             align-self: center;
 
@@ -415,12 +417,16 @@
                 height: clamp(320px, calc(89.19vw - 545.14px), 650px);
             }
 
+            @media ($mediaMd) {
+                width: 100%;
+                max-width: 350px;
+                height: auto;
+                margin: 0 auto 28px;
+            }
+
             // 手機版
             @media ($mediaSm) {
-                width: 100%;
-                max-width: 280px;
-                height: 350px;
-                margin: 0 auto;
+                width: 280px;
             }
 
             &::before,
@@ -435,6 +441,7 @@
                 user-select: none;
                 z-index: -1;
 
+
                 // 手機版隱藏
                 @media (max-width:1340px) {
                     display: none;
@@ -446,9 +453,9 @@
                 content: "N";
                 justify-content: flex-start;
                 align-items: flex-start;
-                left: clamp(-290px, calc(-15.385vw - 20.77px), -170px);
+                left: clamp(-300px,calc(-8.62vw - 134.48px),-250px);
                 top: -50px;
-                font-size: clamp(200px, calc(46.875vw - 470.3125px), 350px);
+                font-size: clamp(300px, calc(12.5vw + 131.25px), 350px);
             }
 
             /*--Ws--*/
@@ -456,9 +463,9 @@
                 content: "Ws";
                 justify-content: flex-end;
                 align-items: flex-end;
-                left: clamp(460px, calc(25.64vw + 211.28px), 660px);
+                left: clamp(550px,calc(46.55vw - 73.79px),820px);
                 bottom: -30px;
-                font-size: clamp(200px, calc(46.875vw - 470.3125px), 350px);
+                font-size: clamp(300px, calc(12.5vw + 131.25px), 350px);
             }
 
             .posterContainer {
@@ -501,8 +508,7 @@
                 gap: 8px;
                 z-index: 10;
 
-                // 手機版
-                @media ($mediaSm) {
+                @media ($mediaMd) {
                     bottom: 15px;
                     gap: 6px;
                 }
@@ -516,8 +522,7 @@
                     cursor: pointer;
                     transition: all 0.3s ease;
 
-                    // 手機版
-                    @media ($mediaSm) {
+                    @media ($mediaMd) {
                         width: 10px;
                         height: 10px;
                     }
@@ -542,15 +547,15 @@
             flex-direction: column;
             gap: 20px;
             margin-bottom: 250px;
-            margin-left: clamp(0px, 6vw, 200px);
+            margin-left: clamp(80px,calc(37.93vw - 428.28px),300px);
             width: 500px;
 
-            // 手機版
             @media (max-width:1340px) {
                 width: 100%;
                 align-items: center;
                 margin: 0;
             }
+            
 
             ul {
                 list-style: none;
@@ -561,11 +566,16 @@
                 position: relative;
 
 
-                // 平板版
                 @media (max-width:1340px) {
                     margin: 0 50px;
                     padding: 0 0 0 40px;
                     gap: 14px;
+                }
+
+                @media ($mediaMd) {
+                    padding: 0;
+                    gap: 18px;
+                    width: auto;
                 }
 
                 // 手機版
@@ -583,6 +593,14 @@
                     cursor: pointer;
                     font-size: 18px;
 
+                    @media ($mediaMd) {
+                    font-size: 22px;
+                }
+
+                @media ($mediaSm) {
+                    font-size: 14px;
+                }
+
 
                     a {
                         text-decoration: none;
@@ -598,6 +616,10 @@
                         /* 超出以 … 省略顯示 */
                         max-width: 100%;
                         /* 記得給寬度，才能判斷超出 */
+
+                        @media ($mediaMd) {
+                            text-align: center;
+                        }
 
                         @media ($mediaSm) {
                             text-align: center;
@@ -705,6 +727,15 @@
                 transition: all 0.3s ease;
                 font-weight: 500;
                 font-size: 18px;
+                margin-right: clamp(0px,calc(-50vw + 525px),40px);
+
+                @media ($mediaMd) {
+                    align-self: center;
+                    justify-self: center;
+                    padding: 12px 18px;
+                    font-size: 16px;
+                    margin: 20px 0 ;
+                }
 
                 // 手機版
                 @media ($mediaSm) {
@@ -721,23 +752,6 @@
             }
 
 
-            .newsList ul::before {
-                content: "";
-                position: absolute;
-                right: calc(100% + 10px);
-                top: 0;
-                bottom: 0;
-                width: 2px;
-                background: repeating-linear-gradient(to bottom,
-                        #111, #111 4px,
-                        transparent 4px, transparent 10px);
-                opacity: .6;
-
-                // 手機版隱藏
-                @media ($mediaSm) {
-                    display: none;
-                }
-            }
 
         }
     }
@@ -812,6 +826,7 @@
 
                 @media ($mediaMd) {
                     font-size: 48px;
+
                 }
 
                 @media ($mediaSm) {
@@ -831,7 +846,7 @@
                 color: rgba(255, 255, 255, .08);
                 pointer-events: none;
                 user-select: none;
-                transform: translate(-35%, -50%);
+                transform: translate(-32%, -50%);
                 z-index: -1;
 
                 // 手機版
@@ -982,8 +997,9 @@
             display: inline-block;
             width: auto;
             font-weight: 800;
+            font-size: 24px;
             padding: 10px 14px;
-            left: 200px;
+            left: 240px;
             bottom: 150px;
             border-radius: 5px;
             background: $pri-dark;
@@ -991,7 +1007,7 @@
             border: 1px solid $pri-white;
             text-decoration: none;
             transition: transform .15s ease;
-            justify-self: end;
+            justify-self: center;
             z-index: 99;
 
             @media ($mediaSm) {
@@ -1014,14 +1030,13 @@
     /*---路跑路線---*/
     .route {
         width: 100%;
-        height: 800px;
+        height: clamp(600px, calc(25vw + 440px), 800px);
         background-color: $pri-dark;
         color: $pri-white;
         position: relative;
         overflow-x: clip;
 
         @media ($mediaMd) {
-            height: 700px;
             padding: 60px 20px;
         }
 
@@ -1044,7 +1059,7 @@
 
             @media ($mediaMd) {
                 font-size: 48px;
-                transform: translate(100px, 40px);
+                transform: translate(100px, 20px);
             }
 
             @media ($mediaSm) {
@@ -1106,8 +1121,14 @@
                 --dy: 110px;
                 --z: 1;
 
+                @media ($mediaMd) {
+                    --dx: -60px;
+                    --dy: 40px;
+                    --z: 1;
+                }
+
                 @media ($mediaSm) {
-                    --dx: 0px;
+                    --dx: 0;
                     --dy: 0;
                     --z: 1;
                 }
@@ -1118,6 +1139,11 @@
                 --dy: 230px;
                 --z: 2;
 
+                @media ($mediaMd) {
+                    --dx: 0px;
+                    --dy: 160px;
+                    --z: 2;
+                }
 
                 @media ($mediaSm) {
                     --dx: 0;
@@ -1132,6 +1158,11 @@
                 --dy: 350px;
                 --z: 3;
 
+                @media ($mediaMd) {
+                    --dx: 60px;
+                    --dy: 280px;
+                    --z: 3;
+                }
 
                 @media ($mediaSm) {
                     --dx: 0px;
@@ -1162,8 +1193,8 @@
 
 
                 @media ($mediaMd) {
-                    width: 400px;
-                    height: 133px;
+                    width: 300px;
+                    height: 120px;
                 }
 
                 @media ($mediaSm) {
@@ -1213,7 +1244,7 @@
                         align-self: start;
                         display: inline-block;
                         padding: 0 10px;
-                        font-size: 16px;
+                        font-size: 14px;
                         letter-spacing: .06em;
 
                         @media (mediaMd) {
@@ -1222,7 +1253,6 @@
                         }
 
                         @media ($mediaSm) {
-                            font-size: 10px;
                             padding: 0 8px;
                         }
                     }
@@ -1230,17 +1260,16 @@
                     .title {
                         margin: 0;
                         padding: 0 10px;
-                        font-size: 24px;
+                        font-size: clamp(24px,calc(1.6842vw + 7.6632px),40px);
                         font-weight: 700;
                         text-shadow: 0 2px 8px rgba(0, 0, 0, .5);
 
-                        @media (mediaMd) {
-                            font-size: 20px;
+                        @media ($mediaMd) {
+                            font-size: 18px;
                             padding: 0 10px;
                         }
 
                         @media ($mediaSm) {
-                            font-size: 20px;
                             padding: 0 8px;
                         }
                     }
@@ -1381,7 +1410,7 @@
                 align-self: center;
                 align-items: center;
                 padding-top: 0;
-                padding-left: clamp(10px,calc(28.125vw - 170px),100px);
+                padding-left: clamp(10px, calc(28.125vw - 170px), 100px);
                 gap: 24px;
             }
 

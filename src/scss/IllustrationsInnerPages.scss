@@ -1,0 +1,104 @@
+@use 'reset' as *;
+@use "variables" as *;
+
+.B_IllustrationsInnerPages {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 56px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 60%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 220px;
+        height: 600px;
+        background: url(images/IllustrationsInnerPagesVodka.png);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        pointer-events: none;
+    }
+
+
+    .B_left {
+        background-color: $pri-dark;
+        color: $pri-white;
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+
+        .B_title {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            gap: 15px;
+            justify-content: center;
+            padding: 0 20%;
+
+            .B_titleZh {
+                font-family: $family-tc;
+                font-size: 36px;
+                font-weight: bold;
+                margin: 0;
+            }
+
+            .B_titleEn {
+                font-family: $family-en;
+                font-size: 24px;
+                margin: 0;
+            }
+        }
+
+        .B_introduceBox {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 6% 20%;
+            flex: 1;
+            justify-content: space-around;
+            font-family: $family-tc;
+
+            p {
+                font-size: 20px;
+                line-height: 1.6;
+                margin: 0;
+
+                span{
+                    color: $sec-peggy;
+                }
+            }
+        }
+    }
+
+    .B_right {
+        background-color: $pri-white;
+        color: $pri-dark;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+        width: 40%;
+
+        .B_powerImg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                width: 120px;
+                height: 100px;
+            }
+
+            span {
+                font-size: 14px;
+                font-family: $family-tc;
+            }
+        }
+    }
+}
