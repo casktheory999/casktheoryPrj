@@ -6,23 +6,25 @@ const About = () => {
     return (
         <>
             <section className='Ian_aboutFirst'>
-                <div className='Ian_firstText'>
-                    <div className='Ian_aboutRwdTitle'>
-                        <h1>AboutUs</h1>
-                    </div>
-                    <div className='Ian_bout'>
-                        <img src="/images/bout.jpg" alt="" />
-                    </div>
-                    <div className='Ian_aboutText1'>
-                        <h2>Cask Theory</h2>
-                    </div>
-                    <div className='Ian_aboutText2'>
-                        <p>還記得嗎？</p>
-                        <p>夜晚不一定要熱鬧，有時候只是一杯酒，</p>
-                        <p>就能替今天收個尾。</p>
-                    </div>
-                    <div className='Ian_us'>
-                        <img src="/images/us.jpg" alt="" />
+                <div className='Ian_firstText'> {/* 整體內容外框 */}
+                    <div className='Ian_firstMain'>
+                        <div className='Ian_aboutRwdTitle'>
+                            <h1>AboutUs</h1>
+                        </div>
+                        <div className='Ian_bout'>
+                            <img src="images/bout.png" alt="" />
+                        </div>
+                        <div className='Ian_aboutText1'>
+                            <h2>Cask Theory團隊</h2>
+                        </div>
+                        <div className='Ian_aboutText2'>
+                            <p>還記得嗎？</p>
+                            <p>夜晚不一定要熱鬧，有時候只是一杯酒，</p>
+                            <p>就能替今天收個尾。</p>
+                        </div>
+                        <div className='Ian_us'>
+                            <img src="images/us.png" alt="" />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -69,7 +71,7 @@ const About = () => {
                     </div>
                     <div className='Ian_storyBtn'>
                         <Link className='Ian_goHome' to="/Home">
-                        <button className='Ian_backHomeBTN'>回首頁</button>
+                            <button className='Ian_backHomeBTN'>回首頁</button>
                         </Link>
                     </div>
                 </div>

@@ -1,18 +1,155 @@
-.Ian_aboutFirst {
-    position: relative;
-    width: 100%;
-    height: 100vh;
+@use 'reset' as *;
+@use "variables" as *;
 
+.Ian_aboutFirst {
+    margin-top: 56px;
+    /* 如果上方有固定 navbar */
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    /* 右側內容靠右 */
+    align-items: center;
+    /* 右側內容上下置中 */
+    padding-left: clamp(240px, 38vw, 720px);
+    /* 預留左側給大 A */
+    padding-right: clamp(5vw, 8vw, 200px);
+    overflow: clip;
+
+    /* 防止裝飾或 hover 造成水平捲軸 */
     &::before {
         content: "";
         position: absolute;
         left: 0;
-        top: 56px;
+        top: 0;
+        bottom: 0;
+        /* 高度貼滿容器 */
+        width: clamp(240px, 38vw, 720px);
         background: url(/images/bigA.png);
         background-repeat: no-repeat;
         background-position: left;
         background-size: auto 100%;
         width: 100%;
         height: 100%;
+        pointer-events: none;
+        /* 不擋點擊 */
+        z-index: 0;
+        /* 在內容底下即可（不要用 -1 免得被吃掉） */
+
+        @media (max-width:1400px) {
+            display: none;
+        }
+    }
+
+    .Ian_firstText {
+        position: relative;
+        z-index: 1;
+        /* 壓在偽元素之上 */
+        width: min(48vw, 100%);
+        /* 控制右側內容最大寬，避免大螢幕過寬 */
+        min-height: clamp(420px, 60vh, 900px);
+        display: flex;
+        justify-content: flex-end;
+        /* 內層如需靠右 */
+
+
+        .Ian_firstMain {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            gap: 5vh;
+
+
+            .Ian_aboutRwdTitle {
+                display: none;
+
+                @media ($mediaLg) {
+                    display: block;
+                }
+            }
+
+
+            .Ian_bout {
+                width: clamp(240px, 80%, 1080px);
+
+                @media (max-width:1400px) {
+                    display: none;
+                }
+            }
+
+            .Ian_aboutText1 {
+                font-size: 32px;
+                align-self: center;
+            }
+
+            .Ian_aboutText2 {
+                font-size: 24px;
+                align-self: center;
+            }
+
+
+            .Ian_us {
+                width: clamp(120px, 18%, 260px);
+                align-self: flex-end;
+            }
+        }
+
+    }
+}
+
+.Ian_aboutSecond {
+    margin-top: 10vh;
+    width: 100%;
+    height: 40vh;
+
+    .Ian_aboutFunction {
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        .Ian_functionText {
+            background-color: $pri-dark;
+            color: $pri-white;
+            width: 70%;
+            height: 100%;
+            font-size: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 8vw;
+            padding-right: 3vw;
+            gap: 3vh;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: relative;
+                background-color: $sec-peggy;
+                opacity: 0.2;
+                left: 5vw;
+                top: -5vh;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+
+            @media (max-width:1400px) {
+                font-size: 16px;
+
+            }
+        }
+
+        .Ian_functionTitle {
+            writing-mode: vertical-rl;
+            font-family: $family-tc;
+            font-weight: bold;
+            font-size: 36px;
+            display: flex;
+            justify-content: center;
+            padding-left: 10vw;
+
+
+
+        }
     }
 }
