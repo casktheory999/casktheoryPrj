@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-export default function W_Card({ zh, en, img, highlight, align = "left" }) {
+export default function W_Card({ zh, en, img, highlight, align = "left",onClick}) {
 
   const zhNode = useMemo(() => {
     if (!highlight) return zh;
@@ -35,8 +35,15 @@ export default function W_Card({ zh, en, img, highlight, align = "left" }) {
   }, [en, highlight]);
 
   const alignClass = align === "right" ? " is-right" : " is-left";
+
+  const handleClick=(e)=>{
+    if (e.target.closest('.w_card_visual') && onClick) {
+      onClick(en);
+    }
+  };
+
   return (
-    <div className={`w_card${alignClass}`}>
+    <div className={`w_card${alignClass}`} onClick={handleClick} style={{ cursor: 'pointer' }}>
       <div className="w_card_visual">
         <div className="w_card_frame">
           <div className="w_card_bg" />

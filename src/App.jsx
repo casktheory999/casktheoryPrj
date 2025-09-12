@@ -15,7 +15,7 @@ import BarRoute from './pages/BarRoute'
 import About from './pages/About'
 import Member from './pages/member'
 import EventDetailPage from './pages/EventDetailPage.jsx'
-import IllustrationsInnerPages from './pages/IllustrationsInnerPages.jsx'
+
 
 export default function App(){
   return(
@@ -28,7 +28,6 @@ export default function App(){
         <Route path='/News' element={<News/>}></Route>
         <Route path="/EventDetailPage" element={<EventDetailPage/>}></Route>
         <Route path='/Illustrations' element={<Illustrations/>}></Route>
-        <Route path='/IllustrationsInnerPages' element={<IllustrationsInnerPages/>}></Route>
         <Route path='/Bar' element={<Bar/>}></Route>
         <Route path='/BarInnerPage' element={<BarInnerPage/>}></Route>
         <Route path='/BarRoute' element={<BarRoute/>}></Route>

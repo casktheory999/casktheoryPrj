@@ -3,9 +3,14 @@ import "../scss/illustrations.scss";
 import SideTOC from '../component/SideTOC.jsx';
 import "../scss/side-toc.scss";
 import W_Card from "../component/w_Card.jsx";
+import Modal from '../component/Modal.jsx';
+import IllustrationsInnerPages from '../component/IllustrationsInnerPages.jsx';
 
 export default function Illustrations() {
     const [keyword, setKeyword] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedDrink, setSelectedDrink] = useState("");
+
     const NAV_OFFSET = 60;
     const EXTRA = 8; // 與 SideTOC 相同的額外上方留白
 
@@ -49,6 +54,26 @@ export default function Illustrations() {
         { zh: "龍舌蘭日出", en: "Tequila Sunrise", img: "./images/Tequila Sunrise.png" },
     ]), []);
 
+    // 處理卡片點擊事件
+    const handleCardClick = (drinkName) => {
+        // 將英文名稱轉換為 IllsInnerData 的 key 格式
+        let drinkKey = drinkName;
+        if (drinkName === "Long Island Iced Tea") {
+            drinkKey = "LongIslandIcedTea";
+        } else if (drinkName === "Tequila Sunrise") {
+            drinkKey = "TequilaSunrise";
+        }
+
+        setSelectedDrink(drinkKey);
+        setIsModalOpen(true);
+    };
+
+    // 關閉 Modal
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedDrink("");
+    };
+
     const q = keyword.trim().toLowerCase();
     const match = (item) => !q || item.zh.includes(keyword.trim()) || item.en.toLowerCase().includes(q);
     const baseF = base.filter(match);
@@ -67,7 +92,7 @@ export default function Illustrations() {
                     <div className="w_hero_panel">
                         <h3>今日推薦</h3>
                         <h2>邊車 <span>Side car</span></h2>
-                        <p>經典入口時酸甜均衡，口感清爽且酒體集中，既優雅又具力道。<br/>
+                        <p>經典入口時酸甜均衡，口感清爽且酒體集中，既優雅又具力道。<br />
                             具代表性的經典調酒，酸甜的口感相當適合夏天入口。</p>
                     </div>
 
@@ -83,9 +108,9 @@ export default function Illustrations() {
             <div className="w_search_wrap">
                 {/* 小螢幕：縮起 SideTOC 時，顯示文字切換 */}
                 <div className="w_search_tabs" role="tablist" aria-label="章節切換">
-                    <button type="button" onClick={()=>scrollTo("w_base")} className="w_tab">六大基酒</button>
-                    <button type="button" onClick={()=>scrollTo("w_classics")} className="w_tab">經典調酒</button>
-                    <button type="button" onClick={()=>scrollTo("w_standard")} className="w_tab">大眾調酒</button>
+                    <button type="button" onClick={() => scrollTo("w_base")} className="w_tab">六大基酒</button>
+                    <button type="button" onClick={() => scrollTo("w_classics")} className="w_tab">經典調酒</button>
+                    <button type="button" onClick={() => scrollTo("w_standard")} className="w_tab">大眾調酒</button>
                 </div>
                 <label className="barSearch">
                     <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -102,7 +127,7 @@ export default function Illustrations() {
                 </label>
             </div>
             {/* 主內容 */}
-            <main className={`w_illustrations${isSearching ? " is-searching" : ""}`} style={{minHeight: 'calc(100vh - 320px)'}}>
+            <main className={`w_illustrations${isSearching ? " is-searching" : ""}`} style={{ minHeight: 'calc(100vh - 320px)' }}>
                 {!isSearching && <SideTOC />}
 
                 {/* 空狀態（搜尋時） */}
@@ -117,80 +142,84 @@ export default function Illustrations() {
                     <section aria-live="polite" className="w_container w_search_results">
                         <div className="w_cards">
                             {combinedF.map((c, i) => (
-                                <W_Card key={`${c.en}-${c.zh}`} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i/3)%2===0?"left":"right"} />
+                                <W_Card key={`${c.en}-${c.zh}`} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i / 3) % 2 === 0 ? "left" : "right"} />
                             ))}
                         </div>
                     </section>
                 )}
 
                 {!isSearching && (<>
-                {/* 01 */}
-                <section id="w_base" data-w-toc>
-                    {!isSearching && (
-                        <header className="w_section_title">
-                            <div className="w_section_wrap">
-                                <span className="w_section_idx">01</span>
-                                <div className="w_section_bar">
-                                    <h2 className="w_section_zh">六大基酒</h2>
-                                    <h3 className="w_section_en">Six Base Spirits</h3>
+                    {/* 01 */}
+                    <section id="w_base" data-w-toc>
+                        {!isSearching && (
+                            <header className="w_section_title">
+                                <div className="w_section_wrap">
+                                    <span className="w_section_idx">01</span>
+                                    <div className="w_section_bar">
+                                        <h2 className="w_section_zh">六大基酒</h2>
+                                        <h3 className="w_section_en">Six Base Spirits</h3>
+                                    </div>
                                 </div>
+                            </header>
+                        )}
+                        <div className="w_container">
+                            <div className="w_cards">
+                                {baseF.map((c, i) => (
+                                    <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i / 3) % 2 === 0 ? "left" : "right"} onClick={handleCardClick} />
+                                ))}
                             </div>
-                        </header>
-                    )}
-                    <div className="w_container">
-                        <div className="w_cards">
-                            {baseF.map((c, i) => (
-                                <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i/3)%2===0?"left":"right"} />
-                            ))}
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                {/* 02 */}
-                <section id="w_classics" data-w-toc>
-                    {!isSearching && (
-                        <header className="w_section_title">
-                            <div className="w_section_wrap">
-                                <span className="w_section_idx">02</span>
-                                <div className="w_section_bar">
-                                    <h2 className="w_section_zh">經典調酒</h2>
-                                    <h3 className="w_section_en">Classic Cocktails</h3>
+                    {/* 02 */}
+                    <section id="w_classics" data-w-toc>
+                        {!isSearching && (
+                            <header className="w_section_title">
+                                <div className="w_section_wrap">
+                                    <span className="w_section_idx">02</span>
+                                    <div className="w_section_bar">
+                                        <h2 className="w_section_zh">經典調酒</h2>
+                                        <h3 className="w_section_en">Classic Cocktails</h3>
+                                    </div>
                                 </div>
+                            </header>
+                        )}
+                        <div className="w_container">
+                            <div className="w_cards">
+                                {classicsF.map((c, i) => (
+                                    <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i / 3) % 2 === 0 ? "left" : "right"} onClick={handleCardClick} />
+                                ))}
                             </div>
-                        </header>
-                    )}
-                    <div className="w_container">
-                        <div className="w_cards">
-                            {classicsF.map((c, i) => (
-                                <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i/3)%2===0?"left":"right"} />
-                            ))}
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                {/* 03 */}
-                <section id="w_standard" data-w-toc>
-                    {!isSearching && (
-                        <header className="w_section_title">
-                            <div className="w_section_wrap">
-                                <span className="w_section_idx">03</span>
-                                <div className="w_section_bar">
-                                    <h2 className="w_section_zh">大眾調酒</h2>
-                                    <h3 className="w_section_en">Bar Standard</h3>
+                    {/* 03 */}
+                    <section id="w_standard" data-w-toc>
+                        {!isSearching && (
+                            <header className="w_section_title">
+                                <div className="w_section_wrap">
+                                    <span className="w_section_idx">03</span>
+                                    <div className="w_section_bar">
+                                        <h2 className="w_section_zh">大眾調酒</h2>
+                                        <h3 className="w_section_en">Bar Standard</h3>
+                                    </div>
                                 </div>
+                            </header>
+                        )}
+                        <div className="w_container">
+                            <div className="w_cards">
+                                {standardF.map((c, i) => (
+                                    <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i / 3) % 2 === 0 ? "left" : "right"} onClick={handleCardClick} />
+                                ))}
                             </div>
-                        </header>
-                    )}
-                    <div className="w_container">
-                        <div className="w_cards">
-                            {standardF.map((c, i) => (
-                                <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i/3)%2===0?"left":"right"} />
-                            ))}
                         </div>
-                    </div>
-                </section>
+                    </section>
                 </>)}
             </main >
+            {/* Modal 彈窗 */}
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+                <IllustrationsInnerPages drinkType={selectedDrink} />
+            </Modal>
         </div>
     );
 }
