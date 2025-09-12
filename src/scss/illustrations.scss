@@ -9,6 +9,10 @@
   --toc-r: 150px;
 }
 
+.w_illusAll {
+  overflow-x: clip;
+}
+
 /* ========= Full-bleed HERO ========= */
 .w_hero_full {
   position: relative;
@@ -136,6 +140,7 @@
   width: 1px;
   height: 50px; /* 短線長度，可調 */
   background: rgba(255,255,255,.75);
+  margin-top: 35px;
 }
 .w_hero_center::before { top: -36px; }
 .w_hero_center::after  { bottom: -36px; }
@@ -158,6 +163,7 @@
   /* 確保在分隔線上方 */
   white-space: nowrap;
   word-break: keep-all;
+  margin-top: 40px;
 }
 
 /* RWD：堆疊顯示 */
@@ -208,7 +214,7 @@ section + section .w_section_title {
 .w_section_title{
   display:flex;
   justify-content:flex-end; /* 整體靠右 */
-  margin-left:240px;
+  // margin-left:240px;
   margin-bottom:150px; /* 拉開與下方卡片的距離 */
 }
 @media (max-width:1300px){
@@ -264,7 +270,7 @@ section + section .w_section_title {
   font-family: Noto Serif TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
   margin: 0; /* reset for heading */
   font-weight:800;
-  font-size:40px;
+  font-size:36px;
   letter-spacing:.3px;
   color:#fff;
   line-height: 1.1;
@@ -274,7 +280,7 @@ section + section .w_section_title {
   margin: 0; /* reset for heading */
   color:$sec-pink;
   font-weight:600;
-  font-size:24px;
+  font-size:20px;
   letter-spacing:.6px;
   line-height: 1.1;
   transform: translateY(2px); /* 視覺微調，讓底線更齊 */

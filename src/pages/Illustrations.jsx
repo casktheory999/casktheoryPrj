@@ -59,7 +59,7 @@ export default function Illustrations() {
     const combinedF = [...baseF, ...classicsF, ...standardF];
 
     return (
-        <>
+        <div className="w_illusAll">
             <section className="w_hero_full" style={{ "--w-hero-img": "url(./images/hero-drink.png)" }}>
                 <div className="w_hero_mask" />
                 <div className="w_hero_inner">
@@ -191,6 +191,6 @@ export default function Illustrations() {
                 </section>
                 </>)}
             </main >
-        </>
+        </div>
     );
 }
