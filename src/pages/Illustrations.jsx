@@ -67,15 +67,17 @@ export default function Illustrations() {
                     <div className="w_hero_panel">
                         <h3>今日推薦</h3>
                         <h2>邊車 <span>Side car</span></h2>
-                        <p>經典入口時酸甜均衡，口感清爽且酒體集中，既優雅又具力道。
+                        <p>經典入口時酸甜均衡，口感清爽且酒體集中，既優雅又具力道。<br/>
                             具代表性的經典調酒，酸甜的口感相當適合夏天入口。</p>
                     </div>
 
-                    {/* 中間細線 */}
-                    <div className="w_hero_divider" aria-hidden />
+                    {/* 中間區：標題（語意化 h1） */}
+                    <div className="w_hero_center">
+                        <h1 className="w_hero_vtitle">酒精圖鑑</h1>
+                    </div>
 
-                    {/* 右側直式標題 */}
-                    <div className="w_hero_vtitle">酒精圖鑑</div>
+                    {/* 右側空白區，保留視覺平衡 */}
+                    <div className="w_hero_spacer" aria-hidden />
                 </div>
             </section>
             <div className="w_search_wrap">
@@ -124,18 +126,18 @@ export default function Illustrations() {
                 {!isSearching && (<>
                 {/* 01 */}
                 <section id="w_base" data-w-toc>
-                    <div className="w_container">
-                        {!isSearching && (
-                            <header className="w_section_title">
-                                <div className="w_section_wrap">
-                                    <span className="w_section_idx">01</span>
-                                    <div className="w_section_bar">
-                                        <span className="w_section_zh">六大基酒</span>
-                                        <span className="w_section_en">Six Base Spirits</span>
-                                    </div>
+                    {!isSearching && (
+                        <header className="w_section_title">
+                            <div className="w_section_wrap">
+                                <span className="w_section_idx">01</span>
+                                <div className="w_section_bar">
+                                    <h2 className="w_section_zh">六大基酒</h2>
+                                    <h3 className="w_section_en">Six Base Spirits</h3>
                                 </div>
-                            </header>
-                        )}
+                            </div>
+                        </header>
+                    )}
+                    <div className="w_container">
                         <div className="w_cards">
                             {baseF.map((c, i) => (
                                 <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i/3)%2===0?"left":"right"} />
@@ -146,18 +148,18 @@ export default function Illustrations() {
 
                 {/* 02 */}
                 <section id="w_classics" data-w-toc>
-                    <div className="w_container">
-                        {!isSearching && (
-                            <header className="w_section_title">
-                                <div className="w_section_wrap">
-                                    <span className="w_section_idx">02</span>
-                                    <div className="w_section_bar">
-                                        <span className="w_section_zh">經典調酒</span>
-                                        <span className="w_section_en">Classic Cocktails</span>
-                                    </div>
+                    {!isSearching && (
+                        <header className="w_section_title">
+                            <div className="w_section_wrap">
+                                <span className="w_section_idx">02</span>
+                                <div className="w_section_bar">
+                                    <h2 className="w_section_zh">經典調酒</h2>
+                                    <h3 className="w_section_en">Classic Cocktails</h3>
                                 </div>
-                            </header>
-                        )}
+                            </div>
+                        </header>
+                    )}
+                    <div className="w_container">
                         <div className="w_cards">
                             {classicsF.map((c, i) => (
                                 <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i/3)%2===0?"left":"right"} />
@@ -168,18 +170,18 @@ export default function Illustrations() {
 
                 {/* 03 */}
                 <section id="w_standard" data-w-toc>
-                    <div className="w_container">
-                        {!isSearching && (
-                            <header className="w_section_title">
-                                <div className="w_section_wrap">
-                                    <span className="w_section_idx">03</span>
-                                    <div className="w_section_bar">
-                                        <span className="w_section_zh">大眾調酒</span>
-                                        <span className="w_section_en">Bar Standard</span>
-                                    </div>
+                    {!isSearching && (
+                        <header className="w_section_title">
+                            <div className="w_section_wrap">
+                                <span className="w_section_idx">03</span>
+                                <div className="w_section_bar">
+                                    <h2 className="w_section_zh">大眾調酒</h2>
+                                    <h3 className="w_section_en">Bar Standard</h3>
                                 </div>
-                            </header>
-                        )}
+                            </div>
+                        </header>
+                    )}
+                    <div className="w_container">
                         <div className="w_cards">
                             {standardF.map((c, i) => (
                                 <W_Card key={c.en} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i/3)%2===0?"left":"right"} />

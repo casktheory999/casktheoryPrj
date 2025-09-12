@@ -1,7 +1,7 @@
 @use './reset' as *;
 @use './variables' as *;
 
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC&family=Noto+Sans+TC:wght@200..900&family=Yeseva+One&display=swap');
 :root {
   --hero-h: 420px;
   /* 你的 Hero 高度；和 .w_hero_full 的 min-height 對齊 */
@@ -38,12 +38,11 @@
 .w_hero_inner {
   position: relative;
   z-index: 1;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 36px 24px;
+  max-width: none;
+  margin: 0;
+  padding: 0 60px 36px; /* 上緣貼齊 Hero（齊 w_hero_mask），保留左右與下方內距 */
   display: grid;
-  grid-template-columns: 1fr 12px 1fr;
-  /* 左內容 / 分隔線 / 右區（直式字） */
+  grid-template-columns: 1fr 1fr 1fr; /* 左：面板 / 中：標題 / 右：空白 */
   align-items: center;
   gap: 24px;
   min-height: var(--hero-h); /* 讓左側面板可與整個 HERO 垂直對齊 */
@@ -52,6 +51,7 @@
 /* 左側推薦卡 */
 /* 毛玻璃推薦卡（360×400，左右邊距 40） */
 .w_hero_panel {
+  font-family: Noto Serif TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
   width: 360px;
   height: 400px;
   padding: 24px 40px;
@@ -75,19 +75,19 @@
 /* 字級可維持你現在設定；這裡給稍微輕一點的對比 */
 .w_hero_panel h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: 32px;
   font-weight: 700;
   letter-spacing: .06em;
 }
 
 .w_hero_panel h2 {
   margin: 0;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 800;
 }
 
 .w_hero_panel h2 span {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 500;
   margin-left: 8px;
   color: #f3f3f3;
@@ -96,7 +96,8 @@
 .w_hero_panel p {
   margin: 0;
   color: #f1f1f1;
-  line-height: 1.5;
+  line-height: 2;
+  letter-spacing: 0.02em;
   font-size: 16px;
 }
 
@@ -121,58 +122,33 @@
   }
 }
 
-/* Hero 中央直線 */
-.w_hero_divider {
-  --gap: 240px;
-  /* ← 中間空白的高度：大概等於「酒精圖鑑」的整體高度，自己微調就好 */
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  /* 線在底下 */
-  background: transparent !important; /* 主體不畫線，改由上下短線呈現 */
-  border: 0 !important;
-}
+/* Hero 中央直線（改為三欄後不再需要） */
+.w_hero_divider { display: none; }
 
-/* 上段（從頂到 gap/2 上緣，往中間漸淡） */
-.w_hero_divider::before,
-.w_hero_divider::after {
+/* 中間欄與右側空白欄 */
+.w_hero_center { display: flex; align-items: center; justify-content: center; height: 100%; position: relative; }
+.w_hero_center::before,
+.w_hero_center::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 1px;
-  height: 10px; /* 更短 */
-  background: rgba(255, 255, 255, .7);
+  height: 50px; /* 短線長度，可調 */
+  background: rgba(255,255,255,.75);
 }
-.w_hero_divider::before { top: 36px; }
-.w_hero_divider::after  { bottom: 36px; }
-
-.w_hero_divider::before {
-  top: 0;
-  height: calc(50% - var(--gap) / 2);
-}
-
-.w_hero_divider::after {
-  bottom: 0;
-  height: calc(50% - var(--gap) / 2);
-  transform: scaleY(-1);
-  /* 讓下段的漸層方向跟上段對稱 */
-}
+.w_hero_center::before { top: -36px; }
+.w_hero_center::after  { bottom: -36px; }
+.w_hero_spacer { height: 100%; }
 
 
 
 /* Hero 直式大字 */
 .w_hero_vtitle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: static;
   writing-mode: vertical-rl;
   text-orientation: mixed;
+  font-family: Noto Serif TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
   font-weight: 800;
   font-size: 60px;
   /* 依設計調整 */
@@ -190,11 +166,12 @@
     grid-template-columns: 1fr;
     gap: 12px;
     min-height: var(--hero-h); /* 讓絕對置中的標題以整個 HERO 高度為基準 */
+    padding: 24px 16px; /* 手機版較小內距 */
   }
 
-  .w_hero_divider {
-    display: none;
-  }
+  .w_hero_center { justify-content: center; }
+  .w_hero_center::before,
+  .w_hero_center::after { display: none; }
 
   .w_hero_vtitle {
     writing-mode: horizontal-tb;
@@ -202,9 +179,6 @@
     font-size: 72px;
     white-space: nowrap;
     text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 
   /* RWD：當外框不再顯示時，整塊推薦面板隱藏 */
@@ -245,17 +219,27 @@ section + section .w_section_title {
 .w_section_wrap{
   position:relative;
   width:1195px;
-  height:106px;
+  height:126px; /* 提高黑色框框高度 */
+}
+
+/* 視窗寬度超過容器時，讓黑色標題區右邊延伸到視窗邊，不改變左側位置 */
+@media (min-width: 1200px){
+  .w_section_wrap{ margin-right: calc(50% - 50vw); }
+  .w_section_bar{ left: 0; right: 0; }
 }
 
 /* 黑色長方形本體 */
 .w_section_bar{
   position:absolute; inset:0;           /* 填滿包裹層 */
-  background:#111; color:#fff;
+  background:$pri-dark; color:$pri-white;
   
-  display:flex; align-items:center;
-  gap:12px;
+  display:flex;                         /* 與中英文同排 */
+  flex-direction: row;
+  justify-content:flex-start;           /* 從左側開始排 */
+  align-items: baseline;                /* 英文小標與中文小標齊底線 */
+  gap: 24px;                            /* 加大中英文間距 */
   padding-left:150px;                   /* 給數字預留空間 */
+  padding-top: 50px;
   box-sizing:border-box;
   box-shadow: 0 8px 24px rgba(0,0,0,.12);
 }
@@ -266,26 +250,34 @@ section + section .w_section_title {
   left:24px;       /* 調整你要的水平位置 */
   top:0;           /* 對齊黑條上邊 */
   transform:translateY(-50%);
-  font-size:72px;
+  font-size:96px;
   font-weight:900;
   line-height:1;
-  color:var(--brand, #ff6a00);
+  color:var(--brand, $sec-peggy);
+  font-family: Noto Serif TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
   z-index:2;       /* 蓋在黑條上 */
 
 }
 
 /* 內文樣式 */
 .w_section_zh{
+  font-family: Noto Serif TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
+  margin: 0; /* reset for heading */
   font-weight:800;
-  font-size:28px;
+  font-size:40px;
   letter-spacing:.3px;
   color:#fff;
+  line-height: 1.1;
 }
 .w_section_en{
-  color:rgba(255,255,255,.72);
+  font-family: Noto Serif TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
+  margin: 0; /* reset for heading */
+  color:$sec-pink;
   font-weight:600;
-  font-size:16px;
+  font-size:24px;
   letter-spacing:.6px;
+  line-height: 1.1;
+  transform: translateY(2px); /* 視覺微調，讓底線更齊 */
 }
 
 .w_search_wrap{ display:flex; justify-content:flex-end; align-items:center; gap:16px; padding: 12px 20px 0; width:100%; }
@@ -340,7 +332,7 @@ section + section .w_section_title {
 
 /* 卡片樣式 */
 .w_card { 
-  // background: #fff;
+  // background: $pri-white;
   border-radius: 0;
   // box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
   position: relative;
@@ -419,7 +411,7 @@ section + section .w_section_title {
 }
 
 .w_card_en {
-  color: #666;
+  color: $sec-gray;
   font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -429,7 +421,7 @@ section + section .w_section_title {
 }
 
 /* highlight style */
-.w_card mark{ background: transparent; color:#ff6a2b; padding: 0; }
+.w_card mark{ background: transparent; color:$sec-peggy; padding: 0; }
 
 // .w_card:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.10); }
 .w_card:hover .w_card_img{ transform: scale(1.02); }
@@ -442,7 +434,7 @@ section + section .w_section_title {
   .w_cards .w_card{ flex: 0 0 360px; }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 780px) {
   /* 單欄版：卡片佔滿一列，置中顯示 */
   .w_cards .w_card{ flex: 0 0 100%; }
   /* 單欄版：取消左右版型差異，整組置中 */
