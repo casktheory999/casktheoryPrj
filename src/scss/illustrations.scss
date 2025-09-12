@@ -370,6 +370,7 @@ section + section .w_section_title {
   top: calc(var(--img-h) / -2 + 35px);
   object-fit: contain;
   pointer-events: none; /* 還原為不攔截 hover，效果回到 frame 上 */
+  transition: transform .18s ease;
 }
 
 /* 由 .is-left / .is-right 控制左右，取消舊的 nth-child 排列 */
@@ -430,7 +431,8 @@ section + section .w_section_title {
 .w_card mark{ background: transparent; color:$sec-peggy; padding: 0; }
 
 // .w_card:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.10); }
-.w_card:hover .w_card_img{ transform: scale(1.02); }
+/* 與卡片上移同步：由 frame 控制，圖同時上移且放大 */
+.w_card_frame:hover .w_card_img{ transform: translateY(-2px) scale(1.02); }
 
 /* Bookmark button */
 /* 收藏功能移除：保留空白區段避免樣式誤觸 */
