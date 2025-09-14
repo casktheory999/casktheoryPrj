@@ -80,7 +80,7 @@ const About = () => {
                     <p>－frank sinatra(1915-1998)</p>
                 </div>
                 <div className='Ian_storyBtn'>
-                    <Link className='Ian_goHome' to="/Home">
+                    <Link className='Ian_goHome' to="/">
                         <button className='Ian_backHomeBTN'>回首頁</button>
                     </Link>
                 </div>
