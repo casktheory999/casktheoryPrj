@@ -1,125 +1,300 @@
-@use './reset' as *;
-@use './variables' as *;
-
+@use 'reset' as *;
+@use "variables" as *;
 
 :root {
     --nav-h: 56px;
 }
 
-.bar {
-    color: $pri-white;
+.B_bar {
+    width: 100%;
+    min-height: 100vh;
+    background-color: $pri-white;
+    color: $pri-dark;
+    margin-bottom: 80px;
+    margin-top: 56px;
+    @media ($mediaMd) {
+        margin-top: 61px;
+    }
+    
 
-    /* --Hero區-- */
-    .barHero {
-        min-height: calc(353px - var(--nav-h));
-        height: 353px;
+    /*----Hero區----*/
+    .B_barHero {
+        position: relative;
+        width: 100vw;
+        height: 380px;
         display: flex;
         flex-direction: column;
-        justify-content: end;
+        justify-content: center;
         align-items: center;
-        row-gap: 77px;
+        gap: 60px;
         background-color: $pri-dark;
-        padding-block: 40px;
-    }
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: -114px;
+            width: 191px;
+            height: 116px;
+            background: url(/images/drop_dark.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 2;
 
+            // 手機版隱藏背景裝飾
+            @media (max-width:1400px) {
+                display: none;
+            }
+        }
 
+        @media ($mediaSm) {
+            height: 380px;
+            min-height: 250px;
+            gap: 30px;
+        }
 
-    /* --標題-- */
-    .barHeroTitle {
-        font-size: 40px;
-        letter-spacing: .08em;
-        font-weight: 700;
-        margin: 0;
-    }
-
-    .barHeroFilter {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        align-items: end;
-        column-gap: 32px;
-        padding: 0 105px;
-
-        /* --路線清單-- */
-        .mrtList {
-            justify-items: center;
-            list-style: none;
-            padding: 0;
+        .B_barHeroTitle {
             margin: 0;
-            grid-column: 1 / span 6;
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 32px;
-            align-items: end;
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            color: $pri-white;
 
-            .mrtItem {
+            @media ($mediaMd) {
+                font-size: 2rem;
+            }
+        }
+
+        .B_barHeroFilter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+
+            /*----捷運線選擇----*/
+            .B_mrtList {
+                list-style: none;
+                margin: 0;
+                padding: 0;
                 display: flex;
-                --line-color: #FAFAFA;
-                flex-direction: column;
-                align-items: center;
-                width: max-content;
+                justify-items: center;
+                justify-content: space-around;
+                align-items: end;
+                gap: 32px;
+                flex-wrap: wrap;
 
-                .mrtBtn {
-                    display: inline-block;
-                    text-align: center;
-                    background: transparent;
-                    border: 0;
-                    color: $pri-white;
-                    font-size: 20px;
-                    padding: 4px 0;
-                    cursor: pointer;
+                @media ($mediaMd) {
+                    gap: 20px;
                 }
 
-                .mrtLine {
-                    background: $pri-white;
-                    display: block;
-                    width: 110px;
-                    height: 3px;
-                    margin: 8px auto 0;
-                    opacity: .9;
-                    transform-origin: center;
-                    transition: background-color .25s ease,
-                        transform .25s ease;
+                @media ($mediaSm) {
+                    // flex-direction: column;
+                    align-items: center;
+                    // gap: 15px;
                 }
 
-                &:hover .mrtLine,
-                &:focus-within .mrtLine {
-                    background: var(--line-color, #FAFAFA);
+                .B_mrtItem {
+                    --line-color: $pri-white;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: max-content;
+
+                    @media ($mediaSm) {
+                        // flex-direction: row;
+                        align-items: center;
+                        gap: 10px;
+                    }
+
+                    .B_mrtBtn {
+                        display: inline-block;
+                        padding: 4px 0;
+                        background: transparent;
+                        border: 0;
+                        font-size: 20px;
+                        color: $pri-white;
+                        text-align: center;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+
+                        @media ($mediaMd) {
+                            font-size: 16px;
+                        }
+
+                        &.active {
+                            font-weight: bold;
+                        }
+                    }
+
+                    .B_mrtLine {
+                        display: block;
+                        width: 110px;
+                        height: 3px;
+                        margin: 8px auto 0;
+                        background: $pri-white;
+                        background-color: var(--line-color, $pri-white);
+                        opacity: .9;
+                        transform-origin: center;
+                        transition: background-color .25s ease, transform .25s ease;
+
+                        @media ($mediaMd) {
+                            width: 80px;
+                            height: 2px;
+                        }
+
+                        @media ($mediaSm) {
+                            width: 40px;
+                            height: 2px;
+                            margin: 0;
+                        }
+                    }
+
+                    &:hover .mrtLine,
+                    &:focus-within .mrtLine {
+                        background: var(--line-color, $pri-white);
+                        opacity: 1;
+                        transform: scaleX(1.1);
+                    }
+                }
+
+                .B_mrtBtn.active+.mrtLine {
+                    background: var(--line-color, $pri-white);
+                    opacity: 1;
                     transform: scaleX(1.1);
+                }
+            }
+
+            /*----篩選控制項----*/
+            .B_barControls {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                flex-wrap: wrap;
+
+                @media ($mediaMd) {
+                    flex-direction: column;
+                    gap: 15px;
+                }
+
+                .B_tabs {
+                    display: flex;
+                    gap: 10px;
+
+                    .B_tab {
+                        padding: 8px 16px;
+                        background: transparent;
+                        border: 1px solid #ED972E;
+                        border-radius: 4px;
+                        font-size: 14px;
+                        color: #ED972E;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+
+                        &.active {
+                            background: #ED972E;
+                            color: $pri-white;
+                        }
+
+                        &:hover:not(.active) {
+                            background: rgba(237, 151, 46, 0.1);
+                        }
+                    }
+                }
+
+                .B_barSearch {
+                    width: 200px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding-top: 4px;
+                    padding-bottom: 12px;
+                    border-bottom: 2px solid #AFAFAF;
+
+                    @media ($mediaMd) {
+                        width: 160px;
+                    }
+
+                    .B_icon {
+                        width: 24px;
+                        height: 24px;
+                        opacity: .9;
+                        color: $pri-white;
+                        flex-shrink: 0;
+                    }
+
+                    input {
+                        width: 100%;
+                        background: transparent;
+                        border: 0;
+                        outline: none;
+                        font-size: 16px;
+                        line-height: 1.2;
+                        color: $pri-white;
+
+                        &::placeholder {
+                            color: #D0D0D0;
+                            letter-spacing: .02em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*----篩選結果提示----*/
+    .B_filter-info {
+        padding: 0 20px;
+        margin: 20px 0;
+        font-size: 14px;
+        color: #ED972E;
+        text-align: center;
+    }
+
+    /*----酒吧網格----*/
+    .B_bar-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 320px);
+        grid-auto-rows: 300px;
+        gap: 60px 75px;
+        justify-content: center;
+        grid-auto-flow: row dense;
+
+        // 小螢幕時強制所有卡片變成方形
+        @media (max-width: 1140px) {
+            grid-template-columns: repeat(2, 320px); // 兩欄布局
+            .bar-card {
+                &.horizontal,
+                &.vertical {
+                    // 覆蓋原本的橫向和直向布局
+                    grid-column: span 1;
+                    grid-row: span 1;
+                    
+
+                    .img-box {
+                        aspect-ratio: 1; // 強制圖片變成正方形
+                    }
                 }
             }
         }
 
-        .barSearch {
-            justify-self: end;
-            width: 150px;
-            grid-column: 7;
-            display: grid;
-            grid-template-columns: 20px 1fr;
-            align-items: center;
-            padding-top: 4px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #AFAFAF;
+        @media (max-width: 735px) {
+            grid-template-columns: repeat(1, 320px); // 單欄布局
+        }
 
-            .icon {
-                width: 24px;
-                height: 24px;
-                opacity: .9;
-            }
-
-            input {
-                background: transparent;
-                border: 0;
-                color: $pri-white;
-                outline: none;
-                font-size: 16px;
-                line-height: 1.2;
-                margin-left: 10px;
-            }
-
-            input::placeholder {
-                color: #D0D0D0;
-                letter-spacing: .02em;
-            }
+        .B_no-results {
+            grid-column: 1 / -1;
+            padding: 40px;
+            font-size: 18px;
+            color: #666;
+            text-align: center;
         }
     }
 }

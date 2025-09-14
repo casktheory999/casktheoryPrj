@@ -9,19 +9,32 @@
     flex-direction: row;
     position: relative;
 
+    @media ($mediaSm) {
+        width: 100%;
+        height: auto;
+        max-height: 85vh;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
     &::before {
         content: "";
         position: absolute;
         left: 65%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 220px;
+        width: 450px;
         height: 600px;
         background: var(--background-image, url(images/IllustrationsInnerPagesVodka.png));
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
         pointer-events: none;
+        z-index: 0;
+
+        @media ($mediaMd) {
+            display: none;
+        }
     }
 
 
@@ -32,26 +45,52 @@
         flex-direction: column;
         width: 60vw;
 
+        @media ($mediaSm) {
+            width: 100%;
+            flex: none;
+        }
+
         .B_title {
             display: flex;
             flex-direction: row;
             align-items: baseline;
             gap: 15px;
             justify-content: center;
-            padding: 20px 20%;
+            padding: 40px 20% 0;
+            z-index: 1;
+
+            @media ($mediaSm) {
+                padding: 20px 5% 0;
+                align-items:baseline;
+                gap: 5px;
+            }
 
             .B_titleZh {
                 font-family: $family-tc;
                 font-size: 36px;
                 font-weight: bold;
                 margin: 0;
+
+                @media ($mediaMd) {
+                    font-size: 24px;
+                }
             }
 
             .B_titleEn {
                 font-family: $family-en;
                 font-size: 24px;
                 margin: 0;
+
+                @media ($mediaMd) {
+                    font-size: 18px;
+                }
+
+                @media ($mediaSm) {
+                    font-size: 16px;
+                    opacity: 0.8;
+                }
             }
+
         }
 
         .B_introduceBox {
@@ -61,6 +100,14 @@
             padding: 6% 20%;
             flex: 1;
             justify-content: space-around;
+            z-index: 1;
+
+            @media ($mediaSm) {
+                padding: 4% 5% 20px;
+                gap: 15px;
+                flex: none;
+                justify-content: center;
+            }
 
             p {
                 font-size: 20px;
@@ -68,9 +115,17 @@
                 margin: 0;
                 letter-spacing: 1px;
 
+                @media ($mediaMd) {
+                    font-size: 16px;
+                }
+
+                @media ($mediaSm) {
+                    font-size: 14px;
+                    line-height: 1.7;
+                    letter-spacing: 0.5px;
+                }
+
                 span {
-                    // color: $sec-peggy;
-                    // opacity: .8;
                     background: linear-gradient(180deg, transparent 60%, rgba($sec-peggy, 1) 60%);
                 }
             }
@@ -86,20 +141,48 @@
         gap: 15px;
         width: 40%;
 
+        @media ($mediaSm) {
+            width: 100%;
+            height: clamp(110px,calc(12.5vw + 70px),150px);
+            flex-direction: row;
+            justify-content: space-around;
+            padding: 15px 0;
+            gap: 5px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+
         .B_powerImg {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            z-index: 1;
+
+            @media ($mediaSm) {
+                flex-basis: 18%;
+                gap: 5px;
+            }
 
             img {
                 width: 120px;
                 height: 100px;
+                @media ($mediaSm) {
+                    width: clamp(50px,15.625vw,100px);
+                    height: clamp(40px,12.5vw,80px);
+                }
             }
+
 
             span {
                 font-size: 14px;
                 font-family: $family-tc;
+            }
+
+            @media ($mediaSm) {
+                font-size: 11px;
+                text-align: center;
+                line-height: 1.2;
             }
         }
     }

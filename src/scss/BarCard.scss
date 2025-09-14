@@ -1,0 +1,173 @@
+@use 'reset' as *;
+@use "variables" as *;
+
+/*----酒吧卡片----*/
+.bar-card {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 150px;
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: $pri-white;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: #ED972E;
+        color: inherit;
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(237, 151, 46, 0.3);
+
+        .img-box {
+            img {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    &:visited {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: 2px solid #ED972E;
+        outline-offset: 2px;
+    }
+
+    /*----卡片類型----*/
+    &.vertical {
+        grid-column: span 1;
+        grid-row: span 2;
+        min-height: 250px;
+    }
+
+    &.horizontal {
+        grid-column: span 2;
+        grid-row: span 1;
+        min-height: 150px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        @media ($mediaMd) {
+            display: block;
+
+            .img-box {
+                height: 60%;
+            }
+            
+            .text-box {
+                height: 40%;
+            }
+        }
+
+        .img-box {
+            height: 100%;
+        }
+
+        .text-box {
+            height: 100%;
+        }
+    }
+
+    &.square {
+        grid-column: span 1;
+        grid-row: span 1;
+        min-height: 150px;
+    }
+
+    /*----圖片區域----*/
+    .img-box {
+        position: relative;
+        width: 100%;
+        height: 60%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        /*----標籤----*/
+        .badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            color: $pri-white;
+            z-index: 2;
+
+            &.badge-hot {
+                background-color: #ED972E;
+            }
+
+            &.badge-new {
+                background-color: #E3002C;
+            }
+        }
+    }
+
+    /*----文字區域----*/
+    .text-box {
+        height: 40%;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .bar-name {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.2;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .station-info {
+            margin: 4px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            .mrt-line {
+                font-weight: bold;
+                flex-shrink: 0;
+            }
+
+            .divider {
+                margin: 0 4px;
+                color: #666;
+            }
+
+            .station {
+                color: #999;
+            }
+        }
+
+        .description {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #ccc;
+            flex-grow: 1;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
