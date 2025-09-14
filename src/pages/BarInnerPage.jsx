@@ -53,17 +53,18 @@ const BarInnerPage = () => {
 
                     {/* 推薦酒吧區 */}
                     <section id="recommendations" className="barInnerRecommendationsContainer">
-                        <figure className='barInnerLeftArrow'>
-                            <img src={arrowImg2} alt="裝飾箭頭2" style={{ width: '100px' }} />
-                        </figure>
+                        {/* <figure className='barInnerLeftArrow'>
+                            {/* <img src={arrowImg2} alt="裝飾箭頭2" style={{ width: '100px' }} /> 
+                        </figure> */}
                         <div className='barInnerRecPhotos'>
                             <button className="barInnerBtnLeft">
                                 <img src={arrowImg3} alt="向左滑動" />
                             </button>
 
-                            {/* 左側：推薦酒吧1+文案 */}
-                            <figure className="barInnerRecPhoto1">
+                            {/* 左側：推薦酒吧1 */}
+                            <figure className="barInnerRecPhoto">
                                 <img src={rec1Img} alt="The Gilded Drop圖片" />
+                                <img className="decorArrow" src={arrowImg2} alt="裝飾箭頭2" style={{ width: '100px' }} />
                                 <figcaption>
                                     <p className="barInnerCaptionText">
                                         The Gilded Drop — 在暖黃燈下，甬管柔唱輕撫心弦，貝斯在暖黃燈下，甬管弦，貝斯在暖在暖黃燈下低...
@@ -71,8 +72,8 @@ const BarInnerPage = () => {
                                 </figcaption>
                             </figure>
 
-                            {/* 右側：推薦酒吧2+文案 */}
-                            <figure className="barInnerRecPhoto2">
+                            {/* 右側：推薦酒吧2 */}
+                            <figure className="barInnerRecPhoto">
                                 <img src={rec2Img} alt="時光行者圖片" />
                                 <figcaption>
                                     <p className="barInnerCaptionText">
