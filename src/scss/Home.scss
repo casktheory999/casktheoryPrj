@@ -952,16 +952,22 @@
                     position: absolute;
                     z-index: 1;
                     color: $pri-white;
+                    font-size: 18px;
+                    bottom: 20px;
+                    left: 20px;
+                    @media ($mediaSm) {
+                        display: none;
+                    }
                 }
 
                 .title {
                     position: absolute;
                     z-index: 1;
                     color: $pri-white;
-                    bottom: 20px;
+                    bottom: 40px;
                     left: 20px;
                     transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
-                    font-size: clamp(20px, 3vw, 30px);
+                    font-size: clamp(24px, 3vw, 36px);
                     text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
 
                     // 手機版
@@ -976,8 +982,8 @@
                     position: absolute;
                     z-index: 1;
                     color: $pri-white;
-                    top: 10px;
-                    left: 20px;
+                    top:0;
+                    left:25px;
                     transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
                     font-size: clamp(20px, 10vw, 80px);
                 }
@@ -1004,11 +1010,15 @@
             border-radius: 5px;
             background: $pri-dark;
             color: $pri-white;
-            border: 1px solid $pri-white;
+            border: 2px solid $pri-white;
             text-decoration: none;
             transition: transform .15s ease;
             justify-self: center;
             z-index: 99;
+
+            a{
+            color: $pri-white;
+            }
 
             @media ($mediaSm) {
                 position: static;

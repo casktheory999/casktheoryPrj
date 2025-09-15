@@ -85,7 +85,7 @@ export default function Illustrations() {
 
     return (
         <div className="w_illusAll">
-            <section className="w_hero_full" style={{ "--w-hero-img": "url(./images/hero-drink.png)" }}>
+            <section className="w_hero_full">
                 <div className="w_hero_mask" />
                 <div className="w_hero_inner">
                     {/* 左側推薦卡 */}

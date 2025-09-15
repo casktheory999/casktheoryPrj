@@ -288,6 +288,9 @@
         @media (max-width: 735px) {
             grid-template-columns: repeat(1, 320px); // 單欄布局
         }
+        @media (max-width: 330px) {
+            grid-template-columns: repeat(1, 280px); // 單欄布局
+        }
 
         .B_no-results {
             grid-column: 1 / -1;

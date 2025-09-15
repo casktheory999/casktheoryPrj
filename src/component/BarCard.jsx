@@ -39,21 +39,23 @@ const BarCard = ({ bar, cardType = "square" }) => {
                     </div>
                 )}
             </div>
-            <div className="text-box">
-                <h3 className="bar-name">{bar.name}</h3>
-                <div className="station-info">
-                    <span
-                        className="mrt-line"
-                        style={{ color: bar.lineColor }}
-                    >
-                        {bar.line}
-                    </span>
-                    <span className="divider">•</span>
-                    <span className="station">{bar.station}</span>
+            <div className="text-overlay">
+                <div className="text-box">
+                    <h3 className="bar-name">{bar.name}</h3>
+                    <div className="station-info">
+                        <span
+                            className="mrt-line"
+                            style={{ color: bar.lineColor }}
+                        >
+                            {bar.line}
+                        </span>
+                        <span className="divider">•</span>
+                        <span className="station">{bar.station}</span>
+                    </div>
+                    <p className="description">
+                        {bar.description}
+                    </p>
                 </div>
-                <p className="description">
-                    {bar.description}
-                </p>
             </div>
         </Link>
     );

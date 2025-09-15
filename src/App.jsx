@@ -13,7 +13,6 @@ import Bar from './pages/Bar'
 import BarInnerPage from './pages/BarInnerPage.jsx'
 import BarRoute from './pages/BarRoute'
 import About from './pages/About'
-import Member from './pages/member'
 import EventDetailPage from './pages/EventDetailPage.jsx'
 
 
@@ -31,7 +30,6 @@ export default function App(){
         <Route path='/Bar' element={<Bar/>}></Route>
         <Route path='/BarInnerPage' element={<BarInnerPage/>}></Route>
         <Route path='/BarRoute' element={<BarRoute/>}></Route>
-        <Route path='/Member' element={<Member/>}></Route>
         <Route path='/About' element={<About/>}></Route>
       </Routes>
       </div>
