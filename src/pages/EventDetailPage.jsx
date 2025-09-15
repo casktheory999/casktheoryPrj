@@ -145,7 +145,7 @@ const EventDetailPage = () => {
                         <Link to="/EventDetailPage" className="a_recCard">
                             <img
                                 className="a_recCardImage"
-                                src='public/images/eventDetialRec1.png'
+                                src='images/eventDetialRec1.png'
                                 alt="【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY"
                                 loading="lazy"
                             />
@@ -172,7 +172,7 @@ const EventDetailPage = () => {
                         <Link to="/EventDetailPage" className="a_recCard">
                             <img
                                 className="a_recCardImage"
-                                src='public/images/eventDetialRec2.png'
+                                src='images/eventDetialRec2.png'
                                 alt="【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY"
                                 loading="lazy"
                             />
@@ -199,7 +199,7 @@ const EventDetailPage = () => {
                         <Link to="/EventDetailPage" className="a_recCard">
                             <img
                                 className="a_recCardImage"
-                                src='public/images/eventDetialRec2.png'
+                                src='images/eventDetialRec2.png'
                                 alt="【嚴選活動】｜環遊世界品調酒｜30 杯全球精選雞尾酒 DIY"
                                 loading="lazy"
                             />

@@ -1,14 +1,16 @@
 @charset "UTF-8";
 .eventDetailPage {
-  padding: 100px 80px;
   position: relative;
   background-color: #FAFAFA;
   color: #171616;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+  box-sizing: border-box;
   /* ========== Hero ========== */
   /* ========== 活動資訊區 ========== */
   /* ========== 活動簡介區 ========== */
   /* ========== 地圖 + 交通（兩欄） ========== */
-  /* ========== 推薦區（卡片列表） ========== */
 }
 .eventDetailPage .a_heroSection {
   margin-bottom: 20px;
@@ -19,34 +21,53 @@
 .eventDetailPage .a_heroSection .a_heroBanner .a_heroImg {
   width: 100%;
   display: block;
+  aspect-ratio: 16/9;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .eventDetailPage .a_heroSection .a_heroBanner .a_heroRibbon {
-  position: relative;
+  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
-  font-size: 20px;
-  letter-spacing: 2rem;
+  font-size: clamp(14px, 1.2vw, 20px);
+  letter-spacing: 1.5em;
   color: #FAFAFA;
   background: #807C7C;
-  padding: 6px;
+  padding: 10px 8px;
+}
+@media (max-width:970px) {
+  .eventDetailPage .a_heroSection .a_heroBanner .a_heroRibbon {
+    letter-spacing: 0.8em;
+  }
+}
+@media (max-width:640px) {
+  .eventDetailPage .a_heroSection .a_heroBanner .a_heroRibbon {
+    letter-spacing: 0.5em;
+  }
 }
 .eventDetailPage .a_heroSection .heroMeta {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   margin: 12px 0 8px;
+  flex-wrap: wrap;
 }
-.eventDetailPage .a_heroSection .heroMeta .heroChips {
+.eventDetailPage .a_heroSection .heroMeta .heroChips,
+.eventDetailPage .a_heroSection .heroMeta .heroStats {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   gap: 8px;
-  padding-left: 70px;
-  margin: 0;
+}
+.eventDetailPage .a_heroSection .heroMeta .heroChips {
+  flex-wrap: wrap;
 }
 .eventDetailPage .a_heroSection .heroMeta .heroChips .chip {
   display: inline-block;
@@ -56,220 +77,369 @@
   border-radius: 999px;
   font-size: 14px;
 }
+@media (max-width:640px) {
+  .eventDetailPage .a_heroSection .heroMeta .heroChips .chip {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+}
 .eventDetailPage .a_heroSection .heroMeta .heroStats {
-  list-style: none;
-  display: flex;
   gap: 16px;
   padding-right: 84px;
-  margin: 0 0 0 auto;
+  margin-left: auto;
+  /* 保持靠右 */
   color: #807C7C;
   font-size: 14px;
 }
+@media (max-width:640px) {
+  .eventDetailPage .a_heroSection .heroMeta .heroStats {
+    font-size: 13px;
+  }
+}
 .eventDetailPage .a_heroSection .heroTitle {
-  font-size: 2rem;
+  font-size: clamp(20px, 2.4vw + 8px, 40px);
   font-weight: 700;
   margin: 6px 0 0;
+  line-height: 1.25;
+}
+@media (max-width:640px) {
+  .eventDetailPage .a_heroSection .heroTitle {
+    line-height: 1.3;
+  }
 }
 .eventDetailPage .a_infoSection {
-  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  /* < 970px：改直排 */
 }
-.eventDetailPage .a_infoSection .infoBlock {
-  position: relative;
-  align-items: stretch;
-  /* 關鍵：讓左右兩側等高 */
+.eventDetailPage .a_infoSection .a_infoBlock {
   display: flex;
   justify-content: space-between;
+  align-items: stretch;
   gap: 70px;
 }
-.eventDetailPage .a_infoSection .infoBlock .infoCard {
+.eventDetailPage .a_infoSection .a_infoBlock .a_infoCard {
   position: relative;
   flex: 1 1 0;
-  height: 290px;
+  /* 取消固定高度，讓內容自己長，避免被裁切 */
+  /* height: 290px;  << 移除 */
   border: 2px solid #171616;
   padding: 20px 65px 10px 65px;
+  box-sizing: border-box;
 }
-.eventDetailPage .a_infoSection .infoBlock .infoCard .blockTitle {
+.eventDetailPage .a_infoSection .a_infoBlock .a_infoCard .a_blockTitle {
   position: absolute;
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0;
   top: -16px;
   left: 70px;
   background: #FAFAFA;
   padding: 0 6px;
-  /* 讓白底更完整（可調） */
   line-height: 1;
-  /* 避免多餘高 */
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
 }
-.eventDetailPage .a_infoSection .infoBlock .infoCard p {
+.eventDetailPage .a_infoSection .a_infoBlock .a_infoCard p,
+.eventDetailPage .a_infoSection .a_infoBlock .a_infoCard .a_textBox {
   line-height: 1.8;
   margin: 0 0 0.75em;
+  /* 避免長字撐破 */
+  word-wrap: break-word;
+  overflow: visible;
 }
-.eventDetailPage .a_infoSection .infoBlock .infoCard p:last-child {
+.eventDetailPage .a_infoSection .a_infoBlock .a_infoCard p:last-child,
+.eventDetailPage .a_infoSection .a_infoBlock .a_infoCard .a_textBox:last-child {
   margin-bottom: 0;
 }
-.eventDetailPage .a_infoSection .infoBlock .photoBlock1 {
+.eventDetailPage .a_infoSection .a_infoBlock .a_photoBlock1 {
   flex: 1 1 0;
   margin: 0;
-  height: 290px;
-  /* 關鍵：容器跟左側等高 */
   display: flex;
-  /* 讓裡面的 img 能撐滿 */
   align-items: stretch;
-  /* 保險，確保 img 能吃到高度 */
+  /* 不固定容器高度，由左側文字決定整列高度 */
+  /* height: 290px; << 移除 */
 }
-.eventDetailPage .a_infoSection .infoBlock .photoBlock1 .photo {
+.eventDetailPage .a_infoSection .a_infoBlock .a_photoBlock1 .a_photo {
   width: 100%;
   height: 100%;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
+  min-height: 220px;
 }
-.eventDetailPage .a_introBlock {
+@media (max-width:970px) {
+  .eventDetailPage .a_infoSection .a_infoBlock {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .eventDetailPage .a_infoSection .a_infoBlock .a_infoCard {
+    padding: 20px;
+  }
+  .eventDetailPage .a_infoSection .a_infoBlock .a_infoCard .a_blockTitle {
+    left: 20px;
+  }
+  .eventDetailPage .a_infoSection .a_infoBlock .a_photoBlock1 .a_photo {
+    height: auto;
+    aspect-ratio: 16/9;
+    min-height: 0;
+  }
+}
+.eventDetailPage .a_introSection {
+  /* < 970px：改直排 */
+}
+.eventDetailPage .a_introSection .a_introBlock {
   margin: 50px 0;
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   gap: 70px;
 }
-.eventDetailPage .a_introBlock .photoBlock2 {
-  display: flex;
+.eventDetailPage .a_introSection .a_introBlock .a_photoBlock2 {
   flex: 1 1 0;
   margin: 0;
+  display: flex;
 }
-.eventDetailPage .a_introBlock .photoBlock2 .photo {
+.eventDetailPage .a_introSection .a_introBlock .a_photoBlock2 .a_photo {
   width: 100%;
   height: 100%;
-  /* 與容器等高 */
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
+  min-height: 220px;
 }
-.eventDetailPage .a_introBlock .introCard {
+.eventDetailPage .a_introSection .a_introBlock .a_introCard {
   position: relative;
   flex: 1 1 0;
   border: 2px solid #171616;
   padding: 20px 65px;
+  box-sizing: border-box;
 }
-.eventDetailPage .a_introBlock .introCard .blockTitle {
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0;
+.eventDetailPage .a_introSection .a_introBlock .a_introCard .a_blockTitle {
   position: absolute;
   top: -16px;
+  left: 70px;
   background: #FAFAFA;
   padding: 0 8px;
   line-height: 1;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
 }
-.eventDetailPage .a_introBlock .introCard p {
+.eventDetailPage .a_introSection .a_introBlock .a_introCard p,
+.eventDetailPage .a_introSection .a_introBlock .a_introCard .a_textBox {
   line-height: 1.8;
   margin: 6px 0;
   overflow: visible;
+  word-wrap: break-word;
+}
+@media (max-width:970px) {
+  .eventDetailPage .a_introSection .a_introBlock {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+  .eventDetailPage .a_introSection .a_introBlock .a_introCard {
+    padding: 20px;
+  }
+  .eventDetailPage .a_introSection .a_introBlock .a_introCard .a_blockTitle {
+    left: 20px;
+  }
+  .eventDetailPage .a_introSection .a_introBlock .a_photoBlock2 .a_photo {
+    height: auto;
+    aspect-ratio: 16/9;
+    min-height: 0;
+  }
 }
 .eventDetailPage .a_mapSection {
   display: flex;
+  align-items: stretch;
+  gap: 70px;
   margin-bottom: 50px;
   padding: 8px 0 32px;
+  box-sizing: border-box;
+  flex-direction: row;
+  /* RWD：小螢幕改直排 */
+}
+@media (max-width:970px) {
+  .eventDetailPage .a_mapSection {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+.eventDetailPage .a_mapSection > * {
+  min-width: 0;
+  box-sizing: border-box;
 }
 .eventDetailPage .a_mapSection .a_mapBlock {
   position: relative;
-}
-.eventDetailPage .a_mapSection .a_mapBlock .blockTitle {
-  position: absolute;
-  top: -16px;
-  background: #FAFAFA;
-  margin-left: 20px;
-  padding: 0 8px;
-  line-height: 1;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.eventDetailPage .a_mapSection .a_mapBlock .mapCard {
+  flex: 0 1 60%;
+  display: flex;
   border: 2px solid #171616;
   background: #FAFAFA;
   padding: 16px;
 }
-.eventDetailPage .a_mapSection .a_trafficCard {
-  position: relative;
-  border: 2px solid #171616;
-  margin-left: 70px;
-  padding: 20px 65px;
-}
-.eventDetailPage .a_mapSection .a_trafficCard .blockTitle {
+.eventDetailPage .a_mapSection .a_mapBlock .a_blockTitle {
   position: absolute;
+  top: -16px;
+  left: 20px;
+  background: #FAFAFA;
+  padding: 0 8px;
+  line-height: 1;
   font-size: 24px;
   font-weight: 700;
-  margin: 0;
+}
+.eventDetailPage .a_mapSection .a_mapBlock .mapCard {
+  flex: 1;
+  display: block;
+}
+.eventDetailPage .a_mapSection .a_mapBlock .mapCard .a_mapIframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.eventDetailPage .a_mapSection .a_trafficCard {
+  flex: 0 1 40%;
+  display: flex;
+  position: relative;
+  border: 2px solid #171616;
+  padding: 20px 50px;
+}
+.eventDetailPage .a_mapSection .a_trafficCard .a_blockTitle {
+  position: absolute;
   top: -16px;
   left: 70px;
   background: #FAFAFA;
   padding: 0 6px;
-  /* 讓白底更完整（可調） */
   line-height: 1;
+  font-size: 24px;
+  font-weight: 700;
+}
+.eventDetailPage .a_mapSection .a_trafficCard .a_textBox {
+  flex: 1;
+  /* 讓文字區塊把容器撐滿 */
 }
 .eventDetailPage .a_mapSection .a_trafficCard p {
   line-height: 1.8;
   margin: 6px 0;
 }
-.eventDetailPage .a_mapSection .a_trafficBlock .infoCard p,
-.eventDetailPage .a_mapSection .a_trafficBlock {
-  line-height: 1.8;
-  margin: 6px 0;
+@media (max-width:640px) {
+  .eventDetailPage .a_mapSection {
+    flex-direction: column;
+    gap: 24px;
+    /* 手機可固定 iframe 高度，避免太高 */
+  }
+  .eventDetailPage .a_mapSection .a_mapBlock,
+  .eventDetailPage .a_mapSection .a_trafficCard {
+    flex: 0 1 auto;
+    padding: 16px 20px;
+  }
+  .eventDetailPage .a_mapSection .a_mapBlock .blockTitle {
+    left: 20px;
+  }
+  .eventDetailPage .a_mapSection .a_trafficCard .blockTitle {
+    left: 20px;
+  }
+  .eventDetailPage .a_mapSection .a_mapBlock .a_mapIframe {
+    height: 300px;
+  }
 }
-.eventDetailPage .a_recommendSection {
+
+/* ========== 推薦區（卡片列表） ========== */
+.eventDetailRecommendSection {
   padding: 8px 0 48px;
 }
-.eventDetailPage .a_recommendSection .a_recList {
+.eventDetailRecommendSection .eventDetailRecommendTitle {
+  font-size: 24px;
+  font-weight: 700;
+}
+.eventDetailRecommendSection .a_recList {
   list-style: none;
   padding: 0;
   margin: 0;
-  /* 用 grid 控欄數：手機1、平板2、桌機4 */
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  /* 平板：2 欄 */
+  /* 手機：1 欄 */
 }
-.eventDetailPage .a_recommendSection .eventCard {
+@media (max-width:970px) {
+  .eventDetailRecommendSection .a_recList {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .eventDetailRecommendSection .a_recList .a_recCard {
+    flex: 1 1 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+  }
+}
+@media (max-width:640px) {
+  .eventDetailRecommendSection .a_recList {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+  .eventDetailRecommendSection .a_recList .a_recCard {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+.eventDetailRecommendSection .a_recCard {
+  flex: 1 1 30%;
   border: 1px solid #e6e6e6;
   overflow: hidden;
-  background: #fff;
+  background: #FAFAFA;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
 }
-.eventDetailPage .a_recommendSection .eventCard .cardCover img {
+.eventDetailRecommendSection .a_recCard .a_recCardImage {
   width: 100%;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
   aspect-ratio: 4/3;
 }
-.eventDetailPage .a_recommendSection .eventCard .cardBody {
+.eventDetailRecommendSection .a_recCard .a_recCardBody {
+  flex: 1 1 auto;
   padding: 12px 14px;
 }
-.eventDetailPage .a_recommendSection .eventCard .cardBody .cardMeta {
+.eventDetailRecommendSection .a_recCard .a_recCardBody .a_recCardMeta {
   font-size: 12px;
   color: #807C7C;
   margin-bottom: 6px;
 }
-.eventDetailPage .a_recommendSection .eventCard .cardBody .cardTitle {
+.eventDetailRecommendSection .a_recCard .a_recCardBody .a_recCardTitle {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 8px;
 }
-.eventDetailPage .a_recommendSection .eventCard .cardBody .cardFooter {
+.eventDetailRecommendSection .a_recCard .a_recCardFooter {
   display: flex;
   align-items: center;
   gap: 10px;
   color: #807C7C;
+  padding: 0 14px 12px;
 }
-.eventDetailPage .a_recommendSection .eventCard .cardBody .cardFooter .chip {
-  background: #FAFAFA;
-  color: #fff;
+.eventDetailRecommendSection .a_recCard .a_recCardFooter .a_recCardTag {
+  background: #FF6D25;
+  color: #FAFAFA;
   padding: 2px 8px;
   border-radius: 999px;
   font-size: 12px;
   margin-right: auto;
   /* 將統計推到右側 */
+}
+.eventDetailRecommendSection .a_recCard .a_recCardFooter .a_recCardStats {
+  display: flex;
+  gap: 10px;
+}
+.eventDetailRecommendSection .a_recCard .a_recCardFooter .a_recCardStats .a_recCardStat {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }

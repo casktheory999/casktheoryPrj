@@ -134,6 +134,16 @@ a {
   background-color: #111;
   color: white;
 }
+@media (max-width:970px) {
+  .section {
+    scroll-margin-top: 80px;
+  }
+}
+@media (max-width:640px) {
+  .section {
+    scroll-margin-top: 60px;
+  }
+}
 
 .cpage-title {
   width: 100%;
@@ -152,6 +162,29 @@ a {
   letter-spacing: 0.1em;
   margin: 0;
 }
+@media (max-width:970px) {
+  .cpage-title h2 {
+    font-size: 3rem;
+  }
+}
+@media (max-width:640px) {
+  .cpage-title h2 {
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+  }
+}
+@media (max-width:970px) {
+  .cpage-title {
+    height: 120px;
+    margin-top: 40px;
+  }
+}
+@media (max-width:640px) {
+  .cpage-title {
+    height: 100px;
+    margin-top: 30px;
+  }
+}
 
 /* 區塊本體：白色背景 */
 .csection-white {
@@ -159,6 +192,16 @@ a {
   padding: 60px 0;
   position: relative;
   overflow: visible;
+}
+@media (max-width:970px) {
+  .csection-white {
+    padding: 40px 0;
+  }
+}
+@media (max-width:640px) {
+  .csection-white {
+    padding: 30px 0;
+  }
 }
 
 /* 兩欄：左圖右文 */
@@ -168,6 +211,20 @@ a {
   gap: 28px;
   align-items: start;
   position: relative;
+  background: white;
+}
+@media (max-width:970px) {
+  .chero-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 20px;
+  }
+}
+@media (max-width:640px) {
+  .chero-grid {
+    gap: 15px;
+    padding: 0 15px;
+  }
 }
 
 /* 左：圖片 */
@@ -178,10 +235,17 @@ a {
      object-fit: cover;
   display: block;
 }
+@media (max-width:970px) {
+  .chero-photo {
+    order: 2;
+  }
+}
 
 /* 右：文字卡內文 */
 .chero-text {
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
   background: #fff;
   bottom: 0px;
   margin-left: 0px;
@@ -190,10 +254,36 @@ a {
   font-size: 20px;
 }
 .chero-text h3 {
+  display: flex-start;
   margin: 0 10px 30px;
   font-size: 36px;
   font-weight: 700;
   color: #000;
+}
+@media (max-width:970px) {
+  .chero-text h3 {
+    font-size: 28px;
+    margin: 0 5px 20px;
+  }
+}
+@media (max-width:640px) {
+  .chero-text h3 {
+    font-size: 24px;
+    margin: 0px 0px 15px;
+  }
+}
+@media (max-width:970px) {
+  .chero-text {
+    order: 1;
+    padding: 40px 30px;
+    font-size: 18px;
+  }
+}
+@media (max-width:640px) {
+  .chero-text {
+    padding: 30px 20px;
+    font-size: 16px;
+  }
 }
 
 /* 右側直排「推薦路線 1」*/
@@ -216,6 +306,26 @@ a {
   letter-spacing: 0;
   margin-top: 0px;
 }
+@media (max-width:970px) {
+  .cvlabel {
+    right: 50px;
+    top: 30px;
+    font-size: 32px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+}
+@media (max-width:640px) {
+  .cvlabel {
+    position: relative;
+    right: auto;
+    top: auto;
+    font-size: 24px;
+    margin-bottom: 20px;
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+  }
+}
 
 .cmeta {
   list-style: none;
@@ -226,6 +336,17 @@ a {
   gap: 8px 28px;
   color: #444;
   line-height: 2;
+}
+@media (max-width:970px) {
+  .cmeta {
+    gap: 8px 20px;
+  }
+}
+@media (max-width:640px) {
+  .cmeta {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 }
 
 /* 右上角黑色水滴 */
@@ -241,6 +362,16 @@ a {
   background-position: top right;
   background-size: 191px 116px;
 }
+@media (max-width:970px) {
+  .cdrop_dark {
+    background-size: 120px 73px;
+  }
+}
+@media (max-width:640px) {
+  .cdrop_dark {
+    display: none;
+  }
+}
 
 /* 地圖區塊背景 */
 .csection-mapArea {
@@ -250,6 +381,16 @@ a {
   position: relative;
   align-items: flex-start;
 }
+@media (max-width:970px) {
+  .csection-mapArea {
+    padding: 40px 0 60px;
+  }
+}
+@media (max-width:640px) {
+  .csection-mapArea {
+    padding: 30px 0 40px;
+  }
+}
 
 /* 疊放容器：同一格疊兩層（黑帶 + 地圖卡） */
 .cro-stack {
@@ -258,6 +399,11 @@ a {
   place-items: center;
   position: relative;
 }
+@media (max-width:970px) {
+  .cro-stack {
+    display: block;
+  }
+}
 
 /* 黑色資訊帶（跨全寬） */
 .cro-band {
@@ -265,6 +411,13 @@ a {
   width: 100%;
   height: var(--band-h);
   background: #000;
+}
+@media (max-width:970px) {
+  .cro-band {
+    position: relative;
+    height: auto;
+    min-height: 200px;
+  }
 }
 
 .cro-band-inner {
@@ -283,6 +436,33 @@ a {
   font-weight: 800;
   letter-spacing: 0.01em;
 }
+@media (max-width:970px) {
+  .cro-band-inner h3 {
+    font-size: 28px;
+    margin: 30px 10px 0px;
+  }
+}
+@media (max-width:640px) {
+  .cro-band-inner h3 {
+    font-size: 24px;
+    margin: 20px 0 0px;
+  }
+}
+@media (max-width:970px) {
+  .cro-band-inner {
+    margin: 0 30px;
+    padding-right: 0;
+    gap: 20px;
+    padding: 30px 0;
+  }
+}
+@media (max-width:640px) {
+  .cro-band-inner {
+    margin: 0 20px;
+    gap: 15px;
+    padding: 20px 0;
+  }
+}
 
 .cro-meta {
   list-style: none;
@@ -293,6 +473,19 @@ a {
   gap: 10px 0;
   color: #e5e7eb;
   line-height: 2;
+}
+@media (max-width:970px) {
+  .cro-meta {
+    grid-template-columns: 1fr;
+    padding: 20px 10px 30px;
+    gap: 8px 0;
+  }
+}
+@media (max-width:640px) {
+  .cro-meta {
+    padding: 15px 0 20px;
+    gap: 5px 0;
+  }
 }
 
 .cmap-card {
@@ -312,6 +505,23 @@ a {
      object-fit: cover;
   display: block;
 }
+@media (max-width:970px) {
+  .cmap-card {
+    position: relative;
+    justify-self: center;
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    margin: 30px 0 0;
+  }
+}
+@media (max-width:640px) {
+  .cmap-card {
+    height: 200px;
+    margin: 20px 5px 5px;
+    align-items: center;
+  }
+}
 
 /* === Timeline === */
 #timeline {
@@ -329,15 +539,47 @@ a {
   background: repeating-linear-gradient(#cfcfcf 0 8px, transparent 8px 16px);
   opacity: 0.7;
 }
+@media (max-width:640px) {
+  #timeline::before {
+    display: none;
+  }
+}
+@media (max-width:970px) {
+  #timeline {
+    row-gap: 60px;
+  }
+}
+@media (max-width:640px) {
+  #timeline {
+    row-gap: 40px;
+  }
+}
 
 /* 3 欄：左文 / 中軸 / 右卡（第二段反轉） */
 .cintro,
 .cintro-alt {
-  display: grid;
+  display: flex;
   align-items: center;
   width: min(90vw, 960px);
   margin: 100px auto;
   gap: 20px;
+}
+@media (max-width:970px) {
+  .cintro,
+  .cintro-alt {
+    width: 95vw;
+    margin: 60px auto;
+    gap: 15px;
+  }
+}
+@media (max-width:640px) {
+  .cintro,
+  .cintro-alt {
+    flex-direction: column;
+    align-items: stretch;
+    margin: 40px auto;
+    gap: 20px;
+  }
 }
 
 .cintro {
@@ -347,6 +589,20 @@ a {
 .cintro-alt {
   grid-template-columns: var(--cardW) var(--axisW) 1fr;
 }
+@media (max-width:640px) {
+  .cintro-alt {
+    flex-direction: column;
+  }
+  .cintro-alt .cmedia {
+    order: 1;
+  }
+  .cintro-alt .ckm {
+    order: 2;
+  }
+  .cintro-alt .cphtxt-alt {
+    order: 3;
+  }
+}
 
 /* 中欄 km */
 .ckm {
@@ -354,8 +610,14 @@ a {
   justify-self: center;
   align-self: center;
   writing-mode: horizontal-tb;
-  color: #ff6600;
+  color: #FF6D25;
   font-weight: 800;
+}
+@media (max-width:640px) {
+  .ckm {
+    text-align: center;
+    margin: 10px 0;
+  }
 }
 
 /* 文字段落（左右僅留一處差異） */
@@ -366,6 +628,21 @@ a {
   max-width: 42ch;
   color: #000;
   align-self: start;
+}
+@media (max-width:970px) {
+  .cphtxt,
+  .cphtxt-alt {
+    max-width: none;
+    line-height: 1.8;
+  }
+}
+@media (max-width:640px) {
+  .cphtxt,
+  .cphtxt-alt {
+    max-width: none;
+    text-align: center;
+    line-height: 1.6;
+  }
 }
 
 /* 卡片與疊圖（共用） */
@@ -387,6 +664,40 @@ a {
   z-index: 3;
   left: 250px;
 }
+@media (max-width:970px) {
+  .cmedia img {
+    width: 280px;
+    height: 180px;
+    top: -60px;
+    left: 180px;
+  }
+}
+@media (max-width:640px) {
+  .cmedia img {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    top: 0;
+    left: 0;
+    margin-bottom: -100px;
+  }
+}
+@media (max-width:970px) {
+  .cmedia {
+    grid-template-rows: auto 180px;
+    margin: 30px 0;
+  }
+}
+@media (max-width:640px) {
+  .cmedia {
+    grid-template-rows: auto auto;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 .ctxtArea {
   grid-row: 1;
@@ -405,6 +716,34 @@ a {
   font-weight: 700;
   margin: 100px 0 0;
 }
+@media (max-width:970px) {
+  .ctxtArea h5 {
+    font-size: 18px;
+    margin: 80px 0 0;
+  }
+}
+@media (max-width:640px) {
+  .ctxtArea h5 {
+    font-size: 16px;
+    margin: 120px 0 0;
+  }
+}
+@media (max-width:970px) {
+  .ctxtArea {
+    width: 400px;
+    height: 180px;
+    padding: 14px 16px 16px;
+  }
+}
+@media (max-width:640px) {
+  .ctxtArea {
+    width: 100%;
+    height: auto;
+    min-height: 160px;
+    padding: 120px 20px 20px;
+    margin: 0;
+  }
+}
 
 /* 大號碼 */
 .cnum {
@@ -413,12 +752,29 @@ a {
   font-size: 68px;
   font-weight: 900;
   line-height: 1;
-  color: #ff6600;
+  color: #FF6D25;
   z-index: 3;
+}
+@media (max-width:970px) {
+  .cnum {
+    font-size: 54px;
+    top: -24px;
+  }
+}
+@media (max-width:640px) {
+  .cnum {
+    font-size: 48px;
+    top: -20px;
+  }
 }
 
 .cintro-alt .num {
   left: calc(100% - 80px);
+}
+@media (max-width:640px) {
+  .cintro-alt .num {
+    left: 20px;
+  }
 }
 
 /* 盒子貼中線的位移量：中線一半 + column-gap - 想留的縫隙 */
@@ -426,10 +782,21 @@ a {
 .cintro-alt .media {
   --snap: calc(0.5 * var(--axisW) + var(--col-gap) - var(--stick-gap));
 }
+@media (max-width:640px) {
+  .cintro .media,
+  .cintro-alt .media {
+    --snap: 0px;
+  }
+}
 
 /* 右側卡往左、左側卡往右 */
 .cintro .media {
   transform: translateX(calc(-1 * var(--snap)));
+}
+@media (max-width:640px) {
+  .cintro .media {
+    transform: none;
+  }
 }
 
 .cintro-alt .media {
@@ -438,6 +805,21 @@ a {
 .cintro-alt .media img {
   left: -20px;
 }
+@media (max-width:970px) {
+  .cintro-alt .media img {
+    left: -10px;
+  }
+}
+@media (max-width:640px) {
+  .cintro-alt .media img {
+    left: 0;
+  }
+}
+@media (max-width:640px) {
+  .cintro-alt .media {
+    transform: none;
+  }
+}
 .cintro-alt .txtArea {
   display: flex;
   flex-direction: column;
@@ -445,4 +827,11 @@ a {
   align-items: flex-end;
   text-align: right;
   padding: 16px 18px;
+}
+@media (max-width:640px) {
+  .cintro-alt .txtArea {
+    align-items: flex-start;
+    text-align: left;
+    padding: 0;
+  }
 }

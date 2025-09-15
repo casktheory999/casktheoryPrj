@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC&family=Noto+Sans+TC:wght@200..900&family=Yeseva+One&display=swap");
 /* CSS Reset */
 * {
   box-sizing: border-box;
@@ -136,6 +137,10 @@ a {
   --toc-r: 150px;
 }
 
+.w_illusAll {
+  overflow-x: clip;
+}
+
 /* ========= Full-bleed HERO ========= */
 .w_hero_full {
   position: relative;
@@ -145,6 +150,7 @@ a {
   background-size: cover;
   background-position: center;
   isolation: isolate;
+  margin-top: 55px; /* 與導航高度一致，避免貼齊 */
 }
 
 /* 暗色遮罩（讓文字可讀） */
@@ -160,19 +166,20 @@ a {
 .w_hero_inner {
   position: relative;
   z-index: 1;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 36px 24px;
+  max-width: none;
+  margin: 0;
+  padding: 0 60px 36px; /* 上緣貼齊 Hero（齊 w_hero_mask），保留左右與下方內距 */
   display: grid;
-  grid-template-columns: 1fr 12px 1fr;
-  /* 左內容 / 分隔線 / 右區（直式字） */
+  grid-template-columns: 1fr 1fr 1fr; /* 左：面板 / 中：標題 / 右：空白 */
   align-items: center;
   gap: 24px;
+  min-height: var(--hero-h); /* 讓左側面板可與整個 HERO 垂直對齊 */
 }
 
 /* 左側推薦卡 */
 /* 毛玻璃推薦卡（360×400，左右邊距 40） */
 .w_hero_panel {
+  font-family: Noto Serif TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
   width: 360px;
   height: 400px;
   padding: 24px 40px;
@@ -181,7 +188,6 @@ a {
   /* #737373, 透明度 50% */
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  border-radius: 12px;
   /* border: 1px solid rgba(255,255,255,.25);  <-- 拿掉這個 */
   /* 陰影會在下面加 */
   display: flex;
@@ -194,19 +200,19 @@ a {
 /* 字級可維持你現在設定；這裡給稍微輕一點的對比 */
 .w_hero_panel h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: 32px;
   font-weight: 700;
   letter-spacing: 0.06em;
 }
 
 .w_hero_panel h2 {
   margin: 0;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 800;
 }
 
 .w_hero_panel h2 span {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 500;
   margin-left: 8px;
   color: #f3f3f3;
@@ -215,7 +221,8 @@ a {
 .w_hero_panel p {
   margin: 0;
   color: #f1f1f1;
-  line-height: 1.5;
+  line-height: 2;
+  letter-spacing: 0.02em;
   font-size: 16px;
 }
 
@@ -237,58 +244,60 @@ a {
     font-size: 18px;
   }
 }
-/* Hero 中央直線 */
+/* Hero 中央直線（改為三欄後不再需要） */
 .w_hero_divider {
-  --gap: 240px;
-  /* ← 中間空白的高度：大概等於「酒精圖鑑」的整體高度，自己微調就好 */
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  /* 線在底下 */
+  display: none;
 }
 
-/* 上段（從頂到 gap/2 上緣，往中間漸淡） */
-.w_hero_divider::before,
-.w_hero_divider::after {
+/* 中間欄與右側空白欄 */
+.w_hero_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.w_hero_center::before,
+.w_hero_center::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.6), transparent);
+  height: 50px; /* 短線長度，可調 */
+  background: rgba(255, 255, 255, 0.75);
+  margin-top: 35px;
 }
 
-.w_hero_divider::before {
-  top: 0;
-  height: calc(50% - var(--gap) / 2);
+.w_hero_center::before {
+  top: -36px;
 }
 
-.w_hero_divider::after {
-  bottom: 0;
-  height: calc(50% - var(--gap) / 2);
-  transform: scaleY(-1);
-  /* 讓下段的漸層方向跟上段對稱 */
+.w_hero_center::after {
+  bottom: -36px;
+}
+
+.w_hero_spacer {
+  height: 100%;
 }
 
 /* Hero 直式大字 */
 .w_hero_vtitle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: static;
   writing-mode: vertical-rl;
   text-orientation: mixed;
+  font-family: Noto Serif TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
   font-weight: 800;
-  font-size: 36px;
+  font-size: 60px;
   /* 依設計調整 */
   letter-spacing: 4px;
   color: #fff;
-  z-index: 2;
+  z-index: 10; /* 確保不被任何裝飾或圖片遮擋 */
   /* 確保在分隔線上方 */
+  white-space: nowrap;
+  word-break: keep-all;
+  margin-top: 40px;
 }
 
 /* RWD：堆疊顯示 */
@@ -296,18 +305,26 @@ a {
   .w_hero_inner {
     grid-template-columns: 1fr;
     gap: 12px;
+    min-height: var(--hero-h); /* 讓絕對置中的標題以整個 HERO 高度為基準 */
+    padding: 24px 16px; /* 手機版較小內距 */
   }
-  .w_hero_divider {
+  .w_hero_center {
+    justify-content: center;
+  }
+  .w_hero_center::before,
+  .w_hero_center::after {
     display: none;
   }
   .w_hero_vtitle {
-    justify-self: start;
     writing-mode: horizontal-tb;
-    letter-spacing: 2px;
-    font-size: 22px;
+    letter-spacing: 3px;
+    font-size: 72px;
+    white-space: nowrap;
+    text-align: center;
   }
+  /* RWD：當外框不再顯示時，整塊推薦面板隱藏 */
   .w_hero_panel {
-    max-width: 100%;
+    display: none;
   }
 }
 .w_illustrations {
@@ -323,18 +340,19 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 0px;
+  overflow-x: clip;
+  position: relative;
 }
 
 section + section .w_section_title {
-  margin-top: 80px; /* 你可以改成 60px / 100px，依照視覺調整 */
+  margin-top: 50px; /* 與標題下方到卡片的距離統一 */
 }
 
 /* 整組靠右，並預留左側 TOC 空間 */
 .w_section_title {
   display: flex;
   justify-content: flex-end; /* 整體靠右 */
-  margin-left: 240px;
-  margin-bottom: 22px;
+  margin-bottom: 150px; /* 拉開與下方卡片的距離 */
 }
 
 @media (max-width: 1300px) {
@@ -347,19 +365,32 @@ section + section .w_section_title {
 .w_section_wrap {
   position: relative;
   width: 1195px;
-  height: 106px;
+  height: 126px; /* 提高黑色框框高度 */
 }
 
+/* 視窗寬度超過容器時，讓黑色標題區右邊延伸到視窗邊，不改變左側位置 */
+@media (min-width: 1200px) {
+  .w_section_wrap {
+    margin-right: calc(50% - 50vw);
+  }
+  .w_section_bar {
+    left: 0;
+    right: 0;
+  }
+}
 /* 黑色長方形本體 */
 .w_section_bar {
   position: absolute;
   inset: 0; /* 填滿包裹層 */
-  background: #111;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-left: 120px; /* 給數字預留空間 */
+  background: #171616;
+  color: #FAFAFA;
+  display: flex; /* 與中英文同排 */
+  flex-direction: row;
+  justify-content: flex-start; /* 從左側開始排 */
+  align-items: baseline; /* 英文小標與中文小標齊底線 */
+  gap: 24px; /* 加大中英文間距 */
+  padding-left: 150px; /* 給數字預留空間 */
+  padding-top: 50px;
   box-sizing: border-box;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
@@ -370,33 +401,72 @@ section + section .w_section_title {
   left: 24px; /* 調整你要的水平位置 */
   top: 0; /* 對齊黑條上邊 */
   transform: translateY(-50%);
-  font-size: 72px;
+  font-size: 96px;
   font-weight: 900;
   line-height: 1;
-  color: var(--brand, #ff6a00);
+  color: var(--brand, #FF6D25);
+  font-family: Noto Serif TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
   z-index: 2; /* 蓋在黑條上 */
-  text-shadow: 0 4px 14px rgba(255, 106, 0, 0.25);
 }
 
 /* 內文樣式 */
 .w_section_zh {
+  font-family: Noto Serif TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
+  margin: 0; /* reset for heading */
   font-weight: 800;
-  font-size: 28px;
+  font-size: 36px;
   letter-spacing: 0.3px;
   color: #fff;
+  line-height: 1.1;
 }
 
 .w_section_en {
-  color: rgba(255, 255, 255, 0.72);
+  font-family: Noto Serif TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
+  margin: 0; /* reset for heading */
+  color: #F5EDE9;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: 0.6px;
+  line-height: 1.1;
+  transform: translateY(2px); /* 視覺微調，讓底線更齊 */
 }
 
 .w_search_wrap {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
   padding: 12px 20px 0;
+  width: 100%;
+}
+
+.w_search_tabs {
+  display: none;
+  gap: 12px;
+}
+
+.w_search_tabs .w_tab {
+  background: transparent;
+  border: 0;
+  color: #9aa0a6;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 8px;
+  font-size: 16px;
+}
+
+.w_search_tabs .w_tab:hover {
+  color: #111;
+}
+
+.w_search_results {
+  margin-top: 80px;
+} /* 搜尋結果區塊整體下移 */
+.w_search_empty {
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 4vh;
 }
 
 .barSearch {
@@ -433,9 +503,15 @@ section + section .w_section_title {
 
 /* 卡片 Grid */
 .w_cards {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 28px;
-  grid-template-columns: repeat(3, 1fr);
+  justify-content: center; /* 換行時置中排列，避免左右不齊 */
+  margin-left: -30px; /* 整體往左位移 */
+  /* 控制圖片大小（桌機預設更大） */
+  /* 先保留數值，不使用額外變數抽離 */
+  --img-w: 400px;
+  --img-h: 260px;
 }
 
 /* 卡片樣式 */
@@ -443,6 +519,16 @@ section + section .w_section_title {
   border-radius: 0;
   position: relative;
   padding-bottom: 90px; /* 為絕對定位的白框預留空間 */
+  min-height: 358px; /* 鎖定卡片高度，避免換行或兄弟元素因合成層重排而跳動 */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  isolation: isolate; /* 卡片建立獨立圖層，避免互相影響 */
+}
+
+/* 三欄：每張卡固定寬度（包含左右留白）以達成 3 欄排布 */
+.w_cards .w_card {
+  flex: 0 0 360px;
 }
 
 .w_card_visual {
@@ -450,52 +536,81 @@ section + section .w_section_title {
   min-height: 205px;
 }
 
+.w_card_frame {
+  position: relative;
+  width: 236px;
+  height: 268px;
+  transition: box-shadow 0.22s cubic-bezier(0.2, 0, 0.2, 1), transform 0.22s cubic-bezier(0.2, 0, 0.2, 1);
+  backface-visibility: hidden;
+  z-index: 0;
+}
+
+.w_card_frame:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: translate3d(0, -2px, 0);
+}
+
+/* 防止 frame 內部絕對定位元素超出造成水平捲動 */
+.w_card_frame {
+  overflow: visible;
+}
+
 /* 粉框（設計尺寸） */
 .w_card_bg {
   position: absolute;
   top: 0;
+  left: 0;
   width: 236px;
   height: 205px;
   background: #f3eee9;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0);
+  z-index: 0;
 }
 
 /* 圖片（設計尺寸），上移一半高度以「伸出」卡片 */
 .w_card_img {
   position: absolute;
-  width: 342px;
-  height: 228px;
-  top: -114px;
+  width: var(--img-w);
+  height: var(--img-h);
+  top: calc(var(--img-h) / -2 + 35px);
   -o-object-fit: contain;
      object-fit: contain;
+  pointer-events: none; /* 還原為不攔截 hover，效果回到 frame 上 */
+  transition: transform 0.22s cubic-bezier(0.2, 0, 0.2, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0.001px);
+  z-index: 1;
 }
 
-/* 第二排（卡片 4~6）讓圖片靠右，其餘靠左 */
-.w_cards > .w_card:nth-child(6n+1) .w_card_bg,
-.w_cards > .w_card:nth-child(6n+2) .w_card_bg,
-.w_cards > .w_card:nth-child(6n+3) .w_card_bg {
-  left: 118px;
-  right: auto;
-}
-
-.w_cards > .w_card:nth-child(6n+4) .w_card_bg,
-.w_cards > .w_card:nth-child(6n+5) .w_card_bg,
-.w_cards > .w_card:nth-child(6n+6) .w_card_bg {
-  right: 55px;
-  left: auto;
+/* 由 .is-left / .is-right 控制左右，取消舊的 nth-child 排列 */
+.w_cards > .w_card .w_card_frame {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* 讓圖片大部分覆蓋在粉框上：依粉框中心做 53px（(342-236)/2）修正 */
-.w_cards > .w_card:nth-child(6n+1) .w_card_img,
-.w_cards > .w_card:nth-child(6n+2) .w_card_img,
-.w_cards > .w_card:nth-child(6n+3) .w_card_img {
-  left: 65px;
+.w_card.is-left .w_card_frame {
+  position: relative;
+  margin-left: 33px;
+  margin-right: auto;
+}
+
+.w_card.is-right .w_card_frame {
+  position: relative;
+  margin-left: auto;
+  margin-right: 35px;
+}
+
+/* 左版：以粉框寬 236px 為基準，讓圖片中心對齊粉框中心（回內一點） */
+.w_card.is-left .w_card_img {
+  left: calc(33px - (var(--img-w) - 236px) / 2 + 25px);
   right: auto;
 }
 
-.w_cards > .w_card:nth-child(6n+4) .w_card_img,
-.w_cards > .w_card:nth-child(6n+5) .w_card_img,
-.w_cards > .w_card:nth-child(6n+6) .w_card_img {
-  right: 2px;
+/* 右版：同理回內一點 */
+.w_card.is-right .w_card_img {
+  right: calc(35px - (var(--img-w) - 236px) / 2 + 25px);
   left: auto;
 }
 
@@ -508,7 +623,8 @@ section + section .w_section_title {
 
 .w_card_meta {
   position: absolute;
-  top: 205px; /* 黏在粉框底端 */
+  bottom: 0; /* 黏在 frame 底部 */
+  left: 0; /* 與粉框同 X */
   width: 236px;
   height: 63px; /* 白框尺寸 */
   background: #fff; /* 白框底色 */
@@ -516,23 +632,11 @@ section + section .w_section_title {
   flex-direction: column;
   justify-content: center; /* 文字置中對齊白框高度 */
   gap: 2px;
+  padding: 12px 14px 16px;
+  z-index: 2;
 }
 
-/* 對齊白框與粉框位置 */
-.w_cards > .w_card:nth-child(6n+1) .w_card_meta,
-.w_cards > .w_card:nth-child(6n+2) .w_card_meta,
-.w_cards > .w_card:nth-child(6n+3) .w_card_meta {
-  left: 118px;
-  right: auto;
-}
-
-.w_cards > .w_card:nth-child(6n+4) .w_card_meta,
-.w_cards > .w_card:nth-child(6n+5) .w_card_meta,
-.w_cards > .w_card:nth-child(6n+6) .w_card_meta {
-  right: 55px;
-  left: auto;
-}
-
+/* 白框改由 .w_card_frame 控制定位，這裡不再偏移 */
 .w_card_name {
   font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
   font-size: 24px;
@@ -543,7 +647,7 @@ section + section .w_section_title {
 }
 
 .w_card_en {
-  color: #666;
+  color: #807C7C;
   font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -554,98 +658,44 @@ section + section .w_section_title {
 
 /* highlight style */
 .w_card mark {
-  background: #60574f;
-  color: #b44a00;
-  padding: 0 2px;
-  border-radius: 3px;
+  background: transparent;
+  color: #FF6D25;
+  padding: 0;
 }
 
-.w_card:hover .w_card_img {
-  transform: scale(1.02);
+/* 圖片不再位移，由 frame 整體上移，避免圖像重採樣抖動 */
+.w_card_frame:hover .w_card_img {
+  transform: translateZ(0.001px);
 }
 
 /* Bookmark button */
-.w_bookmark {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 28px;
-  height: 28px;
-  border: none;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.92);
-  color: #ff6a2b;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.w_bookmark:hover {
-  background: #fff;
-}
-
-.w_bookmark svg {
-  width: 18px;
-  height: 25px;
-}
-
-.w_bookmark_path {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-}
-
-.w_bookmark.is-active .w_bookmark_path {
-  fill: currentColor;
-  stroke: none;
-}
-
+/* 收藏功能移除：保留空白區段避免樣式誤觸 */
 /* RWD：畫面變小改為兩欄、一欄，並維持左右交錯規則 */
 @media (max-width: 1200px) {
-  .w_cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  /* 每 4 張為一循環，前兩張靠左、後兩張靠右 */
-  .w_cards > .w_card:nth-child(4n+1) .w_card_img,
-  .w_cards > .w_card:nth-child(4n+2) .w_card_img {
-    left: 118px;
-    right: auto;
-  }
-  .w_cards > .w_card:nth-child(4n+3) .w_card_img,
-  .w_cards > .w_card:nth-child(4n+4) .w_card_img {
-    right: 55px;
-    left: auto;
-  }
-  .w_card_bg {
-    height: 300px;
-  }
-  .w_card_img {
-    width: 360px;
-    height: 360px;
-    top: -180px;
+  .w_cards .w_card {
+    flex: 0 0 360px;
   }
 }
-@media (max-width: 700px) {
-  .w_cards {
-    grid-template-columns: 1fr;
+@media (max-width: 780px) {
+  /* 單欄版：卡片佔滿一列，置中顯示 */
+  .w_cards .w_card {
+    flex: 0 0 100%;
   }
-  /* 一欄時，奇數靠左、偶數靠右 */
-  .w_cards > .w_card:nth-child(2n+1) .w_card_img {
-    left: 118px;
+  /* 單欄版：取消左右版型差異，整組置中 */
+  .w_card.is-left .w_card_frame,
+  .w_card.is-right .w_card_frame {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* 單欄版：杯圖縮小，置於粉框內部中央 */
+  .w_card.is-left .w_card_img,
+  .w_card.is-right .w_card_img {
+    left: 50%;
     right: auto;
-  }
-  .w_cards > .w_card:nth-child(2n) .w_card_img {
-    right: 55px;
-    left: auto;
-  }
-  .w_card_bg {
-    height: 260px;
-  }
-  .w_card_img {
-    width: 320px;
-    height: 320px;
-    top: -160px;
+    transform: translateX(-50%);
+    top: -45px;
+    width: 300px;
+    height: 300px;
   }
 }
 @media (max-width: 900px) {
@@ -657,5 +707,18 @@ section + section .w_section_title {
 @media (max-width: 1024px) {
   .w_illustrations {
     padding-left: 0;
+  }
+  /* 讓搜尋列（含章節 tabs）靠左、與搜尋框同行，並固定在 nav 下方 */
+  .w_search_wrap {
+    justify-content: space-between;
+    background: #FAFAFA;
+    position: sticky;
+    top: 55px; /* 再下移，避免過於貼近上緣與橘色數字重疊 */
+    z-index: 15;
+    padding: 10px 20px;
+    margin-bottom: 12px; /* 與下方內容留白，避免視覺貼齊 */
+  }
+  .w_search_tabs {
+    display: flex;
   }
 }

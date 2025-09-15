@@ -139,7 +139,7 @@ a {
 .w_toc_right {
   position: fixed; /* 右半圓貼左側、跟著滾動邏輯調整 top */
   left: 0;
-  top: var(--toc-top);
+  top: calc(var(--toc-top) + 70px); /* 額外下移，避免覆蓋 hero 圖 */
   width: 240px;
   min-height: var(--ring-size);
   z-index: 30;
@@ -164,7 +164,7 @@ a {
   margin: 0;
   padding: 0;
   font-size: 16px; /* 導覽字級 */
-  font-family: NOTO sans TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif; /* 導覽中文字型 */
+  font-family: NOTO sans TC, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", Arial, sans-serif;
   line-height: 1.9;
   color: #9aa0a6;
 }

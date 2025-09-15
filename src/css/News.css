@@ -135,21 +135,25 @@ body {
   color: #171616;
   width: 100%;
   height: 100vh;
-  min-height: 800px;
 }
 
 .Ian_news {
   position: relative;
-  height: calc(100vh - 57px);
-  background-color: white;
-  color: #000;
+  height: calc(100vh - 56px);
   z-index: 0;
+  min-height: 800px;
+}
+@media (max-width:640px) {
+  .Ian_news {
+    height: calc(100vh - 40px);
+  }
 }
 .Ian_news::before {
   content: "";
   position: absolute;
   right: 0;
   top: 0;
+  bottom: -70px;
   background: url(/images/newsBefore.png);
   background-repeat: no-repeat;
   background-position: right;
@@ -298,6 +302,18 @@ body {
 .Ian_articleArea .Ian_articleBody .Ian_articleMain:hover {
   transform: scale(1.05) translateY(-5px);
 }
+@media (max-width:640px) {
+  .Ian_articleArea .Ian_articleBody .Ian_articleMain {
+    white-space: nowrap;
+    /* 不換行 */
+    overflow: hidden;
+    /* 超出隱藏 */
+    text-overflow: ellipsis;
+    /* 超出以 … 省略顯示 */
+    max-width: 100%;
+    /* 記得給寬度，才能判斷超出 */
+  }
+}
 .Ian_articleArea .Ian_articleBody .Ian_articleMain .Ian_textBox {
   display: flex;
   flex-direction: column;
@@ -316,6 +332,11 @@ body {
   max-width: 100%;
   /* 記得給寬度，才能判斷超出 */
 }
+@media (max-width:640px) {
+  .Ian_articleArea .Ian_articleBody .Ian_articleMain .Ian_textBox h2 {
+    font-size: 16px;
+  }
+}
 .Ian_articleArea .Ian_articleBody .Ian_articleMain .Ian_textBox h3 {
   font-size: 16px;
   white-space: nowrap;
@@ -326,6 +347,11 @@ body {
   /* 超出以 … 省略顯示 */
   max-width: 100%;
   /* 記得給寬度，才能判斷超出 */
+}
+@media (max-width:640px) {
+  .Ian_articleArea .Ian_articleBody .Ian_articleMain .Ian_textBox h3 {
+    font-size: 12px;
+  }
 }
 @media (max-width:640px) {
   .Ian_articleArea .Ian_articleBody .Ian_articleMain .Ian_imgBox {

@@ -1,0 +1,390 @@
+@charset "UTF-8";
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+/* 重置字體 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  line-height: 1.5;
+}
+
+/* 重置標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+/* 重置列表 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 重置圖片 */
+img {
+  display: block;
+  width: 100%;
+}
+
+/* 重置連接 */
+a {
+  display: block;
+  /* inline不支援尺寸設定，但a常用來設定尺寸，所以直接把inline設定成block */
+  color: #666;
+  text-decoration: none;
+  /* 設定在元素本身，不要設定在hover上
+  設定在hover上及未停留滿動畫時間時，滑鼠離開沒有動畫 */
+  transition: 0.4s;
+}
+
+.Ian_aboutFirst {
+  margin-top: 56px;
+  /* 如果上方有固定 navbar */
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  /* 右側內容靠右 */
+  align-items: center;
+  /* 右側內容上下置中 */
+  padding-left: clamp(240px, 38vw, 720px);
+  /* 預留左側給大 A */
+  overflow: clip;
+  /* 防止裝飾或 hover 造成水平捲軸 */
+}
+@media (max-width: 1440px) {
+  .Ian_aboutFirst {
+    height: 70vh;
+  }
+}
+.Ian_aboutFirst::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  /* 高度貼滿容器 */
+  width: clamp(240px, 38vw, 720px);
+  background: url(/images/bigA.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: auto 100%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* 不擋點擊 */
+  z-index: 0;
+  /* 在內容底下即可（不要用 -1 免得被吃掉） */
+}
+@media (max-width:970px) {
+  .Ian_aboutFirst::before {
+    display: none;
+  }
+}
+.Ian_aboutFirst .Ian_firstText {
+  position: relative;
+  z-index: 1;
+  /* 壓在偽元素之上 */
+  width: 90%;
+  /* 控制右側內容最大寬，避免大螢幕過寬 */
+  min-height: clamp(420px, 60vh, 900px);
+  display: flex;
+  justify-content: flex-end;
+  /* 內層如需靠右 */
+}
+.Ian_aboutFirst .Ian_firstText .Ian_firstMain {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.Ian_aboutFirst .Ian_firstText .Ian_firstMain .Ian_aboutRwdTitle {
+  display: none;
+}
+@media (max-width:970px) {
+  .Ian_aboutFirst .Ian_firstText .Ian_firstMain .Ian_aboutRwdTitle {
+    display: block;
+  }
+}
+.Ian_aboutFirst .Ian_firstText .Ian_firstMain .Ian_boutBox {
+  padding-bottom: 3vh;
+  padding-right: 10vw;
+  border-bottom: 2px solid #171616;
+}
+.Ian_aboutFirst .Ian_firstText .Ian_firstMain .Ian_boutBox .Ian_bout {
+  width: clamp(240px, 80%, 1080px);
+}
+@media (max-width:970px) {
+  .Ian_aboutFirst .Ian_firstText .Ian_firstMain .Ian_boutBox .Ian_bout {
+    display: none;
+  }
+}
+.Ian_aboutFirst .Ian_firstText .Ian_firstMain .Ian_aboutText1Box {
+  border-bottom: 2px solid #171616;
+  display: flex;
+  margin-left: 5vw;
+}
+.Ian_aboutFirst .Ian_firstText .Ian_firstMain .Ian_aboutText1Box .Ian_aboutText1 {
+  align-self: center;
+  font-size: 32px;
+  padding-left: 5vw;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+.Ian_aboutFirst .Ian_firstText .Ian_firstMain .Ian_aboutText2 {
+  font-size: 24px;
+  align-self: center;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+.Ian_aboutFirst .Ian_firstText .Ian_firstMain .Ian_us {
+  width: 20%;
+  align-self: flex-end;
+  margin-right: 5vw;
+}
+@media (max-width:970px) {
+  .Ian_aboutFirst .Ian_firstText .Ian_firstMain .Ian_us {
+    display: none;
+  }
+}
+
+.Ian_aboutSecond {
+  margin-top: 10vh;
+  width: 100%;
+  height: 40vh;
+}
+.Ian_aboutSecond .Ian_aboutFunction {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.Ian_aboutSecond .Ian_aboutFunction .Ian_functionText {
+  background-color: #171616;
+  color: #FAFAFA;
+  width: 70%;
+  height: 100%;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 8vw;
+  padding-right: 3vw;
+  gap: 3vh;
+  position: relative;
+}
+.Ian_aboutSecond .Ian_aboutFunction .Ian_functionText::before {
+  content: "";
+  position: absolute;
+  background-color: #FF6D25;
+  opacity: 0.2;
+  left: 5vw;
+  top: -5vh;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+@media (max-width:970px) {
+  .Ian_aboutSecond .Ian_aboutFunction .Ian_functionText {
+    font-size: 16px;
+  }
+}
+.Ian_aboutSecond .Ian_aboutFunction .Ian_functionTitle {
+  writing-mode: vertical-rl;
+  font-family: "Noto Serif TC", serif;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  padding-left: 15vw;
+  padding-bottom: 5vh;
+}
+.Ian_aboutSecond .Ian_aboutFunction .Ian_functionTitle h2 {
+  font-weight: bold;
+}
+
+.Ian_aboutThird {
+  margin-top: 10vh;
+  width: 100%;
+  height: 150vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: clip;
+}
+.Ian_aboutThird p {
+  font-size: 24px;
+}
+.Ian_aboutThird .Ian_storyDecorateBox {
+  width: 100%;
+  display: flex;
+}
+.Ian_aboutThird .Ian_storyDecorateBox .Ian_storyDecorateBox1 {
+  flex: 1;
+  border-bottom: 2px solid #171616;
+}
+.Ian_aboutThird .Ian_storyDecorateBox .Ian_storyTitle {
+  font-size: 32px;
+  font-family: "Noto Serif TC", serif;
+  font-weight: bold;
+  padding-bottom: 3vh;
+  border-bottom: 2px solid #171616;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+.Ian_aboutThird .Ian_storyDecorateBox .Ian_storyDecorateBox2 {
+  flex: 1;
+}
+.Ian_aboutThird .Ian_storyText1 {
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  text-align: center;
+}
+.Ian_aboutThird .Ian_storyPhotoPart {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: auto;
+}
+.Ian_aboutThird .Ian_storyPhotoPart::before {
+  content: "";
+  position: absolute;
+  background-color: #FF6D25;
+  opacity: 0.2;
+  left: 5vw;
+  top: 15vh;
+  width: calc(100% - 5vw);
+  height: 80%;
+  z-index: -1;
+}
+.Ian_aboutThird .Ian_storyPhotoPart .Ian_storyPhoto {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+}
+.Ian_aboutThird .Ian_storyPhotoPart .Ian_storyPhoto img {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+.Ian_aboutThird .Ian_storyPhotoPart .Ian_storyText2 {
+  padding-top: 5vh;
+  padding-right: 5vw;
+  text-align: right;
+  align-self: flex-end;
+}
+.Ian_aboutThird .Ian_storyText3 {
+  margin-top: 15vh;
+  padding-left: 10vw;
+  align-self: flex-start;
+}
+.Ian_aboutThird .Ian_storyText4 {
+  text-align: center;
+  margin-top: 15vh;
+}
+.Ian_aboutThird .Ian_storyBtn {
+  margin-top: 3vh;
+}
+.Ian_aboutThird .Ian_storyBtn .Ian_backHomeBTN {
+  font-size: 24px;
+  display: block;
+  width: 100%;
+  padding: 1vh 6vw;
+  text-align: center;
+  color: #FAFAFA;
+  background-color: #171616;
+  cursor: pointer;
+}

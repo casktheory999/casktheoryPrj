@@ -1,12 +1,15 @@
 @use "./variables" as *;
 
-.barInnerPageContainer{
+.barInnerPageContainer {
+    position: relative;
     width: 100%;
     background-color: $pri-white;
-    @media ($mediaSm){
+
+    @media ($mediaSm) {
         background-color: $pri-dark;
     }
-    @media ($mediaMd){
+
+    @media ($mediaMd) {
         background-color: $pri-dark;
     }
 }
@@ -22,7 +25,7 @@
     // hero區塊
     .barInnerHeroContainer {
         margin-top: 133px;
-        border: solid red 3px;
+        // border: solid red 3px;
         position: relative;
         display: flex;
         justify-content: space-between;
@@ -52,12 +55,12 @@
             @media ($mediaMd) {
                 max-width: 100%;
                 order: 2; // 平板時文字在下方
-                margin:0 auto;
+                margin: 0 auto;
             }
 
             @media ($mediaSm) {
                 text-align: center;
-                margin:0 auto;
+                margin: 0 auto;
             }
 
 
@@ -180,38 +183,15 @@
             background-color: $pri-dark;
         }
 
-        .barInnerLeftArrow {
-            position: absolute;
-            top: 20px;
-            left: 160px;
-
-            @media ($mediaMd) {
-                left: 80px;
-                top: 15px;
-                display: none;
-            }
-
-            @media ($mediaSm) {
-                display: none;
-            }
-
-            img {
-                width: 100px;
-
-                @media ($mediaMd) {
-                    width: 80px;
-                }
-            }
-        }
-
         .barInnerRecPhotos {
+            width: 100%;
             display: flex;
-            gap: 88px;
             justify-content: center;
             align-items: flex-start;
+            gap: 40px;
+            position: relative;
 
             @media ($mediaMd) {
-                // flex-direction: column;
                 gap: 30px;
                 align-items: center;
             }
@@ -220,92 +200,131 @@
                 gap: 25px;
             }
 
-            .barInnerRecPhoto1,
-            .barInnerRecPhoto2 {
-                flex: 1;
-                min-width: 300px;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 0 6px 20px rgba(0, 0, 0, .28);
+            .barInnerBtnLeft {
+                // width: 48px;
+                // height: 48px;
+                position: absolute;
+                left: -40px;
+                top: 50%;
+                justify-content: center;
+                cursor: pointer;
+                border: 0;
+                transform: translateY(-50%);
+                background-color: transparent;
+                border: none;
+                align-self: center;
 
                 @media ($mediaMd) {
-                    max-width: 100%;
-                    width: 100%;
+                    order: -1; // 平板時按鈕在最上方
+                    width: 40px;
+                    height: 40px;
+                }
+
+                @media ($mediaSm) {
+                    width: 36px;
+                    height: 36px;
                 }
 
                 img {
-                    width: 100%;
                     display: block;
-                    object-fit: cover;
-                    aspect-ratio: 16/9;
-                    transform: scale(1);
-                    transition: transform .35s ease;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .barInnerLeftArrow {
+                position: absolute;
+                top: 20px;
+                left: 160px;
+
+                @media ($mediaMd) {
+                    left: 80px;
+                    top: 15px;
+                    display: none;
                 }
 
-                &:hover img {
-                    transform: scale(1.3);
+                @media ($mediaSm) {
+                    display: none;
                 }
 
-                figcaption {
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    padding: 14px 18px;
-                    color: $pri-white;
-                    background: linear-gradient(to top, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0));
+                img {
+                    width: 100px;
 
-                    @media ($mediaSm) {
-                        padding: 12px 15px;
+                    @media ($mediaMd) {
+                        width: 80px;
                     }
                 }
 
-                .barInnerCaptionText {
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 2;
+                .barInnerRecPhoto {
+                    flex: 1 1 0;
+                    min-width: 300px;
+                    position: relative;
                     overflow: hidden;
-                    white-space: normal;
-                    word-break: break-word;
-                    line-height: 1.4;
-                    max-height: calc(1.4em * 2);
-                    margin: 0;
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, .28);
 
-                    @media ($mediaSm) {
-                        font-size: 14px;
-                        -webkit-line-clamp: 3;
-                        max-height: calc(1.4em * 3);
+                    @media ($mediaMd) {
+                        max-width: 100%;
+                        width: 100%;
+                    }
+
+                    img {
+                        width: 100%;
+                        display: block;
+                        object-fit: cover;
+                        aspect-ratio: 16/9;
+                        transform: scale(1);
+                        transition: transform .35s ease;
+                    }
+
+                    &:hover img {
+                        transform: scale(1.2);
+                    }
+
+                    // 裝飾箭頭
+                    .decorArrow {
+                        position: absolute;
+                        left: -70px;
+                        top: -40px;
+                        width: 100px;
+                        pointer-events: none;
+                    }
+
+                    figcaption {
+                        position: absolute;
+                        inset: auto 0 0 0; // bottom:0; left:0; right:0;
+                        padding: 14px 18px;
+                        color: $pri-white;
+                        background: linear-gradient(to top, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0));
+
+                        @media ($mediaSm) {
+                            padding: 12px 15px;
+                        }
+                    }
+
+                    .barInnerCaptionText {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        overflow: hidden;
+                        white-space: normal;
+                        word-break: break-word;
+                        line-height: 1.4;
+                        max-height: calc(1.4em * 2);
+                        margin: 0;
+
+                        @media ($mediaSm) {
+                            font-size: 14px;
+                            -webkit-line-clamp: 3;
+                            max-height: calc(1.4em * 3);
+                        }
                     }
                 }
-            }
-        }
 
-        .barInnerBtnLeft {
-            width: 48px;
-            height: 48px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            cursor: pointer;
-            transform: translateY(-50%);
-            background-color: transparent;
-            border: none;
-            align-self: center;
-
-            @media ($mediaMd) {
-                order: -1; // 平板時按鈕在最上方
-                width: 40px;
-                height: 40px;
-            }
-
-            @media ($mediaSm) {
-                width: 36px;
-                height: 36px;
-            }
-
-            img {
-                width: 100%;
-                height: 100%;
+                .barInnerRecPhoto2 {
+                    @media ($mediaSm) {
+                        display: none;
+                    }
+                }
             }
         }
     }
@@ -364,8 +383,8 @@
     //純黑背景板（獨立區塊）
     .barInnerBlackBlock {
         position: absolute;
-        margin-top: 133px;
-        margin-left: 72px;
+        top: 133px;
+        left: 80px;
         height: 1000px;
         width: 700px;
         background: $pri-dark;
@@ -384,5 +403,6 @@
             height: 100%;
         }
     }
+
     // 這是barInnerPage的大括號！小心不要超出去！
 }
