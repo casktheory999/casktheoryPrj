@@ -20,6 +20,7 @@
         height: 70vh;
     }
 
+
     /* 防止裝飾或 hover 造成水平捲軸 */
     &::before {
         content: "";
@@ -55,13 +56,24 @@
         display: flex;
         justify-content: flex-end;
 
+        @media ($mediaMd) {
+            justify-content: center;
+            width: 100%;
+        }
+
         /* 內層如需靠右 */
 
 
         .Ian_firstMain {
+            text-align: center;
             display: flex;
             flex-direction: column;
-            width: 70%;
+            width: 50%;
+
+            @media ($mediaMd) {
+                width: 70%;
+
+            }
 
 
             .Ian_aboutRwdTitle {
@@ -69,6 +81,10 @@
 
                 @media ($mediaMd) {
                     display: block;
+                    font-size: 60px;
+                    font-weight: bold;
+                    font-family: $family-en;
+                    
                 }
             }
 
@@ -95,12 +111,22 @@
                 // justify-content: center;
                 margin-left: 5vw;
 
+                @media ($mediaMd) {
+                    margin-left: 0;
+                    justify-content: center;
+                }
+
                 .Ian_aboutText1 {
                     align-self: center;
                     font-size: 32px;
                     padding-left: 5vw;
                     padding-top: 3vh;
                     padding-bottom: 3vh;
+
+                    @media ($mediaSm) {
+                        font-size: 24px;
+                        
+                    }
                 }
             }
 
@@ -210,6 +236,7 @@
         }
 
         .Ian_storyTitle {
+            text-align: center;
             font-size: 32px;
             font-family: $family-tc;
             font-weight: bold;
@@ -239,6 +266,10 @@
         // align-self: flex-end;
         margin-left: auto;
 
+        @media ($mediaLg) {
+            width: 100%;
+        }
+
         &::before {
             content: "";
             position: absolute;
@@ -247,15 +278,29 @@
             left: 5vw;
             top: 15vh;
             width: calc(100% - 5vw);
-            height: 80%;
+            height: 45vh;
             z-index: -1;
+
+            @media ($mediaLg) {
+                width: 100%;
+                left: 0;
+            }
         }
 
         .Ian_storyPhoto {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             width: 100%;
             gap: 20px;
+
+            @media ($mediaLg) {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: scroll;
+            }
+
+
 
             img {
                 display: block;
