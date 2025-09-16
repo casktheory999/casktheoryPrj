@@ -50,8 +50,8 @@ export default function Illustrations() {
 
     const standard = useMemo(() => ([
         { zh: "柯夢波丹", en: "Cosmopolitan", img: "./images/Cosmopolitan.png" },
-        { zh: "長島冰茶", en: "Long Island Iced Tea", img: "./images/Long Island Iced Tea.png" },
-        { zh: "龍舌蘭日出", en: "Tequila Sunrise", img: "./images/Tequila Sunrise.png" },
+        { zh: "長島冰茶", en: "Long Island Iced Tea", img: "./images/LongIslandIcedTea.png" },
+        { zh: "龍舌蘭日出", en: "Tequila Sunrise", img: "./images/TequilaSunrise.png" },
     ]), []);
 
     // 處理卡片點擊事件
