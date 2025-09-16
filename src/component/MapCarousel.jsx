@@ -15,52 +15,52 @@ export default function MapCarousel() {
         {
             mrt: "中山站",
             title: "Draft Land",
-            img: "https://media.istockphoto.com/id/949299844/it/foto/vista-prospettica-dellesterno-delledificio-contemporaneo.jpg?s=612x612&w=0&k=20&c=_DR1aRHuTEV3EYBJo1ZXq1pF4SgwB9EVWQLaBj4sC5g=",
+            img: "images/barCard1.png",
         },
         {
             mrt: "忠孝復興站",
             title: "Bar Mood",
-            img: "https://media.istockphoto.com/id/1150545984/it/foto/palazzo-moderno-di-lusso-con-piscina.jpg?s=612x612&w=0&k=20&c=Pbrai_VGc9tUviMCF1UaBErdS1YGyIVWsD29jzMZwTY=",
+            img: "images/barCard2.png",
         },
         {
             mrt: "台北小巨蛋",
             title: "The Whisky Bar",
-            img: "https://media.istockphoto.com/id/904390980/it/foto/foto-di-architettura-contemporanea-astratta.jpg?s=612x612&w=0&k=20&c=_P4Wmx5nq5MeDuimpNklKCBlrLovmCyd9lfiMKeJZDs=",
+            img: "images/barCard3.png",
         },
         {
             mrt: "忠孝敦化站",
             title: "Mixology",
-            img: "https://media.istockphoto.com/id/130408311/it/foto/piscina-allesterno-della-casa-moderna-al-crepuscolo.jpg?s=612x612&w=0&k=20&c=ZoVjx7uDjoHKmpM1ayW6UR1SQOoYh_xx-QMG_qeOYs0=",
+            img: "images/barCard4.png",
         },
         {
             mrt: "台北101/世貿站",
             title: "Rooftop 101",
-            img: "https://media.istockphoto.com/id/1299954175/it/foto/villa-cubica-moderna.jpg?s=612x612&w=0&k=20&c=DhGhb3c1E3DW_fbrWJ_R_Zh0Lbwu6syFeRLsKlZ9no8=",
+            img: "images/barCard5.png",
         },
         {
             mrt: "中山國小站",
             title: "Speakeasy",
-            img: "https://media.istockphoto.com/id/926689776/it/foto/vista-ad-angolo-basso-dei-grattacieli-di-new-york.jpg?s=612x612&w=0&k=20&c=DmEB0Ty7ZwDnBoU5SuA8FNevOp4G1UcECw5aS4vA9A8=",
+            img: "images/barCard6.png",
         },
         {
             mrt: "國父紀念館站",
             title: "The Gin Room",
-            img: "https://media.istockphoto.com/id/1191376167/it/foto/villa-dellisola.jpg?s=612x612&w=0&k=20&c=PKslWo4FdbjinohKQlK_oWL34jqAsnzMTdy2bxEAf-I=",
+            img: "images/barCard7.png",
         },
         {
             mrt: "南京三民站",
             title: "Jazz Corner",
-            img: "https://media.istockphoto.com/id/184316397/it/foto/londra-edifici-aziendali.jpg?s=612x612&w=0&k=20&c=XqrRxEPzFnwRFk7PQrCiu9-FPfCTPyMe5BKKaxYXCs8=",
+            img: "images/barCard8.png",
         },
         {
             mrt: "南港展覽館站",
             title: "Craft & Draft",
-            img: "https://media.istockphoto.com/id/184619832/it/foto/distretto-finanziario-al-crepuscolo-londra.jpg?s=612x612&w=0&k=20&c=RAThrJOBY6vhlT6-kQpu9-9jLEzWToYfdw46S8B0Mu0=",
+            img: "images/barCard9.png",
         },
         {
             mrt: "淡水站",
             title: "Sunset Lounge",
-            img: "https://media.istockphoto.com/id/1214351345/it/foto/guardando-direttamente-lo-skyline-del-quartiere-finanziario-nel-centro-di-londra-immagine-di.jpg?s=612x612&w=0&k=20&c=oNNbPzPvcQ-4RA6AeatNIxHQIafBiXmDRtUUY0Ska-I=",
+            img: "images/barCard10.png",
         },
     ];
 

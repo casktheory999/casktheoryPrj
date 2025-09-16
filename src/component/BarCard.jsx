@@ -30,7 +30,7 @@ const BarCard = ({ bar, cardType = "square" }) => {
         >
             <div className="img-box">
                 <img
-                    src={`https://images.unsplash.com/photo-${1565895311445 + bar.id}-7c0cac1c5dae?w=400&h=300&fit=crop`}
+                    src={`images/barListCard${bar.id}.png`}
                     alt={bar.name}
                 />
                 {badgeConfig && (
