@@ -24,8 +24,7 @@ const BarCard = ({ bar, cardType = "square" }) => {
 
     return (
         <Link
-            // to={`/bar-inner/${bar.id}`}
-            to='/BarInnerPage'
+            to={`/bar/${bar.id}`}
             className={`bar-card ${cardType}`}
         >
             <div className="img-box">

@@ -1,8 +1,8 @@
 import '../scss/EventDetailPage.scss'
 import { Link } from 'react-router-dom'
-import heroImg from '../images/eventDetailPage_heroBannerImg.png';
-import infoImg1 from '../images/eventDetailPage_infoImg1.png';
-import infoImg2 from '../images/eventDetailPage_infoImg2.png';
+import heroImg from '/images/eventDetailPage_heroBannerImg.png';
+import infoImg1 from '/images/eventDetailPage_infoImg1.png';
+import infoImg2 from '/images/eventDetailPage_infoImg2.png';
 
 const EventDetailPage = () => {
     const recItems = [

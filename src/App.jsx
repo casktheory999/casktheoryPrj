@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Route, Routes} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Navbar from './component/Navbar'
 import Footer from './component/Footer'
@@ -16,25 +16,25 @@ import About from './pages/About'
 import EventDetailPage from './pages/EventDetailPage.jsx'
 
 
-export default function App(){
-  return(
+export default function App() {
+  return (
     <div className='wrap'>
-      <ScrollToTop/>
-      <Navbar/>
+      <ScrollToTop />
+      <Navbar />
       <div className='frist'>
-      <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/News' element={<News/>}></Route>
-        <Route path="/EventDetailPage" element={<EventDetailPage/>}></Route>
-        <Route path='/Illustrations' element={<Illustrations/>}></Route>
-        <Route path='/Bar' element={<Bar/>}></Route>
-        <Route path='/BarInnerPage' element={<BarInnerPage/>}></Route>
-        <Route path='/BarRoute' element={<BarRoute/>}></Route>
-        <Route path='/About' element={<About/>}></Route>
-      </Routes>
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/News' element={<News />}></Route>
+          <Route path="/EventDetailPage" element={<EventDetailPage />}></Route>
+          <Route path='/Illustrations' element={<Illustrations />}></Route>
+          <Route path='/Bar' element={<Bar />}></Route>
+          <Route path='/bar/:id' element={<BarInnerPage />}></Route>
+          <Route path='/BarRoute' element={<BarRoute />}></Route>
+          <Route path='/About' element={<About />}></Route>
+        </Routes>
       </div>
-      <Footer/>
-      
+      <Footer />
+
     </div>
   )
 }
