@@ -13,43 +13,15 @@
     background-size: 191px 116px;
 
     @media ($mediaMd) {
-        margin: 61px auto;
+        margin: 59px auto;
     }
 
-    // 404 頁面
-    .BI_not-found {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        gap: 20px;
-
-        h2 {
-            font-size: 60px;
-            color: $pri-dark;
-        }
-
-        button {
-            padding: 12px 24px;
-            background: #ED972E;
-            color: $pri-white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-
-            &:hover {
-                background: darken(#ED972E, 10%);
-            }
-        }
-    }
 
     // 主要英雄區域
     .BI_hero-section {
         width: 100%;
         max-width: 1440px;
-        margin: 0 auto;
+        // margin: 0 auto;
         padding: 70px 0;
 
         .BI_content-wrapper {
@@ -57,6 +29,13 @@
             gap: 0;
             height: 600px;
             position: relative;
+
+            @media ($mediaMd) {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
 
             // 左側資訊面板
             .BI_info-panel {
@@ -73,21 +52,41 @@
                 z-index: 0;
                 flex-shrink: 0;
 
+                @media ($mediaMd) {
+                    width: 80vw;
+                    height: 500px;
+                    order: 2;
+                }
+
+
                 .BI_bar-name {
-                    font-size: 60px;
+                    font-size: 56px;
                     font-weight: bold;
-                    margin: 20px 0 80px;
+                    margin: 30px 0 80px;
                     line-height: 1.2;
                     letter-spacing: 2px;
+
+                    @media ($mediaMd) {
+                        font-size: 28px;
+                        margin: 20px 0 40px;
+                    }
+
                 }
 
                 .BI_bar-details {
                     margin-bottom: 80px;
                     font-size: 20px;
 
+                    @media ($mediaMd) {
+                        font-size: 16px;
+                        margin-bottom: 30px;
+                    }
+
+
                     .BI_detail-item {
                         display: flex;
                         margin-bottom: 15px;
+                        
 
                         .BI_label {
                             color: $pri-white;
@@ -103,12 +102,22 @@
 
                 .BI_description {
                     padding-right: 230px;
+                    @media ($mediaMd) {
+                    padding: 0;
+                }
+
 
                     p {
                         font-size: 20px;
                         line-height: 1.8;
                         color: $pri-white;
                         letter-spacing: 1px;
+                        @media ($mediaMd) {
+                    font-size: 16px;
+                    line-height: 1.2;
+                    letter-spacing: .5px;
+                }
+
                     }
                 }
             }
@@ -118,14 +127,26 @@
                 position: relative;
                 width: 850px;
                 height: 500px;
-                transform: translate(-230px, 70px);
+                transform: translate(-160px, 70px);
                 z-index: 2;
+                @media ($mediaMd) {
+                    transform: translate(0,0);
+                    width: 80vw;
+                    height: 500px;
+                    order: 1;
+                }
+
 
                 img {
                     width: 850px;
                     height: 500px;
                     object-fit: cover;
                     display: block;
+                    @media ($mediaMd) {
+                    width: 80vw;
+                    height: 500px;
+                }
+
                 }
 
                 // 角落裝飾元素
@@ -134,6 +155,10 @@
                     height: 100px;
                     position: absolute;
                     z-index: 3;
+                    @media ($mediaMd) {
+                    display: none;
+                }
+
 
                     img {
                         width: 100px;
@@ -174,7 +199,6 @@
                 height: 60px;
                 background: rgba(0, 0, 0, 0.8);
                 border: none;
-                border-radius: 50%;
                 color: $pri-white;
                 cursor: pointer;
                 display: flex;
@@ -188,22 +212,27 @@
                     transform: scale(1.05);
                 }
             }
+
             .BI_corner-accent {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                z-index: 3;
+                @media ($mediaMd) {
+                    display: none;
+                }
+
+
+                img {
                     width: 100px;
                     height: 100px;
-                    position: absolute;
-                    z-index: 3;
+                    object-fit: contain;
+                }
 
-                    img {
-                        width: 100px;
-                        height: 100px;
-                        object-fit: contain;
-                    }
-                    
-                    &.BI_corner-top-left {
-                        transform: translate(50px, -140px);
-                    }
-                    }
+                &.BI_corner-top-left {
+                    transform: translate(50px, -140px);
+                }
+            }
 
             // 推薦酒吧圖片容器
             .BI_recommended-images {
@@ -218,12 +247,10 @@
                 .BI_recommended-item {
                     flex: 0 0 calc(50% - 15px);
                     position: relative;
-                    border-radius: 12px;
                     overflow: hidden;
                     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
                     cursor: pointer;
                     transition: all 0.3s ease;
-                    opacity: 0.6;
                     transform: scale(0.95);
                     height: 300px;
                     width: 500px;
@@ -234,7 +261,7 @@
                     }
 
                     &.next {
-                        opacity: 0.8;
+                        opacity: 1;
                         transform: scale(0.98);
                     }
 
@@ -253,6 +280,7 @@
                         left: 0;
                         width: 100%;
                         height: 100%;
+                        z-index: 25;
 
                         img {
                             width: 100%;
@@ -279,21 +307,21 @@
                                 font-size: 1.5rem;
                                 font-weight: bold;
                                 margin-bottom: 8px;
-                                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+                                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
                             }
 
                             .BI_overlay-station {
                                 font-size: 14px;
                                 margin-bottom: 10px;
                                 opacity: 0.9;
-                                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+                                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
                             }
 
                             .BI_overlay-desc {
                                 font-size: 12px;
                                 line-height: 1.4;
                                 opacity: 0.8;
-                                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+                                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
                                 display: -webkit-box;
                                 -webkit-line-clamp: 3;
                                 -webkit-box-orient: vertical;

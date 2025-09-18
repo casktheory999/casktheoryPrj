@@ -128,7 +128,14 @@ const Home = () => {
             {/*最新消息*/}
             <section className='news'>
                 {/* 左：直排標題 */}
-                <div className='newsTitle'>酒吧活動消息</div>
+                <div className='newsLeft'>
+                    <div className='newsN'>
+                        <p>N</p>
+                    </div>
+                    <div className='newsTitle'>
+                        <h2>酒吧活動消息</h2>
+                    </div>
+                </div>
                 {/* 中：宣傳海報 */}
                 <div className='newsPoster'>
                     <div className='posterContainer'>
@@ -155,17 +162,22 @@ const Home = () => {
                     </div>
                 </div>
                 {/* 右：新聞列表 */}
-                <div className='newsList'>
-                    <ul onMouseLeave={handleMouseLeave}>
-                        {newsData.map((item, index) => (
-                            <li
-                                key={item.id}
-                                className={index === currentIndex ? 'active' : ''}
-                                onMouseEnter={() => handleMouseEnter(index)}
-                            ><Link to="/EventDetailPage">{item.title}</Link></li>
-                        ))}
-                    </ul>
-                    <Link className='goNewsBtn' to="/News">前往最新消息</Link>
+                <div className='newsright'>
+                    <div className='newsList'>
+                        <ul onMouseLeave={handleMouseLeave}>
+                            {newsData.map((item, index) => (
+                                <li
+                                    key={item.id}
+                                    className={index === currentIndex ? 'active' : ''}
+                                    onMouseEnter={() => handleMouseEnter(index)}
+                                ><Link to="/EventDetailPage">{item.title}</Link></li>
+                            ))}
+                        </ul>
+                        <Link className='goNewsBtn' to="/News">前往最新消息</Link>
+                    </div>
+                    <div className='newsWs'>
+                        <p>Ws</p>
+                    </div>
                 </div>
             </section>
 
@@ -177,21 +189,21 @@ const Home = () => {
                 <h2 className='routeTitle'>酒精路跑路線</h2>
                 <div className='routeCards'>
                     <a className='routeCard1' href="#">
-                        <img src="images/善導寺微醺漫步.jpg" alt="" />
+                        <img src="images/route1.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 1</span>
                             <h3 className='title'>善導寺微醺漫步</h3>
                         </div>
                     </a>
                     <a className='routeCard2' href="#">
-                        <img src="images/中山站醉意市集.jpg" alt="" />
+                        <img src="images/route2.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 2</span>
                             <h3 className='title'>中山站醉意市集</h3>
                         </div>
                     </a>
                     <a className='routeCard3' href="#">
-                        <img src="images/信義奢華浪漫之旅.jpg" alt="" />
+                        <img src="images/route3.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 3</span>
                             <h3 className='title'>信義奢華浪漫之旅</h3>

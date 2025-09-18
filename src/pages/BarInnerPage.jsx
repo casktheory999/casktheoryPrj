@@ -45,17 +45,7 @@ export default function BarInnerPage() {
     };
 
     const displayBars = getCurrentDisplayBars();
-
-    // 如果找不到酒吧，返回 404
-    if (!currentBar) {
-        return (
-            <div className="BI_not-found">
-                <h2>找不到此酒吧</h2>
-                <button onClick={() => navigate('/bar')}>返回酒吧列表</button>
-            </div>
-        );
-    }
-
+    
     return (
         <main className="BI_bar-inner">
             {/* 主要內容區域 */}

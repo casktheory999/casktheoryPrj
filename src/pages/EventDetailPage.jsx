@@ -224,6 +224,11 @@ const EventDetailPage = () => {
                     </div>
                 </section>
 
+                {/* 返回按鈕 */}
+                <div className="a_backButtonBox">
+                    <Link className='a_goNewsBtn' to='/News'>返回消息列表</Link>
+                </div>
+
             </main>
         </>
     )

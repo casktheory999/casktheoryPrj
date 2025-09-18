@@ -13,51 +13,61 @@ const getZIndexArray = (len, active) =>
 export default function MapCarousel() {
     const bars = [
         {
+            id: 1,
             mrt: "中山站",
             title: "Draft Land",
             img: "images/barCard1.png",
         },
         {
+            id: 2,
             mrt: "忠孝復興站",
             title: "Bar Mood",
             img: "images/barCard2.png",
         },
         {
+            id: 3,
             mrt: "台北小巨蛋",
             title: "The Whisky Bar",
             img: "images/barCard3.png",
         },
         {
+            id: 4,
             mrt: "忠孝敦化站",
             title: "Mixology",
             img: "images/barCard4.png",
         },
         {
+            id: 5,
             mrt: "台北101/世貿站",
             title: "Rooftop 101",
             img: "images/barCard5.png",
         },
         {
+            id: 6,
             mrt: "中山國小站",
             title: "Speakeasy",
             img: "images/barCard6.png",
         },
         {
+            id: 7,
             mrt: "國父紀念館站",
             title: "The Gin Room",
             img: "images/barCard7.png",
         },
         {
+            id: 8,
             mrt: "南京三民站",
             title: "Jazz Corner",
             img: "images/barCard8.png",
         },
         {
+            id: 9,
             mrt: "南港展覽館站",
             title: "Craft & Draft",
             img: "images/barCard9.png",
         },
         {
+            id: 10,
             mrt: "淡水站",
             title: "Sunset Lounge",
             img: "images/barCard10.png",
@@ -131,6 +141,12 @@ export default function MapCarousel() {
         setProgress(clamp(next, 0, 100));
     };
 
+    // 處理卡片點擊，防止與輪播切換衝突
+    const handleCardClick = (e, barId) => {
+        e.stopPropagation();
+        // Link 會自動處理導航
+    };
+
     return (
         <section className="mapSection">
             <div className="mapTitleBox">
@@ -148,12 +164,16 @@ export default function MapCarousel() {
                                 "--active": (i - active) / count,
                             }}
                         >
-                            <div className="carousel-box">
+                            <Link 
+                                to={`/bar/${bar.id}`}
+                                className="carousel-box"
+                                onClick={(e) => handleCardClick(e, bar.id)}
+                            >
                                 {bar.mrt && <div className="mrt">{bar.mrt}</div>}
                                 <div className="title">{bar.title}</div>
                                 <div className="num">{String(i + 1).padStart(2, "0")}</div>
                                 <img src={bar.img} alt={bar.title} />
-                            </div>
+                            </Link>
                         </div>
                     ))}
                 </div>
