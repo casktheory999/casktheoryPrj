@@ -10,8 +10,8 @@ const routesData = [
         end: "角落酒吧",
         length: "0.8km",
         shops: 3,
-        heroImg: "https://picsum.photos/800/450?random=1",
-        mapImg: "https://picsum.photos/720/360?random=10",
+        heroImg: "./images/善導寺微醺漫步.jpg",
+        mapImg: "./images/map.png",
         stops: [
             {
                 no: "01",
@@ -45,12 +45,12 @@ const routesData = [
     {
         id: "r2",
         labelNo: 2,
-        title: "西門町夜色巡禮",
-        start: "紅樓",
+        title: "中山站醉意市集",
+        start: "中山站",
         end: "Balcony 7",
         length: "1.2km",
         shops: 3,
-        heroImg: "https://picsum.photos/800/450?random=2",
+        heroImg: "./images/中山站醉意市集.jpg",
         mapImg: "https://picsum.photos/720/360?random=11",
         stops: [
             {
@@ -85,12 +85,12 @@ const routesData = [
     {
         id: "r3",
         labelNo: 3,
-        title: "信義琥珀時光",
+        title: "信義奢華浪漫之旅",
         start: "台北101",
         end: "Amber Lounge",
         length: "1.1km",
         shops: 3,
-        heroImg: "https://picsum.photos/800/450?random=3",
+        heroImg: "./images/信義奢華浪漫之旅.jpg",
         mapImg: "https://picsum.photos/720/360?random=12",
         stops: [
             {
@@ -131,7 +131,7 @@ export default function BarRoute() {
     const goNext = useCallback(() => {
         setIdx((i) => (i + 1) % routesData.length);
     }, []);
-    
+
     const goPrev = useCallback(() => {
         setIdx((i) => (i - 1 + routesData.length) % routesData.length);
     }, []);
@@ -151,20 +151,21 @@ export default function BarRoute() {
             {/* 頁面標題 */}
             <header className="page-header">
                 <h2>路跑路線</h2>
-                <div className="route-indicator">
-                    推薦路線 {route.labelNo}
-                </div>
+
             </header>
 
             {/* Hero Section */}
             <section className="hero-section">
                 <div className="hero-content">
                     <div className="hero-image-wrapper">
-                        <img 
-                            src={route.heroImg} 
+                        <img
+                            src={route.heroImg}
                             alt={route.title}
                             className="hero-image"
                         />
+                    </div>
+
+                    <div>
                         <button
                             className="nav-btn nav-btn-prev"
                             onClick={goPrev}
@@ -172,16 +173,25 @@ export default function BarRoute() {
                         >
                             ‹
                         </button>
+
+                        <button
+                            className="nav-btn nav-btn-next"
+                            onClick={goNext}
+                            aria-label="下一條路線"
+                        >
+                            ›
+                        </button>
                     </div>
-                    
+
+
                     <div className="hero-info">
                         <div className="route-label">
                             <span>推薦路線</span>
                             <span className="route-number">{route.labelNo}</span>
                         </div>
-                        
+
                         <h3 className="route-title">{route.title}</h3>
-                        
+
                         <ul className="route-meta">
                             <li>
                                 <span className="meta-label">起點：</span>
@@ -200,16 +210,12 @@ export default function BarRoute() {
                                 <span>{route.shops}</span>
                             </li>
                         </ul>
-                        
-                        <button
-                            className="nav-btn nav-btn-next"
-                            onClick={goNext}
-                            aria-label="下一條路線"
-                        >
-                            ›
-                        </button>
                     </div>
                 </div>
+
+
+
+
             </section>
 
             {/* Map Section */}
@@ -225,15 +231,22 @@ export default function BarRoute() {
                                 <li>酒吧數量：{route.shops}</li>
                             </ul>
                         </div>
+                        {/* <div className="map-image-wrapper">
+                            <img
+                                src={route.mapImg}
+                                alt={`${route.title} 路線地圖`}
+                                className="map-image"
+                            />
+                        </div> */}
                     </div>
-                    
-                    <div className="map-image-wrapper">
-                        <img 
-                            src={route.mapImg} 
+
+                    <figure className="map-image-wrapper">
+                        <img
+                            src={route.mapImg}
                             alt={`${route.title} 路線地圖`}
-                            className="map-image"
                         />
-                    </div>
+                    </figure>
+
                 </div>
             </section>
 
@@ -241,21 +254,21 @@ export default function BarRoute() {
             <section className="timeline-section">
                 <div className="timeline-container">
                     {route.stops.map((stop, i) => (
-                        <div 
-                            key={stop.no} 
+                        <div
+                            key={stop.no}
                             className={`timeline-item ${i % 2 === 1 ? 'timeline-item-alt' : ''}`}
                         >
                             <div className="stop-description">
                                 <p>{stop.description}</p>
                             </div>
-                            
+
                             <div className="stop-distance">
                                 <span>{stop.km}</span>
                             </div>
-                            
+
                             <div className="stop-card">
                                 <span className="stop-number">{stop.no}</span>
-                                
+
                                 <div className="stop-info">
                                     <h5 className="stop-name">{stop.name}</h5>
                                     <div className="stop-details">
@@ -263,9 +276,9 @@ export default function BarRoute() {
                                         <p>營業時間：{stop.open}</p>
                                     </div>
                                 </div>
-                                
-                                <img 
-                                    src={stop.photo} 
+
+                                <img
+                                    src={stop.photo}
                                     alt={`${stop.name} 吧檯內裝`}
                                     className="stop-image"
                                 />

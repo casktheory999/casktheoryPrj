@@ -29,20 +29,19 @@
     }
 }
 
-.route-indicator {
-    position: absolute;
-    right: 40px;
-    background: #fff;
-    color: #000;
-    padding: 8px 20px;
-    border-radius: 24px;
-    font-weight: 600;
-}
-
 /* Hero Section */
 .hero-section {
+    position: relative;
     padding: 60px 0;
     background: #fff;
+    min-height: 400px;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 500px;
+        /* 垂直布局需要更多空間 */
+    }
 }
 
 .hero-content {
@@ -57,6 +56,7 @@
 .hero-image-wrapper {
     flex: 1;
     position: relative;
+    min-height: 300px;
 }
 
 .hero-image {
@@ -72,11 +72,14 @@
 }
 
 .route-label {
+    position: relative;
+    right: -350px;
     display: flex;
     align-items: baseline;
+    writing-mode: vertical-rl;
     gap: 10px;
     color: #9ca3af;
-    font-size: 1.2rem;
+    font-size: 3rem;
     margin-bottom: 20px;
 }
 
@@ -84,6 +87,41 @@
     font-size: 2.5rem;
     color: #6b7280;
     font-weight: 700;
+    writing-mode: horizontal-tb;
+}
+
+@media (max-width: 640px) {
+    .route-label {
+        writing-mode: horizontal-tb !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        position: relative;
+        right: 0;
+        font-size: 2rem;
+        gap: 15px;
+    }
+
+    .route-number {
+        writing-mode: horizontal-tb !important;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 970px) {
+    .route-label {
+        writing-mode: horizontal-tb !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        position: relative;
+        right: 0;
+        font-size: 2rem;
+        gap: 15px;
+    }
+
+    .route-number {
+        writing-mode: horizontal-tb !important;
+        font-size: 1.8rem;
+    }
 }
 
 .route-title {
@@ -91,6 +129,12 @@
     font-weight: 700;
     margin-bottom: 30px;
     color: #111;
+}
+
+@media (max-width: 640px) {
+    .route-title {
+        font-size: 1.5rem;
+    }
 }
 
 .route-meta,
@@ -109,70 +153,240 @@
 
 /* Navigation Buttons */
 .nav-btn {
+    display: flex;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: none;
     background: #111;
     color: #fff;
+    z-index: 10;
     font-size: 24px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
 
     &:hover {
         transform: translateY(-50%) scale(1.1);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        background: #111;
     }
 
     &.nav-btn-prev {
-        left: -60px;
+        left: 60px;
     }
 
     &.nav-btn-next {
-        right: -60px;
+        right: 60px;
+    }
+
+    /* RWD 響應式調整 */
+
+    /* 970px 以下 - 平板和小桌面 */
+    @media (max-width: 970px) {
+        .hero-content {
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        .route-label {
+            writing-mode: horizontal-tb !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            position: relative;
+            right: 0;
+            font-size: 2rem;
+            gap: 15px;
+        }
+
+        .route-number {
+            writing-mode: horizontal-tb !important;
+            font-size: 1.8rem;
+        }
+
+        .hero-info {
+            padding: 30px;
+        }
+
+        /* 按鈕調整 */
+        .nav-btn {
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+        }
+
+        .nav-btn-prev {
+            left: 15px;
+            display: flex;
+        }
+
+        .nav-btn-next {
+            right: 15px;
+            display: flex;
+        }
+    }
+
+    /* 768px 以下 - 平板垂直 */
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 40px 0;
+            min-height: 500px;
+            /* 垂直布局需要更多高度 */
+        }
+
+        .hero-content {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .hero-image-wrapper {
+            min-height: 250px;
+            width: 100%;
+            // flex-direction: column;
+        }
+
+        .hero-info {
+            padding: 20px;
+            width: 100%;
+        }
+
+        /* 垂直布局時調整按鈕位置 */
+        .nav-btn-prev {
+            left: 15px;
+            top: 30%;
+            /* 調整到圖片區域 */
+        }
+
+        .nav-btn-next {
+            right: 15px;
+            top: 30%;
+            /* 調整到圖片區域 */
+        }
+
+        .route-meta li {
+            flex: 1 1 100%;
+            /* 垂直排列 */
+        }
+    }
+
+    /* 640px 以下 - 手機橫屏 */
+    @media (max-width: 640px) {
+        .hero-section {
+            padding: 30px 0;
+            min-height: 450px;
+        }
+
+        .route-label {
+            writing-mode: horizontal-tb !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            position: relative;
+            right: 0;
+            font-size: 1.5rem;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .route-number {
+            writing-mode: horizontal-tb !important;
+            font-size: 1.3rem;
+        }
+
+        .route-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-info {
+            padding: 15px;
+        }
+
+        /* 按鈕進一步調整 */
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+
+        .nav-btn-prev {
+            left: 12px;
+
+        }
+
+        .nav-btn-next {
+            right: 12px;
+            // top: 25%;
+        }
+
+        // .map-image{
+        //     width: 450px;
+        // }
     }
 }
 
 /* Map Section */
 .map-section {
+    // display: flex;
+    position: relative;
     padding: 60px 0;
-    background: #fff;
+    // background: #fff;
+    justify-content: center;
 }
 
 .map-container {
+    display: flex;
     position: relative;
-    max-width: 1400px;
+    // max-width: 1920px;
     margin: 0 auto;
+
 }
 
 .map-info-band {
     background: #111;
+    width: 100%;
+    height: 250px;
     color: #fff;
     padding: 50px;
-    margin-bottom: -100px;
+    margin-bottom: -80px;
+    position: relative;
+    z-index: 1;
 }
 
 .map-info-content {
     h3 {
         font-size: 2rem;
         margin-bottom: 20px;
+        margin-left: 200px;
     }
 }
 
 .map-meta {
     color: #e5e7eb;
+    width: 300px;
+    margin-left: 200px;
 }
 
 .map-image-wrapper {
-    position: relative;
+    position: absolute; //relative
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    // 最小 理想值 最大
+
+    height: 350px;
+    width: clamp(420px, 62%, 760px);
+
     max-width: 800px;
-    margin: 0 auto;
-    padding: 0 40px;
-    z-index: 1;
+    margin: 0px auto;
+    padding: 0px;
+    z-index: 2;
 }
 
 .map-image {
@@ -184,15 +398,20 @@
 
 /* Timeline Section */
 .timeline-section {
-    padding: 100px 0;
+    padding: 200px 0;
     background: #fff;
     position: relative;
+
 }
 
 .timeline-container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
+
+    p {
+        font-size: 1.2rem;
+    }
 
     &::before {
         content: "";
@@ -201,13 +420,11 @@
         top: 0;
         bottom: 0;
         width: 2px;
-        background: linear-gradient(
-            to bottom,
-            #cfcfcf 0%,
-            #cfcfcf 50%,
-            transparent 50%,
-            transparent 100%
-        );
+        background: linear-gradient(to bottom,
+                #cfcfcf 0%,
+                #cfcfcf 50%,
+                transparent 50%,
+                transparent 100%);
         background-size: 2px 20px;
         transform: translateX(-50%);
     }
@@ -217,10 +434,24 @@
     display: flex;
     align-items: center;
     margin-bottom: 100px;
-    gap: 40px;
+    gap: 60px;
 
     &.timeline-item-alt {
         flex-direction: row-reverse;
+    }
+
+}
+
+.timeline-item:nth-child(2) {
+    .stop-info {
+        margin-left: 200px;
+
+    }
+
+    .stop-image {
+        /* 確保圖片位置正確 */
+        left: -60px;
+        top: -40px;
     }
 }
 
@@ -277,7 +508,7 @@
     p {
         margin: 5px 0;
         color: #e5e7eb;
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 }
 
@@ -295,10 +526,15 @@
         right: auto;
         left: -60px;
     }
+
+    .img {
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 970px) {
     .page-header {
         h2 {
             font-size: 2.5rem;
@@ -310,9 +546,10 @@
     }
 
     .nav-btn {
+
         &.nav-btn-prev,
         &.nav-btn-next {
-            position: static;
+
             transform: none;
             margin: 20px 10px;
         }
@@ -324,6 +561,14 @@
         }
     }
 
+    .map-container {
+
+        flex-direction: column;
+        position: relative;
+        top: 50%;
+        right: 5%;
+    }
+
     .timeline-container {
         &::before {
             display: none;
@@ -331,6 +576,7 @@
     }
 
     .timeline-item {
+
         &,
         &.timeline-item-alt {
             flex-direction: column;
@@ -348,6 +594,28 @@
             left: auto;
         }
     }
+
+    .timeline-item:nth-child(2) {
+        .stop-info {
+            margin-left: 200px;
+
+        }
+
+        .stop-image {
+            /* 確保圖片位置正確 */
+            left: -60px;
+            top: -40px;
+        }
+
+
+        .timeline-item:nth-child(2) .stop-card {
+            padding-left: 30px;
+            /* 手機版時恢復正常 padding */
+
+        }
+    }
+
+
 }
 
 @media (max-width: 640px) {
@@ -361,7 +629,7 @@
     }
 
     .route-indicator {
-        position: static;
+        position: relative;
         margin-top: 10px;
     }
 
@@ -374,7 +642,7 @@
     }
 
     .map-info-band {
-        padding: 30px 20px;
+        padding: 30px 20px 20px 20px;
     }
 
     .stop-card {
@@ -384,4 +652,58 @@
     .stop-number {
         font-size: 2rem;
     }
+
+    .stop-info {
+        margin-left: 0;
+
+    }
+
+    .stop-image {
+        /* 確保圖片位置正確 */
+        left: 0px;
+        top: 0px;
+    }
+
+    .timeline-item:nth-child(2) {
+        .stop-info {
+            margin-left: 0;
+
+        }
+
+        .stop-image {
+            /* 確保圖片位置正確 */
+            left: 0px;
+            top: 0px;
+        }
+    }
+
+    .route-label {
+
+        left: 115px;
+        bottom: 13px;
+
+    }
+
+    .map-info-band {
+
+        padding-bottom: 500px;
+
+        .map-image-wrapper {
+
+            margin-top: 20px;
+
+            img {
+
+                width: 100%;
+                height: auto;
+                position: relative;
+
+            }
+
+        }
+
+
+    }
+
+
 }
