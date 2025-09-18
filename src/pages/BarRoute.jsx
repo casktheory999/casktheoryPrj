@@ -10,8 +10,8 @@ const routesData = [
         end: "角落酒吧",
         length: "0.8km",
         shops: 3,
-        heroImg: "./images/route1.jpg",
-        mapImg: "./images/map.png",
+        heroImg: "images/route1.jpg",
+        mapImg: "images/map.png",
         stops: [
             {
                 no: "01",
@@ -19,7 +19,7 @@ const routesData = [
                 addr: "台北市大同一路 12 號 4 樓",
                 open: "17:00–02:00",
                 km: "0.3km",
-                photo: "./images/barListCard2.png",
+                photo: "images/barListCard2.png",
                 description: "在暖黃燈下，甬管柔唱輕撫心弦，今宵經典爵士之夜，現場薩克斯與鋼琴共舞。"
             },
             {
@@ -28,7 +28,7 @@ const routesData = [
                 addr: "台北市中興路一段 33號 1 樓",
                 open: "17:00–02:00",
                 km: "0.2km",
-                photo: "./images/barListCard3.png",
+                photo: "images/barListCard3.png",
                 description: "細品調和雞尾酒，讓律動與酒香交織；吧檯前舉杯，沉浸不朽樂章。"
             },
             {
@@ -37,7 +37,7 @@ const routesData = [
                 addr: "台北市大同路三段 222 號 1 樓",
                 open: "17:00–02:00",
                 km: "0.3km",
-                photo: "./images/barListCard4.png",
+                photo: "images/barListCard4.png",
                 description: "現場薩克斯揭幕終章，Old Fashioned 與樂聲同在，替今晚收個優雅的尾。"
             }
         ]
@@ -50,8 +50,8 @@ const routesData = [
         end: "Balcony 7",
         length: "1.2km",
         shops: 3,
-        heroImg: "./images/route2.jpg",
-        mapImg: "./images/id2map2.png",
+        heroImg: "images/route2.jpg",
+        mapImg: "images/id2map2.png",
         stops: [
             {
                 no: "01",
@@ -59,7 +59,7 @@ const routesData = [
                 addr: "台北市萬華區成都路 10 號",
                 open: "18:00–01:00",
                 km: "0.4km",
-                photo: "./images/barListCard5.png",
+                photo: "images/barListCard5.png",
                 description: "老磚牆巷弄裡的微光，第一杯用琴酒開場。"
             },
             {
@@ -68,7 +68,7 @@ const routesData = [
                 addr: "台北市萬華區武昌街 50 號",
                 open: "19:00–02:00",
                 km: "0.3km",
-                photo: "./images/barListCard8.png",
+                photo: "images/barListCard8.png",
                 description: "霓虹與 City Pop，微醺的節拍慢慢跟上。"
             },
             {
@@ -77,7 +77,7 @@ const routesData = [
                 addr: "台北市萬華區漢中街 77 號 7F",
                 open: "18:30–01:30",
                 km: "0.3km",
-                photo: "./images/barListCard11.png",
+                photo: "images/barListCard11.png",
                 description: "露台吹風看夜景，調一杯煙燻味的威士忌酸。"
             }
         ]
@@ -90,8 +90,8 @@ const routesData = [
         end: "Amber Lounge",
         length: "1.1km",
         shops: 3,
-        heroImg: "./images/route3.jpg",
-        mapImg: "./images/id3map.png",
+        heroImg: "images/route3.jpg",
+        mapImg: "images/id3map.png",
         stops: [
             {
                 no: "01",
@@ -99,7 +99,7 @@ const routesData = [
                 addr: "台北市信義區松壽路 10 號",
                 open: "18:00–01:00",
                 km: "0.4km",
-                photo: "./images/barListCard14.png",
+                photo: "images/barListCard14.png",
                 description: "午後三點的慵懶延續到夜晚，第一杯從經典馬丁尼開始。"
             },
             {
@@ -108,7 +108,7 @@ const routesData = [
                 addr: "台北市信義區基隆路 50 號",
                 open: "19:00–02:00",
                 km: "0.3km",
-                photo: "./images/barCard1.png",
+                photo: "images/barCard1.png",
                 description: "實驗室概念酒吧，每一杯都是味覺的冒險。"
             },
             {
@@ -117,7 +117,7 @@ const routesData = [
                 addr: "台北市信義區市府路 77 號 12F",
                 open: "18:30–03:30",
                 km: "0.4km",
-                photo: "./images/barCard8.png",
+                photo: "images/barCard8.png",
                 description: "琥珀色燈光下的頂樓酒廊，城市夜景盡收眼底。"
             }
         ]

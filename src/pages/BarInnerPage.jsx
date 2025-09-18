@@ -83,7 +83,7 @@ export default function BarInnerPage() {
                         />
                         {/* L形裝飾圖案 */}
                         <div className="BI_corner-accent BI_corner-bottom-left">
-                            <img src="/images/BI_corner-bottom-left.png" alt="L形裝飾" />
+                            <img src="images/BI_corner-bottom-left.png" alt="L形裝飾" />
                         </div>
                     </div>
                 </div>
@@ -94,12 +94,12 @@ export default function BarInnerPage() {
                 <div className="BI_recommended-container">
                     {/* 左側切換按鈕 */}
                     <button className="BI_nav-btn" onClick={handlePrevImage}>
-                        <img src="/images/barInnerPage-left-arrow.png" alt="左側切換按鈕" />
+                        <img src="images/barInnerPage-left-arrow.png" alt="左側切換按鈕" />
                     </button>
 
                     {/* L形裝飾圖案 */}
                     <div className="BI_corner-accent BI_corner-top-left">
-                        <img src="/images/BI_corner-top-left.png" alt="L形裝飾" />
+                        <img src="images/BI_corner-top-left.png" alt="L形裝飾" />
                     </div>
 
                     {/* 推薦酒吧圖片 */}

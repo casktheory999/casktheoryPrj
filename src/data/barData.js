@@ -12,7 +12,7 @@ export const allBars = [
         hours: "18:00-02:00",
         description: "精釀啤酒天堂，超過50種精釀啤酒選擇",
         descriptionInner: "龍頭直出的新鮮風味在杯緣綻放，啤花漫步舌尖；今晚以一杯純淨清爽開場，讓麥香與氣泡敲響節奏，與朋友在吧檯輕碰，為城市夜裡的靈感注入第一口勇氣。",
-        images: ["/images/bar1-main.png"],
+        images: ["images/bar1-main.png"],
         type: "熱門"
     },
     {
@@ -26,7 +26,7 @@ export const allBars = [
         hours: "18:00-02:00",
         description: "氛圍絕佳的調酒吧，每晚現場音樂演出",
         descriptionInner: "微光與低頻樂章鋪出夜色心情，杯中柑橘香與辛香料輕觸鼻尖；在舒適節拍裡慢談，讓情緒像氣泡緩緩上浮，為此刻的你調一杯剛剛好的 Mood。",
-        images: ["/images/bar2-main.png"],
+        images: ["images/bar2-main.png"],
         type: "最新"
     },
     {
@@ -40,7 +40,7 @@ export const allBars = [
         hours: "19:00-01:00",
         description: "威士忌專門店，收藏全球頂級威士忌",
         descriptionInner: "橡木桶的年輪在杯裡旋轉，煙燻、蜂蜜與果乾層層鋪陳；慢嗅一口深邃，再讓辛香於喉間綻放，像翻閱老唱片，為長夜留下一段溫暖的餘韻。",
-        images: ["/images/bar3-main.png"]
+        images: ["images/bar3-main.png"]
     },
     {
         id: 4,
@@ -53,7 +53,7 @@ export const allBars = [
         hours: "17:30-01:30",
         description: "創意調酒實驗室，每月限定特調",
         descriptionInner: "量杯與滴管敲出節拍，香草與柑橘在冰塊間相遇；每一滴都是實驗與平衡的答案，讓創意在口腔爆開，今晚為味蕾寫下一行新的公式。",
-        images: ["/images/bar4-main.png"],
+        images: ["images/bar4-main.png"],
         type: "熱門"
     },
     {
@@ -67,7 +67,7 @@ export const allBars = [
         hours: "17:00-01:00",
         description: "101景觀酒吧，俯瞰台北夜景的最佳位置",
         descriptionInner: "微風沿著高樓邊緣滑落，城市燈海在杯影中閃爍；舉杯對望天際線，讓清爽氣泡攜帶果香，替夜景加一層輕盈濾鏡。",
-        images: ["/images/bar5-main.png"],
+        images: ["images/bar5-main.png"],
         type: "最新"
     },
     {
@@ -81,7 +81,7 @@ export const allBars = [
         hours: "20:00-02:00",
         description: "隱密的禁酒時代風格酒吧，需要暗號才能進入",
         descriptionInner: "推開不起眼的暗門，木質與煙草氣息鋪陳低語；在微黃燈下偷渡一杯經典，讓密語與苦甜在舌尖交換通關。",
-        images: ["/images/bar6-main.png"]
+        images: ["images/bar6-main.png"]
     },
     {
         id: 7,
@@ -94,7 +94,7 @@ export const allBars = [
         hours: "18:00-01:00",
         description: "琴酒專門店，超過100種琴酒任你選擇",
         descriptionInner: "杜松子清冽帶路，柑橘皮與香草園依序登場；讓植物學在杯中展開，爽口與辛香寫下今夜的序章。",
-        images: ["/images/bar7-main.png"],
+        images: ["images/bar7-main.png"],
         type: "熱門"
     },
     {
@@ -108,7 +108,7 @@ export const allBars = [
         hours: "19:00-02:00",
         description: "爵士樂主題酒吧，每週三場現場演出",
         descriptionInner: "薩克斯輕擦過夜色，鋼琴和弦緩緩堆疊；在節奏與酒香的交會處坐下，任旋律把酸甜帶往靈魂深處。",
-        images: ["/images/bar8-main.png"]
+        images: ["images/bar8-main.png"]
     },
     {
         id: 9,
@@ -121,7 +121,7 @@ export const allBars = [
         hours: "17:00-01:00",
         description: "手工精釀啤酒，搭配美式料理",
         descriptionInner: "手工釀造的層次在氣泡間跳舞，焦糖麥香與果韻恰到好處；搭一口鹹香料理，讓味覺把今晚裝進更大的杯子。",
-        images: ["/images/bar9-main.png"],
+        images: ["images/bar9-main.png"],
         type: "最新"
     },
     {
@@ -135,7 +135,7 @@ export const allBars = [
         hours: "16:30-23:30",
         description: "淡水河畔日落酒吧，浪漫約會首選",
         descriptionInner: "餘暉把河面染成金色，微鹹的風拌入果香；在日落最後一抹橙紅裡舉杯，替約會加上一口剛好的柔軟。",
-        images: ["/images/bar10-main.png"]
+        images: ["images/bar10-main.png"]
     },
     {
         id: 11,
@@ -148,7 +148,7 @@ export const allBars = [
         hours: "22:00-04:00",
         description: "地下室風格酒吧，電子音樂愛好者聚集地",
         descriptionInner: "貝斯在地下室牆面震盪，霓虹與煙霧交錯出電流；讓烈度直達心口，跟著節拍把夜推往更深處。",
-        images: ["/images/bar11-main.png"],
+        images: ["images/bar11-main.png"],
         type: "熱門"
     },
     {
@@ -162,7 +162,7 @@ export const allBars = [
         hours: "18:00-01:00",
         description: "高樓層景觀酒吧，商務人士最愛",
         descriptionInner: "杯沿輕碰的清脆成為暗號，氣泡與熱度直上眉梢；向好消息擊掌，把城市的高樓變成舞台背景。",
-        images: ["/images/bar12-main.png"]
+        images: ["images/bar12-main.png"]
     },
     {
         id: 13,
@@ -175,7 +175,7 @@ export const allBars = [
         hours: "19:00-01:30",
         description: "金庫主題酒吧，神秘奢華的用餐體驗",
         descriptionInner: "厚重金庫門後藏著光澤，焦糖與可可氣息緩步釋放；在低語與鎖匙聲裡啜飲一口秘密，讓夜晚成為你的私人收藏。",
-        images: ["/images/bar13-main.png"],
+        images: ["images/bar13-main.png"],
         type: "最新"
     },
     {
@@ -189,7 +189,7 @@ export const allBars = [
         hours: "21:00-03:00",
         description: "花園風格夜店，都市中的綠洲天堂",
         descriptionInner: "花影在夜裡舒展，草本與果香在露珠間互相點亮；讓微甜流過唇齒，把城市深夜改造成一座秘密花園。",
-        images: ["/images/bar14-main.png"],
+        images: ["images/bar14-main.png"],
         type: "熱門"
     }
 ];

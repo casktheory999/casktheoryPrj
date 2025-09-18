@@ -42,7 +42,7 @@
                 background: $pri-dark;
                 color: $pri-white;
                 padding: 60px 50px;
-                margin-left: 5%;
+                margin-left: clamp(50px,calc(17.86vw - 192.86px),150px);
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
@@ -138,8 +138,8 @@
 
 
                 img {
-                    width: 850px;
-                    height: 500px;
+                    width: clamp(650px,calc(35.71vw + 164.29px),850px);
+                    height: 100%;
                     object-fit: cover;
                     display: block;
                     @media ($mediaMd) {
@@ -189,7 +189,8 @@
             align-items: center;
             gap: 30px;
             margin-bottom: 40px;
-            padding-left: 150px;
+            padding-left: clamp(50px,calc(-27.08vw + 570px),180px);
+            padding-right: clamp(30px,calc(14.58vw - 180px),100px);
             z-index: 20;
 
             // 導航按鈕
