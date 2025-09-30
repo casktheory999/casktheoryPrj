@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
+import { useParams, useNavigate } from "react-router-dom"; 
 import "../scss/cbarway.scss";
 
 const routesData = [
@@ -126,6 +127,17 @@ const routesData = [
 
 export default function BarRoute() {
     const [idx, setIdx] = useState(0);
+    const { no } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!no) return;
+        const n = parseInt(no, 10);
+        if (!Number.isNaN(n) && n >= 1 && n <= routesData.length) {
+            setIdx(n - 1);
+        }
+    }, [no]);
+
     const route = useMemo(() => routesData[idx], [idx]);
 
     const goNext = useCallback(() => {
@@ -135,6 +147,11 @@ export default function BarRoute() {
     const goPrev = useCallback(() => {
         setIdx((i) => (i - 1 + routesData.length) % routesData.length);
     }, []);
+
+    useEffect(() => {
+        const currentNo = idx + 1;
+        navigate(`/BarRoute/${currentNo}`, { replace: true });
+    }, [idx, navigate]);
 
     // 鍵盤左右切換
     useEffect(() => {

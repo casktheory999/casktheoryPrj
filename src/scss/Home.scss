@@ -533,7 +533,7 @@
             flex-direction: column;
             margin-top: clamp(40px, calc(-6.90vw + 172.41px), 80px);
             margin-left: clamp(20px, calc(25.86vw - 346.55px), 150px);
-            justify-content: center;
+            justify-content: space-around;
 
             /* ===== 右：列表 ===== */
             .newsList {
@@ -725,6 +725,7 @@
                     font-weight: 500;
                     font-size: 20px;
                     margin-right: clamp(0px, calc(-50vw + 525px), 40px);
+                    z-index: 99;
 
                     @media ($mediaMd) {
                         align-self: center;

@@ -29,7 +29,7 @@ export default function App() {
           <Route path='/Illustrations' element={<Illustrations />}></Route>
           <Route path='/Bar' element={<Bar />}></Route>
           <Route path='/bar/:id' element={<BarInnerPage />}></Route>
-          <Route path='/BarRoute' element={<BarRoute />}></Route>
+          <Route path='/BarRoute/:no?' element={<BarRoute />}></Route>
           <Route path='/About' element={<About />}></Route>
         </Routes>
       </div>

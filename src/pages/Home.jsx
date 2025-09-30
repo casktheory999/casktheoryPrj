@@ -7,7 +7,7 @@ import MapCarousel from '../component/MapCarousel'
 // 圖鑑區資料
 const IlluData = {
     base: {
-        zh: '六大基酒',
+        zh: '基酒',
         en: 'Base Spirit',
         desc: '「六大基酒是文化的基礎，麥芽與橡木、杜松與草本、甘蔗與果香...，從原料到工藝，乘載著各式風味的可能性，體驗飲酒文化就從基酒開始。」',
         imgs: [
@@ -188,27 +188,27 @@ const Home = () => {
             <section className='route'>
                 <h2 className='routeTitle'>酒精路跑路線</h2>
                 <div className='routeCards'>
-                    <a className='routeCard1' href="#">
+                    <Link to="/BarRoute/1" className='routeCard1'>
                         <img src="images/route1.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 1</span>
                             <h3 className='title'>善導寺微醺漫步</h3>
                         </div>
-                    </a>
-                    <a className='routeCard2' href="#">
+                    </Link>
+                    <Link to="/BarRoute/2" className='routeCard2'>
                         <img src="images/route2.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 2</span>
                             <h3 className='title'>中山站醉意市集</h3>
                         </div>
-                    </a>
-                    <a className='routeCard3' href="#">
+                    </Link>
+                    <Link to="/BarRoute/3" className='routeCard3'>
                         <img src="images/route3.jpg" alt="" />
                         <div className='info'>
                             <span className='num'>推薦路線 3</span>
                             <h3 className='title'>信義奢華浪漫之旅</h3>
                         </div>
-                    </a>
+                    </Link>
                 </div>
             </section>
 
@@ -226,7 +226,7 @@ const Home = () => {
                             className={tab === 'base' ? 'active' : ''}
                             onClick={() => onPick('base')}
                         >
-                            六大基酒
+                            基酒
                         </button>
                         <button
                             className={tab === 'classic' ? 'active' : ''}
