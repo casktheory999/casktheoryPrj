@@ -172,10 +172,10 @@
                         position: absolute;
                         left: 100%;
                         top: 0;
-                        transform: translate(clamp(-190px, calc(-15.28vw + 13.19px), -135px), 15px);
+                        transform: translate(clamp(-230px, calc(-15.28vw + 13.19px), -180px), 15px);
                         white-space: nowrap;
                         font-size: clamp(20px, 2.4vw, 32px);
-                        letter-spacing: .5em;
+                        letter-spacing: 1em;
                         font-weight: 600;
                         margin: 0;
                         opacity: .95;
@@ -305,11 +305,11 @@
                 margin: 0 auto;
                 font-size: clamp(20px, 2.4vw, 32px);
                 line-height: 1.6;
-                letter-spacing: .02em;
                 opacity: .95;
                 font-family: $family-tc;
                 font-weight: bold;
                 text-align: center;
+                letter-spacing: 10px;
 
                 // 平板版
                 @media ($mediaMd) {
@@ -388,6 +388,10 @@
                 padding: 50px 50px 0 0;
                 // margin-left: clamp(20px, calc(31.03vw - 395.86px), 200px);
                 // margin-bottom: clamp(-20px, -11.21vw + 195.17px, 45px);
+
+                h2 {
+                    font-weight: bold;
+                }
 
                 @media (max-width:1340px) {
                     margin: 0;
@@ -1565,10 +1569,11 @@
         .Illustrations-body {
             padding: 0;
             z-index: 1;
+
             @media (max-width:1320px) {
                 display: flex;
                 justify-content: center;
-                }
+            }
 
             .Illustrations-introduce {
                 margin: 50px 90px 0 90px;

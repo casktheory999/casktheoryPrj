@@ -13,10 +13,15 @@
     padding: 10px 30px;
     background-color: $pri-dark;
     color: $pri-white;
+    letter-spacing: 2px;
+    font-family: $family-tc;
+
 
 
 
     .logo {
+        font-weight: bold;
+        letter-spacing: 5px;
         font-size: 24px;
 
         a {
@@ -27,7 +32,7 @@
     }
 
     a:hover {
-        color: #535bf2;
+        color: $sec-peggy;
     }
 
     .navbar {
@@ -124,7 +129,7 @@
 
 
                     @media(max-width:970px) {
-                        margin:5px 0;
+                        margin: 5px 0;
                     }
 
                     &:hover {

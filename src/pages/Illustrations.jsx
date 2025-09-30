@@ -142,7 +142,7 @@ export default function Illustrations() {
                     <section aria-live="polite" className="w_container w_search_results">
                         <div className="w_cards">
                             {combinedF.map((c, i) => (
-                                <W_Card key={`${c.en}-${c.zh}`} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i / 3) % 2 === 0 ? "left" : "right"} />
+                                <W_Card key={`${c.en}-${c.zh}`} zh={c.zh} en={c.en} img={c.img} highlight={keyword.trim()} align={Math.floor(i / 3) % 2 === 0 ? "left" : "right"} onClick={handleCardClick} />
                             ))}
                         </div>
                     </section>
