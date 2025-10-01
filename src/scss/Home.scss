@@ -1656,6 +1656,8 @@
                 .cardRow {
                     margin-top: 20px;
                     display: flex;
+                    height: 220px;
+                    width: auto;
                     justify-content: space-evenly;
 
                     @media ($mediaSm) {
@@ -1673,12 +1675,12 @@
                         object-fit: cover;
 
                         @media (max-width:1320px) {
-                            width: 120px;
+                            width: auto;
                             height: 140px;
                         }
 
                         @media ($mediaSm) {
-                            width: 80px;
+                            width: auto;
                             height: 80px;
                         }
                     }

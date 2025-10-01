@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { Route, Routes } from 'react-router-dom'
 import EventDetailPage from "./EventDetailPage"
 import '../scss/News.scss'
+import useDocumentTitle from "../data/useDocumentTitle"
 
 
 const News = () => {
@@ -111,6 +112,8 @@ const News = () => {
             </Link>
         )
     }
+
+    useDocumentTitle("最新消息");
 
     return (
         <>

@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import '../scss/About.scss'
+import useDocumentTitle from "../data/useDocumentTitle"
 
 const About = () => {
+    useDocumentTitle("關於我們");
     return (
         <>
             <section className='Ian_aboutFirst'>

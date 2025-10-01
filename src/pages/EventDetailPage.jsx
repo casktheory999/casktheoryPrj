@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import heroImg from '/images/eventDetailPage_heroBannerImg.png';
 import infoImg1 from '/images/eventDetailPage_infoImg1.png';
 import infoImg2 from '/images/eventDetailPage_infoImg2.png';
+import useDocumentTitle from "../data/useDocumentTitle"
 
 const EventDetailPage = () => {
     const recItems = [
@@ -37,6 +38,8 @@ const EventDetailPage = () => {
             likes: 85,
         },
     ];
+
+    useDocumentTitle("活動資訊");
 
     return (
         <>

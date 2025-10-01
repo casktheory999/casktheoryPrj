@@ -5,6 +5,7 @@ import "../scss/side-toc.scss";
 import W_Card from "../component/w_Card.jsx";
 import Modal from '../component/Modal.jsx';
 import IllustrationsInnerPages from '../component/IllustrationsInnerPages.jsx';
+import useDocumentTitle from "../data/useDocumentTitle"
 
 export default function Illustrations() {
     const [keyword, setKeyword] = useState("");
@@ -82,6 +83,8 @@ export default function Illustrations() {
     const empty = !baseF.length && !classicsF.length && !standardF.length;
     const isSearching = q.length > 0;
     const combinedF = [...baseF, ...classicsF, ...standardF];
+
+    useDocumentTitle("酒精圖鑑");
 
     return (
         <div className="w_illusAll">

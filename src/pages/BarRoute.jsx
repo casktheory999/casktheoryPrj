@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom"; 
 import "../scss/cbarway.scss";
+import useDocumentTitle from "../data/useDocumentTitle"
 
 const routesData = [
     {
@@ -162,6 +163,8 @@ export default function BarRoute() {
         window.addEventListener("keydown", onKey);
         return () => window.removeEventListener("keydown", onKey);
     }, [goNext, goPrev]);
+
+    useDocumentTitle("路跑路線");
 
     return (
         <div className="bar-route-container">

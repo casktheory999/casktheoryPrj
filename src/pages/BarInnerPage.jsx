@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { allBars } from '../data/barData.js';
 import '../scss/BarInnerPage.scss';
+import useDocumentTitle from "../data/useDocumentTitle"
 
 export default function BarInnerPage() {
     const { id } = useParams();
@@ -45,6 +46,8 @@ export default function BarInnerPage() {
     };
 
     const displayBars = getCurrentDisplayBars();
+
+    useDocumentTitle("酒吧資訊");
     
     return (
         <main className="BI_bar-inner">

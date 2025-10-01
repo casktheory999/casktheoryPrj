@@ -2,8 +2,10 @@ import React, { useState, useMemo } from "react";
 import BarCard from "../component/BarCard";
 import { allBars, mrtLines } from '../data/barData.js';
 import "../scss/Bar.scss";
+import useDocumentTitle from "../data/useDocumentTitle"
 
 export default function Bar() {
+    useDocumentTitle("酒吧地圖");
     const [selectedLine, setSelectedLine] = useState("全部");
     const [searchQuery, setSearchQuery] = useState("");
     const [activeTab, setActiveTab] = useState("全部");
@@ -12,7 +14,7 @@ export default function Bar() {
     const getFilterStyle = () => {
         const selectedMrtLine = mrtLines.find(line => line.name === selectedLine);
         const lineColor = selectedMrtLine ? selectedMrtLine.color : '#ED972E';
-        
+
         return {
             color: lineColor,
             // 可以添加更多樣式
@@ -26,6 +28,7 @@ export default function Bar() {
         const selectedMrtLine = mrtLines.find(line => line.name === selectedLine);
         const lineColor = selectedMrtLine ? selectedMrtLine.color : '#ED972E';
 
+
         return (
             <div className="B_filter-info" style={getFilterStyle()}>
                 <span>找到 </span>
@@ -33,16 +36,16 @@ export default function Bar() {
                     {filteredBars.length}
                 </span>
                 <span> 間酒吧</span>
-                
+
                 {searchQuery && (
                     <span style={{ color: '#ED972E', marginLeft: '8px' }}>
                         (搜尋: "{searchQuery}")
                     </span>
                 )}
-                
+
                 {selectedLine !== "全部" && (
-                    <span style={{ 
-                        color: lineColor, 
+                    <span style={{
+                        color: lineColor,
                         fontWeight: 'bold',
                         marginLeft: '8px',
                         padding: '2px 8px',
@@ -53,9 +56,9 @@ export default function Bar() {
                         路線: {selectedLine}
                     </span>
                 )}
-                
+
                 {activeTab !== "全部" && (
-                    <span style={{ 
+                    <span style={{
                         color: activeTab === "熱門" ? '#ff6b35' : '#e74c3c',
                         marginLeft: '8px',
                         fontWeight: 'bold'
@@ -98,23 +101,23 @@ export default function Bar() {
 
     // 決定卡片布局（根據UI設計）
     const getCardLayout = (index) => {
-    // 根據UI圖片的布局模式，只使用3種卡片類型
-    if (index === 0) return "horizontal"; // 橫卡片
-    if (index === 1) return "square"; // 方卡片
-    if (index === 2) return "square"; // 方卡片
-    if (index === 3) return "square"; // 方卡片
-    if (index === 4) return "square"; // 方卡片
-    if (index === 5) return "vertical"; // 直卡片
-    if (index === 6) return "horizontal"; // 橫卡片
-    if (index === 7) return "square"; // 方卡片
-    if (index === 8) return "vertical"; // 直卡片
-    if (index === 9) return "horizontal"; // 橫卡片
-    if (index === 10) return "square"; // 方卡片
-    if (index === 11) return "horizontal"; // 橫卡片
-    if (index === 12) return "horizontal"; // 橫卡片
-    if (index === 13) return "square"; // 方卡片
-    return "square"; // 默認方卡片
-};
+        // 根據UI圖片的布局模式，只使用3種卡片類型
+        if (index === 0) return "horizontal"; // 橫卡片
+        if (index === 1) return "square"; // 方卡片
+        if (index === 2) return "square"; // 方卡片
+        if (index === 3) return "square"; // 方卡片
+        if (index === 4) return "square"; // 方卡片
+        if (index === 5) return "vertical"; // 直卡片
+        if (index === 6) return "horizontal"; // 橫卡片
+        if (index === 7) return "square"; // 方卡片
+        if (index === 8) return "vertical"; // 直卡片
+        if (index === 9) return "horizontal"; // 橫卡片
+        if (index === 10) return "square"; // 方卡片
+        if (index === 11) return "horizontal"; // 橫卡片
+        if (index === 12) return "horizontal"; // 橫卡片
+        if (index === 13) return "square"; // 方卡片
+        return "square"; // 默認方卡片
+    };
 
     return (
         <main className="B_bar">
