@@ -196,8 +196,8 @@
             // 導航按鈕
             .BI_nav-btn {
                 flex: 0 0 60px;
-                width: 60px;
-                height: 60px;
+                width: 40px;
+                height: 40px;
                 background: rgba(0, 0, 0, 0.8);
                 border: none;
                 color: $pri-white;
@@ -207,6 +207,11 @@
                 justify-content: center;
                 transition: all 0.3s ease;
                 z-index: 30;
+
+                img{
+                    width: 40px;
+                    height: 40px;
+                }
 
                 &:hover {
                     background: rgba(0, 0, 0, 0.9);
