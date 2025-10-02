@@ -198,7 +198,6 @@
                 flex: 0 0 60px;
                 width: 40px;
                 height: 40px;
-                background: rgba(0, 0, 0, 0.8);
                 border: none;
                 color: $pri-white;
                 cursor: pointer;
@@ -207,6 +206,7 @@
                 justify-content: center;
                 transition: all 0.3s ease;
                 z-index: 30;
+                background-color: $pri-dark;
 
                 img{
                     width: 40px;
@@ -214,7 +214,6 @@
                 }
 
                 &:hover {
-                    background: rgba(0, 0, 0, 0.9);
                     transform: scale(1.05);
                 }
             }
